@@ -36,7 +36,7 @@ export default function Home() {
 				</div>
 
 				{/* Mission Statement */}
-				<div className="flex flex-wrap -mx-4">
+				<div id="about" className="flex flex-wrap -mx-4">
 					<div className="w-full px-4">
 						<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[510px]">
 							<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4 py-6">
@@ -53,7 +53,7 @@ export default function Home() {
 				</div>
 
 				{/* Services */}
-				<div className="flex flex-wrap -mx-4">
+				<div id="services" className="flex flex-wrap -mx-4">
 					<div className="w-full px-4">
 						<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[510px]">
 							<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark">
@@ -160,7 +160,10 @@ export default function Home() {
 					rel="stylesheet"
 					href="https://cdn.tailgrids.com/tailgrids-fallback.css"
 				/>
-				<section className="bg-white pt-20 lg:pt-[120px] pb-12 lg:pb-[90px] relative z-20 overflow-hidden ">
+				<section
+					id="pricing"
+					className="bg-white pt-20 lg:pt-[120px] pb-12 lg:pb-[90px] relative z-20 overflow-hidden "
+				>
 					<div className="container">
 						<div className="flex flex-wrap -mx-4">
 							<div className="w-full px-4">

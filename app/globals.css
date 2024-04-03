@@ -16,6 +16,10 @@
 	font-family: "Fira Code", monospace;
 } */
 
+header {
+	background-color: var(--mainColor);
+}
+
 header nav span {
 	color: var(--secondaryColor);
 }
