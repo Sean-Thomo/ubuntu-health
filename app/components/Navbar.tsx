@@ -12,7 +12,7 @@ export default function Navbar() {
 	};
 
 	return (
-		<header className="px-9 top-0 sticky flex items-center justify-between h-16">
+		<header className="px-9 top-0 sticky flex items-center justify-between h-16 bg-white">
 			<a href="/" className="text-lime-600 text-3xl font-extrabold">
 				<p>Ubuntu Health</p>
 				{/* <svg
