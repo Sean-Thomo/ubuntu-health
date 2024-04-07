@@ -1,8 +1,31 @@
-import React, { useState } from "react";
+"use client";
+import React from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 function WaitingList() {
+	const formik = useFormik({
+		initialValues: {
+			name: "",
+			email: "",
+		},
+		// Validate form
+		validationSchema: Yup.object({
+			name: Yup.string()
+				.max(20, "Name must be 20 characters or less.")
+				.required("Name is required."),
+			email: Yup.string()
+				.email("Invalid email address")
+				.required("EMail is required"),
+		}),
+		// Submit form
+		onSubmit: (values) => {
+			console.log(values);
+		},
+	});
+
 	return (
-		<form className="rounded-lg pb-20">
+		<form onSubmit={formik.handleSubmit} className="rounded-lg pb-20">
 			<div id="waitlist">
 				<div className="w-full px-4">
 					<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[720px]">
@@ -30,6 +53,8 @@ function WaitingList() {
 								name="name"
 								id="name"
 								className="w-full"
+								value={formik.values.name}
+								onChange={formik.handleChange}
 								placeholder="Enter your name"
 							/>
 						</div>
@@ -48,6 +73,8 @@ function WaitingList() {
 								name="email"
 								id="email"
 								className="w-full"
+								value={formik.values.email}
+								onChange={formik.handleChange}
 								placeholder="Enter your email"
 							/>
 						</div>
