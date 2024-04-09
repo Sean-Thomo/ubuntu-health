@@ -2,8 +2,8 @@ import React from "react";
 
 function Services() {
 	return (
-		<>
-			<div id="services" className="flex flex-wrap -mx-4">
+		<section id="services" className="pt-20">
+			<div className="flex flex-wrap -mx-4">
 				<div className="w-full px-4">
 					<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[720px]">
 						<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark">
@@ -102,7 +102,7 @@ function Services() {
 					</p>
 				</a>
 			</div>
-		</>
+		</section>
 	);
 }
 

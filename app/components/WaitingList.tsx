@@ -2,6 +2,8 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { db } from "../api/firebase";
+import { addDoc, collection } from "firebase/firestore";
 
 function WaitingList() {
 	const formik = useFormik({
@@ -19,16 +21,24 @@ function WaitingList() {
 				.required("EMail is required"),
 		}),
 		// Submit form
-		onSubmit: (values) => {
-			console.log(values);
+		onSubmit: async (values) => {
+			alert(JSON.stringify(values, null, 2));
+			// try {
+			// 	const waitingListCollection = collection(db, "WaitingList");
+			// 	await addDoc(waitingListCollection, values);
+			// 	alert("Form Data Submitted Successfully!");
+			// } catch (error) {
+			// 	console.error("Error adding document, ", error);
+			// 	alert("Failed to submit form data. Please try again later.");
+			// }
 		},
 	});
 
 	return (
 		<form onSubmit={formik.handleSubmit} className="rounded-lg pb-20">
-			<div id="waitlist">
-				<div className="w-full px-4">
-					<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[720px]">
+			<section id="waitlist" className="pt-20">
+				<div className="px-4">
+					<div className="text-center mx-auto lg:mb-10 max-w-[720px]">
 						<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4 py-6">
 							Join Our Waiting List
 						</h2>
@@ -38,7 +48,7 @@ function WaitingList() {
 						</p>
 					</div>
 				</div>
-				<div>
+				<div className="w-full flex flex-col items-center justify-center">
 					{/* Name */}
 					<div className="mt-6">
 						<div className="pb-4">
@@ -52,7 +62,6 @@ function WaitingList() {
 								type="text"
 								name="name"
 								id="name"
-								className="w-full"
 								value={formik.values.name}
 								onChange={formik.handleChange}
 								placeholder="Enter your name"
@@ -72,7 +81,6 @@ function WaitingList() {
 								type="email"
 								name="email"
 								id="email"
-								className="w-full"
 								value={formik.values.email}
 								onChange={formik.handleChange}
 								placeholder="Enter your email"
@@ -89,7 +97,7 @@ function WaitingList() {
 						Join Waitlist
 					</button>
 				</div>
-			</div>
+			</section>
 		</form>
 	);
 }

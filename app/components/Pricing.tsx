@@ -9,7 +9,7 @@ function Pricing() {
 			/>
 			<section
 				id="pricing"
-				className="bg-white pt-20 lg:pt-[120px] pb-12 lg:pb-[90px] relative overflow-hidden "
+				className="pt-20 lg:pt-[120px] relative overflow-hidden"
 			>
 				<div className="container">
 					<div className="flex flex-wrap -mx-4">
@@ -52,44 +52,14 @@ function Pricing() {
 								</div>
 								<a
 									href="javascript:void(0)"
-									className="w-full block text-base font-semibold text-primary bg-transparent border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition "
+									className="text-primary-50 bg-primary-600 hover:bg-primary-700
+                                    focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg
+                                    text-lg px-3 py-2 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700
+                                    dark:focus:ring-blue-800"
 								>
 									Choose Basic
 								</a>
 								<div>
-									<span className="absolute right-0 top-7 z-[-1]">
-										<svg
-											width={77}
-											height={172}
-											viewBox="0 0 77 172"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<circle
-												cx={86}
-												cy={86}
-												r={86}
-												fill="url(#paint0_linear)"
-											/>
-											<defs>
-												<linearGradient
-													id="paint0_linear"
-													x1={86}
-													y1={0}
-													x2={86}
-													y2={172}
-													gradientUnits="userSpaceOnUse"
-												>
-													<stop stopColor="#3056D3" stopOpacity="0.09" />
-													<stop
-														offset={1}
-														stopColor="#C4C4C4"
-														stopOpacity={0}
-													/>
-												</linearGradient>
-											</defs>
-										</svg>
-									</span>
 									<span className="absolute right-4 top-4 z-[-1]">
 										<svg
 											width={41}
@@ -357,44 +327,14 @@ function Pricing() {
 								</div>
 								<a
 									href="javascript:void(0)"
-									className="w-full block text-base font-semibold text-white bg-primary border border-primary rounded-md text-center p-4 hover:bg-opacity-90 transition "
+									className="text-primary-50 bg-primary-600 hover:bg-primary-700
+                                    focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg
+                                    text-lg px-3 py-2 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700
+                                    dark:focus:ring-blue-800"
 								>
 									Choose Standard
 								</a>
 								<div>
-									<span className="absolute right-0 top-7 z-[-1]">
-										<svg
-											width={77}
-											height={172}
-											viewBox="0 0 77 172"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<circle
-												cx={86}
-												cy={86}
-												r={86}
-												fill="url(#paint0_linear)"
-											/>
-											<defs>
-												<linearGradient
-													id="paint0_linear"
-													x1={86}
-													y1={0}
-													x2={86}
-													y2={172}
-													gradientUnits="userSpaceOnUse"
-												>
-													<stop stopColor="#3056D3" stopOpacity="0.09" />
-													<stop
-														offset={1}
-														stopColor="#C4C4C4"
-														stopOpacity={0}
-													/>
-												</linearGradient>
-											</defs>
-										</svg>
-									</span>
 									<span className="absolute right-4 top-4 z-[-1]">
 										<svg
 											width={41}
@@ -668,44 +608,14 @@ function Pricing() {
 								</div>
 								<a
 									href="javascript:void(0)"
-									className="w-full block text-base font-semibold text-primary bg-transparent border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
+									className="text-primary-50 bg-primary-600 hover:bg-primary-700
+                                    focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg
+                                    text-lg px-3 py-2 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700
+                                    dark:focus:ring-blue-800"
 								>
 									Choose Premium
 								</a>
 								<div>
-									<span className="absolute right-0 top-7 z-[-1]">
-										<svg
-											width={77}
-											height={172}
-											viewBox="0 0 77 172"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<circle
-												cx={86}
-												cy={86}
-												r={86}
-												fill="url(#paint0_linear)"
-											/>
-											<defs>
-												<linearGradient
-													id="paint0_linear"
-													x1={86}
-													y1={0}
-													x2={86}
-													y2={172}
-													gradientUnits="userSpaceOnUse"
-												>
-													<stop stopColor="#3056D3" stopOpacity="0.09" />
-													<stop
-														offset={1}
-														stopColor="#C4C4C4"
-														stopOpacity={0}
-													/>
-												</linearGradient>
-											</defs>
-										</svg>
-									</span>
 									<span className="absolute right-4 top-4 z-[-1]">
 										<svg
 											width={41}

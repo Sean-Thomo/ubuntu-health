@@ -3,7 +3,7 @@ import React from "react";
 function Landing() {
 	return (
 		<div className="h-[85vh] flex items-center justify-center">
-			<div className="max-w-6xl text-center grid gap-8">
+			<div className="max-w-6xl text-center grid gap-8 sm:top-10">
 				<h1
 					className="text-slate-700 font-extrabold text-4xl sm:text-5xl
                             lg:text-6xl tracking-tight text-center dark:text-white"
