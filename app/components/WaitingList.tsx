@@ -42,21 +42,17 @@ function WaitingList() {
 						<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4 py-6">
 							Join Our Waiting List
 						</h2>
-						<p>{process.env.REACT_APP_FIREBASE_TEST}</p>
-						{/* <p className="text-base text-body-color">
+						<p className="text-base text-body-color">
 							Be the first to know when our EHR SAAS platform launches! Sign up
 							below to receive exclusive updates and early access.
-						</p> */}
+						</p>
 					</div>
 				</div>
-				<div className="w-full flex flex-col items-center justify-center">
+				<div className="flex flex-col items-center justify-center">
 					{/* Name */}
 					<div className="mt-6">
 						<div className="pb-4">
-							<label
-								htmlFor="name"
-								className="block font-semibold text-sm pb-2"
-							>
+							<label htmlFor="name" className="m-9 font-semibold text-md pb-2">
 								Name
 							</label>
 							<input
@@ -72,10 +68,7 @@ function WaitingList() {
 					{/* Email */}
 					<div className="mt-6">
 						<div className="pb-4">
-							<label
-								htmlFor="email"
-								className="block font-semibold text-sm pb-2"
-							>
+							<label htmlFor="email" className="m-9 font-semibold text-md pb-2">
 								Email
 							</label>
 							<input
