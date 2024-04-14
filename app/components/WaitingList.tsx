@@ -2,8 +2,8 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { db } from "../api/firebase";
 import { addDoc, collection } from "firebase/firestore";
+import { db } from "../api/firebase";
 
 function WaitingList() {
 	const formik = useFormik({
@@ -18,19 +18,19 @@ function WaitingList() {
 				.required("Name is required."),
 			email: Yup.string()
 				.email("Invalid email address")
-				.required("EMail is required"),
+				.required("E-Mail is required"),
 		}),
 		// Submit form
 		onSubmit: async (values) => {
-			alert(JSON.stringify(values, null, 2));
-			// try {
-			// 	const waitingListCollection = collection(db, "WaitingList");
-			// 	await addDoc(waitingListCollection, values);
-			// 	alert("Form Data Submitted Successfully!");
-			// } catch (error) {
-			// 	console.error("Error adding document, ", error);
-			// 	alert("Failed to submit form data. Please try again later.");
-			// }
+			try {
+				const docRef = await addDoc(collection(db, "WaitingList"), {
+					name: values.name,
+					email: values.email,
+				});
+				console.log(`Document written with ID: ${docRef.id}`);
+			} catch (e) {
+				console.error(`Error adding document: ${e}`);
+			}
 		},
 	});
 
@@ -42,10 +42,11 @@ function WaitingList() {
 						<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4 py-6">
 							Join Our Waiting List
 						</h2>
-						<p className="text-base text-body-color">
+						<p>{process.env.REACT_APP_FIREBASE_TEST}</p>
+						{/* <p className="text-base text-body-color">
 							Be the first to know when our EHR SAAS platform launches! Sign up
 							below to receive exclusive updates and early access.
-						</p>
+						</p> */}
 					</div>
 				</div>
 				<div className="w-full flex flex-col items-center justify-center">

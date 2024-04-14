@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import Mission from "./components/Mission";
-import Services from "./components/Services";
+import Services from "./api/Services";
 import Pricing from "./components/Pricing";
 import WaitingList from "./components/WaitingList";
 
