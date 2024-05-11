@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function WaitingList() {
+export default function WaitingList() {
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -20,8 +20,8 @@ function WaitingList() {
 				.max(20, "Name must be 20 characters or less.")
 				.required("Name is required."),
 			email: Yup.string()
-				.email("Invalid email address")
-				.required("E-Mail is required"),
+				.email("Invalid email address.")
+				.required("E-Mail is required."),
 		}),
 		// Submit form
 		onSubmit: async (values) => {
@@ -34,8 +34,8 @@ function WaitingList() {
 				toast.success("Thank you for joining the waiting list!");
 				formik.resetForm();
 			} catch (e) {
-				console.error(`Error adding document: ${e}`);
-				toast.error(`Something went wrong, ${e}`);
+				console.error(`Error adding document: ${e}.`);
+				toast.error(`Something went wrong, ${e}.`);
 			}
 		},
 	});
@@ -106,5 +106,3 @@ function WaitingList() {
 		</form>
 	);
 }
-
-export default WaitingList;

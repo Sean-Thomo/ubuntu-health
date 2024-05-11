@@ -1,6 +1,6 @@
 import React from "react";
 
-function Mission() {
+export default function Mission() {
 	return (
 		<div id="about" className="mt-20">
 			<div className="flex flex-wrap">
@@ -21,5 +21,3 @@ function Mission() {
 		</div>
 	);
 }
-
-export default Mission;

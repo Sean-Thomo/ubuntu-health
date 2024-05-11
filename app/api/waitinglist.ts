@@ -6,5 +6,5 @@ export default async function waitingListHandler(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
-	const waitingListCollection = collection(db);
+	const waitingListCollection = collection(db, "WaitingList");
 }

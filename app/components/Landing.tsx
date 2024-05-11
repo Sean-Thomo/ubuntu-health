@@ -1,6 +1,6 @@
 import React from "react";
 
-function Landing() {
+export default function Landing() {
 	return (
 		<div className="h-[85vh] flex items-center justify-center">
 			<div className="max-w-6xl text-center grid gap-8 sm:top-10">
@@ -32,5 +32,3 @@ function Landing() {
 		</div>
 	);
 }
-
-export default Landing;
