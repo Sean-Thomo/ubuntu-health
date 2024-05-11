@@ -4,10 +4,11 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../api/firebase";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function WaitingList() {
-	const [submissionError, setSubmissionError] = useState<string | null>(null);
-
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -28,13 +29,13 @@ function WaitingList() {
 				const docRef = await addDoc(collection(db, "WaitingList"), {
 					name: values.name,
 					email: values.email,
+					signedUpAt: new Date(),
 				});
-				console.log(`Document written with ID: ${docRef.id}`);
-				alert("Thank you for joining the waiting list!");
+				toast.success("Thank you for joining the waiting list!");
 				formik.resetForm();
 			} catch (e) {
 				console.error(`Error adding document: ${e}`);
-				setSubmissionError("Something went wrong. Please try again later.");
+				toast.error(`Something went wrong, ${e}`);
 			}
 		},
 	});
@@ -97,6 +98,11 @@ function WaitingList() {
 					</button>
 				</div>
 			</div>
+			<ToastContainer
+				theme="light"
+				position="top-right"
+				hideProgressBar={false}
+			/>
 		</form>
 	);
 }
