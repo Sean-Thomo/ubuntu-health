@@ -14,7 +14,7 @@ export default function Home() {
 				href="https://cdn.tailgrids.com/tailgrids-fallback.css"
 			/>
 			<Navbar />
-			<div className="flex min-h-screen flex-col items-center justify-center px-24">
+			<div className="flex min-h-screen flex-col items-center justify-center px-2 sm:px-24">
 				{/* Landing Section */}
 				<Landing />
 

@@ -13,10 +13,14 @@ function Services() {
 				</div>
 			</div>
 
-			<div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3 lg:text-left gap-6">
+			<div
+				className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3
+            lg:text-left gap-6"
+			>
 				<a
 					href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+					className="group rounded-lg border border-transparent px-5 py-4 transition-colors
+                    hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -34,13 +38,17 @@ function Services() {
 
 				<a
 					href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+					className="group rounded-lg border border-transparent px-5 py-4 transition-colors
+                    hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
 					<h2 className={`mb-3 text-2xl font-semibold`}>
 						Appointment Scheduling{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+						<span
+							className="inline-block transition-transform group-hover:translate-x-1
+                        motion-reduce:transform-none"
+						>
 							&gt;
 						</span>
 					</h2>
@@ -52,13 +60,17 @@ function Services() {
 
 				<a
 					href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+					className="group rounded-lg border border-transparent px-5 py-4 transition-colors
+                    hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
 					<h2 className={`mb-3 text-2xl font-semibold`}>
 						E-Prescriptions{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+						<span
+							className="inline-block transition-transform group-hover:translate-x-1
+                        motion-reduce:transform-none"
+						>
 							&gt;
 						</span>
 					</h2>
@@ -70,13 +82,17 @@ function Services() {
 
 				<a
 					href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+					className="group rounded-lg border border-transparent px-5 py-4 transition-colors
+                    hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
 					<h2 className={`mb-3 text-2xl font-semibold`}>
 						Billing and Invoicing{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+						<span
+							className="inline-block transition-transform group-hover:translate-x-1
+                        motion-reduce:transform-none"
+						>
 							&gt;
 						</span>
 					</h2>
@@ -93,7 +109,10 @@ function Services() {
 				>
 					<h2 className={`mb-3 text-2xl font-semibold`}>
 						Communication{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+						<span
+							className="inline-block transition-transform group-hover:translate-x-1
+                        motion-reduce:transform-none"
+						>
 							&gt;
 						</span>
 					</h2>

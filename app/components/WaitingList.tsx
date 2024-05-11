@@ -42,8 +42,8 @@ export default function WaitingList() {
 
 	return (
 		<form onSubmit={formik.handleSubmit} className="rounded-lg pb-20">
-			<div id="waitlist" className="pt-20">
-				<div className="px-4">
+			<div id="waitlist" className="pt-20 md:flex">
+				<div className="px-4 md:w-2/5">
 					<div className="text-center mx-auto lg:mb-10 max-w-[720px]">
 						<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4 py-6">
 							Join Our Waiting List
@@ -54,45 +54,56 @@ export default function WaitingList() {
 						</p>
 					</div>
 				</div>
-				<div className="flex flex-col items-center justify-center">
+				<div className="md:w-3/5 flex flex-col items-center justify-center">
 					{/* Name */}
 					<div className="mt-6">
-						<div className="pb-4">
-							<label htmlFor="name" className="m-9 font-semibold text-md pb-2">
-								Name
-							</label>
+						<label htmlFor="name" className="font-semibold text-md pb-2">
+							Name
+						</label>
+						<div
+							className="mt-2 pb-4 w-[18rem] md:w-[20rem] md:flex flex-col items-center
+                            justify-center"
+						>
 							<input
 								type="text"
 								name="name"
 								id="name"
 								value={formik.values.name}
 								onChange={formik.handleChange}
-								placeholder="Enter your name"
+								placeholder="John Doe"
+								className="rounded-lg bg-gray-50 border text-gray-900 focus:ring-blue-500
+                                focus:border-primary-500 block flex-1 min-w-0 w-full text-sm border-gray-300
+                                p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+                                dark:focus:ring-blue-500 dark:focus:border-primary-500"
 							/>
 						</div>
 					</div>
 					{/* Email */}
-					<div className="mt-6">
-						<div className="pb-4">
-							<label htmlFor="email" className="m-9 font-semibold text-md pb-2">
-								Email
-							</label>
+					<div className="mt-6 mb-6">
+						<label htmlFor="email" className="font-semibold text-md pb-2">
+							Email
+						</label>
+						<div className="mt-2 pb-4 w-[18rem] md:w-[20rem] md:flex flex-col items-center justify-center">
 							<input
 								type="email"
 								name="email"
 								id="email"
 								value={formik.values.email}
 								onChange={formik.handleChange}
-								placeholder="Enter your email"
+								placeholder="john.doe@email.com"
+								className="rounded-lg bg-gray-50 border text-gray-900 focus:ring-blue-500
+                                focus:border-primary-500 block flex-1 min-w-0 w-full text-sm border-gray-300
+                                p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+                                dark:focus:ring-blue-500 dark:focus:border-primary-500"
 							/>
 						</div>
 					</div>
 					<button
 						type="submit"
 						className="text-primary-50 bg-primary-600 hover:bg-primary-700
-                    focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full
-                    text-lg px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700
-                    dark:focus:ring-blue-800"
+                        focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg
+                        text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
+                        dark:focus:ring-blue-800 flex flex-col items-center justify-center"
 					>
 						Join Waitlist
 					</button>

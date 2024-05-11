@@ -12,7 +12,10 @@ export default function Pricing() {
 					<div className="flex flex-wrap -mx-4">
 						<div className="w-full px-4">
 							<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[720px]">
-								<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4">
+								<h2
+									className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark
+                                mb-4"
+								>
 									Our Pricing Plan
 								</h2>
 								<p className="text-base text-body-color">
@@ -26,7 +29,10 @@ export default function Pricing() {
 					</div>
 					<div className="flex flex-wrap justify-center -mx-4">
 						<div className="w-full md:w-1/2 lg:w-1/3 px-4">
-							<div className="bg-white rounded-xl relative z-10 overflow-hidden border border-primary border-opacity-20 shadow-pricing py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10 ">
+							<div
+								className="bg-white rounded-xl relative overflow-hidden border border-primary
+                                border-opacity-20 shadow-pricing py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10 "
+							>
 								<span className="text-primary font-semibold text-lg block mb-4">
 									Basic
 								</span>
@@ -50,15 +56,18 @@ export default function Pricing() {
 									href="/basic"
 									className="text-primary-50 bg-primary-600 hover:bg-primary-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg
-                                    text-lg px-3 py-2 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700
-                                    dark:focus:ring-blue-800"
+                                    text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
+                                    dark:focus:ring-blue-800 flex flex-col items-center justify-center"
 								>
 									Sign Up
 								</Link>
 							</div>
 						</div>
 						<div className="w-full md:w-1/2 lg:w-1/3 px-4">
-							<div className="bg-white rounded-xl relative z-10 overflow-hidden border border-primary border-opacity-20 shadow-pricing py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10 ">
+							<div
+								className="bg-white rounded-xl relative overflow-hidden border border-primary
+                                border-opacity-20 shadow-pricing py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10 "
+							>
 								<span className="text-primary font-semibold text-lg block mb-4">
 									Standard
 								</span>
@@ -91,15 +100,18 @@ export default function Pricing() {
 									href="/standard"
 									className="text-primary-50 bg-primary-600 hover:bg-primary-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg
-                                    text-lg px-3 py-2 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700
-                                    dark:focus:ring-blue-800"
+                                    text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
+                                    dark:focus:ring-blue-800 flex flex-col items-center justify-center"
 								>
 									Sign Up
 								</Link>
 							</div>
 						</div>
 						<div className="w-full md:w-1/2 lg:w-1/3 px-4">
-							<div className="bg-white rounded-xl relative z-10 overflow-hidden border border-primary border-opacity-20 shadow-pricing py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
+							<div
+								className="bg-white rounded-xl relative overflow-hidden border border-primary
+                                border-opacity-20 shadow-pricing py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10"
+							>
 								<span className="text-primary font-semibold text-lg block mb-4">
 									Premium
 								</span>
@@ -135,8 +147,8 @@ export default function Pricing() {
 									href="/premium"
 									className="text-primary-50 bg-primary-600 hover:bg-primary-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg
-                                    text-lg px-3 py-2 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700
-                                    dark:focus:ring-blue-800"
+                                    text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
+                                    dark:focus:ring-blue-800 flex flex-col items-center justify-center"
 								>
 									Sign Up
 								</Link>
