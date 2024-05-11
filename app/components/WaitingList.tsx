@@ -1,11 +1,13 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../api/firebase";
 
 function WaitingList() {
+	const [submissionError, setSubmissionError] = useState<string | null>(null);
+
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -28,15 +30,18 @@ function WaitingList() {
 					email: values.email,
 				});
 				console.log(`Document written with ID: ${docRef.id}`);
+				alert("Thank you for joining the waiting list!");
+				formik.resetForm();
 			} catch (e) {
 				console.error(`Error adding document: ${e}`);
+				setSubmissionError("Something went wrong. Please try again later.");
 			}
 		},
 	});
 
 	return (
 		<form onSubmit={formik.handleSubmit} className="rounded-lg pb-20">
-			<section id="waitlist" className="pt-20">
+			<div id="waitlist" className="pt-20">
 				<div className="px-4">
 					<div className="text-center mx-auto lg:mb-10 max-w-[720px]">
 						<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4 py-6">
@@ -91,7 +96,7 @@ function WaitingList() {
 						Join Waitlist
 					</button>
 				</div>
-			</section>
+			</div>
 		</form>
 	);
 }

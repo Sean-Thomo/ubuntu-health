@@ -81,7 +81,7 @@ h3 {
 		justify-content: center;
 		gap: 1.5rem;
 		background-color: var(--mainColor);
-		transition: 1.5s;
+		transition: 1s;
 		transform: translateY(-100vh);
 	}
 

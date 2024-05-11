@@ -2,7 +2,7 @@ import React from "react";
 
 function Services() {
 	return (
-		<section id="services" className="pt-20">
+		<div id="services" className="pt-20">
 			<div className="flex flex-wrap -mx-4">
 				<div className="w-full px-4">
 					<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[720px]">
@@ -23,7 +23,7 @@ function Services() {
 					<h2 className={`mb-3 text-2xl font-semibold`}>
 						Patient Management{" "}
 						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
+							&gt;
 						</span>
 					</h2>
 					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
@@ -41,7 +41,7 @@ function Services() {
 					<h2 className={`mb-3 text-2xl font-semibold`}>
 						Appointment Scheduling{" "}
 						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
+							&gt;
 						</span>
 					</h2>
 					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
@@ -59,7 +59,7 @@ function Services() {
 					<h2 className={`mb-3 text-2xl font-semibold`}>
 						E-Prescriptions{" "}
 						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
+							&gt;
 						</span>
 					</h2>
 					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
@@ -77,7 +77,7 @@ function Services() {
 					<h2 className={`mb-3 text-2xl font-semibold`}>
 						Billing and Invoicing{" "}
 						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
+							&gt;
 						</span>
 					</h2>
 					<p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
@@ -94,7 +94,7 @@ function Services() {
 					<h2 className={`mb-3 text-2xl font-semibold`}>
 						Communication{" "}
 						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
+							&gt;
 						</span>
 					</h2>
 					<p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
@@ -102,7 +102,7 @@ function Services() {
 					</p>
 				</a>
 			</div>
-		</section>
+		</div>
 	);
 }
 

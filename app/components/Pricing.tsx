@@ -2,12 +2,8 @@ import React from "react";
 
 function Pricing() {
 	return (
-		<>
-			<link
-				rel="stylesheet"
-				href="https://cdn.tailgrids.com/tailgrids-fallback.css"
-			/>
-			<section
+		<div>
+			<div
 				id="pricing"
 				className="pt-20 lg:pt-[120px] relative overflow-hidden"
 			>
@@ -51,7 +47,6 @@ function Pricing() {
 									</p>
 								</div>
 								<a
-									href="javascript:void(0)"
 									className="text-primary-50 bg-primary-600 hover:bg-primary-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg
                                     text-lg px-3 py-2 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700
@@ -60,7 +55,7 @@ function Pricing() {
 									Choose Basic
 								</a>
 								<div>
-									<span className="absolute right-4 top-4 z-[-1]">
+									{/* <span className="absolute right-4 top-4 z-[-1]">
 										<svg
 											width={41}
 											height={89}
@@ -293,7 +288,7 @@ function Pricing() {
 												fill="#3056D3"
 											/>
 										</svg>
-									</span>
+									</span> */}
 								</div>
 							</div>
 						</div>
@@ -326,7 +321,6 @@ function Pricing() {
 									</p>
 								</div>
 								<a
-									href="javascript:void(0)"
 									className="text-primary-50 bg-primary-600 hover:bg-primary-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg
                                     text-lg px-3 py-2 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700
@@ -335,7 +329,7 @@ function Pricing() {
 									Choose Standard
 								</a>
 								<div>
-									<span className="absolute right-4 top-4 z-[-1]">
+									{/* <span className="absolute right-4 top-4 z-[-1]">
 										<svg
 											width={41}
 											height={89}
@@ -568,7 +562,7 @@ function Pricing() {
 												fill="#3056D3"
 											/>
 										</svg>
-									</span>
+									</span> */}
 								</div>
 							</div>
 						</div>
@@ -607,7 +601,6 @@ function Pricing() {
 									</p>
 								</div>
 								<a
-									href="javascript:void(0)"
 									className="text-primary-50 bg-primary-600 hover:bg-primary-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg
                                     text-lg px-3 py-2 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700
@@ -616,7 +609,7 @@ function Pricing() {
 									Choose Premium
 								</a>
 								<div>
-									<span className="absolute right-4 top-4 z-[-1]">
+									{/* <span className="absolute right-4 top-4 z-[-1]">
 										<svg
 											width={41}
 											height={89}
@@ -849,14 +842,14 @@ function Pricing() {
 												fill="#3056D3"
 											/>
 										</svg>
-									</span>
+									</span> */}
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
-		</>
+			</div>
+		</div>
 	);
 }
 

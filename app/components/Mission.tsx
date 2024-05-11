@@ -2,7 +2,7 @@ import React from "react";
 
 function Mission() {
 	return (
-		<section id="about" className="mt-20">
+		<div id="about" className="mt-20">
 			<div className="flex flex-wrap">
 				<div className="w-full">
 					<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[720px]">
@@ -18,7 +18,7 @@ function Mission() {
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 }
 
