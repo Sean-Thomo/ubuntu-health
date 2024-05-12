@@ -8,9 +8,10 @@ import WaitingList from "./components/WaitingList";
 export default function Home() {
 	return (
 		<>
-			{/* Navbar */}
-			<Navbar />
 			<div className="flex min-h-screen flex-col items-center justify-center px-2 sm:px-24">
+				{/* Navbar */}
+				<Navbar />
+
 				{/* Landing Section */}
 				<Landing />
 
