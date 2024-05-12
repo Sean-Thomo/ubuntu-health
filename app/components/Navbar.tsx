@@ -11,8 +11,8 @@ export default function Navbar() {
 	};
 
 	return (
-		<header className="w-full px-4 top-0 sticky flex items-center justify-between z-20 h-16 mb-16 md:mb-0 md:px-10">
-			<a href="/" className="text-lime-600 text-xl font-extrabold md:text-3xl">
+		<header className="w-full px-2 top-0 sticky flex items-center justify-between z-20 h-16 mb-16 md:mb-0 ">
+			<a href="/" className="text-lime-600 text-xl font-extrabold sm:text-2xl ">
 				Ubuntu Health
 			</a>
 			<nav ref={navRef} className="font-semibold">

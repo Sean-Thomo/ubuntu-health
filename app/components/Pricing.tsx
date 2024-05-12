@@ -130,13 +130,34 @@ export default function Pricing() {
 							<Link
 								href="/premium"
 								className="flex flex-col items-center justify-center m-auto w-5/6 text-primary-50 bg-primary-600 hover:bg-primary-700
-                                    focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
-                                    text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
-                                    dark:focus:ring-blue-800"
+                                focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
+                                text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
+                                dark:focus:ring-blue-800"
 							>
 								Sign Up
 							</Link>
 						</div>
+					</div>
+					<div
+						className="flex flex-col items-center justify-between w-5/6 rounded-xl relative overflow-hidden border border-opacity-20 py-8
+                        px-8 mb-10 md:px-4 md:py-4 lg:py-10 lg:px-6 xl:p-12 md:flex-row"
+					>
+						<div>
+							<h2 className="text-primary font-semibold text-lg block mb-4">
+								Start 7 Day Free Trial
+							</h2>
+							<p className="mb-4">
+								Try first & decide later, no payment required.
+							</p>
+						</div>
+						<Link
+							href="/trail"
+							className="text-primary-50 h-12 py-1 px-6 font-medium rounded-2xl text-lg text-center bg-primary-600 hover:bg-primary-700
+                            focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700
+                            dark:focus:ring-blue-800 flex flex-col items-center justify-center"
+						>
+							Start Trail
+						</Link>
 					</div>
 				</div>
 			</div>
