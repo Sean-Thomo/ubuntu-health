@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Landing() {
 	return (
-		<div className="md:h-[85vh] flex items-center justify-center mb-10 top-10">
+		<div className="md:h-[85vh] flex items-center justify-center top-10">
 			<div className="max-w-6xl text-center grid gap-8">
 				<h1
 					className="text-slate-700 font-extrabold text-3xl md:text-5xl

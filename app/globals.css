@@ -13,9 +13,25 @@
 @media (prefers-color-scheme: light) {
 }
 
-/* * {
-	font-family: "Fira Code", monospace;
-} */
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+	padding: 0 2rem;
+	background-color: var(--mainColor);
+	color: var(--textColor);
+}
+
+nav a {
+	margin: 0 1rem;
+	color: var(--textColor);
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: var(--secondaryColor);
+}
 
 header {
 	background-color: var(--mainColor);
@@ -72,7 +88,7 @@ h3 {
 
 	header nav {
 		position: fixed;
-		top: 0;
+		top: -100vh;
 		left: 0;
 		height: 100%;
 		width: 100%;
@@ -83,11 +99,10 @@ h3 {
 		gap: 1.5rem;
 		background-color: var(--mainColor);
 		transition: 1s;
-		transform: translateY(-100vh);
 	}
 
 	header .responsive-nav {
-		transform: none;
+		transform: translateY(100vh);
 	}
 
 	nav .nav-close-btn {
