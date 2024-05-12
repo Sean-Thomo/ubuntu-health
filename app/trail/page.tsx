@@ -13,13 +13,11 @@ export default function Page() {
 								className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark
                                 mb-4 py-6"
 							>
-								Sign up For The Basic Plan
+								Start Your Free Trail
 							</h2>
 							<p className="text-base text-body-color">
-								Our mission is to empower family doctors, general practitioners,
-								and small clinics with intuitive and secure EHR software,
-								enabling them to deliver exceptional healthcare services while
-								maximizing productivity and patient satisfaction.
+								Get access to our basic plan via the free trial. No commitment
+								cancel or upgrade any time.
 							</p>
 						</div>
 					</div>
