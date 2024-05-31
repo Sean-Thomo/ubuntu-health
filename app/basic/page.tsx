@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Navbar from "../components/Navbar";
+import { useRouter } from "next/navigation";
 import {
 	getAuth,
 	signInWithPopup,
@@ -27,6 +28,7 @@ export default function Page() {
 
 	const [loadingGoogle, setLoadingGoogle] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const router = useRouter();
 
 	const handleSignIn = async () => {
 		setLoadingGoogle(true);
@@ -36,7 +38,8 @@ export default function Page() {
 					const credential = GoogleAuthProvider.credentialFromResult(result);
 					const token = credential.accessToken;
 					const user = result.user;
-					console.log(user);
+					toast.success(`Welcome ${user}`);
+					router.push("/setup");
 				})
 				.catch((error) => {
 					toast.error(`Something went wrong ${error.message}`);
@@ -70,10 +73,9 @@ export default function Page() {
 					values.password
 				);
 				const user = userCredential.user;
-				toast.success(`Welcome ${user}`);
+				toast.success(`Welcome to Ubuntu Health`);
 				console.log(`form submit ${user.displayName}`);
-
-				// User signed in successfully, redirect or do something
+				router.push("/setup");
 			} catch (e) {
 				toast.error(`Something went wrong, ${e}.`);
 				console.log(e);
@@ -85,7 +87,7 @@ export default function Page() {
 	});
 
 	return (
-		<div>
+		<div className="flex min-h-screen flex-col items-center px-2 sm:px-24">
 			<Navbar />
 			<div>
 				<form onSubmit={formik.handleSubmit} className="rounded-lg pb-20 px-20">

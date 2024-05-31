@@ -7,26 +7,24 @@ import WaitingList from "./components/WaitingList";
 
 export default function Home() {
 	return (
-		<>
-			<div className="flex min-h-screen flex-col items-center justify-center px-2 sm:px-24">
-				{/* Navbar */}
-				<Navbar />
+		<div className="flex min-h-screen flex-col items-center justify-center px-2 sm:px-24">
+			{/* Navbar */}
+			<Navbar />
 
-				{/* Landing Section */}
-				<Landing />
+			{/* Landing Section */}
+			<Landing />
 
-				{/* Mission Statement */}
-				<Mission />
+			{/* Mission Statement */}
+			<Mission />
 
-				{/* Services */}
-				<Services />
+			{/* Services */}
+			<Services />
 
-				{/* Pricing */}
-				<Pricing />
+			{/* Pricing */}
+			<Pricing />
 
-				{/* Waing List */}
-				<WaitingList />
-			</div>
-		</>
+			{/* Waing List */}
+			<WaitingList />
+		</div>
 	);
 }
