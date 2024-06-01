@@ -44,8 +44,8 @@ export default function WaitingList() {
 		<form onSubmit={formik.handleSubmit} className="rounded-lg pb-20">
 			<div id="waitlist" className="pt-20 md:flex">
 				<div className="px-4 md:w-2/5">
-					<div className="text-center mx-auto lg:mb-10 max-w-[720px]">
-						<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4 py-6">
+					<div className="text-center mx-auto max-w-[720px] lg:mb-10">
+						<h2 className="font-bold text-3xl sm:text-4xl text-dark mb-4 py-6 md:text-[40px]">
 							Join Our Waiting List
 						</h2>
 						<p className="text-base text-body-color">
@@ -54,16 +54,13 @@ export default function WaitingList() {
 						</p>
 					</div>
 				</div>
-				<div className="md:w-3/5 flex flex-col items-center justify-center">
+				<div className="flex flex-col items-center justify-center md:w-3/5">
 					{/* Name */}
 					<div className="mt-6">
 						<label htmlFor="name" className="font-semibold text-md pb-2">
 							Name
 						</label>
-						<div
-							className="mt-2 pb-4 w-[18rem] md:w-[20rem] md:flex flex-col items-center
-                            justify-center"
-						>
+						<div className="mt-2 pb-4 w-[18rem] flex-col items-center justify-center md:w-[20rem] md:flex">
 							<input
 								type="text"
 								name="name"
