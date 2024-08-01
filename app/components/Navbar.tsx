@@ -46,7 +46,7 @@ export default function Navbar() {
 				>
 					{/* <p>X</p> */}
 					<svg className="text-lime-500" width={24} height={24}>
-						<use xlinkHref="/appIcons.svg#close" />
+						<use xlinkHref="/appIcons.svg#close-circle" />
 					</svg>
 				</button>
 			</nav>
@@ -55,7 +55,7 @@ export default function Navbar() {
 				onClick={showNavbar}
 			>
 				<svg className="text-lime-500" width={24} height={24}>
-					<use xlinkHref="/appIcons.svg#hamburger" />
+					<use xlinkHref="/appIcons.svg#bars" />
 				</svg>
 			</button>
 		</header>

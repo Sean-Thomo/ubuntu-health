@@ -5,7 +5,7 @@ export default function Page() {
 	return (
 		<>
 			<Navbar />
-			<div className="mt-20">
+			{/* <div className="mt-20">
 				<div className="flex flex-wrap">
 					<div className="w-full">
 						<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[720px]">
@@ -22,6 +22,9 @@ export default function Page() {
 						</div>
 					</div>
 				</div>
+			</div> */}
+			<div className="flex h-screen max-h-screen">
+				<section className="no-scrollbar container ny-auto"></section>
 			</div>
 		</>
 	);
