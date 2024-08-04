@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useRef } from "react";
 
 export default function Navbar() {
@@ -44,9 +45,8 @@ export default function Navbar() {
 					className="m-2 nav-btn nav-close-btn md:hidden"
 					onClick={showNavbar}
 				>
-					{/* <p>X</p> */}
 					<svg className="text-lime-500" width={24} height={24}>
-						<use xlinkHref="/appIcons.svg#close-circle" />
+						<use xlinkHref="/appIcons.svg#close" />
 					</svg>
 				</button>
 			</nav>
@@ -55,7 +55,7 @@ export default function Navbar() {
 				onClick={showNavbar}
 			>
 				<svg className="text-lime-500" width={24} height={24}>
-					<use xlinkHref="/appIcons.svg#bars" />
+					<use xlinkHref="/appIcons.svg#hamburger" />
 				</svg>
 			</button>
 		</header>

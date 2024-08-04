@@ -19,13 +19,13 @@ export default function Landing() {
 				</p>
 				<div className="flex justify-center items-center">
 					<a
-						href="#waitlist"
+						href="/basic"
 						className="text-primary-50 bg-primary-600 hover:bg-primary-700
                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
                     text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
                     dark:focus:ring-blue-800"
 					>
-						Join The Waiting List
+						Get Started
 					</a>
 				</div>
 			</div>

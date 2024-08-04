@@ -1,30 +1,35 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import PatientForm from "../components/forms/PatientForm";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Page() {
 	return (
 		<>
-			<Navbar />
-			{/* <div className="mt-20">
-				<div className="flex flex-wrap">
-					<div className="w-full">
-						<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[720px]">
-							<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark
-                                mb-4 py-6">
-								Upgrade to Basic Plan
-							</h2>
-							<p className="text-base text-body-color">
-								Our mission is to empower family doctors, general practitioners,
-								and small clinics with intuitive and secure EHR software,
-								enabling them to deliver exceptional healthcare services while
-								maximizing productivity and patient satisfaction.
-							</p>
+			<div className="flex h-screen max-h-screen">
+				{/* TODO: OTP Verification */}
+
+				<section className="container ny-auto">
+					<div className="sub-container max-w-[496px]">
+						<PatientForm />
+						<div className="text-center">
+							<div className="text-14-regular mt-20 flex justify-between">
+								<p className="justify-items-end text-dark-600 xl:text-left">
+									© 2024 Ubuntu Health
+								</p>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div> */}
-			<div className="flex h-screen max-h-screen">
-				<section className="no-scrollbar container ny-auto"></section>
+				</section>
+
+				<Image
+					src="/assets/images/onboarding-img.png"
+					height={1000}
+					width={1000}
+					alt="Doctor"
+					className="side-image max-w-[50%]"
+				/>
 			</div>
 		</>
 	);
