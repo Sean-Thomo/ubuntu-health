@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useRef } from "react";
 
 export default function Navbar() {
@@ -12,7 +11,7 @@ export default function Navbar() {
 	};
 
 	return (
-		<header className="w-full px-4 top-0 sticky flex items-center justify-between z-20 h-16 mb-16 md:mb-0 md:px-10">
+		<header className="bg-secondary-900 w-full px-4 top-0 sticky flex items-center justify-between z-20 h-16 mb-16 md:mb-0 md:px-10">
 			<a href="/" className="text-lime-600 text-xl font-extrabold md:text-3xl">
 				Ubuntu Health
 			</a>
