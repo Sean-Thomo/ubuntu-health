@@ -1,36 +1,30 @@
 import React from "react";
+import SignUpForm from "../components/forms/SignUpForm";
 import Navbar from "../components/Navbar";
-import PatientForm from "../components/forms/PatientForm";
-import Link from "next/link";
-import Image from "next/image";
 
 export default function Page() {
 	return (
-		<>
-			<div className="flex h-screen max-h-screen">
-				{/* TODO: OTP Verification */}
+		<div>
+			{/* Navbar */}
+			<Navbar />
 
-				<section className="container ny-auto">
-					<div className="sub-container max-w-[496px]">
-						<PatientForm />
-						<div className="text-center">
-							<div className="text-14-regular mt-20 flex justify-between">
-								<p className="justify-items-end text-dark-600 xl:text-left">
-									© 2024 Ubuntu Health
-								</p>
-							</div>
-						</div>
-					</div>
-				</section>
+			<section className="text-14-regular flex justify-center pt-5">
+				<div className="space-y-4">
+					<h1 className="header">Sign Up ✍️</h1>
+					<p className="text-dark font-medium">
+						Set an account for your practice.
+					</p>
+				</div>
+			</section>
 
-				<Image
-					src="/assets/images/onboarding-img.png"
-					height={1000}
-					width={1000}
-					alt="Doctor"
-					className="side-image max-w-[50%]"
-				/>
-			</div>
-		</>
+			{/* Signup form */}
+			<section className="flex justify-center">
+				<SignUpForm />
+			</section>
+
+			<section className="text-14-regular flex justify-center">
+				<p className="m-16 text-dark-600 xl:text-left">© 2024 Ubuntu Health</p>
+			</section>
+		</div>
 	);
 }

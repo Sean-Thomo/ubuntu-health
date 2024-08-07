@@ -14,7 +14,7 @@ function Services() {
 			</div>
 
 			<div
-				className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3
+				className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 md:grid-cols-2 lg:grid-cols-3
             lg:text-left gap-6"
 			>
 				<div
@@ -40,6 +40,18 @@ function Services() {
 					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
 						Flexible scheduling options with reminders and notifications for
 						practitioners and patients.
+					</p>
+				</div>
+
+				<div
+					className="group rounded-lg border border-transparent px-5 py-4 transition-colors
+                    hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+					rel="noopener noreferrer"
+				>
+					<h2 className={`mb-3 text-2xl font-semibold`}>Stock Management</h2>
+					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+						Manage your stock accurately with oue state of the app feature that
+						can reserve medication for a future appointment.
 					</p>
 				</div>
 

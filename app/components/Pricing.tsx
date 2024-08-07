@@ -84,7 +84,7 @@ export default function Pricing() {
 								</ul>
 							</div>
 							<Link
-								href="/standard"
+								href="/basic"
 								className="flex flex-col items-center justify-center m-auto w-5/6 text-primary-50 bg-primary-600 hover:bg-primary-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
                                     text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
@@ -128,7 +128,7 @@ export default function Pricing() {
 								</ul>
 							</div>
 							<Link
-								href="/premium"
+								href="/basic"
 								className="flex flex-col items-center justify-center m-auto w-5/6 text-primary-50 bg-primary-600 hover:bg-primary-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
                                     text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700

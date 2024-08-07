@@ -30,7 +30,7 @@ const CustomFormField: React.FC<CustomFormFieldProps> = ({
 				{label}
 			</label>
 			<div
-				className="flex items-center justify-center rounded-lg bg-gray-50 mt-2 pb-4 
+				className="bg-secondary-800 flex items-center justify-center rounded-lg mt-2
                 w-[18rem] md:w-[20rem]"
 			>
 				{iconSrc && (
@@ -39,7 +39,7 @@ const CustomFormField: React.FC<CustomFormFieldProps> = ({
 						alt={iconAlt || "Icon"}
 						height={24}
 						width={24}
-						className="ml-2"
+						className="m-2"
 					/>
 				)}
 
@@ -48,9 +48,8 @@ const CustomFormField: React.FC<CustomFormFieldProps> = ({
 					id={name}
 					{...field}
 					placeholder={placeholder}
-					className="text-gray-900 block border-0 flex-1 min-w-0 w-full text-sm
-                    p-2.5 dark:bg-gray-700 dark:placeholder-gray-400 
-                    dark:text-white"
+					className="bg-secondary-800 rounded-tr-lg rounded-br-lg text-gray-900 border-0 min-w-0 w-full text-sm
+                    p-2 focus:bg-secondary-800 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
 				/>
 			</div>
 			{meta.touched && meta.error ? (
