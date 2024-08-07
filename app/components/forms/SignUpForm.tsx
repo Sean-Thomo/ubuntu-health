@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CustomFormField from "../CustomFormField";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { redirect } from "next/navigation";
+import SubmitButton from "../SubmitButton";
 
 export default function SignUpForm() {
 	const formik = useFormik({
@@ -235,15 +236,7 @@ export default function SignUpForm() {
 				</div>
 			</div>
 			<div className="flex justify-center">
-				<button
-					type="submit"
-					className="flex justify-center text-primary-50 w-60
-                        bg-primary-600 font-medium rounded-2xl text-md mt-2 px-3 py-2 text-center 
-                        hover:bg-primary-700 focus:outline-none focus:ring-4 focus:ring-blue-300 
-                        dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-				>
-					Sign Up
-				</button>
+				<SubmitButton isLoading={false} children={"Sign Up"} />
 			</div>
 
 			<ToastContainer

@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CustomFormField from "./CustomFormField";
+import SubmitButton from "./SubmitButton";
 
 export default function WaitingList() {
 	const formik = useFormik({
@@ -76,15 +77,7 @@ export default function WaitingList() {
 						iconSrc="/assets/icons/email.svg"
 						iconAlt="Email Icon"
 					/>
-					<button
-						type="submit"
-						className="text-primary-50 bg-primary-600 hover:bg-primary-700
-                        focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
-                        text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
-                        dark:focus:ring-blue-800 flex flex-col items-center justify-center"
-					>
-						Get Started
-					</button>
+					<SubmitButton isLoading={false} children={"Join"} />
 				</div>
 			</div>
 			<ToastContainer

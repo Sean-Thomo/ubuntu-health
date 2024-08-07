@@ -31,7 +31,7 @@ export default function SideNavbar() {
 		}
 	};
 	return (
-		<header className="bg-primary-600 h-full max-w-52">
+		<header className="bg-primary-600 min-h-screen max-w-52">
 			<nav ref={navRef} className="font-semibold flex flex-col">
 				<a href="/" className="mx-8" onClick={showNavbar}>
 					Dashboard
