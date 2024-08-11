@@ -77,7 +77,7 @@ export default function WaitingList() {
 						iconSrc="/assets/icons/email.svg"
 						iconAlt="Email Icon"
 					/>
-					<SubmitButton isLoading={false} children={"Join"} />
+					<SubmitButton isLoading={false} label="Join!" />
 				</div>
 			</div>
 			<ToastContainer

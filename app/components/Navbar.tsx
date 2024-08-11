@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
 	const navRef = useRef<HTMLDivElement>(null);
@@ -47,18 +48,26 @@ export default function Navbar() {
 					className="m-2 nav-btn nav-close-btn md:hidden"
 					onClick={showNavbar}
 				>
-					<svg className="text-lime-500" width={24} height={24}>
-						<use xlinkHref="/appIcons.svg#close" />
-					</svg>
+					<Image
+						src="/assets/icons/close-circle.svg"
+						alt="Close"
+						height={24}
+						width={24}
+						className="m-1"
+					/>
 				</button>
 			</nav>
 			<button
 				className="m-2 nav-btn nav-open-btn md:hidden"
 				onClick={showNavbar}
 			>
-				<svg className="text-lime-500" width={24} height={24}>
-					<use xlinkHref="/appIcons.svg#hamburger" />
-				</svg>
+				<Image
+					src="/assets/icons/bars.svg"
+					alt="Bars"
+					height={24}
+					width={24}
+					className="m-1"
+				/>
 			</button>
 		</header>
 	);

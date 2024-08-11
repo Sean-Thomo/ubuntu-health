@@ -1,88 +1,87 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "../../api/firebase";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CustomFormField from "../CustomFormField";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import SubmitButton from "../SubmitButton";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "@/app/api/firebase";
+import { table } from "console";
+
+const initialValues = {
+	firstName: "",
+	surname: "",
+	email: "",
+	practiceName: "",
+	practiceNumber: "",
+	street: "",
+	city: "",
+	province: "",
+	postalCode: "",
+	country: "",
+	password: "",
+	phoneNumber: "",
+};
+
+const validationSchema = Yup.object({
+	firstName: Yup.string()
+		.max(20, "First name must be 20 characters or less.")
+		.required("First name is required."),
+	surname: Yup.string()
+		.max(20, "Surname must be 20 characters or less.")
+		.required("Surname is required."),
+	email: Yup.string()
+		.email("Invalid email address.")
+		.required("E-Mail is required."),
+	phoneNumber: Yup.string()
+		.matches(/^[0-9]+$/, "Must be only digits")
+		.max(10, "Must be exactly 10 digits")
+		.min(10, "Must be exactly 10 digits")
+		.required("Phone Number is required."),
+	practiceName: Yup.string().required("Practice Name is required"),
+	practiceNumber: Yup.string().required("Practice Number is required"),
+	password: Yup.string().required("Password is required."),
+});
 
 export default function SignUpForm() {
-	const formik = useFormik({
-		initialValues: {
-			firstName: "",
-			surname: "",
-			email: "",
-			practiceName: "",
-			practiceNumber: "",
-			street: "",
-			city: "",
-			province: "",
-			postalCode: "",
-			country: "",
-			password: "",
-			phoneNumber: "",
-		},
-		// Validate form
-		validationSchema: Yup.object({
-			firstName: Yup.string()
-				.max(20, "First name must be 20 characters or less.")
-				.required("First name is required."),
-			surname: Yup.string()
-				.max(20, "Surname must be 20 characters or less.")
-				.required("Surname is required."),
-			email: Yup.string()
-				.email("Invalid email address.")
-				.required("E-Mail is required."),
-			phoneNumber: Yup.string()
-				.matches(/^[0-9]+$/, "Must be only digits")
-				.max(10, "Must be exactly 10 digits")
-				.min(10, "Must be exactly 10 digits")
-				.required("Phone Number is required."),
-			practiceName: Yup.string().required("Practice Name is required"),
-			practiceNumber: Yup.string().required("Practice Number is required"),
-			password: Yup.string().required("Password is required."),
-		}),
-		// Submit form
-		onSubmit: async (values) => {
-			try {
-				const email = values.email;
-				const password = values.password;
-				const auth = getAuth();
-				createUserWithEmailAndPassword(auth, email, password)
-					.then((userCredential) => {
-						// Signed up
-						const user = userCredential.user;
-					})
-					.catch((error) => {
-						console.error(`Error adding document: ${error}.`);
-						toast.error(`${error.message}`);
-					});
+	const [isLoading, setIsLoading] = useState(false);
+	const router = useRouter();
+	const signupCollection = collection(db, "SignUp");
 
-				const docRef = await addDoc(collection(db, "SignUp"), {
-					firstName: values.firstName,
-					surname: values.surname,
-					practiceName: values.practiceName,
-					practiceNumber: values.practiceNumber,
-					street: values.street,
-					city: values.city,
-					province: values.province,
-					postalCode: values.postalCode,
-					country: values.country,
-					phoneNumber: values.phoneNumber,
-					signedUpAt: new Date(),
+	const formik = useFormik({
+		initialValues,
+		validationSchema,
+		onSubmit: async (values) => {
+			setIsLoading(true);
+
+			try {
+				const response = await fetch("/api/signup", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(values),
 				});
-				toast.success("Thank you for signing up!");
-				redirect("/dashboard");
-			} catch (e) {
-				console.error(`Error adding document: ${e}.`);
-				toast.error(`Something went wrong, ${e}.`);
+
+				const data = await response.json();
+
+				if (response.ok) {
+					toast.success(data.message);
+					router.push(`/${values.practiceNumber}/dashboard`);
+				} else {
+					toast.error(data.message || "Failed to sign up.");
+				}
+			} catch (error: any) {
+				console.error("Error:", error);
+				toast.error(error.message);
+			} finally {
+				setIsLoading(false);
 			}
 		},
 	});
@@ -236,13 +235,13 @@ export default function SignUpForm() {
 				</div>
 			</div>
 			<div className="flex justify-center">
-				<SubmitButton isLoading={false} children={"Sign Up"} />
+				<SubmitButton isLoading={isLoading} label="Sign Up" />
 			</div>
 
 			<ToastContainer
-				theme="light"
+				theme="dark"
 				position="top-right"
-				hideProgressBar={false}
+				hideProgressBar={true}
 			/>
 		</form>
 	);

@@ -1,13 +1,13 @@
 import Image from "next/image";
 import React from "react";
 
-interface ButtonProps {
+type ButtonProps = {
 	isLoading: boolean;
 	className?: string;
-	children: React.ReactNode;
-}
+	label?: string;
+};
 
-const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
+const SubmitButton = ({ isLoading, className, label }: ButtonProps) => {
 	return (
 		<button
 			type="submit"
@@ -32,7 +32,7 @@ const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
 					Loading ...
 				</div>
 			) : (
-				children
+				label
 			)}
 		</button>
 	);
