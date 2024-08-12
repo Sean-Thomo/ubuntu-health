@@ -12,7 +12,6 @@ import SubmitButton from "../SubmitButton";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/app/api/firebase";
-import { table } from "console";
 
 const initialValues = {
 	firstName: "",
@@ -52,7 +51,6 @@ const validationSchema = Yup.object({
 export default function SignUpForm() {
 	const [isLoading, setIsLoading] = useState(false);
 	const router = useRouter();
-	const signupCollection = collection(db, "SignUp");
 
 	const formik = useFormik({
 		initialValues,

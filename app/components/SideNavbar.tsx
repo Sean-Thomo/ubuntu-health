@@ -98,12 +98,14 @@ export default function SideNavbar() {
 							width={24}
 							className="m-1"
 						/>
-						<button className="mx-4">Logout</button>
+						<button className="mx-4" type="submit">
+							Logout
+						</button>
 					</div>
 				</form>
 
 				<button
-					className="m-2 absolute right-8 bottom-8 hover:bg-primary-600 rounded-md"
+					className="m-2 absolute right-8 bottom-8 hover:bg-primary-600 rounded-md md:hidden"
 					onClick={showNavbar}
 				>
 					<Image

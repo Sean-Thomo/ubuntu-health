@@ -19,13 +19,14 @@ export async function POST(request: Request) {
 		const user = userCredential.user;
 		const { password, ...userData } = values;
 
-		console.log(userData);
-
 		// Save user data in Firestore
-		await addDoc(signupCollection, {
+		const docRef = await addDoc(signupCollection, {
 			...userData,
 			signedUpAt: new Date(),
 		});
+
+		const docId = docRef.id;
+		console.log(docId);
 
 		return NextResponse.json(
 			{ message: "User created successfully." },
