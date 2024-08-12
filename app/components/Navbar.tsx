@@ -1,25 +1,29 @@
 "use client";
 import { useRef } from "react";
 import Image from "next/image";
+import styles from "@/styles/Navbar.module.css";
 
 export default function Navbar() {
 	const navRef = useRef<HTMLDivElement>(null);
 
 	const showNavbar = () => {
 		if (navRef.current) {
-			navRef.current.classList.toggle("responsive-nav");
+			navRef.current.classList.toggle(styles.responsiveNav);
 		}
 	};
 
 	return (
-		<header className="bg-secondary-900 w-full px-4 top-0 sticky flex items-center justify-between z-20 h-16 mb-16 md:mb-0 md:px-10">
+		<header
+			className={`${styles.header} bg-secondary-900 w-full px-4 top-0 sticky flex items-center
+                justify-between z-20 h-16 mb-16 md:mb-0 md:px-10`}
+		>
 			<a
 				href="/"
 				className="text-lime-600 text-xl font-extrabold sm:text-xl md:font-bold"
 			>
 				Ubuntu Health
 			</a>
-			<nav ref={navRef} className="font-semibold">
+			<nav ref={navRef} className={`${styles.nav} flex font-semibold`}>
 				<a href="/" className="hover:text-lime-600 mx-8" onClick={showNavbar}>
 					Home
 				</a>
@@ -45,7 +49,7 @@ export default function Navbar() {
 					Pricing
 				</a>
 				<button
-					className="m-2 nav-btn nav-close-btn md:hidden"
+					className="absolute bottom-8 right-8 m-2 nav-btn nav-close-btn md:hidden"
 					onClick={showNavbar}
 				>
 					<Image
