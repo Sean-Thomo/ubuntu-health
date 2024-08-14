@@ -38,12 +38,12 @@ export default function SideNavbar() {
 		}
 	};
 	return (
-		<header className="min-h-screen bg-secondary-900 flex items-center justify-between max-w-50">
+		<header className="min-h-screen w-full max-w-40 bg-secondary-900 flex items-center justify-between">
 			<nav
 				ref={navRef}
 				className={`${styles.nav} flex flex-col justify-center font-medium md:space-y-8`}
 			>
-				<div className="flex items-center hover:bg-primary-600 p-2 rounded-md max-w-56">
+				<div className="flex items-center p-2 rounded-md hover:bg-primary-600">
 					<Image
 						src="/assets/icons/dashboard.svg"
 						alt="Dashboard"
@@ -55,7 +55,7 @@ export default function SideNavbar() {
 						Dashboard
 					</a>
 				</div>
-				<div className="flex items-center hover:bg-primary-600 p-2 rounded-md max-w-56">
+				<div className="flex items-center p-2 rounded-md hover:bg-primary-600">
 					<Image
 						src="/assets/icons/appointment.svg"
 						alt="Appointment"
@@ -67,7 +67,7 @@ export default function SideNavbar() {
 						Appointments
 					</a>
 				</div>
-				<div className="flex items-center hover:bg-primary-600 p-2 rounded-md max-w-56">
+				<div className="flex items-center p-2 rounded-md hover:bg-primary-600">
 					<Image
 						src="/assets/icons/patients.svg"
 						alt="Patients"
@@ -79,7 +79,7 @@ export default function SideNavbar() {
 						Patients
 					</a>
 				</div>
-				<div className="flex items-center hover:bg-primary-600 p-2 rounded-md max-w-56">
+				<div className="flex items-center p-2 rounded-md hover:bg-primary-600">
 					<Image
 						src="/assets/icons/stock.svg"
 						alt="Stock"
