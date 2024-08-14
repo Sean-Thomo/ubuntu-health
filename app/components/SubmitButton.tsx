@@ -14,8 +14,8 @@ const SubmitButton = ({ isLoading, className, label }: ButtonProps) => {
 			disabled={isLoading}
 			className={
 				className ??
-				`flex justify-center text-primary-50 bg-primary-600 font-medium rounded-2xl 
-                min-w-36 text-md mt-2 px-3 py-2 text-center hover:bg-primary-700 focus:outline-none 
+				`flex justify-center text-primary-50 bg-primary-700 font-medium rounded-lg 
+                min-w-36 text-md mt-2 p-2 text-center hover:bg-primary-800 focus:outline-none 
                 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 
                 dark:focus:ring-blue-800`
 			}

@@ -9,9 +9,6 @@ import "react-toastify/dist/ReactToastify.css";
 import CustomFormField from "../CustomFormField";
 import { useRouter } from "next/navigation";
 import SubmitButton from "../SubmitButton";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "@/app/api/firebase";
 
 const initialValues = {
 	firstName: "",
@@ -239,7 +236,7 @@ export default function SignUpForm() {
 			<ToastContainer
 				theme="dark"
 				position="top-right"
-				hideProgressBar={true}
+				hideProgressBar={false}
 			/>
 		</form>
 	);

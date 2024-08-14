@@ -3,6 +3,9 @@ import { useRef } from "react";
 import { useFormik } from "formik";
 import Image from "next/image";
 import styles from "@/styles/Sidebar.module.css";
+import { getAuth, signOut } from "firebase/auth";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 export default function SideNavbar() {
 	const navRef = useRef<HTMLDivElement>(null);
@@ -13,14 +16,17 @@ export default function SideNavbar() {
 		onSubmit: async () => {
 			console.log("Signing Out");
 
-			// signOut(auth)
-			// 	.then(() => {
-			// 		// Sign-out successful.
-			// 		toast.success("Signed Out");
-			// 	})
-			// 	.catch((error) => {
-			// 		toast.error(`Something went wrong, ${error}.`);
-			// 	});
+			try {
+				const auth = getAuth();
+				signOut(auth)
+					.then(() => {
+						// Sign-out successful.
+						toast.success("Signed Out");
+					})
+					.catch((error) => {
+						toast.error(`Something went wrong, ${error}.`);
+					});
+			} catch (error) {}
 		},
 	});
 
@@ -129,6 +135,12 @@ export default function SideNavbar() {
 					className="m-1"
 				/>
 			</button>
+
+			<ToastContainer
+				theme="dark"
+				position="top-right"
+				hideProgressBar={false}
+			/>
 		</header>
 	);
 }

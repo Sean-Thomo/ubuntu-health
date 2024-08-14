@@ -275,5 +275,5 @@ h3 {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: transparent;
+	background: #5188ff;
 }

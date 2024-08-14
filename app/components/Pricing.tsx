@@ -24,13 +24,13 @@ export default function Pricing() {
 					</div>
 				</div>
 				<div className="flex flex-wrap justify-center max-w-[70rem]">
-					<div className="md:w-1/2 lg:w-1/3 px-4">
+					<div className="px-4">
 						<div className="rounded-xl relative overflow-hidden border border-opacity-20 py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
 							<span className="text-primary font-semibold text-lg block mb-4">
-								Basic
+								All-in-One EHR Solution
 							</span>
 							<h2 className="font-bold text-dark mb-5 text-[42px]">
-								R499
+								R999
 								<span className="text-base text-body-color font-medium">
 									/ Month
 								</span>
@@ -43,10 +43,16 @@ export default function Pricing() {
 									<li className="text-base text-body-color leading-loose mb-1 list-disc">
 										Patient Management
 									</li>
+									<li className="text-base text-body-color leading-loose mb-1 list-disc">
+										Stock Management
+									</li>
+									<li className="text-base text-body-color leading-loose mb-1 list-disc">
+										Appointment Scheduling
+									</li>
 								</ul>
 							</div>
 							<Link
-								href="/basic"
+								href="/setup"
 								className="flex flex-col items-center justify-center m-auto w-5/6 text-primary-50 bg-primary-600 hover:bg-primary-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
                                     text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
@@ -56,7 +62,7 @@ export default function Pricing() {
 							</Link>
 						</div>
 					</div>
-					<div className="md:w-1/2 lg:w-1/3 px-4">
+					{/* <div className="md:w-1/2 lg:w-1/3 px-4">
 						<div className="rounded-xl relative overflow-hidden border border-opacity-20 py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
 							<span className="text-primary font-semibold text-lg block mb-4">
 								Standard
@@ -84,7 +90,7 @@ export default function Pricing() {
 								</ul>
 							</div>
 							<Link
-								href="/basic"
+								href="/setup"
 								className="flex flex-col items-center justify-center m-auto w-5/6 text-primary-50 bg-primary-600 hover:bg-primary-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
                                     text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
@@ -128,7 +134,7 @@ export default function Pricing() {
 								</ul>
 							</div>
 							<Link
-								href="/basic"
+								href="/setup"
 								className="flex flex-col items-center justify-center m-auto w-5/6 text-primary-50 bg-primary-600 hover:bg-primary-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
                                     text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
@@ -137,7 +143,7 @@ export default function Pricing() {
 								Sign Up
 							</Link>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>

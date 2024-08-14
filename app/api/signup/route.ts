@@ -3,10 +3,26 @@ import { addDoc, collection } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from "../firebase";
 
-const signupCollection = collection(db, "Tenants");
+async function createCollections(userCredential: string) {
+	const collectionsToCreate = ["Appointments", "Patients", "Inventory"];
+
+	for (const collectionName of collectionsToCreate) {
+		const collectionRef = collection(
+			db,
+			`Tenants/${userCredential}/${collectionName}`
+		);
+		await addDoc(collectionRef, {
+			createdAt: new Date(),
+			userCredential: userCredential,
+		});
+		console.log(`Collection '${collectionName}' created for userCredential`);
+	}
+}
 
 export async function POST(request: Request) {
+	const signupCollection = collection(db, "Tenants");
 	const auth = getAuth();
+
 	try {
 		const values = await request.json();
 
@@ -26,7 +42,9 @@ export async function POST(request: Request) {
 		});
 
 		const docId = docRef.id;
-		console.log(docId);
+
+		// Create additional collections for the tenant
+		await createCollections(docId);
 
 		return NextResponse.json(
 			{ message: "User created successfully." },

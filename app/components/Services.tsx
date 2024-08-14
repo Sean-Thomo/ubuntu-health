@@ -18,75 +18,53 @@ function Services() {
             lg:text-left gap-6"
 			>
 				<div
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors
+					className="flex flex-col items-center group rounded-lg border border-transparent px-5 py-4 transition-colors
                     hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
 					rel="noopener noreferrer"
 				>
-					<h2 className={`mb-3 text-2xl font-semibold`}>Patient Management </h2>
-					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+					<h2 className="mb-3 text-2xl font-semibold">Patient Management </h2>
+					<p className="text-sm opacity-50 text-balance">
 						Comprehensive tools for storing and managing patient demographics,
 						medical history, and treatment plans.
 					</p>
 				</div>
 
 				<div
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors
+					className="flex flex-col items-center group rounded-lg border border-transparent px-5 py-4 transition-colors
                     hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
 					rel="noopener noreferrer"
 				>
-					<h2 className={`mb-3 text-2xl font-semibold`}>
+					<h2 className="mb-3 text-2xl font-semibold">
 						Appointment Scheduling
 					</h2>
-					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+					<p className="text-sm opacity-50 text-balance">
 						Flexible scheduling options with reminders and notifications for
 						practitioners and patients.
 					</p>
 				</div>
 
 				<div
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors
+					className="flex flex-col items-center group rounded-lg border border-transparent px-5 py-4 transition-colors
                     hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
 					rel="noopener noreferrer"
 				>
-					<h2 className={`mb-3 text-2xl font-semibold`}>Stock Management</h2>
-					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-						Manage your stock accurately with oue state of the app feature that
-						can reserve medication for a future appointment.
+					<h2 className="mb-3 text-2xl font-semibold">Stock Management</h2>
+					<p className="text-sm opacity-50 text-balance">
+						Take control of your inventory with our advanced stock management
+						feature. Accurately track your supplies and medication.
 					</p>
 				</div>
 
 				<div
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors
+					className="flex flex-col items-center group rounded-lg border border-transparent px-5 py-4 transition-colors
                     hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
 					rel="noopener noreferrer"
 				>
-					<h2 className={`mb-3 text-2xl font-semibold`}>E-Prescriptions</h2>
-					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-						Generate electronic prescriptions with ease, reducing errors and
-						improving medication management.
-					</p>
-				</div>
-
-				<div
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors
-                    hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					rel="noopener noreferrer"
-				>
-					<h2 className={`mb-3 text-2xl font-semibold`}>
-						Billing and Invoicing
-					</h2>
-					<p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-						Automate billing processes and generate invoices seamlessly
-					</p>
-				</div>
-
-				<div
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					rel="noopener noreferrer"
-				>
-					<h2 className={`mb-3 text-2xl font-semibold`}>Communication</h2>
-					<p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-						Communicate securely with patients through encrypted messaging
+					<h2 className="mb-3 text-2xl font-semibold">Financial</h2>
+					<p className="text-sm opacity-50 text-balance">
+						Record charges for each visit directly in the system, allowing you
+						to maintain an accurate and up-to-date overview of your
+						practice&lsquo;s revenue.
 					</p>
 				</div>
 			</div>

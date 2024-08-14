@@ -4,14 +4,14 @@ import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
 
 type CustomFormFieldProps = {
-	name: string; // Name of the form field
-	label: string; // Label for the form field
-	iconSrc: string; //Icon for the form field
-	iconAlt: string; //IconAlt for the icon
-	type: string; // Input type (e.g., text, email, password)
-	placeholder?: string; // Placeholder text for the input field
-	field: FieldInputProps<any>; // Field input props from Formik
-	meta: FieldMetaProps<any>; // Meta information from Formik
+	name: string;
+	label: string;
+	iconSrc: string;
+	iconAlt: string;
+	type: string;
+	placeholder?: string;
+	field: FieldInputProps<any>;
+	meta: FieldMetaProps<any>;
 };
 
 const CustomFormField: React.FC<CustomFormFieldProps> = ({
