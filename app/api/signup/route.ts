@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from "../firebase";
 
@@ -36,15 +36,16 @@ export async function POST(request: Request) {
 		const { password, ...userData } = values;
 
 		// Save user data in Firestore
-		const docRef = await addDoc(signupCollection, {
+		const docRef = doc(signupCollection, user.uid);
+		await setDoc(docRef, {
 			...userData,
 			signedUpAt: new Date(),
 		});
 
-		const docId = docRef.id;
+		console.log("Document ID: ", user.uid);
 
 		// Create additional collections for the tenant
-		await createCollections(docId);
+		await createCollections(user.uid);
 
 		return NextResponse.json(
 			{ message: "User created successfully." },

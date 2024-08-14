@@ -42,10 +42,10 @@ export default function LoginForm() {
 				});
 
 				const data = await response.json();
+				console.log(data);
 
 				if (response.ok) {
-					toast.success(data.message);
-					router.push(`/${values.practiceNumber}/dashboard`);
+					router.push(data.message);
 				} else {
 					toast.error(data.message || "Failed to sign up.");
 				}
