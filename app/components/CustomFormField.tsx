@@ -30,8 +30,8 @@ const CustomFormField: React.FC<CustomFormFieldProps> = ({
 				{label}
 			</label>
 			<div
-				className="bg-secondary-800 flex items-center justify-center rounded-lg mt-2
-                w-[18rem] md:w-[20rem]"
+				className="bg-primary-50 flex items-center justify-center rounded-lg mt-2
+                w-[18rem] md:w-[20rem] focus:outline focus:outline-[#f9fafb]"
 			>
 				{iconSrc && (
 					<Image
@@ -48,12 +48,14 @@ const CustomFormField: React.FC<CustomFormFieldProps> = ({
 					id={name}
 					{...field}
 					placeholder={placeholder}
-					className="bg-secondary-800 rounded-tr-lg rounded-br-lg text-gray-900 border-0 min-w-0 w-full text-sm
-                    p-2 focus:bg-secondary-800 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+					className="bg-primary-50 text-gray-900 min-w-0 w-full text-sm 
+                    p-2 focus:outline-none dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
 				/>
 			</div>
-			{meta.touched && meta.error ? (
-				<div className="text-red-500 text-sm">{meta.error}</div>
+			{meta.error ? (
+				<div className="flex p-1 text-[#FF0000] text-sm w-[18rem] md:w-[20rem]">
+					{meta.error}
+				</div>
 			) : null}
 		</div>
 	);

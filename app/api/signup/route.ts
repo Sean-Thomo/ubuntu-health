@@ -33,7 +33,7 @@ export async function POST(request: Request) {
 			values.password
 		);
 		const user = userCredential.user;
-		const { password, ...userData } = values;
+		const { password, practiceNumber, ...userData } = values;
 
 		// Save user data in Firestore
 		const docRef = doc(signupCollection, user.uid);
@@ -42,15 +42,25 @@ export async function POST(request: Request) {
 			signedUpAt: new Date(),
 		});
 
-		console.log("Document ID: ", user.uid);
-
 		// Create additional collections for the tenant
 		await createCollections(user.uid);
 
-		return NextResponse.json(
-			{ message: "User created successfully." },
+		const response = NextResponse.json(
+			{
+				message: "User created successfully.",
+			},
 			{ status: 201 }
 		);
+
+		console.log("SIGNUP: Practice Number", practiceNumber);
+
+		response.cookies.set("practiceNumber", practiceNumber, {
+			httpOnly: true,
+			maxAge: 99999999,
+			path: "/",
+		});
+
+		return response;
 	} catch (error: any) {
 		console.error("Error signing up:", error);
 		return NextResponse.json(

@@ -21,15 +21,28 @@ export async function POST(request: NextRequest) {
 		if (userDoc.exists()) {
 			const userData = userDoc.data();
 			const practiceNumber = userData.practiceNumber;
-			console.log("Practice Number", practiceNumber);
+			console.log("LOGIN: Practice Number", practiceNumber);
 
 			const baseUrl = getBaseUrl(request);
 			console.log(`${baseUrl}/${practiceNumber}/dashboard`);
 
-			return NextResponse.json(
+			// return NextResponse.json(
+			// 	{ message: `${baseUrl}/${practiceNumber}/dashboard` },
+			// 	{ status: 201 }
+			// );
+
+			const response = NextResponse.json(
 				{ message: `${baseUrl}/${practiceNumber}/dashboard` },
 				{ status: 201 }
 			);
+
+			response.cookies.set("practiceNumber", practiceNumber, {
+				httpOnly: true,
+				maxAge: 99999999,
+				path: "/",
+			});
+
+			return response;
 		} else {
 			console.error("User document not found.");
 			return NextResponse.json({

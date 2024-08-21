@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+
+const poppins = Poppins({
+	subsets: ["devanagari"],
+	weight: "400",
+});
 
 export const metadata: Metadata = {
 	title: "Ubuntu Health",
@@ -18,7 +24,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className="bg-secondary-900 text-secondary-50">{children}</body>
+			<body className={poppins.className}>{children}</body>
 		</html>
 	);
 }

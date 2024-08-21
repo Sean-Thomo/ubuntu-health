@@ -14,7 +14,7 @@ export default function Navbar() {
 
 	return (
 		<header
-			className={`${styles.header} bg-secondary-900 w-full px-4 top-0 sticky flex items-center
+			className={`${styles.header} bg-secondary-50 w-full px-4 top-0 sticky flex items-center
                 justify-between z-20 h-16 mb-16 md:mb-0 md:px-10`}
 		>
 			<a

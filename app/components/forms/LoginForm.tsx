@@ -42,10 +42,10 @@ export default function LoginForm() {
 				});
 
 				const data = await response.json();
-				console.log(data);
 
 				if (response.ok) {
 					router.push(data.message);
+					// toast.success("Login Succesful");
 				} else {
 					toast.error(data.message || "Failed to sign up.");
 				}

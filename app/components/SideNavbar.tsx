@@ -6,16 +6,16 @@ import styles from "@/styles/Sidebar.module.css";
 import { getAuth, signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
+import Link from "next/link";
+import Cookies from "js-cookie";
 
 export default function SideNavbar() {
 	const navRef = useRef<HTMLDivElement>(null);
-	// const auth = getAuth();
+	const practiceNumber = Cookies.get("practiceNumber");
 
 	const formik = useFormik({
 		initialValues: {},
 		onSubmit: async () => {
-			console.log("Signing Out");
-
 			try {
 				const auth = getAuth();
 				signOut(auth)
@@ -31,14 +31,13 @@ export default function SideNavbar() {
 	});
 
 	const showNavbar = () => {
-		console.log("Show Navbar");
-
 		if (navRef.current) {
 			navRef.current.classList.toggle(styles.responsiveNav);
 		}
 	};
+
 	return (
-		<header className="min-h-screen w-full max-w-40 bg-secondary-900 flex items-center justify-between">
+		<header className="min-h-screen w-full max-w-40 flex items-center justify-between">
 			<nav
 				ref={navRef}
 				className={`${styles.nav} flex flex-col justify-center font-medium md:space-y-8`}
@@ -51,9 +50,13 @@ export default function SideNavbar() {
 						width={24}
 						className="m-1"
 					/>
-					<a href="" className="hover:text-secondary-50" onClick={showNavbar}>
+					<Link
+						href={`/${practiceNumber}/dashboard`}
+						className="hover:text-secondary-50"
+						onClick={showNavbar}
+					>
 						Dashboard
-					</a>
+					</Link>
 				</div>
 				<div className="flex items-center p-2 rounded-md hover:bg-primary-600">
 					<Image
@@ -63,9 +66,13 @@ export default function SideNavbar() {
 						width={24}
 						className="m-1"
 					/>
-					<a href="" className="hover:text-secondary-50" onClick={showNavbar}>
+					<Link
+						href={`/${practiceNumber}/appointments`}
+						className="hover:text-secondary-50"
+						onClick={showNavbar}
+					>
 						Appointments
-					</a>
+					</Link>
 				</div>
 				<div className="flex items-center p-2 rounded-md hover:bg-primary-600">
 					<Image
@@ -75,9 +82,13 @@ export default function SideNavbar() {
 						width={24}
 						className="m-1"
 					/>
-					<a href="" className="hover:text-secondary-50" onClick={showNavbar}>
+					<Link
+						href={`/${practiceNumber}/patients`}
+						className="hover:text-secondary-50"
+						onClick={showNavbar}
+					>
 						Patients
-					</a>
+					</Link>
 				</div>
 				<div className="flex items-center p-2 rounded-md hover:bg-primary-600">
 					<Image
@@ -87,9 +98,13 @@ export default function SideNavbar() {
 						width={24}
 						className="m-1"
 					/>
-					<a href="" className="hover:text-secondary-50" onClick={showNavbar}>
-						Stock
-					</a>
+					<Link
+						href={`/${practiceNumber}/inventory`}
+						className="hover:text-secondary-50"
+						onClick={showNavbar}
+					>
+						Inventory
+					</Link>
 				</div>
 
 				<form
