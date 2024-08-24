@@ -7,26 +7,28 @@ import { getAuth, signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import Link from "next/link";
-import Cookies from "js-cookie";
+import { usePractice } from "../context/PracticeContext";
 
 export default function SideNavbar() {
 	const navRef = useRef<HTMLDivElement>(null);
-	const practiceNumber = Cookies.get("practiceNumber");
+	const { practiceNumber } = usePractice();
 
 	const formik = useFormik({
 		initialValues: {},
 		onSubmit: async () => {
-			try {
-				const auth = getAuth();
-				signOut(auth)
-					.then(() => {
-						// Sign-out successful.
-						toast.success("Signed Out");
-					})
-					.catch((error) => {
-						toast.error(`Something went wrong, ${error}.`);
-					});
-			} catch (error) {}
+			console.log("Loggin out");
+
+			// try {
+			// 	const auth = getAuth();
+			// 	signOut(auth)
+			// 		.then(() => {
+			// 			// Sign-out successful.
+			// 			toast.success("Signed Out");
+			// 		})
+			// 		.catch((error) => {
+			// 			toast.error(`Something went wrong, ${error}.`);
+			// 		});
+			// } catch (error) {}
 		},
 	});
 
@@ -37,12 +39,12 @@ export default function SideNavbar() {
 	};
 
 	return (
-		<header className="min-h-screen w-full max-w-40 flex items-center justify-between">
+		<header className="bg-[#FFF] min-h-screen w-full max-w-40 flex items-center justify-between">
 			<nav
 				ref={navRef}
 				className={`${styles.nav} flex flex-col justify-center font-medium md:space-y-8`}
 			>
-				<div className="flex items-center p-2 rounded-md hover:bg-primary-600">
+				<div className="flex items-center p-2 rounded-md max-w-56 hover:bg-primary-600 hover:text-secondary-50">
 					<Image
 						src="/assets/icons/dashboard.svg"
 						alt="Dashboard"
@@ -52,29 +54,13 @@ export default function SideNavbar() {
 					/>
 					<Link
 						href={`/${practiceNumber}/dashboard`}
-						className="hover:text-secondary-50"
+						className=""
 						onClick={showNavbar}
 					>
 						Dashboard
 					</Link>
 				</div>
-				<div className="flex items-center p-2 rounded-md hover:bg-primary-600">
-					<Image
-						src="/assets/icons/appointment.svg"
-						alt="Appointment"
-						height={24}
-						width={24}
-						className="m-1"
-					/>
-					<Link
-						href={`/${practiceNumber}/appointments`}
-						className="hover:text-secondary-50"
-						onClick={showNavbar}
-					>
-						Appointments
-					</Link>
-				</div>
-				<div className="flex items-center p-2 rounded-md hover:bg-primary-600">
+				<div className="flex items-center p-2 rounded-md max-w-56 hover:bg-primary-600 hover:text-secondary-50">
 					<Image
 						src="/assets/icons/patients.svg"
 						alt="Patients"
@@ -82,15 +68,23 @@ export default function SideNavbar() {
 						width={24}
 						className="m-1"
 					/>
-					<Link
-						href={`/${practiceNumber}/patients`}
-						className="hover:text-secondary-50"
-						onClick={showNavbar}
-					>
+					<Link href={`/${practiceNumber}/patients`} onClick={showNavbar}>
 						Patients
 					</Link>
 				</div>
-				<div className="flex items-center p-2 rounded-md hover:bg-primary-600">
+				<div className="flex items-center p-2 rounded-md max-w-56 hover:bg-primary-600 hover:text-secondary-50">
+					<Image
+						src="/assets/icons/appointment.svg"
+						alt="Appointment"
+						height={24}
+						width={24}
+						className="m-1"
+					/>
+					<Link href={`/${practiceNumber}/appointments`} onClick={showNavbar}>
+						Appointments
+					</Link>
+				</div>
+				<div className="flex items-center p-2 rounded-md max-w-56 hover:bg-primary-600 hover:text-secondary-50">
 					<Image
 						src="/assets/icons/stock.svg"
 						alt="Stock"
@@ -98,18 +92,14 @@ export default function SideNavbar() {
 						width={24}
 						className="m-1"
 					/>
-					<Link
-						href={`/${practiceNumber}/inventory`}
-						className="hover:text-secondary-50"
-						onClick={showNavbar}
-					>
+					<Link href={`/${practiceNumber}/inventory`} onClick={showNavbar}>
 						Inventory
 					</Link>
 				</div>
 
 				<form
 					onSubmit={formik.handleSubmit}
-					className="hover:bg-primary-600 p-2 rounded-md max-w-56"
+					className="hover:bg-primary-600 hover:text-secondary-50 p-2 rounded-md max-w-56"
 				>
 					<div className="flex justify-start">
 						<Image
@@ -139,7 +129,7 @@ export default function SideNavbar() {
 				</button>
 			</nav>
 			<button
-				className="m-1 sm:md-4 hover:bg-primary-50 rounded-md md:hidden"
+				className="m-1 hover:bg-primary-50 rounded-md md:hidden sm:md-4"
 				onClick={showNavbar}
 			>
 				<Image

@@ -26,11 +26,6 @@ export async function POST(request: NextRequest) {
 			const baseUrl = getBaseUrl(request);
 			console.log(`${baseUrl}/${practiceNumber}/dashboard`);
 
-			// return NextResponse.json(
-			// 	{ message: `${baseUrl}/${practiceNumber}/dashboard` },
-			// 	{ status: 201 }
-			// );
-
 			const response = NextResponse.json(
 				{ message: `${baseUrl}/${practiceNumber}/dashboard` },
 				{ status: 201 }
