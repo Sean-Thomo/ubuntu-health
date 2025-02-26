@@ -87,3 +87,5 @@ wwwroot/
 # Resharper
 _ReSharper*/
 *.[Rr]e[Ss]harper
+
+app.db/
