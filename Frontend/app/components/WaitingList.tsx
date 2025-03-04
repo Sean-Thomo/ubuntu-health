@@ -14,7 +14,6 @@ export default function WaitingList() {
 			name: "",
 			email: "",
 		},
-		// Validate form
 		validationSchema: Yup.object({
 			name: Yup.string()
 				.max(20, "Name must be 20 characters or less.")
@@ -23,7 +22,6 @@ export default function WaitingList() {
 				.email("Invalid email address.")
 				.required("E-Mail is required."),
 		}),
-		// Submit form
 		onSubmit: async (values) => {
 			try {
 				const docRef = await addDoc(collection(db, "WaitingList"), {
@@ -72,9 +70,8 @@ export default function WaitingList() {
 								onChange={formik.handleChange}
 								placeholder="John Doe"
 								className="rounded-lg bg-gray-50 border text-gray-900 focus:ring-blue-500
-                                focus:border-primary-500 block flex-1 min-w-0 w-full text-sm border-gray-300
-                                p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
-                                dark:focus:ring-blue-500 dark:focus:border-primary-500"
+                                focus:border-blue-600 block flex-1 min-w-0 w-full text-sm border-gray-300
+                                p-2.5"
 							/>
 						</div>
 					</div>
@@ -92,9 +89,8 @@ export default function WaitingList() {
 								onChange={formik.handleChange}
 								placeholder="john.doe@email.com"
 								className="rounded-lg bg-gray-50 border text-gray-900 focus:ring-blue-500
-                                focus:border-primary-500 block flex-1 min-w-0 w-full text-sm border-gray-300
-                                p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
-                                dark:focus:ring-blue-500 dark:focus:border-primary-500"
+                                focus:border-blue-600 block flex-1 min-w-0 w-full text-sm border-gray-300
+                                p-2.5"
 							/>
 						</div>
 					</div>
