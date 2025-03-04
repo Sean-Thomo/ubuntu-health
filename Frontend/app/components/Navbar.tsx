@@ -12,30 +12,30 @@ export default function Navbar() {
 
 	return (
 		<header className="w-full px-4 top-0 sticky flex items-center justify-between z-20 h-16 mb-16 md:mb-0 md:px-10">
-			<a href="/" className="text-lime-600 text-xl font-extrabold md:text-3xl">
+			<a href="/" className="text-blue-600 text-xl font-extrabold md:text-3xl">
 				Ubuntu Health
 			</a>
 			<nav ref={navRef} className="font-semibold">
-				<a href="/" className="hover:text-lime-600 mx-8" onClick={showNavbar}>
+				<a href="/" className="hover:text-blue-600 mx-8" onClick={showNavbar}>
 					Home
 				</a>
 				<a
 					href="/#about"
-					className="hover:text-lime-600 mx-8"
+					className="hover:text-blue-600 mx-8"
 					onClick={showNavbar}
 				>
 					About
 				</a>
 				<a
 					href="/#services"
-					className="hover:text-lime-600 mx-8"
+					className="hover:text-blue-600 mx-8"
 					onClick={showNavbar}
 				>
 					Services
 				</a>
 				<a
 					href="/#pricing"
-					className="hover:text-lime-600 mx-8"
+					className="hover:text-blue-600 mx-8"
 					onClick={showNavbar}
 				>
 					Pricing
@@ -45,7 +45,7 @@ export default function Navbar() {
 					onClick={showNavbar}
 				>
 					{/* <p>X</p> */}
-					<svg className="text-lime-500" width={24} height={24}>
+					<svg className="text-blue-500" width={24} height={24}>
 						<use xlinkHref="/appIcons.svg#close-circle" />
 					</svg>
 				</button>
@@ -54,7 +54,7 @@ export default function Navbar() {
 				className="m-2 nav-btn nav-open-btn md:hidden"
 				onClick={showNavbar}
 			>
-				<svg className="text-lime-500" width={24} height={24}>
+				<svg className="text-blue-500" width={24} height={24}>
 					<use xlinkHref="/appIcons.svg#bars" />
 				</svg>
 			</button>

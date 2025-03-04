@@ -5,11 +5,11 @@ export default function Landing() {
 		<div className="md:h-[85vh] flex items-center justify-center top-10">
 			<div className="max-w-6xl text-center grid gap-8">
 				<h1
-					className="text-slate-700 font-extrabold text-3xl md:text-5xl
-                            lg:text-6xl tracking-tight text-center dark:text-white"
+					className="text-black font-extrabold text-3xl md:text-5xl
+                            lg:text-6xl tracking-tight text-center"
 				>
 					Streamline Patient Care and Practice Efficiency with{" "}
-					<span className="text-primary-600">Ubuntu Health</span>
+					<span className="text-blue-600">Ubuntu Health</span>
 				</h1>
 				<p className="text-base text-body-color my-6">
 					Experience the simplicity of managing patient records, scheduling
