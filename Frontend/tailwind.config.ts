@@ -33,20 +33,16 @@ module.exports = {
 			fontFamily: {
 				sans: ["Inter", "system-ui", "sans-serif"],
 			},
-			animation: {
-				"fade-in": "fadeIn 0.3s ease-out",
-			},
 			keyframes: {
 				fadeIn: {
-					"0%": { opacity: "0" },
-					"100%": { opacity: "1" },
+					"0%": { opacity: "0", transform: "translateX(50px)" },
+					"100%": { opacity: "1", transform: "translateX(0)" },
 				},
+			},
+			animation: {
+				"fade-in": "fadeIn 0.5s ease-out forwards",
 			},
 		},
 	},
-	plugins: [
-		// Optional: Add plugins for form styling, typography, etc.
-		require("@tailwindcss/forms"),
-		require("@tailwindcss/typography"),
-	],
+	plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };
