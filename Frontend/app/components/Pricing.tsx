@@ -25,7 +25,7 @@ export default function Pricing() {
 				</div>
 				<div className="flex flex-wrap justify-center max-w-[70rem]">
 					<div className="md:w-1/2 lg:w-1/3 px-4">
-						<div className="rounded-xl relative overflow-hidden border border-opacity-20 py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
+						<div className="rounded-xl relative overflow-hidden border py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
 							<span className="text-primary font-semibold text-lg block mb-4">
 								Basic
 							</span>
@@ -57,7 +57,7 @@ export default function Pricing() {
 						</div>
 					</div>
 					<div className="md:w-1/2 lg:w-1/3 px-4">
-						<div className="rounded-xl relative overflow-hidden border border-opacity-20 py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
+						<div className="rounded-xl relative overflow-hidden border py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
 							<span className="text-primary font-semibold text-lg block mb-4">
 								Standard
 							</span>
@@ -95,7 +95,7 @@ export default function Pricing() {
 						</div>
 					</div>
 					<div className=" md:w-1/2 lg:w-1/3 px-4">
-						<div className="rounded-xl relative overflow-hidden border border-opacity-20 py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
+						<div className="rounded-xl relative overflow-hidden border py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
 							<span className="text-primary font-semibold text-lg block mb-4">
 								Premium
 							</span>

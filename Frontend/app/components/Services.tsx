@@ -18,8 +18,8 @@ function Services() {
             lg:text-left gap-6"
 			>
 				<div
-					className="rounded-lg border-2 px-5 py-4 group
-                    group-hover:bg-blue-500 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+					className="rounded-lg border px-5 py-4 group
+                    hover:bg-blue-500"
 					rel="noopener noreferrer"
 				>
 					<h2 className="mb-3 text-2xl font-semibold group-hover:text-white">
@@ -32,8 +32,8 @@ function Services() {
 				</div>
 
 				<div
-					className="rounded-lg border-2 px-5 py-4 group
-                    hover:bg-blue-500 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+					className="rounded-lg border px-5 py-4 group
+                    hover:bg-blue-500"
 					rel="noopener noreferrer"
 				>
 					<h2 className="mb-3 text-2xl font-semibold group-hover:text-white">
@@ -46,8 +46,8 @@ function Services() {
 				</div>
 
 				<div
-					className="rounded-lg border-2 px-5 py-4 group
-                    hover:bg-blue-500 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+					className="rounded-lg border px-5 py-4 group
+                    hover:bg-blue-500"
 					rel="noopener noreferrer"
 				>
 					<h2 className="mb-3 text-2xl font-semibold group-hover:text-white">
@@ -60,8 +60,8 @@ function Services() {
 				</div>
 
 				<div
-					className="rounded-lg border-2 px-5 py-4 group
-                    hover:bg-blue-500 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+					className="rounded-lg border px-5 py-4 group
+                    hover:bg-blue-500"
 					rel="noopener noreferrer"
 				>
 					<h2 className="mb-3 text-2xl font-semibold group-hover:text-white">
