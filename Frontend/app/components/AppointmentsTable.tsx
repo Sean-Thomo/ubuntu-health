@@ -12,17 +12,73 @@ const AppointmentsTable: React.FC = () => {
 	const [appointments] = useState<Appointment[]>([
 		{
 			id: "appt1",
-			patientName: "John Doe",
-			time: "10:00",
-			type: "Check-Up",
+			patientName: "Thabo Mbeki",
+			time: "08:00",
+			type: "General Consultation",
 			status: "Scheduled",
 		},
 		{
 			id: "appt2",
-			patientName: "Jane Smith",
-			time: "11:30",
-			type: "Follow-Up",
+			patientName: "Naledi Botha",
+			time: "08:30",
+			type: "Chronic Medication Review",
+			status: "Scheduled",
+		},
+		{
+			id: "appt3",
+			patientName: "Sipho Dlamini",
+			time: "09:00",
+			type: "Blood Pressure Check",
 			status: "In Progress",
+		},
+		{
+			id: "appt4",
+			patientName: "Lerato van der Merwe",
+			time: "09:30",
+			type: "Pregnancy Check-Up",
+			status: "Completed",
+		},
+		{
+			id: "appt5",
+			patientName: "Kagiso Nkosi",
+			time: "10:00",
+			type: "Diabetes Management",
+			status: "Scheduled",
+		},
+		{
+			id: "appt6",
+			patientName: "Zinhle Khumalo",
+			time: "10:30",
+			type: "Vaccination",
+			status: "Scheduled",
+		},
+		{
+			id: "appt7",
+			patientName: "Tumi van Wyk",
+			time: "11:00",
+			type: "Minor Injury Treatment",
+			status: "In Progress",
+		},
+		{
+			id: "appt8",
+			patientName: "Nomvula Petersen",
+			time: "11:30",
+			type: "Annual Health Check",
+			status: "Scheduled",
+		},
+		{
+			id: "appt9",
+			patientName: "Mandla Jacobs",
+			time: "12:00",
+			type: "HIV Counselling",
+			status: "Completed",
+		},
+		{
+			id: "appt10",
+			patientName: "Palesa le Roux",
+			time: "12:30",
+			type: "Child Immunization",
+			status: "Scheduled",
 		},
 	]);
 
@@ -30,7 +86,7 @@ const AppointmentsTable: React.FC = () => {
 		<div className="min-h-screen">
 			<h1 className="text-3xl font-bold mb-6 text-gray-800">Appointments</h1>
 
-			<div className="mt-8 rounded-lg p-6">
+			<div className="mt-8 rounded-lg">
 				<h2 className="text-xl font-semibold text-gray-700 mb-4">
 					Today&lsquo;s Appointments
 				</h2>

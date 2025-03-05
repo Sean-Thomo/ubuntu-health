@@ -142,7 +142,7 @@ const Dashboard: React.FC = () => {
 			</div>
 
 			{/* Recent Appointments Table */}
-			<div className="mt-8 rounded-lg p-6">
+			<div className="mt-8 rounded-lg">
 				<h2 className="text-xl font-semibold text-gray-700 mb-4">
 					Today&lsquo;s Appointments
 				</h2>
