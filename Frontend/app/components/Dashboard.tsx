@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Calendar, Users, CreditCard, Clipboard } from "lucide-react";
+import Link from "next/link";
 
 interface Patient {
 	id: string;
@@ -121,22 +122,18 @@ const Dashboard: React.FC = () => {
 						<Clipboard className="text-blue-600" />
 					</div>
 					<div className="space-y-4">
-						<button
+						<Link
+							href="/patient-reg"
 							className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
-							onClick={() => {
-								// TODO Add New Patient logic
-							}}
 						>
 							Add New Patient
-						</button>
-						<button
+						</Link>
+						<Link
+							href="new-appointment"
 							className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition"
-							onClick={() => {
-								// TODO Schedule Appointment logic
-							}}
 						>
 							Schedule Appointment
-						</button>
+						</Link>
 					</div>
 				</div>
 			</div>
