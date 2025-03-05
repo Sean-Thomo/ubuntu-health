@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
+import PatientTable from "../components/PatientTable";
 import DashboardNav from "../components/DashboardNav";
-import Dashboard from "../components/Dashboard";
 
 export default function Page() {
 	return (
@@ -12,7 +11,7 @@ export default function Page() {
 				</div>
 			</div>
 			<div className="w-5/6 py-6 pr-4">
-				<Dashboard />
+				<PatientTable />
 			</div>
 		</div>
 	);

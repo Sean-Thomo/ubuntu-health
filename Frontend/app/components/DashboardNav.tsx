@@ -17,7 +17,7 @@ export default function DashboardNav() {
 	const navItems = [
 		{
 			name: "Dashboard",
-			href: "/",
+			href: "/dashboard",
 			icon: LayoutDashboard,
 		},
 		{
