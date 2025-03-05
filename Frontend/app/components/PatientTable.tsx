@@ -1,97 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface Patient {
-	id: string;
-	patientName: string;
-	age: string;
-	sex: string;
-	phoneNumber: string;
-	medicalAid: string;
+	id: number;
+	firstName: string;
+	lastName: string;
+	gender: string;
+	email: string;
+	phone: string;
+	medicalAidName: string;
 }
 
 const PatientTable: React.FC = () => {
-	const [patients] = useState<Patient[]>([
-		{
-			id: "1",
-			patientName: "Thabo Mbeki",
-			age: "42",
-			sex: "Male",
-			phoneNumber: "+27821234567",
-			medicalAid: "Discovery Health",
-		},
-		{
-			id: "2",
-			patientName: "Naledi Botha",
-			age: "35",
-			sex: "Female",
-			phoneNumber: "+27827654321",
-			medicalAid: "Momentum Health",
-		},
-		{
-			id: "3",
-			patientName: "Sipho Dlamini",
-			age: "67",
-			sex: "Male",
-			phoneNumber: "+27824567890",
-			medicalAid: "Bonitas",
-		},
-		{
-			id: "4",
-			patientName: "Lerato van der Merwe",
-			age: "29",
-			sex: "Female",
-			phoneNumber: "+27823123456",
-			medicalAid: "Fedhealth",
-		},
-		{
-			id: "5",
-			patientName: "Kagiso Nkosi",
-			age: "53",
-			sex: "Male",
-			phoneNumber: "+27829876543",
-			medicalAid: "Medihelp",
-		},
-		{
-			id: "6",
-			patientName: "Zinhle Khumalo",
-			age: "31",
-			sex: "Female",
-			phoneNumber: "+27826789012",
-			medicalAid: "Discovery Health",
-		},
-		{
-			id: "7",
-			patientName: "Tumi van Wyk",
-			age: "24",
-			sex: "Male",
-			phoneNumber: "+27825432109",
-			medicalAid: "None",
-		},
-		{
-			id: "8",
-			patientName: "Nomvula Petersen",
-			age: "58",
-			sex: "Female",
-			phoneNumber: "+27828765432",
-			medicalAid: "Bestmed",
-		},
-		{
-			id: "9",
-			patientName: "Mandla Jacobs",
-			age: "45",
-			sex: "Male",
-			phoneNumber: "+27821987654",
-			medicalAid: "Momentum Health",
-		},
-		{
-			id: "10",
-			patientName: "Palesa le Roux",
-			age: "33",
-			sex: "Female",
-			phoneNumber: "+27823678901",
-			medicalAid: "Bonitas",
-		},
-	]);
+	const [patients, setPatients] = useState<Patient[]>([]);
+	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const [error, setError] = useState<string | null>(null);
+
+	useEffect(() => {
+		const fetchPatients = async () => {
+			try {
+				const response = await fetch("http://localhost:5290/api/Patients");
+
+				if (!response.ok) {
+					throw new Error("Failed to fetch patients");
+				}
+
+				const data = await response.json();
+				setPatients(data);
+				setIsLoading(false);
+			} catch (err) {
+				setError(
+					err instanceof Error ? err.message : "An unknown error occurred"
+				);
+				setIsLoading(false);
+			}
+		};
+
+		fetchPatients();
+	}, []);
+
+	if (isLoading) {
+		return (
+			<div className="min-h-screen flex items-center justify-center">
+				<p className="text-xl text-gray-600">Loading patients...</p>
+			</div>
+		);
+	}
+
+	if (error) {
+		return (
+			<div className="min-h-screen flex items-center justify-center">
+				<p className="text-xl text-red-600">Error: {error}</p>
+			</div>
+		);
+	}
 
 	return (
 		<div className="min-h-screen">
@@ -105,7 +66,6 @@ const PatientTable: React.FC = () => {
 					<thead className="bg-gray-200 ">
 						<tr>
 							<th className="p-3 text-left">Name</th>
-							<th className="p-3 text-left">Age</th>
 							<th className="p-3 text-left">Sex</th>
 							<th className="p-3 text-left">Phone Number</th>
 							<th className="p-3 text-left">Medical Aid</th>
@@ -114,28 +74,10 @@ const PatientTable: React.FC = () => {
 					<tbody>
 						{patients.map((patient) => (
 							<tr key={patient.id} className="border-b">
-								<td className="p-3">{patient.patientName}</td>
-								<td className="p-3">{patient.age}</td>
-								<td className="p-3">{patient.sex}</td>
-								<td className="p-3">{patient.phoneNumber}</td>
-								<td className="p-3">{patient.medicalAid}</td>
-								{/* <td className="p-3">{patient.sex}</td> */}
-								{/* <td className="p-3">
-								<span
-									className={`
-            px-2 py-1 rounded text-xs
-            ${
-							patient.status === "Scheduled"
-								? "bg-yellow-100 text-yellow-800"
-								: patient.status === "In Progress"
-								? "bg-blue-100 text-blue-800"
-								: "bg-green-100 text-green-800"
-						}
-          `}
-								>
-									{appoipatientntment.status}
-								</span>
-							</td> */}
+								<td className="p-3">{`${patient.firstName} ${patient.lastName}`}</td>
+								<td className="p-3">{patient.gender}</td>
+								<td className="p-3">{patient.phone}</td>
+								<td className="p-3">{patient.medicalAidName}</td>
 							</tr>
 						))}
 					</tbody>
