@@ -20,7 +20,6 @@ interface Invoice {
 	id: string;
 	patientName: string;
 	amount: number;
-	status: "Paid" | "Unpaid";
 }
 
 const Dashboard: React.FC = () => {
@@ -52,8 +51,8 @@ const Dashboard: React.FC = () => {
 	]);
 
 	const [invoices] = useState<Invoice[]>([
-		{ id: "inv1", patientName: "John Doe", amount: 500, status: "Unpaid" },
-		{ id: "inv2", patientName: "Jane Smith", amount: 750, status: "Paid" },
+		{ id: "inv1", patientName: "John Doe", amount: 500 },
+		{ id: "inv2", patientName: "Jane Smith", amount: 750 },
 	]);
 
 	return (
@@ -86,11 +85,11 @@ const Dashboard: React.FC = () => {
 							Todays Appointments: {appointments.length}
 						</p>
 						<div className="flex justify-between">
-							<span className="text-yellow-600">
+							<span className="px-2 py-1 rounded bg-yellow-100 text-yellow-800">
 								Scheduled:{" "}
 								{appointments.filter((a) => a.status === "Scheduled").length}
 							</span>
-							<span className="text-blue-600">
+							<span className="px-2 py-1 rounded bg-blue-100 text-blue-800">
 								In Progress:{" "}
 								{appointments.filter((a) => a.status === "In Progress").length}
 							</span>
@@ -106,14 +105,6 @@ const Dashboard: React.FC = () => {
 					</div>
 					<div className="space-y-2">
 						<p className="text-gray-600">Total Invoices: {invoices.length}</p>
-						<div className="flex justify-between">
-							<span className="text-green-600">
-								Paid: {invoices.filter((i) => i.status === "Paid").length}
-							</span>
-							<span className="text-red-600">
-								Unpaid: {invoices.filter((i) => i.status === "Unpaid").length}
-							</span>
-						</div>
 						<p className="text-gray-600">
 							Total Revenue: R
 							{invoices.reduce((sum, inv) => sum + inv.amount, 0)}
@@ -131,7 +122,7 @@ const Dashboard: React.FC = () => {
 					</div>
 					<div className="space-y-4">
 						<button
-							className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+							className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
 							onClick={() => {
 								// TODO Add New Patient logic
 							}}
@@ -139,7 +130,7 @@ const Dashboard: React.FC = () => {
 							Add New Patient
 						</button>
 						<button
-							className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
+							className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition"
 							onClick={() => {
 								// TODO Schedule Appointment logic
 							}}
@@ -153,7 +144,7 @@ const Dashboard: React.FC = () => {
 			{/* Recent Appointments Table */}
 			<div className="mt-8 rounded-lg p-6">
 				<h2 className="text-xl font-semibold text-gray-700 mb-4">
-					Todays Appointments
+					Today&lsquo;s Appointments
 				</h2>
 				<table className="w-full rounded-t-lg">
 					<thead className="bg-gray-200 ">
