@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import PatientForm from "../components/PatientForm";
 
 export default function Form() {

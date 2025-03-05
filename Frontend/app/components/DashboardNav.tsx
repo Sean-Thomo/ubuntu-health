@@ -94,10 +94,10 @@ export default function DashboardNav() {
 							);
 						})}
 					</ul>
-					<div className="p-4 border-t border-gray-200">
+					<div className="p-4 border-gray-200">
 						<Link
 							href="new-appointment"
-							className="w-full py-2 bg-blue-500 text-white rounded-lg
+							className="w-full py-2 px-4 bg-blue-500 text-white rounded-lg
                             hover:bg-blue-600 transition-colors"
 						>
 							New Appointment
