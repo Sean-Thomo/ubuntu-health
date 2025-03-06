@@ -28,7 +28,7 @@ export default function PatientsCard() {
 
 	if (isLoading) {
 		return (
-			<div className="min-h-screen flex items-center justify-center">
+			<div className="flex items-center justify-center">
 				<p className="text-xl text-gray-600">Loading Data...</p>
 			</div>
 		);
@@ -36,7 +36,7 @@ export default function PatientsCard() {
 
 	if (error) {
 		return (
-			<div className="min-h-screen flex items-center justify-center">
+			<div className="flex items-center justify-center">
 				<p className="text-xl text-red-600">Error loading patients</p>
 			</div>
 		);

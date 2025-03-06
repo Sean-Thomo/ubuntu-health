@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Calendar, Users, CreditCard, Clipboard } from "lucide-react";
 import QuickActions from "./QuickActionsCard";
 import PatientsCard from "./PatientsCard";
+import AppointmentsCard from "./AppointmentsCard";
 
 interface Patient {
 	id: string;
@@ -79,21 +80,7 @@ const Dashboard: React.FC = () => {
 						</h2>
 						<Calendar className="text-blue-600" />
 					</div>
-					<div className="space-y-2">
-						<p className="text-gray-600">
-							Todays Appointments: {appointments.length}
-						</p>
-						<div className="flex justify-between">
-							<span className="px-2 py-1 rounded bg-yellow-100 text-yellow-800">
-								Scheduled:{" "}
-								{appointments.filter((a) => a.status === "Scheduled").length}
-							</span>
-							<span className="px-2 py-1 rounded bg-blue-100 text-blue-800">
-								In Progress:{" "}
-								{appointments.filter((a) => a.status === "In Progress").length}
-							</span>
-						</div>
-					</div>
+					<AppointmentsCard />
 				</div>
 
 				{/* Invoicing Overview */}

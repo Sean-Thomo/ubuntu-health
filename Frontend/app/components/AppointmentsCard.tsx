@@ -26,6 +26,8 @@ export default function AppointmentsCard() {
 				setIsLoading(false);
 			}
 		};
+
+		fetchAppointments();
 	});
 
 	if (isLoading) {

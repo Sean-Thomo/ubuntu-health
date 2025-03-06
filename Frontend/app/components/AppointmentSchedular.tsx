@@ -40,7 +40,7 @@ export default function AppointmentScheduler() {
 				formik.resetForm();
 			} catch (err) {
 				console.error(`Error scheduling appointment: ${err}`);
-				toast.error(`Something went wrong: ${err}`);
+				toast.error(`${err}.`);
 			}
 		},
 	});

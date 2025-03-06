@@ -60,9 +60,9 @@ export default function PatientForm() {
 
 				toast.success("Form submitted successfully!");
 				formik.resetForm();
-			} catch (e) {
-				console.error(`Error submitting form: ${e}.`);
-				toast.error(`Something went wrong, ${e}.`);
+			} catch (err) {
+				console.error(`Error submitting form: ${err}.`);
+				toast.error(`${err}.`);
 			}
 		},
 	});
