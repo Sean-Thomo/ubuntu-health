@@ -28,9 +28,7 @@ const PatientTable: React.FC = () => {
 				setPatients(data);
 				setIsLoading(false);
 			} catch (err) {
-				setError(
-					err instanceof Error ? err.message : "An unknown error occurred"
-				);
+				console.error(`Error fetching patients: ${err}`);
 				setIsLoading(false);
 			}
 		};

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Calendar, Users, CreditCard, Clipboard } from "lucide-react";
-import Link from "next/link";
-import QuickActions from "./QuickActions";
+import QuickActions from "./QuickActionsCard";
+import PatientsCard from "./PatientsCard";
 
 interface Patient {
 	id: string;
@@ -68,10 +68,7 @@ const Dashboard: React.FC = () => {
 						<h2 className="text-xl font-semibold text-gray-700">Patients</h2>
 						<Users className="text-blue-500" />
 					</div>
-					<div className="space-y-2">
-						<p className="text-gray-600">Total Patients: {patients.length}</p>
-						<p className="text-gray-600">New This Week: 2</p>
-					</div>
+					<PatientsCard />
 				</div>
 
 				{/* Appointments Overview */}

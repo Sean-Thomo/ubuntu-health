@@ -38,9 +38,9 @@ export default function AppointmentScheduler() {
 
 				toast.success("Appointment scheduled successfully!");
 				formik.resetForm();
-			} catch (e) {
-				console.error(`Error scheduling appointment: ${e}`);
-				toast.error(`Something went wrong: ${e}`);
+			} catch (err) {
+				console.error(`Error scheduling appointment: ${err}`);
+				toast.error(`Something went wrong: ${err}`);
 			}
 		},
 	});

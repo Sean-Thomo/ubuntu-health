@@ -31,9 +31,9 @@ export default function WaitingList() {
 				});
 				toast.success("Thank you for joining the waiting list!");
 				formik.resetForm();
-			} catch (e) {
-				console.error(`Error adding document: ${e}.`);
-				toast.error(`Something went wrong, ${e}.`);
+			} catch (err) {
+				console.error(`Error adding document: ${err}.`);
+				toast.error(`Something went wrong, ${err}.`);
 			}
 		},
 	});

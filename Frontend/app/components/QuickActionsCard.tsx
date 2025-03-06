@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PatientForm from "./PatientForm";
 import AppointmentScheduler from "./AppointmentSchedular";
 
-export default function QuickActions() {
+export default function QuickActionsCard() {
 	const [activeModal, setActiveModal] = useState("");
 
 	const handleCloseModal = () => setActiveModal("");
