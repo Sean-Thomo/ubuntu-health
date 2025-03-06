@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 export default function InvoicesCard() {
-	const [invoices, setInvoices] = useState([]);
+	interface Invoice {
+		amount: number;
+	}
+
+	const [invoices, setInvoices] = useState<Invoice[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 
@@ -38,7 +42,7 @@ export default function InvoicesCard() {
 		<div className="space-y-2">
 			<p className="text-gray-600">Total Invoices: {invoices.length}</p>
 			<p className="text-gray-600">
-				{/* Total Revenue: R{invoices.reduce((sum, inv) => sum + inv.amount, 0)} */}
+				Total Revenue: R{invoices.reduce((sum, inv) => sum + inv.amount, 0)}
 				Total Revenue: R
 			</p>
 		</div>
