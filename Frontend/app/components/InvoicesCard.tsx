@@ -43,7 +43,6 @@ export default function InvoicesCard() {
 			<p className="text-gray-600">Total Invoices: {invoices.length}</p>
 			<p className="text-gray-600">
 				Total Revenue: R{invoices.reduce((sum, inv) => sum + inv.amount, 0)}
-				Total Revenue: R
 			</p>
 		</div>
 	);
