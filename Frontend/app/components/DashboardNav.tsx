@@ -10,9 +10,13 @@ import {
 	Menu,
 	X,
 } from "lucide-react";
+import PatientForm from "./PatientForm";
+import AppointmentScheduler from "./AppointmentSchedular";
 
 export default function DashboardNav() {
 	const [isOpen, setIsOpen] = useState(false);
+	const [activeModal, setActiveModal] = useState("");
+	const handleCloseModal = () => setActiveModal("");
 
 	const navItems = [
 		{
@@ -62,8 +66,9 @@ export default function DashboardNav() {
 
 			<nav
 				className={`
-                    fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out
-                    md:relative md:translate-x-0 md:w-full md:max-w-xs md:shadow-none
+                    fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform
+                    duration-300 ease-in-out md:relative md:translate-x-0 md:w-full md:max-w-xs 
+                    md:shadow-none
                     ${isOpen ? "translate-x-0" : "-translate-x-full"}
                     z-40`}
 			>
@@ -94,14 +99,21 @@ export default function DashboardNav() {
 							);
 						})}
 					</ul>
-					<div className="p-4 border-gray-200">
-						<Link
-							href="new-appointment"
-							className="w-full py-2 px-4 bg-blue-500 text-white rounded-lg
-                            hover:bg-blue-600 transition-colors"
+					<div className="flex items-center flex-grow flex-col">
+						<button
+							onClick={() => setActiveModal("addPatient")}
+							className="w-4/5 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600
+                            transition mb-4"
 						>
-							New Appointment
-						</Link>
+							Add New Patient
+						</button>
+
+						<button
+							onClick={() => setActiveModal("scheduleAppointment")}
+							className="w-4/5 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition"
+						>
+							Schedule Appointment
+						</button>
 					</div>
 				</div>
 			</nav>
@@ -110,6 +122,23 @@ export default function DashboardNav() {
 					className="fixed inset-0 bg-black/50 z-30 md:hidden"
 					onClick={() => setIsOpen(false)}
 				/>
+			)}
+
+			{/* Modal Overlay */}
+			{activeModal && (
+				<div className="fixed inset-0 backdrop-blur-lg flex items-center justify-center z-50">
+					<div className="bg-white p-6 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative m-0">
+						<button
+							onClick={handleCloseModal}
+							className="absolute top-4 right-4 text-2xl font-bold"
+						>
+							&times;
+						</button>
+
+						{activeModal === "addPatient" && <PatientForm />}
+						{activeModal === "scheduleAppointment" && <AppointmentScheduler />}
+					</div>
+				</div>
 			)}
 		</>
 	);
