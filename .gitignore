@@ -126,5 +126,5 @@ wwwroot/
 _ReSharper*/
 *.[Rr]e[Ss]harper
 
-app.db/
+Backend/App.db
 >>>>>>> patient-reg
