@@ -3,6 +3,7 @@ import { Calendar, Users, CreditCard, Clipboard } from "lucide-react";
 import QuickActions from "./QuickActionsCard";
 import PatientsCard from "./PatientsCard";
 import AppointmentsCard from "./AppointmentsCard";
+import InvoicesCard from "./InvoicesCard";
 
 interface Patient {
 	id: string;
@@ -89,13 +90,7 @@ const Dashboard: React.FC = () => {
 						<h2 className="text-xl font-semibold text-gray-700">Invoicing</h2>
 						<CreditCard className="text-blue-600" />
 					</div>
-					<div className="space-y-2">
-						<p className="text-gray-600">Total Invoices: {invoices.length}</p>
-						<p className="text-gray-600">
-							Total Revenue: R
-							{invoices.reduce((sum, inv) => sum + inv.amount, 0)}
-						</p>
-					</div>
+					<InvoicesCard />
 				</div>
 
 				{/* Quick Actions */}
