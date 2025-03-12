@@ -43,7 +43,7 @@ export default function AppointmentsTableCard() {
 	}
 
 	return (
-		<table className="w-full rounded-t-lg">
+		<table className="w-full">
 			<thead className="bg-gray-200 ">
 				<tr>
 					<th className="p-3 text-left">Patient</th>

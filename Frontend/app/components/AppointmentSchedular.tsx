@@ -265,10 +265,10 @@ export default function AppointmentScheduler() {
 			</div>
 
 			{/* Submit Button */}
-			<div>
+			<div className="flex justify-center ">
 				<button
 					type="submit"
-					className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+					className="bg-blue-500 text-white py-2.5 px-5 rounded hover:bg-blue-600 transition"
 				>
 					Schedule Appointment
 				</button>
