@@ -11,14 +11,14 @@ export default function QuickActionsCard() {
 		<div className="space-y-4">
 			<button
 				onClick={() => setActiveModal("addPatient")}
-				className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
+				className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
 			>
 				Add New Patient
 			</button>
 
 			<button
 				onClick={() => setActiveModal("scheduleAppointment")}
-				className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition"
+				className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
 			>
 				Schedule Appointment
 			</button>

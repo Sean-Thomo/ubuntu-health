@@ -102,7 +102,7 @@ export default function DashboardNav() {
 					<div className="flex items-center flex-grow flex-col">
 						<button
 							onClick={() => setActiveModal("addPatient")}
-							className="w-4/5 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600
+							className="w-4/5 bg-blue-500 text-white py-2 rounded hover:bg-blue-600
                             transition mb-4"
 						>
 							Add New Patient
@@ -110,7 +110,7 @@ export default function DashboardNav() {
 
 						<button
 							onClick={() => setActiveModal("scheduleAppointment")}
-							className="w-4/5 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition"
+							className="w-4/5 bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
 						>
 							Schedule Appointment
 						</button>
