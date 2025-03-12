@@ -35,11 +35,11 @@ export default function AppointmentsTableCard() {
 	});
 
 	if (isLoading) {
-		return <div className="p-4">Loading invoice data...</div>;
+		return <div className="p-4">Loading appointments data...</div>;
 	}
 
 	if (error) {
-		return <div className="p-4 text-red-600">Error loading invoices</div>;
+		return <div className="p-4 text-red-600">Error loading appointments</div>;
 	}
 
 	return (
