@@ -3,24 +3,51 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast, ToastContainer } from "react-toastify";
 
+const APPOINTMENT_TYPES = [
+	{ value: "initial-consultation", label: "Initial Consultation" },
+	{ value: "follow-up", label: "Follow-up" },
+	{ value: "annual-physical", label: "Annual Physical" },
+	{ value: "urgent-care", label: "Urgent Care" },
+	{ value: "specialist-referral", label: "Specialist Referral" },
+	{ value: "procedure", label: "Procedure" },
+	{ value: "lab-work", label: "Lab Work" },
+	{ value: "vaccination", label: "Vaccination" },
+	{ value: "preventive-care", label: "Preventive Care" },
+	{ value: "chronic-disease", label: "Chronic Disease Management" },
+	{ value: "mental-health", label: "Mental Health" },
+	{ value: "telehealth", label: "Telehealth" },
+	{ value: "pre-operative", label: "Pre-operative" },
+	{ value: "post-operative", label: "Post-operative" },
+	{ value: "physical-therapy", label: "Physical Therapy" },
+	{ value: "other", label: "Other" },
+];
+
+interface AppointmentTypeDropdownProps {
+	formik: any; // You might want to type this properly with Formik types
+	initialValue?: string;
+}
+
 export default function AppointmentScheduler() {
+	const [appointmentType, setAppointmentType] = useState("");
+	const [otherType, setOtherType] = useState("");
 	const formik = useFormik({
 		initialValues: {
-			patientName: "",
-			email: "",
-			phone: "",
+			patientFirstName: "",
+			patientLastName: "",
+			type: "",
+			status: "",
 			date: "",
 			time: "",
-			reason: "",
+			notes: "",
 		},
 		validationSchema: Yup.object({
 			patientName: Yup.string().required("Patient name is required"),
-			email: Yup.string()
-				.email("Invalid email address")
-				.required("Email is required"),
-			phone: Yup.string().required("Phone number is required"),
+			type: Yup.string()
+				.email("Invalid type address")
+				.required("type is required"),
 			date: Yup.date().required("Appointment date is required"),
 			time: Yup.string().required("Appointment time is required"),
+			appointmentType: Yup.string().required("Appointment type is required"),
 		}),
 		onSubmit: async (values) => {
 			try {
@@ -50,71 +77,130 @@ export default function AppointmentScheduler() {
 			<h2 className="text-2xl font-bold mb-4">Schedule Appointment</h2>
 
 			{/* Patient Name */}
-			<div>
-				<label
-					htmlFor="patientName"
-					className="block text-sm font-medium text-gray-700"
-				>
-					Patient Name
-				</label>
-				<input
-					type="text"
-					id="patientName"
-					name="patientName"
-					value={formik.values.patientName}
-					onChange={formik.handleChange}
-					onBlur={formik.handleBlur}
-					className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-				/>
-				{formik.touched.patientName && formik.errors.patientName && (
-					<p className="text-red-500 text-xs mt-1">
-						{formik.errors.patientName}
-					</p>
-				)}
-			</div>
+			<div className="grid md:grid-cols-2 md:gap-6 mb-4">
+				<div>
+					<label
+						htmlFor="patientFirstName"
+						className="block text-sm font-medium text-gray-700"
+					>
+						First Name
+					</label>
+					<input
+						type="text"
+						id="patientFirstName"
+						name="patientFirstName"
+						value={formik.values.patientFirstName}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+					/>
+					{formik.touched.patientFirstName &&
+						formik.errors.patientFirstName && (
+							<p className="text-red-500 text-xs mt-1">
+								{formik.errors.patientFirstName}
+							</p>
+						)}
+				</div>
+				<div>
+					<label
+						htmlFor="patientLastName"
+						className="block text-sm font-medium text-gray-700"
+					>
+						Last Name
+					</label>
+					<input
+						type="text"
+						id="patientLastName"
+						name="patientLastName"
+						value={formik.values.patientLastName}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+					/>
+					{formik.touched.patientLastName && formik.errors.patientLastName && (
+						<p className="text-red-500 text-xs mt-1">
+							{formik.errors.patientLastName}
+						</p>
+					)}
+				</div>
 
-			{/* Email */}
-			<div>
-				<label
-					htmlFor="email"
-					className="block text-sm font-medium text-gray-700"
-				>
-					Email
-				</label>
-				<input
-					type="email"
-					id="email"
-					name="email"
-					value={formik.values.email}
-					onChange={formik.handleChange}
-					onBlur={formik.handleBlur}
-					className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-				/>
-				{formik.touched.email && formik.errors.email && (
-					<p className="text-red-500 text-xs mt-1">{formik.errors.email}</p>
-				)}
-			</div>
+				{/* Type */}
+				<div className="w-[18rem] md:w-[20rem]">
+					<label
+						htmlFor="appointmentType"
+						className="block text-sm font-medium text-gray-700"
+					>
+						Appointment Type
+					</label>
+					<div>
+						<select
+							id="appointmentType"
+							name="appointmentType"
+							className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+							value={appointmentType}
+							onChange={(e) => {
+								const value = e.target.value;
+								setAppointmentType(value);
+								formik.setFieldValue("appointmentType", value);
+							}}
+						>
+							<option value="" disabled>
+								Select appointment type
+							</option>
+							{APPOINTMENT_TYPES.map((type) => (
+								<option key={type.value} value={type.value}>
+									{type.label}
+								</option>
+							))}
+						</select>
+					</div>
 
-			{/* Phone */}
-			<div>
-				<label
-					htmlFor="phone"
-					className="block text-sm font-medium text-gray-700"
-				>
-					Phone Number
-				</label>
-				<input
-					type="tel"
-					id="phone"
-					name="phone"
-					value={formik.values.phone}
-					onChange={formik.handleChange}
-					onBlur={formik.handleBlur}
-					className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-				/>
-				{formik.touched.phone && formik.errors.phone && (
-					<p className="text-red-500 text-xs mt-1">{formik.errors.phone}</p>
-				)}
+					{/* Show text input for "Other" appointment type */}
+					{appointmentType === "other" && (
+						<div className="mt-2">
+							<label
+								htmlFor="otherAppointmentType"
+								className="block text-sm font-medium text-gray-700"
+							>
+								Specify other appointment type
+							</label>
+							<input
+								type="text"
+								id="otherAppointmentType"
+								name="otherAppointmentType"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+								value={otherType}
+								onChange={(e) => {
+									setOtherType(e.target.value);
+									formik.setFieldValue("otherAppointmentType", e.target.value);
+								}}
+								placeholder="Please specify appointment type"
+							/>
+						</div>
+					)}
+				</div>
+
+				{/* status */}
+				<div>
+					<label
+						htmlFor="status"
+						className="block text-sm font-medium text-gray-700"
+					>
+						Status
+					</label>
+					<input
+						type="tel"
+						id="status"
+						name="status"
+						value={formik.values.status}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+					/>
+					{formik.touched.status && formik.errors.status && (
+						<p className="text-red-500 text-xs mt-1">{formik.errors.status}</p>
+					)}
+				</div>
 			</div>
 
 			{/* Date */}
@@ -161,18 +247,18 @@ export default function AppointmentScheduler() {
 				)}
 			</div>
 
-			{/* Reason (Optional) */}
+			{/* Notes (Optional) */}
 			<div>
 				<label
-					htmlFor="reason"
+					htmlFor="notes"
 					className="block text-sm font-medium text-gray-700"
 				>
 					Reason for Appointment (Optional)
 				</label>
 				<textarea
-					id="reason"
-					name="reason"
-					value={formik.values.reason}
+					id="notes"
+					name="notes"
+					value={formik.values.notes}
 					onChange={formik.handleChange}
 					className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 				/>

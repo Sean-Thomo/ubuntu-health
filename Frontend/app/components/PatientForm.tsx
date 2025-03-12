@@ -89,7 +89,7 @@ export default function PatientForm() {
 								value={formik.values.firstName}
 								onChange={formik.handleChange}
 								placeholder="John"
-								className="rounded-sm border p-2.5 text-sm w-full focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -109,8 +109,7 @@ export default function PatientForm() {
 								value={formik.values.lastName}
 								onChange={formik.handleChange}
 								placeholder="Doe"
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -128,8 +127,7 @@ export default function PatientForm() {
 								id="idNumber"
 								value={formik.values.idNumber}
 								onChange={formik.handleChange}
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -143,16 +141,18 @@ export default function PatientForm() {
 							</label>
 							<div>
 								<select
-									className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+									className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 									value={sex}
 									onChange={(e) => {
 										setSex(e.target.value);
 										formik.setFieldValue("gender", e.target.value);
 									}}
 								>
-									<option value="Male">Male</option>
-									<option value="Female">Female</option>
+									<option value="" disabled>
+										Select Sex
+									</option>
+									<option value="male">Male</option>
+									<option value="female">Female</option>
 								</select>
 							</div>
 						</div>
@@ -177,8 +177,7 @@ export default function PatientForm() {
 								value={formik.values.phone}
 								onChange={formik.handleChange}
 								placeholder="000 000 0000"
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -199,8 +198,7 @@ export default function PatientForm() {
 								value={formik.values.email}
 								onChange={formik.handleChange}
 								placeholder="johndoe@email.com"
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -224,8 +222,7 @@ export default function PatientForm() {
 								id="street"
 								value={formik.values.street}
 								onChange={formik.handleChange}
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -245,8 +242,7 @@ export default function PatientForm() {
 								id="streetTwo"
 								value={formik.values.streetTwo}
 								onChange={formik.handleChange}
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -268,8 +264,7 @@ export default function PatientForm() {
 								id="city"
 								value={formik.values.city}
 								onChange={formik.handleChange}
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -289,8 +284,7 @@ export default function PatientForm() {
 								id="province"
 								value={formik.values.province}
 								onChange={formik.handleChange}
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -314,8 +308,7 @@ export default function PatientForm() {
 								value={formik.values.emergencyContactFirstName}
 								onChange={formik.handleChange}
 								placeholder="Jane"
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -336,8 +329,7 @@ export default function PatientForm() {
 								value={formik.values.emergencyContactLastName}
 								onChange={formik.handleChange}
 								placeholder="Doe"
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -357,8 +349,7 @@ export default function PatientForm() {
 								value={formik.values.emergencyContactRelationship}
 								onChange={formik.handleChange}
 								placeholder="Mother"
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -378,8 +369,7 @@ export default function PatientForm() {
 								id="emergencyContactPhone"
 								value={formik.values.emergencyContactPhone}
 								onChange={formik.handleChange}
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -403,8 +393,7 @@ export default function PatientForm() {
 								value={formik.values.medicalAidName}
 								onChange={formik.handleChange}
 								placeholder="Discovery"
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -425,8 +414,7 @@ export default function PatientForm() {
 								value={formik.values.membershipNumber}
 								onChange={formik.handleChange}
 								placeholder="123456789"
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -448,8 +436,7 @@ export default function PatientForm() {
 								id="allergies"
 								value={formik.values.allergies}
 								onChange={formik.handleChange}
-								className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+								className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							/>
 						</div>
 					</div>
@@ -465,8 +452,7 @@ export default function PatientForm() {
 						<div className="mt-2 w-[18rem] md:w-[20rem]">
 							<div>
 								<select
-									className="rounded-sm border p-2.5 text-sm w-full
-                                        focus:border-primary-500"
+									className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 									value={currentMeds}
 									onChange={(e) => {
 										setCurrentMeds(e.target.value);
