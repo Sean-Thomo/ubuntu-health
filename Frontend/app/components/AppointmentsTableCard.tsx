@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 export default function AppointmentsTableCard() {
 	interface Appointment {
 		id: number;
-		patientName: string;
-		time: string;
-		type: string;
+		patientFirstName: string;
+		patientLastName: string;
+		appointmentDate: string;
+		appointmentTime: string;
+		appointmentType: string;
 		status: string;
 	}
 
@@ -47,6 +49,7 @@ export default function AppointmentsTableCard() {
 			<thead className="bg-gray-200 ">
 				<tr>
 					<th className="p-3 text-left">Patient</th>
+					<th className="p-3 text-left">Date</th>
 					<th className="p-3 text-left">Time</th>
 					<th className="p-3 text-left">Type</th>
 					<th className="p-3 text-left">Status</th>
@@ -55,9 +58,13 @@ export default function AppointmentsTableCard() {
 			<tbody>
 				{appointments.map((appointment) => (
 					<tr key={appointment.id} className="border-b">
-						<td className="p-3">{appointment.patientName}</td>
-						<td className="p-3">{appointment.time}</td>
-						<td className="p-3">{appointment.type}</td>
+						<td className="p-3">
+							{appointment.patientFirstName} {appointment.patientLastName}
+						</td>
+						<td className="p-3">{appointment.appointmentDate}</td>
+
+						<td className="p-3">{appointment.appointmentTime}</td>
+						<td className="p-3">{appointment.appointmentType}</td>
 						<td className="p-3">
 							<span
 								className={`
