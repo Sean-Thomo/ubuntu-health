@@ -150,9 +150,6 @@ export default function AppointmentScheduler() {
 								formik.setFieldValue("appointmentType", e.target.value);
 							}}
 						>
-							<option value="" disabled>
-								Select appointment type
-							</option>
 							{APPOINTMENT_TYPES.map((type) => (
 								<option key={type.value} value={type.value}>
 									{type.label}
