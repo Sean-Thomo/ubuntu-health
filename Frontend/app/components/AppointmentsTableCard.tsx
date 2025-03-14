@@ -16,7 +16,7 @@ export default function AppointmentsTableCard() {
 	useEffect(() => {
 		const fetchAppointments = async () => {
 			try {
-				const response = await fetch("http://localhost:5290/api/Appointments");
+				const response = await fetch("http://localhost:5290/api/appointments");
 
 				if (!response.ok) {
 					throw new Error(`Failed to fetch appointments: ${response.status}`);
@@ -32,7 +32,7 @@ export default function AppointmentsTableCard() {
 		};
 
 		fetchAppointments();
-	});
+	}, []);
 
 	if (isLoading) {
 		return <div className="p-4">Loading appointments data...</div>;

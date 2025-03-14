@@ -28,7 +28,7 @@ export default function AppointmentsCard() {
 		};
 
 		fetchAppointments();
-	});
+	}, []);
 
 	if (isLoading) {
 		return <div className="p-4">Loading appointments data...</div>;
