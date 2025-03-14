@@ -1,5 +1,5 @@
 "use client";
-import PatientTable from "../components/PatientTable";
+import PatientsTable from "../components/PatientsTable";
 import DashboardNav from "../components/DashboardNav";
 
 export default function Page() {
@@ -11,7 +11,7 @@ export default function Page() {
 				</div>
 			</div>
 			<div className="w-5/6 py-6 pr-4">
-				<PatientTable />
+				<PatientsTable />
 			</div>
 		</div>
 	);

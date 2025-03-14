@@ -10,7 +10,7 @@ interface Patient {
 	medicalAidName: string;
 }
 
-const PatientTable: React.FC = () => {
+const PatientsTable: React.FC = () => {
 	const [patients, setPatients] = useState<Patient[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [error, setError] = useState<string | null>(null);
@@ -73,7 +73,7 @@ const PatientTable: React.FC = () => {
 						{patients.map((patient) => (
 							<tr key={patient.id} className="border-b">
 								<td className="p-3">{`${patient.firstName} ${patient.lastName}`}</td>
-								<td className="p-3">{patient.gender}</td>
+								<td className="p-3">{patient.gender.toUpperCase()}</td>
 								<td className="p-3">{patient.phone}</td>
 								<td className="p-3">{patient.medicalAidName}</td>
 							</tr>
@@ -85,4 +85,4 @@ const PatientTable: React.FC = () => {
 	);
 };
 
-export default PatientTable;
+export default PatientsTable;
