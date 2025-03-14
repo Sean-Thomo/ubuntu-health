@@ -207,7 +207,6 @@ export default function PatientForm() {
 				{/* Address */}
 				<h1 className="font-semibold text-lg pb-2">Address</h1>
 				<div className="grid md:grid-cols-2 md:gap-6 mb-4">
-					{/* Street Address */}
 					<div>
 						<label
 							htmlFor="street"
@@ -227,7 +226,6 @@ export default function PatientForm() {
 						</div>
 					</div>
 
-					{/* Street 2 */}
 					<div>
 						<label
 							htmlFor="streetTwo"
@@ -249,7 +247,6 @@ export default function PatientForm() {
 				</div>
 
 				<div className="grid md:grid-cols-2 md:gap-6 mb-4">
-					{/* City */}
 					<div>
 						<label
 							htmlFor="city"
@@ -269,7 +266,6 @@ export default function PatientForm() {
 						</div>
 					</div>
 
-					{/* Province */}
 					<div>
 						<label
 							htmlFor="province"
@@ -292,7 +288,6 @@ export default function PatientForm() {
 
 				<h1 className="font-semibold text-lg pb-2">Emergency Contact</h1>
 				<div className="grid md:grid-cols-2 md:gap-6 mb-4">
-					{/* First Name */}
 					<div>
 						<label
 							htmlFor="emergencyContactFirstName"
@@ -313,7 +308,6 @@ export default function PatientForm() {
 						</div>
 					</div>
 
-					{/* last Name */}
 					<div>
 						<label
 							htmlFor="emergencyContactLastName"
@@ -354,7 +348,6 @@ export default function PatientForm() {
 						</div>
 					</div>
 
-					{/* Street 2 */}
 					<div>
 						<label
 							htmlFor="emergencyContactPhone"
@@ -377,7 +370,6 @@ export default function PatientForm() {
 
 				<h1 className="font-semibold text-lg pb-2">Medical Aid</h1>
 				<div className="grid md:grid-cols-2 md:gap-6 mb-4">
-					{/* Medical Aid Name */}
 					<div>
 						<label
 							htmlFor="medicalAidName"
@@ -398,7 +390,6 @@ export default function PatientForm() {
 						</div>
 					</div>
 
-					{/* Membersjip Number */}
 					<div>
 						<label
 							htmlFor="membershipNumber"
@@ -422,7 +413,6 @@ export default function PatientForm() {
 
 				<h1 className="font-semibold text-lg pb-2">Additional Information</h1>
 				<div className="grid md:grid-cols-2 md:gap-6 mb-4">
-					{/* Allergies */}
 					<div>
 						<label
 							htmlFor="allergies"
@@ -441,7 +431,6 @@ export default function PatientForm() {
 						</div>
 					</div>
 
-					{/* Medication */}
 					<div>
 						<label
 							htmlFor="currentMedication"
@@ -456,7 +445,7 @@ export default function PatientForm() {
 									value={currentMeds}
 									onChange={(e) => {
 										setCurrentMeds(e.target.value);
-										formik.setFieldValue("currentMedication", e.target.value); // Add this
+										formik.setFieldValue("currentMedication", e.target.value);
 									}}
 								>
 									<option value="Yes">Yes</option>
@@ -466,8 +455,6 @@ export default function PatientForm() {
 						</div>
 					</div>
 				</div>
-
-				{/* End */}
 			</div>
 
 			{/* Submit button */}
@@ -479,7 +466,6 @@ export default function PatientForm() {
 					Submit
 				</button>
 			</div>
-			{/* </div> */}
 			<ToastContainer
 				theme="light"
 				position="top-right"

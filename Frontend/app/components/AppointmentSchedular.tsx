@@ -22,11 +22,6 @@ const APPOINTMENT_TYPES = [
 	{ value: "other", label: "Other" },
 ];
 
-interface AppointmentTypeDropdownProps {
-	formik: any; // You might want to type this properly with Formik types
-	initialValue?: string;
-}
-
 export default function AppointmentScheduler() {
 	const [appointmentType, setAppointmentType] = useState("");
 	const [otherType, setOtherType] = useState("");
