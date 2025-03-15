@@ -1,44 +1,14 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-export default function InvoicesCard() {
-	interface Invoice {
-		amount: number;
-	}
+interface Invoice {
+	amount: number;
+}
 
-	const [invoices, setInvoices] = useState<Invoice[]>([]);
-	const [isLoading, setIsLoading] = useState(true);
-	const [error, setError] = useState<string | null>(null);
+interface InvoicesCardProps {
+	invoices: Invoice[];
+}
 
-	useEffect(() => {
-		const fetchInvoices = async () => {
-			try {
-				const response = await fetch("http://localhost:5290/api/Invoices");
-
-				if (!response.ok) {
-					throw new Error(`Failed to fetch invoices: ${response.status}`);
-				}
-
-				const data = await response.json();
-				setInvoices(data);
-				setIsLoading(false);
-			} catch (err) {
-				console.error(`Error fetching data: ${err}.`);
-				setIsLoading(false);
-			}
-		};
-
-		fetchInvoices();
-	}, []);
-
-	if (isLoading) {
-		return <div className="p-4">Loading invoice data...</div>;
-	}
-
-	if (error) {
-		return <div className="p-4 text-red-600">Error loading invoices</div>;
-	}
-
+const InvoicesCard: React.FC<InvoicesCardProps> = ({ invoices }) => {
 	return (
 		<div className="space-y-2">
 			<p className="text-gray-600">Total Invoices: {invoices.length}</p>
@@ -47,4 +17,6 @@ export default function InvoicesCard() {
 			</p>
 		</div>
 	);
-}
+};
+
+export default InvoicesCard;

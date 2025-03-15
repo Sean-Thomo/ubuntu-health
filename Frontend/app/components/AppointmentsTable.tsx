@@ -1,51 +1,23 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 
-export default function AppointmentsTableCard() {
-	interface Appointment {
-		id: number;
-		patientFirstName: string;
-		patientLastName: string;
-		appointmentDate: string;
-		appointmentTime: string;
-		appointmentType: string;
-		status: string;
-	}
+interface Appointment {
+	id: number;
+	patientFirstName: string;
+	patientLastName: string;
+	appointmentDate: string;
+	appointmentTime: string;
+	appointmentType: string;
+	status: string;
+}
 
-	const [appointments, setAppointments] = useState<Appointment[]>([]);
-	const [isLoading, setIsLoading] = useState(true);
-	const [error, setError] = useState<string | null>(null);
+interface AppointmentsCardProps {
+	appointments: Appointment[];
+}
 
-	useEffect(() => {
-		const fetchAppointments = async () => {
-			try {
-				const response = await fetch("http://localhost:5290/api/appointments");
-
-				if (!response.ok) {
-					throw new Error(`Failed to fetch appointments: ${response.status}`);
-				}
-
-				const data = await response.json();
-				setAppointments(data);
-				setIsLoading(false);
-			} catch (err) {
-				console.error(`Error fetching data: ${err}.`);
-				setIsLoading(false);
-			}
-		};
-
-		fetchAppointments();
-	}, []);
-
-	if (isLoading) {
-		return <div className="p-4">Loading appointments data...</div>;
-	}
-
-	if (error) {
-		return <div className="p-4 text-red-600">Error loading appointments</div>;
-	}
-
+const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
+	appointments,
+}) => {
 	return (
 		<div className="relative overflow-x-auto sm:rounded-tr-lg sm:rounded-tl-lg">
 			<table className="w-full text-sm text-left rtl:text-right bg-gray-50 text-gray-500 dark:text-gray-400">
@@ -114,4 +86,6 @@ export default function AppointmentsTableCard() {
 			</table>
 		</div>
 	);
-}
+};
+
+export default AppointmentsTableCard;
