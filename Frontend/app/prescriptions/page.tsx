@@ -1,5 +1,4 @@
 import DashboardNav from "../components/DashboardNav";
-import PatientsTableCard from "../components/PatientsTableCard";
 
 export default function Page() {
 	return (
@@ -9,9 +8,7 @@ export default function Page() {
 					<DashboardNav />
 				</div>
 			</div>
-			<div className="w-5/6 py-6 pr-4">
-				<PatientsTableCard />
-			</div>
+			<div className="w-5/6 py-6 pr-4"></div>
 		</div>
 	);
 }

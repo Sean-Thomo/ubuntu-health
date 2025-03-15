@@ -1,7 +1,6 @@
-"use client";
 import React from "react";
 import DashboardNav from "../components/DashboardNav";
-import AppointmentsTable from "../components/AppointmentsTable";
+import AppointmentsTable from "../components/AppointmentsTableCard";
 
 export default function Page() {
 	return (

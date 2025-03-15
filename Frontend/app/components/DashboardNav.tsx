@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import {
@@ -11,7 +12,7 @@ import {
 	X,
 } from "lucide-react";
 import PatientForm from "./PatientForm";
-import AppointmentScheduler from "./AppointmentSchedular";
+import AppointmentScheduler from "./AppointmentForm";
 
 export default function DashboardNav() {
 	const [isOpen, setIsOpen] = useState(false);

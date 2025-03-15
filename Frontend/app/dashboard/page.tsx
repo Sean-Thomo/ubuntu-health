@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import DashboardNav from "../components/DashboardNav";
 import Dashboard from "../components/Dashboard";

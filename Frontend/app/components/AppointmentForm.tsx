@@ -38,6 +38,7 @@ export default function AppointmentScheduler() {
 	const [status, setStatus] = useState("");
 	const formik = useFormik({
 		initialValues: {
+			tenantId: 1,
 			patientFirstName: "",
 			patientLastName: "",
 			appointmentDate: "",

@@ -1,12 +1,43 @@
-import React, { useState } from "react";
+import React from "react";
 import { Calendar, Users, CreditCard, Clipboard } from "lucide-react";
 import QuickActions from "./QuickActionsCard";
 import PatientsCard from "./PatientsCard";
 import AppointmentsCard from "./AppointmentsCard";
 import InvoicesCard from "./InvoicesCard";
-import AppointmentsTableCard from "./AppointmentsTableCard";
+import AppointmentsTableCard from "./AppointmentsTable";
+import { GetServerSideProps } from "next";
 
-const Dashboard: React.FC = () => {
+interface Patient {
+	id: number;
+	firstName: string;
+	lastName: string;
+	gender: string;
+	email: string;
+	phone: string;
+	medicalAidName: string;
+}
+
+interface Appointment {
+	id: number;
+	patientFirstName: string;
+	patientLastName: string;
+	appointmentDate: string;
+	appointmentTime: string;
+	appointmentType: string;
+	status: string;
+}
+
+interface DashboardProps {
+	patients: Patient[];
+	appointments: Appointment[];
+	invoices: any[];
+}
+
+const Dashboard: React.FC<DashboardProps> = ({
+	patients,
+	appointments,
+	invoices,
+}) => {
 	return (
 		<div className="min-h-screen">
 			<h1 className="text-3xl font-bold mb-6 text-gray-800">Dashboard</h1>
@@ -18,7 +49,7 @@ const Dashboard: React.FC = () => {
 						<h2 className="text-xl font-semibold text-gray-700">Patients</h2>
 						<Users className="text-blue-500" />
 					</div>
-					<PatientsCard />
+					<PatientsCard patients={patients} />
 				</div>
 
 				{/* Appointments Overview */}
@@ -29,7 +60,7 @@ const Dashboard: React.FC = () => {
 						</h2>
 						<Calendar className="text-blue-600" />
 					</div>
-					<AppointmentsCard />
+					<AppointmentsCard appointments={appointments} />
 				</div>
 
 				{/* Invoicing Overview */}
@@ -38,7 +69,7 @@ const Dashboard: React.FC = () => {
 						<h2 className="text-xl font-semibold text-gray-700">Invoicing</h2>
 						<CreditCard className="text-blue-600" />
 					</div>
-					<InvoicesCard />
+					<InvoicesCard invoices={invoices} />
 				</div>
 
 				{/* Quick Actions */}
@@ -58,7 +89,7 @@ const Dashboard: React.FC = () => {
 				<h2 className="text-xl font-semibold text-gray-700 mb-4">
 					Today&lsquo;s Appointments
 				</h2>
-				<AppointmentsTableCard />
+				<AppointmentsTableCard appointments={appointments} />
 			</div>
 		</div>
 	);

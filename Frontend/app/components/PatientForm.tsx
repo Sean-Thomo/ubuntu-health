@@ -11,6 +11,7 @@ export default function PatientForm() {
 
 	const formik = useFormik({
 		initialValues: {
+			tenantId: 1,
 			firstName: "",
 			lastName: "",
 			idNumber: "",
