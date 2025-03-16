@@ -1,5 +1,4 @@
-"use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 interface Patient {
 	id: number;
@@ -11,48 +10,11 @@ interface Patient {
 	medicalAidName: string;
 }
 
-const PatientsTable: React.FC = () => {
-	const [patients, setPatients] = useState<Patient[]>([]);
-	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [error, setError] = useState<string | null>(null);
+interface PatientsTableProps {
+	patients: Patient[];
+}
 
-	useEffect(() => {
-		const fetchPatients = async () => {
-			try {
-				const response = await fetch("http://localhost:5290/api/Patients");
-
-				if (!response.ok) {
-					throw new Error("Failed to fetch patients");
-				}
-
-				const data = await response.json();
-				setPatients(data);
-				setIsLoading(false);
-			} catch (err) {
-				console.error(`Error fetching patients: ${err}`);
-				setIsLoading(false);
-			}
-		};
-
-		fetchPatients();
-	}, []);
-
-	if (isLoading) {
-		return (
-			<div className="min-h-screen flex items-center justify-center">
-				<p className="text-xl text-gray-600">Loading patients...</p>
-			</div>
-		);
-	}
-
-	if (error) {
-		return (
-			<div className="min-h-screen flex items-center justify-center">
-				<p className="text-xl text-red-600">Error: {error}</p>
-			</div>
-		);
-	}
-
+const PatientsTable: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 	return (
 		<div className="relative overflow-x-auto sm:rounded-tr-lg sm:rounded-tl-lg">
 			<table className="w-full text-sm text-left rtl:text-right bg-gray-50 text-gray-500 dark:text-gray-400">

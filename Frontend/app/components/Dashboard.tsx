@@ -4,37 +4,10 @@ import { Calendar, Users, CreditCard, Clipboard } from "lucide-react";
 import QuickActions from "./QuickActionsCard";
 import PatientsCard from "./PatientsCard";
 import AppointmentsCard from "./AppointmentsCard";
-import InvoicesCard from "./InvoicesCard";
+// import InvoicesCard from "./InvoicesCard";
 import AppointmentsTableCard from "./AppointmentsTable";
 import useApiData from "../../hooks/useApiData";
 import { Appointment, Invoice, Patient } from "@/types";
-// import { GetServerSideProps } from "next";
-
-// interface Patient {
-// 	id: number;
-// 	firstName: string;
-// 	lastName: string;
-// 	gender: string;
-// 	email: string;
-// 	phone: string;
-// 	medicalAidName: string;
-// }
-
-// interface Appointment {
-// 	id: number;
-// 	patientFirstName: string;
-// 	patientLastName: string;
-// 	appointmentDate: string;
-// 	appointmentTime: string;
-// 	appointmentType: string;
-// 	status: string;
-// }
-
-// interface DashboardProps {
-// 	patients: Patient[];
-// 	appointments: Appointment[];
-// 	invoices: any[];
-// }
 
 const Dashboard: React.FC = () => {
 	const {

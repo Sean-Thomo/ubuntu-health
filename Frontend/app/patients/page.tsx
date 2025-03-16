@@ -1,7 +1,8 @@
+import React from "react";
 import DashboardNav from "../components/DashboardNav";
 import PatientsTableCard from "../components/PatientsTableCard";
 
-export default function Page() {
+const Page: React.FC = () => {
 	return (
 		<div className="flex flex-row gap-4 h-screen">
 			<div className="w-1/6">
@@ -14,4 +15,6 @@ export default function Page() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default Page;
