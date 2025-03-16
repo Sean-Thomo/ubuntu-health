@@ -12,7 +12,7 @@ const PatientsTableCard: React.FC = () => {
 	} = useApiData<Patient>("Patients");
 
 	const isLoading = patientsLoading;
-	const hasError = patientsError;
+	const error = patientsError;
 
 	if (isLoading) {
 		return (
@@ -22,7 +22,7 @@ const PatientsTableCard: React.FC = () => {
 		);
 	}
 
-	if (hasError) {
+	if (error) {
 		return (
 			<div className="text-red-600 p-4">
 				Error loading dashboard data. Please try again later.

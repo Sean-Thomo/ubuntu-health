@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
 	// } = useApiData<Invoice>("Invoices");
 
 	const isLoading = patientsLoading || appointmentsLoading;
-	const hasError = patientsError || appointmentsError;
+	const error = patientsError || appointmentsError;
 
 	if (isLoading) {
 		return (
@@ -39,7 +39,7 @@ const Dashboard: React.FC = () => {
 		);
 	}
 
-	if (hasError) {
+	if (error) {
 		return (
 			<div className="text-red-600 p-4">
 				Error loading dashboard data. Please try again later.
