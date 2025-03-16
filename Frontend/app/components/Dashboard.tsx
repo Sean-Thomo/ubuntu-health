@@ -97,15 +97,15 @@ const Dashboard: React.FC<DashboardProps> = ({
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	try {
-		const patientResponse = await fetch("https://localhost:5290/api/Patients");
+		const baseUrl = "https://localhost:5290/api";
+
+		const patientResponse = await fetch(`${baseUrl}/Patients`);
 		const patients: Patient[] = await patientResponse.json();
 
-		const appointmentsResponse = await fetch(
-			"http://localhost:5290/api/Appointments"
-		);
+		const appointmentsResponse = await fetch(`${baseUrl}/Appointments`);
 		const appointments: Appointment[] = await appointmentsResponse.json();
 
-		const invoicesResponse = await fetch("http://localhost:5290/api/Invoices");
+		const invoicesResponse = await fetch(`${baseUrl}/Invoices`);
 		const invoices = await invoicesResponse.json();
 
 		return {
