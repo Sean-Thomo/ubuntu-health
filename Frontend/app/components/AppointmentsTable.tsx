@@ -16,7 +16,7 @@ interface AppointmentsCardProps {
 }
 
 const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
-	appointments,
+	appointments = [],
 }) => {
 	return (
 		<div className="relative overflow-x-auto sm:rounded-tr-lg sm:rounded-tl-lg">

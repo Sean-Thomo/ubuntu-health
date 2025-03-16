@@ -95,4 +95,36 @@ const Dashboard: React.FC<DashboardProps> = ({
 	);
 };
 
+export const getServerSideProps: GetServerSideProps = async () => {
+	try {
+		const patientResponse = await fetch("https://localhost:5290/api/Patients");
+		const patients: Patient[] = await patientResponse.json();
+
+		const appointmentsResponse = await fetch(
+			"http://localhost:5290/api/Appointments"
+		);
+		const appointments: Appointment[] = await appointmentsResponse.json();
+
+		const invoicesResponse = await fetch("http://localhost:5290/api/Invoices");
+		const invoices = await invoicesResponse.json();
+
+		return {
+			props: {
+				patients,
+				appointments,
+				invoices,
+			},
+		};
+	} catch (error) {
+		console.error("Error fetching data:", error);
+		return {
+			props: {
+				patients: [],
+				appointments: [],
+				invoices: [],
+			},
+		};
+	}
+};
+
 export default Dashboard;
