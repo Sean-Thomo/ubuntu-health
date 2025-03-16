@@ -20,4 +20,8 @@ export interface Appointment {
 
 export interface Invoice {
 	id: number;
+	issueDate: string;
+	totalAmount: number;
+	status: string;
+	notes: string;
 }

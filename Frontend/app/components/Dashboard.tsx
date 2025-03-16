@@ -5,39 +5,74 @@ import PatientsCard from "./PatientsCard";
 import AppointmentsCard from "./AppointmentsCard";
 import InvoicesCard from "./InvoicesCard";
 import AppointmentsTableCard from "./AppointmentsTable";
-import { GetServerSideProps } from "next";
+import { useApiData } from "@/hooks/useApiData";
+import { Appointment, Invoice, Patient } from "@/types";
+// import { GetServerSideProps } from "next";
 
-interface Patient {
-	id: number;
-	firstName: string;
-	lastName: string;
-	gender: string;
-	email: string;
-	phone: string;
-	medicalAidName: string;
-}
+// interface Patient {
+// 	id: number;
+// 	firstName: string;
+// 	lastName: string;
+// 	gender: string;
+// 	email: string;
+// 	phone: string;
+// 	medicalAidName: string;
+// }
 
-interface Appointment {
-	id: number;
-	patientFirstName: string;
-	patientLastName: string;
-	appointmentDate: string;
-	appointmentTime: string;
-	appointmentType: string;
-	status: string;
-}
+// interface Appointment {
+// 	id: number;
+// 	patientFirstName: string;
+// 	patientLastName: string;
+// 	appointmentDate: string;
+// 	appointmentTime: string;
+// 	appointmentType: string;
+// 	status: string;
+// }
 
-interface DashboardProps {
-	patients: Patient[];
-	appointments: Appointment[];
-	invoices: any[];
-}
+// interface DashboardProps {
+// 	patients: Patient[];
+// 	appointments: Appointment[];
+// 	invoices: any[];
+// }
 
-const Dashboard: React.FC<DashboardProps> = ({
-	patients,
-	appointments,
-	invoices,
-}) => {
+const Dashboard: React.FC = () => {
+	const {
+		data: patients,
+		isLoading: patientsLoading,
+		error: patientsError,
+	} = useApiData<Patient>("Patients");
+
+	const {
+		data: appointments,
+		isLoading: appointmentsLoading,
+		error: appointmentsError,
+	} = useApiData<Appointment>("Appointments");
+
+	const {
+		data: invoices,
+		isLoading: invoicesLoading,
+		error: invoicesError,
+	} = useApiData<Invoice>("Invoices");
+
+	const isLoading = patientsLoading || appointmentsLoading || invoicesLoading;
+	const hasError = patientsError || appointmentsError || invoicesError;
+
+	if (isLoading) {
+		return (
+			<div className="flex justify-center items-center h-64">
+				Loading dashboard data...
+			</div>
+		);
+	}
+
+	if (hasError) {
+		return (
+			<div className="text-red-600 p-4">
+				Error loading dashboard data. Please try again later.
+			</div>
+		);
+	}
+
 	return (
 		<div className="min-h-screen">
 			<h1 className="text-3xl font-bold mb-6 text-gray-800">Dashboard</h1>
@@ -95,36 +130,36 @@ const Dashboard: React.FC<DashboardProps> = ({
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	try {
-		const baseUrl = "https://localhost:5290/api";
+// export const getServerSideProps: GetServerSideProps = async () => {
+// 	try {
+// 		const baseUrl = "https://localhost:5290/api";
 
-		const patientResponse = await fetch(`${baseUrl}/Patients`);
-		const patients: Patient[] = await patientResponse.json();
+// 		const patientResponse = await fetch(`${baseUrl}/Patients`);
+// 		const patients: Patient[] = await patientResponse.json();
 
-		const appointmentsResponse = await fetch(`${baseUrl}/Appointments`);
-		const appointments: Appointment[] = await appointmentsResponse.json();
+// 		const appointmentsResponse = await fetch(`${baseUrl}/Appointments`);
+// 		const appointments: Appointment[] = await appointmentsResponse.json();
 
-		const invoicesResponse = await fetch(`${baseUrl}/Invoices`);
-		const invoices = await invoicesResponse.json();
+// 		const invoicesResponse = await fetch(`${baseUrl}/Invoices`);
+// 		const invoices = await invoicesResponse.json();
 
-		return {
-			props: {
-				patients,
-				appointments,
-				invoices,
-			},
-		};
-	} catch (error) {
-		console.error("Error fetching data:", error);
-		return {
-			props: {
-				patients: [],
-				appointments: [],
-				invoices: [],
-			},
-		};
-	}
-};
+// 		return {
+// 			props: {
+// 				patients,
+// 				appointments,
+// 				invoices,
+// 			},
+// 		};
+// 	} catch (error) {
+// 		console.error("Error fetching data:", error);
+// 		return {
+// 			props: {
+// 				patients: [],
+// 				appointments: [],
+// 				invoices: [],
+// 			},
+// 		};
+// 	}
+// };
 
 export default Dashboard;
