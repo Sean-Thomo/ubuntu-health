@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-export function useApiData<T>(endpoint: string) {
+export default function useApiData<T>(endpoint: string) {
 	const [data, setData] = useState<T[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [error, setError] = useState<string | null>(null);

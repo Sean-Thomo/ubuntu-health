@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Calendar, Users, CreditCard, Clipboard } from "lucide-react";
 import QuickActions from "./QuickActionsCard";
@@ -5,7 +6,7 @@ import PatientsCard from "./PatientsCard";
 import AppointmentsCard from "./AppointmentsCard";
 import InvoicesCard from "./InvoicesCard";
 import AppointmentsTableCard from "./AppointmentsTable";
-import { useApiData } from "@/hooks/useApiData";
+import useApiData from "../../hooks/useApiData";
 import { Appointment, Invoice, Patient } from "@/types";
 // import { GetServerSideProps } from "next";
 
@@ -48,14 +49,14 @@ const Dashboard: React.FC = () => {
 		error: appointmentsError,
 	} = useApiData<Appointment>("Appointments");
 
-	const {
-		data: invoices,
-		isLoading: invoicesLoading,
-		error: invoicesError,
-	} = useApiData<Invoice>("Invoices");
+	// const {
+	// 	data: invoices,
+	// 	isLoading: invoicesLoading,
+	// 	error: invoicesError,
+	// } = useApiData<Invoice>("Invoices");
 
-	const isLoading = patientsLoading || appointmentsLoading || invoicesLoading;
-	const hasError = patientsError || appointmentsError || invoicesError;
+	const isLoading = patientsLoading || appointmentsLoading;
+	const hasError = patientsError || appointmentsError;
 
 	if (isLoading) {
 		return (
@@ -104,7 +105,7 @@ const Dashboard: React.FC = () => {
 						<h2 className="text-xl font-semibold text-gray-700">Invoicing</h2>
 						<CreditCard className="text-blue-600" />
 					</div>
-					<InvoicesCard invoices={invoices} />
+					{/* <InvoicesCard invoices={invoices} /> */}
 				</div>
 
 				{/* Quick Actions */}
@@ -129,37 +130,5 @@ const Dashboard: React.FC = () => {
 		</div>
 	);
 };
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-// 	try {
-// 		const baseUrl = "https://localhost:5290/api";
-
-// 		const patientResponse = await fetch(`${baseUrl}/Patients`);
-// 		const patients: Patient[] = await patientResponse.json();
-
-// 		const appointmentsResponse = await fetch(`${baseUrl}/Appointments`);
-// 		const appointments: Appointment[] = await appointmentsResponse.json();
-
-// 		const invoicesResponse = await fetch(`${baseUrl}/Invoices`);
-// 		const invoices = await invoicesResponse.json();
-
-// 		return {
-// 			props: {
-// 				patients,
-// 				appointments,
-// 				invoices,
-// 			},
-// 		};
-// 	} catch (error) {
-// 		console.error("Error fetching data:", error);
-// 		return {
-// 			props: {
-// 				patients: [],
-// 				appointments: [],
-// 				invoices: [],
-// 			},
-// 		};
-// 	}
-// };
 
 export default Dashboard;
