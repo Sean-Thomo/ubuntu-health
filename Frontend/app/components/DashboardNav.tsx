@@ -52,10 +52,16 @@ export default function DashboardNav() {
 		},
 	];
 
+	const handleOverlayClick = (e: any) => {
+		if (e.target === e.currentTarget) {
+			handleCloseModal();
+		}
+	};
+
 	return (
 		<>
 			<button
-				className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white shadow-md rounded-full"
+				className="md:hidden mb-auto fixed top-4 left-4 z-50 p-2 bg-white shadow-md rounded-full"
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				{isOpen ? (
@@ -70,7 +76,7 @@ export default function DashboardNav() {
                     fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform
                     duration-300 ease-in-out md:relative md:translate-x-0 md:w-full md:max-w-xs 
                     md:shadow-none
-                    ${isOpen ? "translate-x-0" : "-translate-x-full"}
+                    ${isOpen ? "translate-x-0 pt-16" : "-translate-x-full"}
                     z-40`}
 			>
 				<div className="flex flex-col h-full">
@@ -127,8 +133,11 @@ export default function DashboardNav() {
 
 			{/* Modal Overlay */}
 			{activeModal && (
-				<div className="fixed inset-0 backdrop-blur-lg flex items-center justify-center z-50">
-					<div className="bg-white p-6 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative m-0">
+				<div
+					onClick={handleOverlayClick}
+					className="fixed inset-0 backdrop-blur-lg flex items-center justify-center z-50"
+				>
+					<div className="bg-white rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative m-0">
 						<button
 							onClick={handleCloseModal}
 							className="absolute top-4 right-4 text-2xl font-bold"
@@ -136,8 +145,12 @@ export default function DashboardNav() {
 							&times;
 						</button>
 
-						{activeModal === "addPatient" && <PatientForm />}
-						{activeModal === "scheduleAppointment" && <AppointmentScheduler />}
+						{activeModal === "addPatient" && (
+							<PatientForm onClose={handleCloseModal} />
+						)}
+						{activeModal === "scheduleAppointment" && (
+							<AppointmentScheduler onClose={handleCloseModal} />
+						)}
 					</div>
 				</div>
 			)}

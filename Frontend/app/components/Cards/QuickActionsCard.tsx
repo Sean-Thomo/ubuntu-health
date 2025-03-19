@@ -35,8 +35,12 @@ export default function QuickActionsCard() {
 							&times;
 						</button>
 
-						{activeModal === "addPatient" && <PatientForm />}
-						{activeModal === "scheduleAppointment" && <AppointmentScheduler />}
+						{activeModal === "addPatient" && (
+							<PatientForm onClose={handleCloseModal} />
+						)}
+						{activeModal === "scheduleAppointment" && (
+							<AppointmentScheduler onClose={handleCloseModal} />
+						)}
 					</div>
 				</div>
 			)}

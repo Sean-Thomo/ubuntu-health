@@ -5,7 +5,11 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function PatientForm() {
+interface PatientFormProps {
+	onClose: () => void;
+}
+
+export default function PatientForm({ onClose }: PatientFormProps) {
 	const [sex, setSex] = useState("");
 	const [currentMeds, setCurrentMeds] = useState("");
 
@@ -61,6 +65,7 @@ export default function PatientForm() {
 
 				toast.success("Patient Registered!");
 				formik.resetForm();
+				setTimeout(onClose, 1000);
 			} catch (err) {
 				console.error(`Error submitting form: ${err}.`);
 				toast.error(`${err}.`);
@@ -438,12 +443,6 @@ export default function PatientForm() {
 					Submit
 				</button>
 			</div>
-
-			<ToastContainer
-				theme="light"
-				position="top-right"
-				hideProgressBar={false}
-			/>
 		</form>
 	);
 }

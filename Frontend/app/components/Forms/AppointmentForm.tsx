@@ -33,7 +33,13 @@ const APPOINTMENT_STATUS = [
 	{ value: "rescheduled", label: "Rescheduled" },
 ];
 
-export default function AppointmentScheduler() {
+interface AppointmentFormProps {
+	onClose: () => void;
+}
+
+export default function AppointmentScheduler({
+	onClose,
+}: AppointmentFormProps) {
 	const [appointmentType, setAppointmentType] = useState("");
 	const [status, setStatus] = useState("");
 	const formik = useFormik({
@@ -73,6 +79,7 @@ export default function AppointmentScheduler() {
 
 				toast.success("Appointment scheduled!");
 				formik.resetForm();
+				setTimeout(onClose, 1000);
 			} catch (err) {
 				console.error(`Error scheduling appointment: ${err}`);
 				toast.error(`${err}.`);
