@@ -6,6 +6,8 @@ export interface Patient {
 	email: string;
 	phone: string;
 	medicalAidName: string;
+	createdAt: string;
+	updatedAt: string;
 }
 
 export interface Appointment {

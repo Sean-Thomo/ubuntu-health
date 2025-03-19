@@ -105,11 +105,6 @@ export default function WaitingList() {
 					</button>
 				</div>
 			</div>
-			<ToastContainer
-				theme="light"
-				position="top-right"
-				hideProgressBar={false}
-			/>
 		</form>
 	);
 }

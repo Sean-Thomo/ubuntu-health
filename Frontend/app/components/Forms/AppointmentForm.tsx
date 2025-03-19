@@ -272,12 +272,6 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 					Schedule Appointment
 				</button>
 			</div>
-
-			<ToastContainer
-				theme="light"
-				position="top-right"
-				hideProgressBar={false}
-			/>
 		</form>
 	);
 }
