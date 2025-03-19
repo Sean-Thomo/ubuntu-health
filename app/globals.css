@@ -22,15 +22,11 @@
 	}
 
 	.remove-scrollbar::-webkit-scrollbar-thumb:hover {
-		/* background: #1e2238; */
 		background: transparent;
 	}
 }
 
 :root {
-	--mainColor: #fff;
-	--secondaryColor: #2563eb;
-	--textColor: #000;
 	overflow-x: hidden;
 }
 
@@ -39,7 +35,6 @@
 
 html {
 	scroll-behavior: smooth;
-	/* background-color: oklch(0.872 0.01 258.338); */
 }
 
 header {
