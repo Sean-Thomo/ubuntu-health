@@ -8,7 +8,7 @@ interface Appointment {
 	patientLastName: string;
 	appointmentDate: string;
 	appointmentTime: string;
-	appointmentType: string;
+	appointmentType: keyof typeof APPOINTMENT_TYPES;
 	status: keyof typeof STATUS_COLORS;
 }
 
@@ -32,6 +32,25 @@ const STATUS_LABELS = {
 	cancelled: "Cancelled",
 	noShow: "No Show",
 	rescheduled: "Rescheduled",
+};
+
+const APPOINTMENT_TYPES = {
+	initialConsultation: "Initial Consultation",
+	followUp: "Follow-up",
+	annualPhysical: "Annual Physical",
+	urgentCare: "Urgent Care",
+	specialistReferral: "Specialist Referral",
+	procedure: "Procedure",
+	labWork: "Lab Work",
+	vaccination: "Vaccination",
+	preventiveCare: "Preventive Care",
+	chronicDisease: "Chronic Disease Management",
+	mentalHealth: "Mental Health",
+	telehealth: "Telehealth",
+	preOperative: "Pre-operative",
+	postOperative: "Post-operative",
+	physicalTherapy: "Physical Therapy",
+	other: "Other",
 };
 
 interface AppointmentsCardProps {
@@ -75,7 +94,9 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 							<td className="px-6 py-4">{appointment.appointmentDate}</td>
 
 							<td className="px-6 py-4">{appointment.appointmentTime}</td>
-							<td className="px-6 py-4">{appointment.appointmentType}</td>
+							<td className="px-6 py-4">
+								{APPOINTMENT_TYPES[appointment.appointmentType]}
+							</td>
 							<td className="px-6 py-4">
 								<span
 									className={`px-2 py-1 rounded text-xs ${

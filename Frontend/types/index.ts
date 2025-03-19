@@ -14,16 +14,8 @@ export interface Appointment {
 	patientLastName: string;
 	appointmentDate: string;
 	appointmentTime: string;
-	appointmentType: string;
-	status:
-		| "scheduled"
-		| "confirmed"
-		| "checkedIn"
-		| "inProgress"
-		| "completed"
-		| "cancelled"
-		| "noShow"
-		| "rescheduled";
+	appointmentType: keyof typeof APPOINTMENT_TYPES;
+	status: keyof typeof STATUS_LABELS;
 }
 
 export interface Invoice {
@@ -42,3 +34,33 @@ export interface Prescription {
 	instructions: string;
 	issueDate: string;
 }
+
+const APPOINTMENT_TYPES = {
+	initialConsultation: "Initial Consultation",
+	followUp: "Follow-up",
+	annualPhysical: "Annual Physical",
+	urgentCare: "Urgent Care",
+	specialistReferral: "Specialist Referral",
+	procedure: "Procedure",
+	labWork: "Lab Work",
+	vaccination: "Vaccination",
+	preventiveCare: "Preventive Care",
+	chronicDisease: "Chronic Disease Management",
+	mentalHealth: "Mental Health",
+	telehealth: "Telehealth",
+	preOperative: "Pre-operative",
+	postOperative: "Post-operative",
+	physicalTherapy: "Physical Therapy",
+	other: "Other",
+};
+
+const STATUS_LABELS = {
+	scheduled: "Scheduled",
+	confirmed: "Confirmed",
+	checkedIn: "Checked In",
+	inProgress: "In Progress",
+	completed: "Completed",
+	cancelled: "Cancelled",
+	noShow: "No Show",
+	rescheduled: "Rescheduled",
+};

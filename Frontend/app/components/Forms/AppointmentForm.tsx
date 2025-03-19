@@ -4,21 +4,21 @@ import * as Yup from "yup";
 import { toast, ToastContainer } from "react-toastify";
 
 const APPOINTMENT_TYPES = [
-	{ value: "initial-consultation", label: "Initial Consultation" },
-	{ value: "follow-up", label: "Follow-up" },
-	{ value: "annual-physical", label: "Annual Physical" },
-	{ value: "urgent-care", label: "Urgent Care" },
-	{ value: "specialist-referral", label: "Specialist Referral" },
+	{ value: "initialConsultation", label: "Initial Consultation" },
+	{ value: "followUp", label: "Follow-up" },
+	{ value: "annualPhysical", label: "Annual Physical" },
+	{ value: "urgentCare", label: "Urgent Care" },
+	{ value: "specialistReferral", label: "Specialist Referral" },
 	{ value: "procedure", label: "Procedure" },
-	{ value: "lab-work", label: "Lab Work" },
+	{ value: "labWork", label: "Lab Work" },
 	{ value: "vaccination", label: "Vaccination" },
-	{ value: "preventive-care", label: "Preventive Care" },
-	{ value: "chronic-disease", label: "Chronic Disease Management" },
-	{ value: "mental-health", label: "Mental Health" },
+	{ value: "preventiveCare", label: "Preventive Care" },
+	{ value: "chronicDisease", label: "Chronic Disease Management" },
+	{ value: "mentalHealth", label: "Mental Health" },
 	{ value: "telehealth", label: "Telehealth" },
-	{ value: "pre-operative", label: "Pre-operative" },
-	{ value: "post-operative", label: "Post-operative" },
-	{ value: "physical-therapy", label: "Physical Therapy" },
+	{ value: "preOperative", label: "Pre-operative" },
+	{ value: "postOperative", label: "Post-operative" },
+	{ value: "physicalTherapy", label: "Physical Therapy" },
 	{ value: "other", label: "Other" },
 ];
 
