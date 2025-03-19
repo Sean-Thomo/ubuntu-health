@@ -420,6 +420,7 @@ export default function PatientForm() {
 					Allergies
 				</label>
 				<textarea
+					required
 					name="allergies"
 					id="allergies"
 					value={formik.values.allergies}
