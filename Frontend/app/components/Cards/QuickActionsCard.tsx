@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import PatientForm from "./Forms/PatientForm";
-import AppointmentScheduler from "./Forms/AppointmentForm";
+import PatientForm from "../Forms/PatientForm";
+import AppointmentScheduler from "../Forms/AppointmentForm";
 
 export default function QuickActionsCard() {
 	const [activeModal, setActiveModal] = useState("");

@@ -10,11 +10,11 @@ interface Prescription {
 	issueDate: string;
 }
 
-interface PrescriptionsCardProps {
+interface PrescriptionsTableProps {
 	prescriptions: Prescription[];
 }
 
-const PrescriptionsTableCard: React.FC<PrescriptionsCardProps> = ({
+const PrescriptionsTable: React.FC<PrescriptionsTableProps> = ({
 	prescriptions = [],
 }) => {
 	return (
@@ -55,4 +55,4 @@ const PrescriptionsTableCard: React.FC<PrescriptionsCardProps> = ({
 	);
 };
 
-export default PrescriptionsTableCard;
+export default PrescriptionsTable;

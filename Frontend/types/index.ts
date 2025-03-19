@@ -25,3 +25,12 @@ export interface Invoice {
 	status: string;
 	notes: string;
 }
+
+export interface Prescription {
+	id: number;
+	patientId: number;
+	medicationName: string;
+	dosage: string;
+	instructions: string;
+	issueDate: string;
+}
