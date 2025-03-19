@@ -35,7 +35,7 @@ const PrescriptionsTableCard: React.FC = () => {
 			<h1 className="text-3xl font-bold mb-6 text-gray-800">Prescriptions</h1>
 
 			<div className="mt-8 rounded-lg">
-				<h2 className="text-xl font-semibold text-gray-700 mb-4">
+				<h2 className="text-xl font-semibold text-gray-800 mb-4">
 					Prescription List
 				</h2>
 

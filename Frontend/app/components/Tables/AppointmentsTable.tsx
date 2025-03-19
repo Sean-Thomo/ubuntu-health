@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { Trash, SquarePen } from "lucide-react";
 
 interface Appointment {
 	id: number;
@@ -20,8 +21,8 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 }) => {
 	return (
 		<div className="relative overflow-x-auto sm:rounded-tr-lg sm:rounded-tl-lg">
-			<table className="w-full text-sm text-left rtl:text-right bg-gray-50 text-gray-500 dark:text-gray-400">
-				<thead className="text-xs text-gray-600 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+			<table className="w-full text-sm text-left rtl:text-right">
+				<thead className="text-xs bg-gray-300 text-gray-600 ">
 					<tr>
 						<th scope="col" className="px-6 py-3">
 							Patient Name
@@ -45,10 +46,7 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 				</thead>
 				<tbody>
 					{appointments.map((appointment) => (
-						<tr
-							key={appointment.id}
-							className="bg-white border-b border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 dark:bg-gray-800 dark:border-gray-700"
-						>
+						<tr key={appointment.id} className="border-b hover:bg-gray-100">
 							<td className="px-6 py-4">
 								{appointment.patientFirstName} {appointment.patientLastName}
 							</td>
@@ -61,23 +59,32 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 									className={`
         px-2 py-1 rounded text-xs
         ${
-					appointment.status === "Scheduled"
+					appointment.status === "scheduled"
 						? "bg-yellow-100 text-yellow-800"
-						: appointment.status === "In Progress"
+						: appointment.status === "in-progress"
+						? "bg-green-100 text-green-800"
+						: appointment.status === "completed"
 						? "bg-blue-100 text-blue-800"
-						: "bg-green-100 text-green-800"
+						: "bg-gray-100 text-gray-800"
 				}
       `}
 								>
 									{appointment.status}
 								</span>
 							</td>
-							<td className="px-6 py-4">
-								<Link
-									href={"#"}
-									className="ont-medium text-blue-600 dark:text-blue-500 hover:underline"
-								>
-									Edit
+							<td className="px-6 py-4 flex gap-2">
+								<Link href={"#"}>
+									<SquarePen
+										className="text-blue-300 hover:text-blue-600"
+										size={20}
+									/>
+								</Link>
+								<Link href={"#"}>
+									<Trash
+										xlinkTitle="Delete"
+										className="text-red-400 hover:text-red-600"
+										size={20}
+									/>
 								</Link>
 							</td>
 						</tr>
