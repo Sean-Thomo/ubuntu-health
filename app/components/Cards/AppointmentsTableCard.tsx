@@ -16,8 +16,8 @@ const AppointmentsTable: React.FC = () => {
 
 	if (isLoading) {
 		return (
-			<div className="flex justify-center items-center h-64">
-				Loading dashboard data...
+			<div className="flex justify-center items-center">
+				Loading appointments data...
 			</div>
 		);
 	}

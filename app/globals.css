@@ -3,7 +3,7 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
 
-/* ========================================== TAILWIND STYLES */
+/* ========================================== CUSTOM STYLES */
 @layer base {
 	/* Remove scrollbar */
 	.remove-scrollbar::-webkit-scrollbar {
@@ -30,9 +30,6 @@
 	overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: light) {
-}
-
 html {
 	scroll-behavior: smooth;
 }
@@ -57,10 +54,6 @@ nav a:hover {
 	color: var(--secondaryColor);
 }
 
-header {
-	background-color: var(--mainColor);
-}
-
 header nav span {
 	color: var(--secondaryColor);
 }
@@ -83,23 +76,20 @@ h3 {
 	-webkit-text-stroke-width: 1px;
 }
 
-/* width */
+/* Scrollbar styles */
 ::-webkit-scrollbar {
 	width: 6px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
 	background: var(--mainColor);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
 	background: var(--secondaryColor);
 	border-radius: 16px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
 	background: transparent;
 }

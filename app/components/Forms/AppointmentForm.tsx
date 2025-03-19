@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const APPOINTMENT_TYPES = [
 	{ value: "initialConsultation", label: "Initial Consultation" },
@@ -105,7 +105,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 						value={formik.values.patientFirstName}
 						onChange={formik.handleChange}
 						onBlur={formik.handleBlur}
-						className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+						className="mt-1 p-2 w-full border rounded border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 					/>
 					{formik.touched.patientFirstName &&
 						formik.errors.patientFirstName && (
@@ -128,7 +128,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 						value={formik.values.patientLastName}
 						onChange={formik.handleChange}
 						onBlur={formik.handleBlur}
-						className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+						className="mt-1 p-2 w-full border rounded border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 					/>
 					{formik.touched.patientLastName && formik.errors.patientLastName && (
 						<p className="text-red-500 text-xs mt-1">
@@ -149,7 +149,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 						<select
 							id="appointmentType"
 							name="appointmentType"
-							className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+							className="mt-1 p-2 w-full border rounded border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 							value={appointmentType}
 							onChange={(e) => {
 								setAppointmentType(e.target.value);
@@ -179,7 +179,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 					<select
 						id="status"
 						name="status"
-						className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+						className="mt-1 p-2 w-full border rounded border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 						value={formik.values.status}
 						onChange={(e) => {
 							setStatus(e.target.value);
@@ -213,7 +213,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 					value={formik.values.appointmentDate}
 					onChange={formik.handleChange}
 					onBlur={formik.handleBlur}
-					className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+					className="mt-1 p-2 w-full border rounded border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 				/>
 				{formik.touched.appointmentDate && formik.errors.appointmentDate && (
 					<p className="text-red-500 text-xs mt-1">
@@ -237,7 +237,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 					value={formik.values.appointmentTime}
 					onChange={formik.handleChange}
 					onBlur={formik.handleBlur}
-					className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+					className="mt-1 p-2 w-full border rounded border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 				/>
 				{formik.touched.appointmentTime && formik.errors.appointmentTime && (
 					<p className="text-red-500 text-xs mt-1">
@@ -259,7 +259,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 					name="notes"
 					value={formik.values.notes}
 					onChange={formik.handleChange}
-					className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+					className="mt-1 p-2 w-full border rounded border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 				/>
 			</div>
 

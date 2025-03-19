@@ -26,8 +26,8 @@ export default function QuickActionsCard() {
 
 			{/* Modal Overlay */}
 			{activeModal && (
-				<div className="fixed inset-0 backdrop-blur-lg flex items-center justify-center z-50">
-					<div className="bg-white p-6 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative m-0">
+				<div className=" inset-0 backdrop-blur-lg flex items-center justify-center z-50">
+					<div className="bg-white p-6 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
 						<button
 							onClick={handleCloseModal}
 							className="absolute top-4 right-4 text-2xl font-bold"
