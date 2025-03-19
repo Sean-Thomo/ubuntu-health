@@ -15,7 +15,15 @@ export interface Appointment {
 	appointmentDate: string;
 	appointmentTime: string;
 	appointmentType: string;
-	status: string;
+	status:
+		| "scheduled"
+		| "confirmed"
+		| "checkedIn"
+		| "inProgress"
+		| "completed"
+		| "cancelled"
+		| "noShow"
+		| "rescheduled";
 }
 
 export interface Invoice {

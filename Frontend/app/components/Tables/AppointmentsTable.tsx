@@ -23,6 +23,17 @@ const STATUS_COLORS = {
 	rescheduled: "bg-orange-100 text-orange-800",
 };
 
+const STATUS_LABELS = {
+	scheduled: "Scheduled",
+	confirmed: "Confirmed",
+	checkedIn: "Checked In",
+	inProgress: "In Progress",
+	completed: "Completed",
+	cancelled: "Cancelled",
+	noShow: "No Show",
+	rescheduled: "Rescheduled",
+};
+
 interface AppointmentsCardProps {
 	appointments: Appointment[];
 }
@@ -72,7 +83,7 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 										"bg-gray-100 text-gray-800"
 									}`}
 								>
-									{appointment.status}
+									{STATUS_LABELS[appointment.status]}
 								</span>
 							</td>
 							<td className="px-6 py-4 flex gap-2">

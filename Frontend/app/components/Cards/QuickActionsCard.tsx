@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import PatientForm from "../Forms/PatientForm";
-import AppointmentScheduler from "../Forms/AppointmentForm";
+import AppointmentForm from "../Forms/AppointmentForm";
 
 export default function QuickActionsCard() {
 	const [activeModal, setActiveModal] = useState("");
@@ -39,7 +39,7 @@ export default function QuickActionsCard() {
 							<PatientForm onClose={handleCloseModal} />
 						)}
 						{activeModal === "scheduleAppointment" && (
-							<AppointmentScheduler onClose={handleCloseModal} />
+							<AppointmentForm onClose={handleCloseModal} />
 						)}
 					</div>
 				</div>

@@ -12,7 +12,7 @@ import {
 	X,
 } from "lucide-react";
 import PatientForm from "./Forms/PatientForm";
-import AppointmentScheduler from "./Forms/AppointmentForm";
+import AppointmentForm from "./Forms/AppointmentForm";
 
 export default function DashboardNav() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -149,7 +149,7 @@ export default function DashboardNav() {
 							<PatientForm onClose={handleCloseModal} />
 						)}
 						{activeModal === "scheduleAppointment" && (
-							<AppointmentScheduler onClose={handleCloseModal} />
+							<AppointmentForm onClose={handleCloseModal} />
 						)}
 					</div>
 				</div>

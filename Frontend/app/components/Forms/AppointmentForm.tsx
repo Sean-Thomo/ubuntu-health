@@ -25,11 +25,11 @@ const APPOINTMENT_TYPES = [
 const APPOINTMENT_STATUS = [
 	{ value: "scheduled", label: "Scheduled" },
 	{ value: "confirmed", label: "Confirmed" },
-	{ value: "checked-in", label: "Checked In" },
-	{ value: "in-progress", label: "In Progress" },
+	{ value: "checkedIn", label: "Checked In" },
+	{ value: "inProgress", label: "In Progress" },
 	{ value: "completed", label: "Completed" },
 	{ value: "cancelled", label: "Cancelled" },
-	{ value: "no-show", label: "No Show" },
+	{ value: "noShow", label: "No Show" },
 	{ value: "rescheduled", label: "Rescheduled" },
 ];
 
@@ -37,9 +37,7 @@ interface AppointmentFormProps {
 	onClose: () => void;
 }
 
-export default function AppointmentScheduler({
-	onClose,
-}: AppointmentFormProps) {
+export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 	const [appointmentType, setAppointmentType] = useState("");
 	const [status, setStatus] = useState("");
 	const formik = useFormik({
