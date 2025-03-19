@@ -11,8 +11,8 @@ import {
 	Menu,
 	X,
 } from "lucide-react";
-import PatientForm from "./PatientForm";
-import AppointmentScheduler from "./AppointmentForm";
+import PatientForm from "./Forms/PatientForm";
+import AppointmentScheduler from "./Forms/AppointmentForm";
 
 export default function DashboardNav() {
 	const [isOpen, setIsOpen] = useState(false);

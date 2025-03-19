@@ -1,6 +1,6 @@
 import React from "react";
 import DashboardNav from "../components/DashboardNav";
-import PatientsTableCard from "../components/PatientsTableCard";
+import PatientsTableCard from "../components/Cards/PatientsTableCard";
 
 const Page: React.FC = () => {
 	return (

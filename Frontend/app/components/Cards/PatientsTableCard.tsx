@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import PatientsTable from "./PatientsTable";
+import PatientsTable from "../Tables/PatientsTable";
 import useApiData from "@/hooks/useApiData";
 import { Patient } from "@/types";
 

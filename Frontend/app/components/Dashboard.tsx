@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { Calendar, Users, CreditCard, Clipboard } from "lucide-react";
-import QuickActions from "./QuickActionsCard";
-import PatientsCard from "./PatientsCard";
-import AppointmentsCard from "./AppointmentsCard";
+import QuickActionsCard from "./Cards/QuickActionsCard";
+import PatientsCard from "./Cards/PatientsCard";
+import AppointmentsCard from "./Cards/AppointmentsCard";
 // import InvoicesCard from "./InvoicesCard";
-import AppointmentsTableCard from "./AppointmentsTable";
+import AppointmentsTableCard from "./Tables/AppointmentsTable";
 import useApiData from "../../hooks/useApiData";
 import { Appointment, Invoice, Patient } from "@/types";
 
@@ -89,7 +89,7 @@ const Dashboard: React.FC = () => {
 						</h2>
 						<Clipboard className="text-blue-600" />
 					</div>
-					<QuickActions />
+					<QuickActionsCard />
 				</div>
 			</div>
 
