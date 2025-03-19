@@ -1,5 +1,5 @@
+import PrescriptionsTableCard from "../components/Cards/PrescriptionsTableCard";
 import DashboardNav from "../components/DashboardNav";
-import PrescriptionsTableCard from "../components/Tables/PrescriptionsTable";
 
 export default function Page() {
 	return (
