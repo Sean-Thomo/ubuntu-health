@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+
+/* ========================================== TAILWIND STYLES */
+@layer base {
+	/* Remove scrollbar */
+	.remove-scrollbar::-webkit-scrollbar {
+		width: 0px;
+		height: 0px;
+		border-radius: 0px;
+	}
+
+	.remove-scrollbar::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.remove-scrollbar::-webkit-scrollbar-thumb {
+		background: transparent;
+		border-radius: 0px;
+	}
+
+	.remove-scrollbar::-webkit-scrollbar-thumb:hover {
+		/* background: #1e2238; */
+		background: transparent;
+	}
+}
+
+:root {
+	--mainColor: #fff;
+	--secondaryColor: #2563eb;
+	--textColor: #000;
+	overflow-x: hidden;
+}
+
+@media (prefers-color-scheme: light) {
+}
+
+html {
+	scroll-behavior: smooth;
+	/* background-color: oklch(0.872 0.01 258.338); */
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+	padding: 0 2rem;
+	background-color: var(--mainColor);
+	color: var(--textColor);
+}
+
+nav a {
+	margin: 0 1rem;
+	color: var(--textColor);
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: var(--secondaryColor);
+}
+
+header {
+	background-color: var(--mainColor);
+}
+
+header nav span {
+	color: var(--secondaryColor);
+}
+
+header .nav-btn {
+	padding: 5px;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: var(--textColor);
+	visibility: hidden;
+	opacity: 0;
+	font-size: 1.5rem;
+}
+
+h3 {
+	color: #a4b1cd;
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke-width: 1px;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: var(--mainColor);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--secondaryColor);
+	border-radius: 16px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: transparent;
+}
