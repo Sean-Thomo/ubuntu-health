@@ -404,6 +404,9 @@ export default function PatientForm() {
 						formik.setFieldValue("currentMedication", e.target.value);
 					}}
 				>
+					<option value="" disabled>
+						Choice
+					</option>
 					<option value="Yes">Yes</option>
 					<option value="No">No</option>
 				</select>
