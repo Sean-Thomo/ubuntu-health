@@ -19,10 +19,10 @@ const PrescriptionsTable: React.FC<PrescriptionsTableProps> = ({
 	prescriptions = [],
 }) => {
 	return (
-		<div className="relative overflow-x-auto sm:rounded-tr-lg sm:rounded-tl-lg">
-			<table className="w-full text-sm text-left rtl:text-right">
-				<thead className="text-xs bg-gray-300 text-gray-600">
-					<tr>
+		<div className="g-gray-800/50 border border-cyan-800/30 rounded-lg overflow-hidden">
+			<table className="w-full text-sm ">
+				<thead>
+					<tr className="bg-gray-800/70">
 						<th scope="col" className="px-6 py-3">
 							Patient ID
 						</th>

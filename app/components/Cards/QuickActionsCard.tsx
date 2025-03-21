@@ -5,25 +5,25 @@ import AppointmentForm from "../Forms/AppointmentForm";
 
 export default function QuickActionsCard() {
 	const [activeModal, setActiveModal] = useState("");
-
 	const handleCloseModal = () => setActiveModal("");
 
 	return (
-		<div className="space-y-4">
-			<button
-				onClick={() => setActiveModal("addPatient")}
-				className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
-			>
-				Add New Patient
-			</button>
+		<>
+			<div className="space-y-4">
+				<button
+					onClick={() => setActiveModal("addPatient")}
+					className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+				>
+					Add New Patient
+				</button>
 
-			<button
-				onClick={() => setActiveModal("scheduleAppointment")}
-				className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
-			>
-				Schedule Appointment
-			</button>
-
+				<button
+					onClick={() => setActiveModal("scheduleAppointment")}
+					className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
+				>
+					Schedule Appointment
+				</button>
+			</div>
 			{/* Modal Overlay */}
 			{activeModal && (
 				<div className=" inset-0 backdrop-blur-lg flex items-center justify-center z-50">
@@ -44,6 +44,6 @@ export default function QuickActionsCard() {
 					</div>
 				</div>
 			)}
-		</div>
+		</>
 	);
 }

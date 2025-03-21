@@ -1,13 +1,15 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { Trash, SquarePen } from "lucide-react";
+import { useRouter } from "next/navigation"; // Note: 'next/navigation' instead of 'next/router'
+import { SquarePen, Trash } from "lucide-react";
 
 interface Patient {
-	id: number;
+	id: string;
 	firstName: string;
 	lastName: string;
 	gender: string;
-	email: string;
 	phone: string;
 	medicalAidName: string;
 }
@@ -17,11 +19,18 @@ interface PatientsTableProps {
 }
 
 const PatientsTable: React.FC<PatientsTableProps> = ({ patients = [] }) => {
+	const router = useRouter();
+
+	// Handle row click to navigate to patient detail page
+	const handleRowClick = (patientId: string) => {
+		router.push(`/patients/${patientId}`);
+	};
+
 	return (
-		<div className="relative overflow-x-auto sm:rounded-tr-lg sm:rounded-tl-lg">
-			<table className="w-full text-sm text-left rtl:text-right">
-				<thead className="text-xs bg-gray-300 text-gray-600">
-					<tr>
+		<div className="g-gray-800/50 border border-cyan-800/30 rounded-lg overflow-hidden">
+			<table className="w-full text-sm ">
+				<thead>
+					<tr className="bg-gray-800/70">
 						<th scope="col" className="px-6 py-3">
 							Patient Name
 						</th>
@@ -41,7 +50,16 @@ const PatientsTable: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 				</thead>
 				<tbody>
 					{patients.map((patient) => (
-						<tr key={patient.id} className="border-b hover:bg-gray-50">
+						<tr
+							key={patient.id}
+							className="border-b hover:bg-gray-50 cursor-pointer"
+							onClick={(e) => {
+								// Prevent row click when clicking on action buttons
+								if (!(e.target as HTMLElement).closest("a")) {
+									handleRowClick(patient.id);
+								}
+							}}
+						>
 							<td className="p-3">{`${patient.firstName} ${patient.lastName}`}</td>
 							<td className="p-3">{patient.gender.toUpperCase()}</td>
 							<td className="p-3">{patient.phone}</td>
@@ -49,19 +67,28 @@ const PatientsTable: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 								{patient.medicalAidName === "" ? "N/A" : patient.medicalAidName}
 							</td>
 							<td className="px-6 py-4 flex gap-2">
-								<Link href={"#"}>
+								<Link
+									href={`/patients/${patient.id}/edit`}
+									onClick={(e) => e.stopPropagation()}
+								>
 									<SquarePen
 										className="text-blue-300 hover:text-blue-600"
 										size={20}
 									/>
 								</Link>
-								<Link href={"#"}>
+								<button
+									onClick={(e) => {
+										e.stopPropagation();
+										// Handle delete action here
+										// You might want to show a confirmation dialog
+									}}
+								>
 									<Trash
 										xlinkTitle="Delete"
 										className="text-red-400 hover:text-red-600"
 										size={20}
 									/>
-								</Link>
+								</button>
 							</td>
 						</tr>
 					))}

@@ -73,7 +73,7 @@ export default function DashboardNav() {
 
 			<nav
 				className={`
-                    fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform
+                    fixed top-0 left-0 h-full w-64 shadow-lg transform transition-transform
                     duration-300 ease-in-out md:relative md:translate-x-0 md:w-full md:max-w-xs 
                     md:shadow-none
                     ${isOpen ? "translate-x-0 pt-16" : "-translate-x-full"}
