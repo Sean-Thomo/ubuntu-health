@@ -2,58 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-// Type definitions
-interface Patient {
-	id: string;
-	firstName: string;
-	lastName: string;
-	dob: string;
-	gender: string;
-	phone: string;
-	address: string;
-	bloodType: string;
-	medicalHistory: string[];
-	allergies: string[];
-	activeConditions: string[];
-	medicalAidName?: string;
-}
-
-interface Visit {
-	id: string;
-	date: string;
-	diagnosis: string;
-	treatment: string;
-	notes: string;
-	prescriptions: Prescription[];
-}
-
-interface Prescription {
-	id: string;
-	medication: string;
-	dosage: string;
-	frequency: string;
-	startDate: string;
-	endDate: string;
-	active: boolean;
-}
-
-interface Appointment {
-	id: string;
-	date: string;
-	time: string;
-	type: string;
-	doctor: string;
-	status: string;
-}
-
-interface Bill {
-	id: string;
-	date: string;
-	amount: number;
-	description: string;
-	status: string;
-}
+import PatientOverview from "@/app/components/Modals/PatientOverview";
+import { Prescription, Visit, Appointment, Bill, Patient } from "@/types";
+import Visits from "@/app/components/Modals/Visits";
+import VisitsOverview from "@/app/components/Modals/Visits";
+import PrescriptionsOverview from "@/app/components/Modals/PrescriptionsOverview";
+import BillingOverview from "@/app/components/Modals/BillingOverview";
 
 interface PatientPageProps {
 	params: {
@@ -61,9 +15,7 @@ interface PatientPageProps {
 	};
 }
 
-// Example data fetching function (in a real app, you'd fetch from an API)
 const getPatientData = async (id: string): Promise<Patient> => {
-	// This would be an API call in a real application
 	return {
 		id,
 		firstName: "Zethu",
@@ -71,7 +23,12 @@ const getPatientData = async (id: string): Promise<Patient> => {
 		dob: "1985-06-15",
 		gender: "male",
 		phone: "+27 23 456 7890",
-		address: "123 Main St, Anytown, AT 12345",
+		street: "123 Main St",
+		streetTwo: "Apt 4B",
+		city: "Cape Town",
+		province: "Western Cape",
+		postalCode: "8001",
+		email: "zethu.johnson@example.com",
 		bloodType: "A+",
 		medicalHistory: ["Appendectomy (2010)", "Hypertension (2018-Present)"],
 		allergies: ["Penicillin", "Peanuts"],
@@ -93,6 +50,7 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 			prescriptions: [
 				{
 					id: "RX-001",
+					patientId: "P-001",
 					medication: "Amoxicillin",
 					dosage: "500mg",
 					frequency: "3x daily",
@@ -111,6 +69,7 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 			prescriptions: [
 				{
 					id: "RX-002",
+					patientId: "P-001",
 					medication: "Lisinopril",
 					dosage: "10mg",
 					frequency: "1x daily",
@@ -130,11 +89,13 @@ const getPatientAppointments = async (
 	return [
 		{
 			id: "A-001",
-			date: "2024-04-10",
-			time: "10:00 AM",
-			type: "Annual Physical",
-			doctor: "Dr. Jane Smith",
-			status: "Scheduled",
+			patientFirstName: "Zethu",
+			patientLastName: "Johnson",
+			appointmentDate: "2024-04-10",
+			appointmentTime: "10:00 AM",
+			appointmentType: "annualPhysical",
+			doctor: "Dr. Smith",
+			status: "scheduled",
 		},
 	];
 };
@@ -292,326 +253,22 @@ export default function PatientPage({ params }: PatientPageProps) {
 				{/* Tab Content */}
 				<div className="space-y-8">
 					{/* Overview Tab */}
-					{activeTab === "overview" && (
-						<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 backdrop-blur-sm">
-								<h2 className="text-cyan-400 text-lg font-medium mb-4">
-									Demographics
-								</h2>
-								<div className="grid grid-cols-2 gap-4">
-									<div>
-										<p className="text-xs text-cyan-400/70">Date of Birth</p>
-										<p>{patient.dob}</p>
-									</div>
-									<div>
-										<p className="text-xs text-cyan-400/70">Gender</p>
-										<p>{patient.gender.toUpperCase()}</p>
-									</div>
-									<div>
-										<p className="text-xs text-cyan-400/70">Blood Type</p>
-										<p>{patient.bloodType}</p>
-									</div>
-									<div>
-										<p className="text-xs text-cyan-400/70">Contact</p>
-										<p>{patient.phone}</p>
-									</div>
-									<div className="col-span-2">
-										<p className="text-xs text-cyan-400/70">Address</p>
-										<p>{patient.address}</p>
-									</div>
-									{patient.medicalAidName && (
-										<div className="col-span-2">
-											<p className="text-xs text-cyan-400/70">Medical Aid</p>
-											<p>{patient.medicalAidName}</p>
-										</div>
-									)}
-								</div>
-							</div>
-
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 backdrop-blur-sm">
-								<h2 className="text-cyan-400 text-lg font-medium mb-4">
-									Medical History
-								</h2>
-								<ul className="list-disc list-inside space-y-1">
-									{patient.medicalHistory.map((item, index) => (
-										<li key={index} className="text-cyan-50">
-											{item}
-										</li>
-									))}
-								</ul>
-							</div>
-
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 backdrop-blur-sm">
-								<h2 className="text-cyan-400 text-lg font-medium mb-4">
-									Allergies
-								</h2>
-								<div className="flex flex-wrap gap-2">
-									{patient.allergies.map((allergy, index) => (
-										<span
-											key={index}
-											className="px-3 py-1 bg-red-900/30 border border-red-400/20 text-red-400 rounded-full text-xs"
-										>
-											{allergy}
-										</span>
-									))}
-								</div>
-							</div>
-
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 backdrop-blur-sm">
-								<h2 className="text-cyan-400 text-lg font-medium mb-4">
-									Active Conditions
-								</h2>
-								<div className="flex flex-wrap gap-2">
-									{patient.activeConditions.map((condition, index) => (
-										<span
-											key={index}
-											className="px-3 py-1 bg-amber-900/30 border border-amber-400/20 text-amber-400 rounded-full text-xs"
-										>
-											{condition}
-										</span>
-									))}
-								</div>
-							</div>
-						</div>
-					)}
+					{activeTab === "overview" && <PatientOverview patient={patient} />}
 
 					{/* Visit History Tab */}
-					{activeTab === "visits" && (
-						<div className="space-y-4">
-							<h2 className="text-cyan-400 text-lg font-medium">
-								Visit History
-							</h2>
-							{visits.map((visit) => (
-								<div
-									key={visit.id}
-									className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 backdrop-blur-sm"
-								>
-									<div className="flex justify-between items-start mb-4">
-										<div>
-											<p className="text-xs text-cyan-400/70">
-												VISIT ID: {visit.id}
-											</p>
-											<h3 className="text-lg font-medium">{visit.diagnosis}</h3>
-										</div>
-										<span className="text-sm text-cyan-400">{visit.date}</span>
-									</div>
-
-									<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-										<div>
-											<p className="text-xs text-cyan-400/70">Treatment</p>
-											<p>{visit.treatment}</p>
-										</div>
-										<div>
-											<p className="text-xs text-cyan-400/70">Notes</p>
-											<p>{visit.notes}</p>
-										</div>
-									</div>
-
-									{visit.prescriptions.length > 0 && (
-										<div className="mt-4">
-											<p className="text-xs text-cyan-400/70 mb-2">
-												Prescriptions
-											</p>
-											<div className="space-y-2">
-												{visit.prescriptions.map((prescription) => (
-													<div
-														key={prescription.id}
-														className="flex items-center gap-2 text-sm"
-													>
-														<span
-															className={`w-2 h-2 rounded-full ${
-																prescription.active
-																	? "bg-green-400"
-																	: "bg-gray-400"
-															}`}
-														></span>
-														<span>
-															{prescription.medication} {prescription.dosage},{" "}
-															{prescription.frequency}
-														</span>
-													</div>
-												))}
-											</div>
-										</div>
-									)}
-								</div>
-							))}
-						</div>
-					)}
+					{activeTab === "visits" && <VisitsOverview visits={visits} />}
 
 					{/* Prescriptions Tab */}
 					{activeTab === "prescriptions" && (
-						<div className="space-y-6">
-							<div>
-								<h2 className="text-cyan-400 text-lg font-medium mb-4">
-									Active Prescriptions
-								</h2>
-								{activePrescriptions.length > 0 ? (
-									<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg overflow-hidden">
-										<table className="w-full text-sm">
-											<thead>
-												<tr className="bg-gray-800/70">
-													<th className="text-left p-4">Medication</th>
-													<th className="text-left p-4">Dosage</th>
-													<th className="text-left p-4">Frequency</th>
-													<th className="text-left p-4">Start Date</th>
-													<th className="text-left p-4">End Date</th>
-												</tr>
-											</thead>
-											<tbody>
-												{activePrescriptions.map((prescription) => (
-													<tr
-														key={prescription.id}
-														className="border-t border-cyan-800/20"
-													>
-														<td className="p-4">{prescription.medication}</td>
-														<td className="p-4">{prescription.dosage}</td>
-														<td className="p-4">{prescription.frequency}</td>
-														<td className="p-4">{prescription.startDate}</td>
-														<td className="p-4">{prescription.endDate}</td>
-													</tr>
-												))}
-											</tbody>
-										</table>
-									</div>
-								) : (
-									<p className="text-cyan-400/70">No active prescriptions</p>
-								)}
-							</div>
-
-							<div>
-								<h2 className="text-cyan-400 text-lg font-medium mb-4">
-									Past Prescriptions
-								</h2>
-								{pastPrescriptions.length > 0 ? (
-									<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg overflow-hidden">
-										<table className="w-full text-sm">
-											<thead>
-												<tr className="bg-gray-800/70">
-													<th className="text-left p-4">Medication</th>
-													<th className="text-left p-4">Dosage</th>
-													<th className="text-left p-4">Frequency</th>
-													<th className="text-left p-4">Start Date</th>
-													<th className="text-left p-4">End Date</th>
-												</tr>
-											</thead>
-											<tbody>
-												{pastPrescriptions.map((prescription) => (
-													<tr
-														key={prescription.id}
-														className="border-t border-cyan-800/20"
-													>
-														<td className="p-4">{prescription.medication}</td>
-														<td className="p-4">{prescription.dosage}</td>
-														<td className="p-4">{prescription.frequency}</td>
-														<td className="p-4">{prescription.startDate}</td>
-														<td className="p-4">{prescription.endDate}</td>
-													</tr>
-												))}
-											</tbody>
-										</table>
-									</div>
-								) : (
-									<p className="text-cyan-400/70">No past prescriptions</p>
-								)}
-							</div>
-						</div>
+						<PrescriptionsOverview
+							activePrescriptions={activePrescriptions}
+							pastPrescriptions={pastPrescriptions}
+						/>
 					)}
 
 					{/* Billing & Appointments Tab */}
 					{activeTab === "billing" && (
-						<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-							<div>
-								<h2 className="text-cyan-400 text-lg font-medium mb-4">
-									Upcoming Appointments
-								</h2>
-								{appointments.length > 0 ? (
-									<div className="space-y-4">
-										{appointments.map((appointment) => (
-											<div
-												key={appointment.id}
-												className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 backdrop-blur-sm"
-											>
-												<div className="flex justify-between items-start mb-2">
-													<div>
-														<p className="text-xs text-cyan-400/70">
-															APPOINTMENT ID: {appointment.id}
-														</p>
-														<h3 className="font-medium">{appointment.type}</h3>
-													</div>
-													<span className="px-2 py-1 bg-cyan-900/30 border border-cyan-400/20 text-cyan-400 rounded-full text-xs">
-														{appointment.status}
-													</span>
-												</div>
-												<div className="grid grid-cols-2 gap-4 mt-4">
-													<div>
-														<p className="text-xs text-cyan-400/70">Date</p>
-														<p>{appointment.date}</p>
-													</div>
-													<div>
-														<p className="text-xs text-cyan-400/70">Time</p>
-														<p>{appointment.time}</p>
-													</div>
-													<div className="col-span-2">
-														<p className="text-xs text-cyan-400/70">Doctor</p>
-														<p>{appointment.doctor}</p>
-													</div>
-												</div>
-											</div>
-										))}
-									</div>
-								) : (
-									<p className="text-cyan-400/70">No upcoming appointments</p>
-								)}
-							</div>
-
-							<div>
-								<h2 className="text-cyan-400 text-lg font-medium mb-4">
-									Outstanding Bills
-								</h2>
-								{bills.length > 0 ? (
-									<div className="space-y-4">
-										{bills.map((bill) => (
-											<div
-												key={bill.id}
-												className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 backdrop-blur-sm"
-											>
-												<div className="flex justify-between items-start mb-2">
-													<div>
-														<p className="text-xs text-cyan-400/70">
-															BILL ID: {bill.id}
-														</p>
-														<h3 className="font-medium">{bill.description}</h3>
-													</div>
-													<span className="px-2 py-1 bg-red-900/30 border border-red-400/20 text-red-400 rounded-full text-xs">
-														{bill.status}
-													</span>
-												</div>
-												<div className="grid grid-cols-2 gap-4 mt-4">
-													<div>
-														<p className="text-xs text-cyan-400/70">Date</p>
-														<p>{bill.date}</p>
-													</div>
-													<div>
-														<p className="text-xs text-cyan-400/70">Amount</p>
-														<p className="font-medium">
-															${bill.amount.toFixed(2)}
-														</p>
-													</div>
-												</div>
-												<div className="mt-4">
-													<button className="px-4 py-2 bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400/30 text-cyan-400 rounded text-sm transition-all">
-														Pay Now
-													</button>
-												</div>
-											</div>
-										))}
-									</div>
-								) : (
-									<p className="text-cyan-400/70">No outstanding bills</p>
-								)}
-							</div>
-						</div>
+						<BillingOverview appointments={appointments} bills={bills} />
 					)}
 				</div>
 			</main>

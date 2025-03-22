@@ -1,15 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Trash, SquarePen } from "lucide-react";
-
-interface Prescription {
-	id: number;
-	patientId: number;
-	medicationName: string;
-	dosage: string;
-	instructions: string;
-	issueDate: string;
-}
+import { Prescription } from "@/types";
 
 interface PrescriptionsTableProps {
 	prescriptions: Prescription[];
@@ -47,10 +39,10 @@ const PrescriptionsTable: React.FC<PrescriptionsTableProps> = ({
 					{prescriptions.map((prescription) => (
 						<tr key={prescription.id} className="border-b hover:bg-gray-100">
 							<td className="px-6 py-4">{prescription.patientId}</td>
-							<td className="px-6 py-4">{prescription.medicationName}</td>
+							<td className="px-6 py-4">{prescription.medication}</td>
 							<td className="px-6 py-4">{prescription.dosage}</td>
-							<td className="px-6 py-4">{prescription.instructions}</td>
-							<td className="px-6 py-4">{prescription.issueDate}</td>
+							<td className="px-6 py-4">{prescription.frequency}</td>
+							<td className="px-6 py-4">{prescription.startDate}</td>
 							<td className="px-6 py-4 flex gap-2">
 								<Link href={"#"}>
 									<SquarePen

@@ -1,27 +1,38 @@
 export interface Patient {
-	id: number;
+	id: string;
 	firstName: string;
 	lastName: string;
 	gender: string;
+	dob: string;
 	email: string;
 	phone: string;
-	medicalAidName: string;
-	createdAt: string;
-	updatedAt: string;
+	street: string;
+	streetTwo: string;
+	bloodType: string;
+	city: string;
+	province: string;
+	postalCode: string;
+	medicalAidName?: string;
+	medicalHistory: string[];
+	allergies: string[];
+	activeConditions: string[];
+	createdAt?: string;
+	updatedAt?: string;
 }
 
 export interface Appointment {
-	id: number;
+	id: string;
 	patientFirstName: string;
 	patientLastName: string;
 	appointmentDate: string;
 	appointmentTime: string;
+	doctor: string;
 	appointmentType: keyof typeof APPOINTMENT_TYPES;
 	status: keyof typeof STATUS_LABELS;
 }
 
 export interface Invoice {
-	id: number;
+	id: string;
 	issueDate: string;
 	totalAmount: number;
 	status: string;
@@ -29,12 +40,31 @@ export interface Invoice {
 }
 
 export interface Prescription {
-	id: number;
-	patientId: number;
-	medicationName: string;
+	id: string;
+	patientId: string;
+	medication: string;
 	dosage: string;
-	instructions: string;
-	issueDate: string;
+	frequency: string;
+	startDate: string;
+	endDate: string;
+	active: boolean;
+}
+
+export interface Visit {
+	id: string;
+	date: string;
+	diagnosis: string;
+	treatment: string;
+	notes: string;
+	prescriptions: Prescription[];
+}
+
+export interface Bill {
+	id: string;
+	date: string;
+	amount: number;
+	description: string;
+	status: string;
 }
 
 const APPOINTMENT_TYPES = {

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Note: 'next/navigation' instead of 'next/router'
+import { useRouter } from "next/navigation";
 import { SquarePen, Trash } from "lucide-react";
 
 interface Patient {
@@ -20,8 +20,6 @@ interface PatientsTableProps {
 
 const PatientsTable: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 	const router = useRouter();
-
-	// Handle row click to navigate to patient detail page
 	const handleRowClick = (patientId: string) => {
 		router.push(`/patients/${patientId}`);
 	};
@@ -54,7 +52,6 @@ const PatientsTable: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 							key={patient.id}
 							className="border-b hover:bg-gray-50 cursor-pointer"
 							onClick={(e) => {
-								// Prevent row click when clicking on action buttons
 								if (!(e.target as HTMLElement).closest("a")) {
 									handleRowClick(patient.id);
 								}
@@ -79,8 +76,6 @@ const PatientsTable: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 								<button
 									onClick={(e) => {
 										e.stopPropagation();
-										// Handle delete action here
-										// You might want to show a confirmation dialog
 									}}
 								>
 									<Trash
