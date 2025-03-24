@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import AppointmentsTableCard from "./Cards/AppointmentsTableCard";
+import AppointmentsTableCard from "../Cards/AppointmentsTableCard";
 import useApiData from "@/hooks/useApiData";
 import { Appointment } from "@/types";
 

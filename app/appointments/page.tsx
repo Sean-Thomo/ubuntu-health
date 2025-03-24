@@ -1,6 +1,6 @@
 import React from "react";
 import DashboardNav from "../components/DashboardNav";
-import AppointmentsTable from "../components/AppointmentsTable";
+import AppointmentsTable from "../components/Tables/AppointmentsTable";
 
 export default function Page() {
 	return (

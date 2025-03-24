@@ -58,7 +58,8 @@ export default function Navbar() {
                 fixed top-0 left-0 right-0 
                 w-full px-4 md:px-10
                 flex items-center justify-between 
-                z-50 h-16 bg-white shadow-sm
+                z-50 h-16 shadow-sm
+                bg-gray-900
             "
 		>
 			<Link
@@ -135,7 +136,7 @@ export default function Navbar() {
 							className="
                                 text-2xl 
                                 md:text-sm 
-                                text-gray-800 
+                                text-white
                                 hover:text-blue-600 
                                 transition-colors 
                                 duration-700

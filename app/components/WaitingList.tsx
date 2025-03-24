@@ -96,10 +96,10 @@ export default function WaitingList() {
 					</div>
 					<button
 						type="submit"
-						className="text-primary-50 bg-primary-600 hover:bg-primary-700
-                        focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
-                        text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
-                        dark:focus:ring-blue-800 flex flex-col items-center justify-center"
+						className="px-6 py-2 bg-gradient-to-r w-48
+                        from-cyan-500 to-blue-500 rounded-md
+                        text-sm font-medium shadow-lg shadow-cyan-500/20
+                        hover:shadow-cyan-500/40 transition-all"
 					>
 						Join Waitlist
 					</button>

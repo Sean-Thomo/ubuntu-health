@@ -14,12 +14,12 @@ const VisitsOverview: React.FC<VisitOverviewProps> = ({ visits }) => {
 					key={visit.id}
 					className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 backdrop-blur-sm"
 				>
-					<div className="flex justify-between items-start mb-4">
+					<div className="flex justify-between mb-4">
 						<div>
 							<p className="text-xs text-cyan-400/70">VISIT ID: {visit.id}</p>
 							<h3 className="text-lg font-medium">{visit.diagnosis}</h3>
 						</div>
-						<span className="text-sm text-cyan-400">{visit.date}</span>
+						<span className="text-sm text-cyan-500">{visit.date}</span>
 					</div>
 
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">

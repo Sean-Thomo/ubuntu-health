@@ -1,4 +1,4 @@
-import { Appointment, Bill } from "@/types";
+import { Appointment, APPOINTMENT_TYPES, Bill } from "@/types";
 import React from "react";
 
 interface BillingOverviewProps {
@@ -29,7 +29,7 @@ const BillingOverview: React.FC<BillingOverviewProps> = ({
 											APPOINTMENT ID: {appointment.id}
 										</p>
 										<h3 className="font-medium">
-											{appointment.appointmentType}
+											{APPOINTMENT_TYPES[appointment.appointmentType]}
 										</h3>
 									</div>
 									<span className="px-2 py-1 bg-cyan-900/30 border border-cyan-400/20 text-cyan-400 rounded-full text-xs">

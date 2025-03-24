@@ -165,7 +165,7 @@ export default function PatientPage({ params }: PatientPageProps) {
 	}
 
 	return (
-		<div className="min-h-screen bg-gray-900 text-cyan-50">
+		<div className="min-h-screen text-cyan-50">
 			{/* Header */}
 			<header className="border-b border-cyan-800/30 p-4">
 				<div className="max-w-7xl mx-auto flex justify-between items-center">

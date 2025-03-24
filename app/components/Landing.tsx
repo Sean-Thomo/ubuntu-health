@@ -1,11 +1,12 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Landing() {
 	return (
-		<div className="md:h-[85vh] flex items-center justify-center top-10">
+		<div className="md:h-[85vh]  flex items-center justify-center top-10">
 			<div className="max-w-6xl text-center grid gap-8">
 				<h1
-					className="text-black font-extrabold text-3xl md:text-5xl
+					className="text-white font-extrabold text-3xl md:text-5xl
                             lg:text-6xl tracking-tight text-center"
 				>
 					Streamline Patient Care and Practice Efficiency with{" "}
@@ -17,16 +18,16 @@ export default function Landing() {
 					Our EHR web app is designed to streamline your practice workflow,
 					ensuring compliance and providing peace of mind.
 				</p>
-				<div className="flex justify-center items-center">
-					<a
+				<div className="flex justify-center">
+					<Link
 						href="#waitlist"
-						className="text-primary-50 bg-primary-600 hover:bg-primary-700
-                    focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
-                    text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
-                    dark:focus:ring-blue-800"
+						className="px-6 py-2 bg-gradient-to-r w-48
+                        from-cyan-500 to-blue-500 rounded-md
+                        text-sm font-medium shadow-lg shadow-cyan-500/20
+                        hover:shadow-cyan-500/40 transition-all"
 					>
 						Join The Waiting List
-					</a>
+					</Link>
 				</div>
 			</div>
 		</div>
