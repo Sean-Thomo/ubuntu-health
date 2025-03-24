@@ -16,26 +16,35 @@ const AppointmentsTable: React.FC = () => {
 
 	if (isLoading) {
 		return (
-			<div className="flex justify-center items-center">
-				Loading appointments data...
+			<div className="min-h-screen bg-gray-900 text-cyan-50 flex items-center justify-center">
+				<div className="text-cyan-400">Loading appointments data...</div>
 			</div>
 		);
 	}
 
 	if (error) {
 		return (
-			<div className="text-red-600 p-4">
-				Error loading dashboard data. Please try again later.
+			<div className="min-h-screen bg-gray-900 text-cyan-50 flex items-center justify-center">
+				<div className="text-red-400">
+					Error loading appointments. Please try again later.
+				</div>
 			</div>
 		);
 	}
 
 	return (
-		<div className="min-h-screen">
-			<h1 className="text-3xl font-bold mb-6 text-gray-800">Appointments</h1>
+		<div className="space-y-6">
+			<div className="flex justify-between items-center">
+				<h1 className="text-3xl font-bold text-cyan-400">Appointments</h1>
+				<div className="flex gap-4">
+					<button className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-sm font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all">
+						+ New Appointment
+					</button>
+				</div>
+			</div>
 
 			<div className="mt-8">
-				<h2 className="text-xl font-semibold text-gray-800 mb-4">
+				<h2 className="text-xl font-semibold text-cyan-400 mb-4">
 					Today&lsquo;s Appointments
 				</h2>
 				<AppointmentsTableCard appointments={appointments} />
