@@ -1,10 +1,6 @@
 import React from "react";
 import { startOfWeek, endOfWeek, isWithinInterval } from "date-fns";
-
-interface Patient {
-	id: number;
-	createdAt: string;
-}
+import { Patient } from "@/types";
 
 interface PatientsCardProps {
 	patients: Patient[];
@@ -15,7 +11,7 @@ const PatientsCard: React.FC<PatientsCardProps> = ({ patients = [] }) => {
 	const startOfCurrentWeek = startOfWeek(now, { weekStartsOn: 1 });
 	const endOfCurrentWeek = endOfWeek(now, { weekStartsOn: 1 });
 	const patientsThisWeek = patients.filter((patient) =>
-		isWithinInterval(new Date(patient.createdAt), {
+		isWithinInterval(new Date(patient.createdAt ?? now), {
 			start: startOfCurrentWeek,
 			end: endOfCurrentWeek,
 		})
@@ -24,11 +20,13 @@ const PatientsCard: React.FC<PatientsCardProps> = ({ patients = [] }) => {
 	const patientsThisWeekLength = patientsThisWeek.length;
 
 	return (
-		<div className="space-y-2">
-			<p className="text-gray-600">Total Patients: {patientsLength}</p>
-			<p className="text-gray-600">
+		<div className="space-y-2 text-cyan-50">
+			<p>
+				Total Patients: <span className="text-cyan-400">{patientsLength}</span>
+			</p>
+			<p>
 				New This Week:{" "}
-				<span className="text-blue-600">{patientsThisWeekLength}</span>
+				<span className="text-cyan-400">{patientsThisWeekLength}</span>
 			</p>
 		</div>
 	);

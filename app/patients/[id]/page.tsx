@@ -112,7 +112,6 @@ const getPatientBills = async (patientId: string): Promise<Bill[]> => {
 	];
 };
 
-// Client component for the patient detail page
 export default function PatientPage({ params }: PatientPageProps) {
 	const [activeTab, setActiveTab] = useState<string>("overview");
 	const [patient, setPatient] = useState<Patient | null>(null);

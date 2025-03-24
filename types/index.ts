@@ -67,7 +67,7 @@ export interface Bill {
 	status: string;
 }
 
-const APPOINTMENT_TYPES = {
+export const APPOINTMENT_TYPES = {
 	initialConsultation: "Initial Consultation",
 	followUp: "Follow-up",
 	annualPhysical: "Annual Physical",
@@ -86,7 +86,7 @@ const APPOINTMENT_TYPES = {
 	other: "Other",
 };
 
-const STATUS_LABELS = {
+export const STATUS_LABELS = {
 	scheduled: "Scheduled",
 	confirmed: "Confirmed",
 	checkedIn: "Checked In",
@@ -95,4 +95,15 @@ const STATUS_LABELS = {
 	cancelled: "Cancelled",
 	noShow: "No Show",
 	rescheduled: "Rescheduled",
+};
+
+export const STATUS_COLORS = {
+	scheduled: "bg-yellow-100 text-yellow-800",
+	confirmed: "bg-blue-100 text-blue-800",
+	checkedIn: "bg-purple-100 text-purple-800",
+	inProgress: "bg-green-100 text-green-800",
+	completed: "bg-teal-100 text-teal-800",
+	cancelled: "bg-red-100 text-red-800",
+	noShow: "bg-gray-300 text-gray-700",
+	rescheduled: "bg-orange-100 text-orange-800",
 };
