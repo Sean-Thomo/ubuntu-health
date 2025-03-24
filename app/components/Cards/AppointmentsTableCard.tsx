@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Trash, SquarePen } from "lucide-react";
+import { Trash, Pencil } from "lucide-react";
 import {
 	Appointment,
 	APPOINTMENT_TYPES,
@@ -58,8 +58,7 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 								<td className="px-6 py-4">
 									<span
 										className={`px-3 py-1 rounded-full text-xs font-medium ${
-											STATUS_COLORS[appointment.status] ||
-											"bg-gray-700 text-cyan-400"
+											STATUS_COLORS[appointment.status]
 										}`}
 									>
 										{STATUS_LABELS[appointment.status]}
@@ -72,7 +71,7 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 											className="text-cyan-400 hover:text-cyan-300 transition-colors"
 											title="Edit Appointment"
 										>
-											<SquarePen size={18} />
+											<Pencil size={18} />
 										</Link>
 										<Link
 											href="#"

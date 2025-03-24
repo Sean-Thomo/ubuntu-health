@@ -96,7 +96,7 @@ const Dashboard: React.FC = () => {
 			</div>
 
 			{/* Recent Appointments Table */}
-			<div className="mt-8 rounded-lg bg-gray-800/50 border border-cyan-800/30 shadow-lg p-6">
+			<div className="mt-8">
 				<h2 className="text-xl font-semibold mb-4 text-cyan-400">
 					Today&lsquo;s Appointments
 				</h2>

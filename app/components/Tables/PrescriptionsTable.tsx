@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Trash, SquarePen } from "lucide-react";
+import { Trash, Pencil } from "lucide-react";
 import { Prescription } from "@/types";
 
 interface PrescriptionsTableProps {
@@ -45,7 +45,7 @@ const PrescriptionsTable: React.FC<PrescriptionsTableProps> = ({
 							<td className="px-6 py-4">{prescription.startDate}</td>
 							<td className="px-6 py-4 flex gap-2">
 								<Link href={"#"}>
-									<SquarePen
+									<Pencil
 										className="text-blue-300 hover:text-blue-600"
 										size={20}
 									/>

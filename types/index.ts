@@ -98,12 +98,12 @@ export const STATUS_LABELS = {
 };
 
 export const STATUS_COLORS = {
-	scheduled: "bg-yellow-100 text-yellow-800",
-	confirmed: "bg-blue-100 text-blue-800",
-	checkedIn: "bg-purple-100 text-purple-800",
-	inProgress: "bg-green-100 text-green-800",
-	completed: "bg-teal-100 text-teal-800",
-	cancelled: "bg-red-100 text-red-800",
-	noShow: "bg-gray-300 text-gray-700",
-	rescheduled: "bg-orange-100 text-orange-800",
+	scheduled: "bg-yellow-900/30 text-yellow-400",
+	confirmed: "bg-blue-900/30 text-blue-400",
+	checkedIn: "bg-purple-900/30 text-purple-400",
+	inProgress: "bg-green-900/30 text-green-400",
+	completed: "bg-teal-900/30 text-teal-400",
+	cancelled: "bg-red-900/30 text-red-400",
+	noShow: "bg-gray-700 text-cyan-400",
+	rescheduled: "bg-orange-900/30 text-orange-400",
 };
