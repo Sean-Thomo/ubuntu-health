@@ -6,11 +6,7 @@ import Layout from "../components/Layout";
 import PatientsTable from "../components/Tables/PatientsTable";
 import PatientForm from "../components/Forms/PatientForm";
 
-interface PatientsPageProps {
-	patients?: Patient[];
-}
-
-const PatientsPage: React.FC<PatientsPageProps> = ({ patients = [] }) => {
+const PatientsPage = () => {
 	const [activeModal, setActiveModal] = useState("");
 	const handleCloseModal = () => setActiveModal("");
 

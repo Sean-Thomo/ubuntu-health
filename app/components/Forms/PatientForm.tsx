@@ -74,7 +74,7 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 	});
 
 	return (
-		<div className="bg-black/70 fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50 p-4 overflow-y-auto">
+		<div className="bg-black/70 fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50 p-4">
 			<div className="bg-gray-800 border border-cyan-800/30 rounded-xl p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-xl shadow-cyan-500/10">
 				<button
 					onClick={onClose}
