@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Pencil, Trash2, User } from "lucide-react";
-import { Patient } from "@/types";
+import { Patient } from "@/types/index";
 
 interface PatientsTableProps {
 	patients: Patient[];
