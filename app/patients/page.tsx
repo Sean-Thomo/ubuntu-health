@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Search, Plus } from "lucide-react";
 import { Patient } from "@/types";
 import Layout from "../components/Layout";
+import PatientsTable from "../components/Tables/PatientsTable";
 
 interface PatientsPageProps {
 	patients?: Patient[];
@@ -47,7 +48,7 @@ const PatientsPage: React.FC<PatientsPageProps> = ({ patients = [] }) => {
 					</div>
 
 					{/* Patients Table */}
-					<PatientsPage patients={patients} />
+					<PatientsTable patients={patients} />
 
 					{/* Pagination */}
 					<div className="flex justify-between items-center mt-6 text-sm text-cyan-400/70">
