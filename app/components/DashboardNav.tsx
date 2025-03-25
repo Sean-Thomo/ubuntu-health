@@ -52,11 +52,11 @@ export default function DashboardNav() {
 		},
 	];
 
-	const handleOverlayClick = (e: any) => {
-		if (e.target === e.currentTarget) {
-			handleCloseModal();
-		}
-	};
+	// const handleOverlayClick = (e: any) => {
+	// 	if (e.target === e.currentTarget) {
+	// 		handleCloseModal();
+	// 	}
+	// };
 
 	return (
 		<>
@@ -137,7 +137,7 @@ export default function DashboardNav() {
 			{/* Modal Overlay */}
 			{activeModal && (
 				<div
-					onClick={handleOverlayClick}
+					// onClick={handleOverlayClick}
 					className="fixed inset-0 bg-black/70 backdrop-blur-lg flex items-center justify-center z-50"
 				>
 					<div className="bg-gray-800 border border-cyan-800/30 rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative m-4 shadow-xl shadow-cyan-500/10">

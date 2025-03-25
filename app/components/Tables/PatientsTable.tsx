@@ -1,115 +1,71 @@
 "use client";
+import React, { useState } from "react";
+import PatientsTableCard from "../Cards/PatientsTableCard";
+import useApiData from "@/hooks/useApiData";
+import { Patient } from "@/types";
+import { Search, Plus } from "lucide-react";
+import PatientForm from "../Forms/PatientForm";
 
-import React from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { Pencil, Trash2, User } from "lucide-react";
-import { Patient } from "@/types/index";
+const PatientsTable: React.FC = () => {
+	const [activeModal, setActiveModal] = useState("");
+	const handleCloseModal = () => setActiveModal("");
 
-interface PatientsTableProps {
-	patients: Patient[];
-}
-
-const PatientsTable: React.FC<PatientsTableProps> = ({ patients = [] }) => {
-	const router = useRouter();
-	const handleRowClick = (patientId: string) => {
-		router.push(`/patients/${patientId}`);
+	const handleOverlayClick = (e: any) => {
+		if (e.target === e.currentTarget) {
+			handleCloseModal();
+		}
 	};
 
-	return (
-		<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg overflow-hidden shadow-lg shadow-cyan-500/10">
-			<div className="overflow-x-auto">
-				<table className="w-full text-sm text-cyan-50">
-					<thead className="bg-gray-800/70 text-cyan-400">
-						<tr>
-							<th className="px-6 py-4 text-left">Patient</th>
-							<th className="px-6 py-4 text-left">Contact</th>
-							<th className="px-6 py-4 text-left">Medical Info</th>
-							<th className="px-6 py-4 text-left">Status</th>
-							<th className="px-6 py-4 text-left">Actions</th>
-						</tr>
-					</thead>
-					<tbody className="divide-y divide-cyan-800/30">
-						{patients.map((patient) => (
-							<tr
-								key={patient.id}
-								className="hover:bg-gray-800/80 transition-colors"
-							>
-								<td className="px-6 py-4">
-									<div className="flex items-center gap-4">
-										<div className="flex items-center justify-center w-10 h-10 rounded-full bg-cyan-900/30 text-cyan-400">
-											<User size={18} />
-										</div>
-										<div>
-											<div className="font-medium">
-												{patient.firstName} {patient.lastName}
-											</div>
-											<div className="text-xs text-cyan-400/70">
-												ID: {patient.id}
-											</div>
-										</div>
-									</div>
-								</td>
-								<td className="px-6 py-4">
-									<div className="space-y-1">
-										<div>{patient.phone || "Not provided"}</div>
-										<div className="text-cyan-400/70 text-sm">
-											{patient.email || "Not provided"}
-										</div>
-									</div>
-								</td>
-								<td className="px-6 py-4">
-									<div className="space-y-1">
-										<div className="flex items-center gap-2">
-											<span className="text-xs px-2 py-1 rounded-full bg-gray-700 text-cyan-400">
-												{patient.bloodType || "N/A"}
-											</span>
-											{(patient.activeConditions?.length || 0) > 0 && (
-												<span className="text-xs px-2 py-1 rounded-full bg-red-900/30 text-red-400">
-													{patient.activeConditions?.length} active
-												</span>
-											)}
-										</div>
-										<div className="text-xs text-cyan-400/70">
-											{patient.allergies?.length || 0} allergies
-										</div>
-									</div>
-								</td>
-								<td className="px-6 py-4">
-									<div className="flex items-center gap-2">
-										{patient.medicalAidName ? (
-											<span className="text-xs px-2 py-1 rounded-full bg-green-900/30 text-green-400">
-												Medical Aid: {patient.medicalAidName}
-											</span>
-										) : (
-											<span className="text-xs px-2 py-1 rounded-full bg-yellow-900/30 text-yellow-400">
-												Private Pay
-											</span>
-										)}
-									</div>
-								</td>
-								<td className="px-6 py-4">
-									<div className="flex gap-4">
-										<Link
-											href={`/patients/${patient.id}`}
-											className="text-cyan-400 hover:text-cyan-300 transition-colors"
-											title="View Patient"
-										>
-											<Pencil size={18} />
-										</Link>
-										<button
-											className="text-red-400 hover:text-red-300 transition-colors"
-											title="Delete Patient"
-										>
-											<Trash2 size={18} />
-										</button>
-									</div>
-								</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
+	const {
+		data: patients,
+		isLoading: patientsLoading,
+		error: patientsError,
+	} = useApiData<Patient>("Patients");
+
+	const isLoading = patientsLoading;
+	const error = patientsError;
+
+	if (isLoading) {
+		return (
+			<div className="min-h-screen bg-gray-900 text-cyan-400 flex items-center justify-center">
+				Loading patients data...
 			</div>
+		);
+	}
+
+	if (error) {
+		return (
+			<div className="min-h-screen bg-gray-900 flex items-center justify-center text-red-600 ">
+				Error loading patients data. Please try again later.
+			</div>
+		);
+	}
+
+	return (
+		<div className="space-y-6">
+			<div className="mt-8">
+				<PatientsTableCard patients={patients} />
+			</div>
+
+			{/* {activeModal && (
+				<div
+					onClick={handleOverlayClick}
+					className="fixed inset-0 bg-black/70 backdrop-blur-lg flex items-center justify-center z-50"
+				>
+					<div className="bg-gray-800 border border-cyan-800/30 rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative m-4 shadow-xl shadow-cyan-500/10">
+						<button
+							onClick={handleCloseModal}
+							className="absolute top-4 right-4 text-cyan-400 hover:text-cyan-300 text-2xl"
+						>
+							&times;
+						</button>
+
+						{activeModal === "addPatient" && (
+							<PatientForm onClose={handleCloseModal} />
+						)}
+					</div>
+				</div>
+			)} */}
 		</div>
 	);
 };
