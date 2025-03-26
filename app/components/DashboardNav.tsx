@@ -46,8 +46,8 @@ const DashboardNav = () => {
 			icon: CreditCard,
 		},
 		{
-			name: "Invoice",
-			href: "/invoice",
+			name: "Invoices",
+			href: "/invoices",
 			icon: FileText,
 		},
 	];
