@@ -35,8 +35,8 @@ export interface Invoice {
 	id: string;
 	issueDate: string;
 	totalAmount: number;
-	status: string;
-	notes: string;
+	status: keyof typeof INVOICE_STATUS;
+	notes?: string;
 }
 
 export interface Prescription {
@@ -64,7 +64,7 @@ export interface Bill {
 	date: string;
 	amount: number;
 	description: string;
-	status: string;
+	status: keyof typeof BILL_STATUS;
 }
 
 export const APPOINTMENT_TYPES = {
@@ -107,3 +107,105 @@ export const STATUS_COLORS = {
 	noShow: "bg-gray-700 text-cyan-400",
 	rescheduled: "bg-orange-900/30 text-orange-400",
 };
+
+export interface Medication {
+	name: string;
+	dosage: string;
+	frequency: string;
+	type: keyof typeof MEDICATION_TYPES;
+}
+
+export interface Prescription {
+	id: string;
+	patientId: string;
+	doctorId: string;
+	issueDate: string;
+	expiryDate: string;
+	status: keyof typeof PRESCRIPTION_STATUS;
+	medications: Medication[];
+	notes?: string;
+	createdAt?: string;
+	updatedAt?: string;
+}
+
+export const MEDICATION_TYPES = {
+	TABLET: "Tablet",
+	CAPSULE: "Capsule",
+	SYRUP: "Syrup",
+	INJECTION: "Injection",
+	OINTMENT: "Ointment",
+	DROPS: "Drops",
+	INHALER: "Inhaler",
+	PATCH: "Transdermal Patch",
+	SUPPOSITORY: "Suppository",
+	OTHER: "Other",
+} as const;
+
+export const PRESCRIPTION_STATUS = {
+	ACTIVE: "Active",
+	PENDING: "Pending",
+	COMPLETED: "Completed",
+	CANCELLED: "Cancelled",
+	EXPIRED: "Expired",
+} as const;
+
+// Optional: Type for the form values
+export interface PrescriptionFormValues {
+	patientId: string;
+	doctorId: string;
+	issueDate: string;
+	expiryDate: string;
+	status: keyof typeof PRESCRIPTION_STATUS;
+	medications: Omit<Medication, "id">[];
+	notes?: string;
+}
+
+export interface Bill {
+	id: string;
+	patientId: string;
+	billNumber: string;
+	date: string;
+	amount: number;
+	status: keyof typeof BILL_STATUS;
+	service: string;
+	description: string;
+	createdAt?: string;
+	updatedAt?: string;
+}
+
+export const BILL_STATUS = {
+	PENDING: "Pending",
+	PAID: "Paid",
+	OVERDUE: "Overdue",
+	CANCELLED: "Cancelled",
+	REFUNDED: "Refunded",
+} as const;
+
+export interface InvoiceItem {
+	description: string;
+	quantity: number;
+	unitPrice: number;
+}
+
+export interface Invoice {
+	id: string;
+	patientId: string;
+	invoiceNumber: string;
+	issueDate: string;
+	dueDate: string;
+	status: keyof typeof INVOICE_STATUS;
+	items: InvoiceItem[];
+	totalAmount: number;
+	notes?: string;
+	createdAt?: string;
+	updatedAt?: string;
+}
+
+export const INVOICE_STATUS = {
+	DRAFT: "Draft",
+	PENDING: "Pending",
+	PAID: "Paid",
+	OVERDUE: "Overdue",
+	CANCELLED: "Cancelled",
+	PARTIALLY_PAID: "Partially Paid",
+} as const;
