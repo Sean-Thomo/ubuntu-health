@@ -1,67 +1,39 @@
 import React from "react";
-import Link from "next/link";
-import { Trash, Pencil } from "lucide-react";
 import { Prescription } from "@/types";
+import PrescriptionsTableCard from "../Cards/PrescriptionsTableCard";
+import useApiData from "@/hooks/useApiData";
 
-interface PrescriptionsTableProps {
-	prescriptions: Prescription[];
-}
+const PrescriptionsTable = () => {
+	const {
+		data: prescriptions,
+		isLoading: prescriptionsLoading,
+		error: prescriptionsError,
+	} = useApiData<Prescription>("Prescriptions");
 
-const PrescriptionsTable: React.FC<PrescriptionsTableProps> = ({
-	prescriptions = [],
-}) => {
+	const isLoading = prescriptionsLoading;
+	const error = prescriptionsError;
+
+	if (isLoading) {
+		return (
+			<div className="min-h-screen bg-gray-900 text-cyan-400 flex items-center justify-center">
+				Loading prescriptions data...
+			</div>
+		);
+	}
+
+	if (error) {
+		return (
+			<div className="min-h-screen bg-gray-900 text-red-400 flex items-center justify-center">
+				Error loading prescriptions. Please try again later.
+			</div>
+		);
+	}
+
 	return (
-		<div className="g-gray-800/50 border border-cyan-800/30 rounded-lg overflow-hidden">
-			<table className="w-full text-sm ">
-				<thead>
-					<tr className="bg-gray-800/70">
-						<th scope="col" className="px-6 py-3">
-							Patient ID
-						</th>
-						<th scope="col" className="px-6 py-3">
-							Medication
-						</th>
-						<th scope="col" className="px-6 py-3">
-							Dosage
-						</th>
-						<th scope="col" className="px-6 py-3">
-							Instructions
-						</th>
-						<th scope="col" className="px-6 py-3">
-							Issue Date
-						</th>
-						<th scope="col" className="px-6 py-3">
-							Action
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					{prescriptions.map((prescription) => (
-						<tr key={prescription.id} className="border-b hover:bg-gray-100">
-							<td className="px-6 py-4">{prescription.patientId}</td>
-							<td className="px-6 py-4">{prescription.medication}</td>
-							<td className="px-6 py-4">{prescription.dosage}</td>
-							<td className="px-6 py-4">{prescription.frequency}</td>
-							<td className="px-6 py-4">{prescription.startDate}</td>
-							<td className="px-6 py-4 flex gap-2">
-								<Link href={"#"}>
-									<Pencil
-										className="text-blue-300 hover:text-blue-600"
-										size={20}
-									/>
-								</Link>
-								<Link href={"#"}>
-									<Trash
-										xlinkTitle="Delete"
-										className="text-red-400 hover:text-red-600"
-										size={20}
-									/>
-								</Link>
-							</td>
-						</tr>
-					))}
-				</tbody>
-			</table>
+		<div className="space-y-6">
+			<div className="mt-8">
+				<PrescriptionsTableCard prescriptions={prescriptions} />
+			</div>
 		</div>
 	);
 };

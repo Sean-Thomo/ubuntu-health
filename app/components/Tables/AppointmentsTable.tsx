@@ -1,21 +1,9 @@
-"use client";
 import React, { useState } from "react";
 import AppointmentsTableCard from "../Cards/AppointmentsTableCard";
 import useApiData from "@/hooks/useApiData";
 import { Appointment } from "@/types";
-import { Search, Plus } from "lucide-react";
-import AppointmentForm from "../Forms/AppointmentForm";
 
-const AppointmentsTable: React.FC = () => {
-	const [activeModal, setActiveModal] = useState("");
-	const handleCloseModal = () => setActiveModal("");
-
-	const handleOverlayClick = (e: any) => {
-		if (e.target === e.currentTarget) {
-			handleCloseModal();
-		}
-	};
-
+const AppointmentsTable = () => {
 	const {
 		data: appointments,
 		isLoading: appointmentsLoading,
