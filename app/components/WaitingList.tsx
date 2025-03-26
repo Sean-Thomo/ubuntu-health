@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function WaitingList() {
+const WaitingList = () => {
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -107,4 +107,6 @@ export default function WaitingList() {
 			</div>
 		</form>
 	);
-}
+};
+
+export default WaitingList;

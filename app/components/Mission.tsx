@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Mission() {
+const Mission = () => {
 	return (
 		<div id="about">
 			<div className="pt-20 flex flex-wrap">
@@ -20,4 +20,6 @@ export default function Mission() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default Mission;

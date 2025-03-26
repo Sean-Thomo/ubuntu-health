@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-export default function Navbar() {
+const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const navRef = useRef<HTMLDivElement>(null);
 
@@ -166,4 +166,6 @@ export default function Navbar() {
 			)}
 		</header>
 	);
-}
+};
+
+export default Navbar;

@@ -17,14 +17,16 @@ export const metadata: Metadata = {
          solution.`,
 };
 
-export default function RootLayout({
+const RootLayout = ({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
-}>) {
+}>) => {
 	return (
 		<html lang="en">
 			<body className={poppins.className}>{children}</body>
 		</html>
 	);
-}
+};
+
+export default RootLayout;

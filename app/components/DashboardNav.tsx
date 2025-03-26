@@ -14,7 +14,7 @@ import {
 import PatientForm from "./Forms/PatientForm";
 import AppointmentForm from "./Forms/AppointmentForm";
 
-export default function DashboardNav() {
+const DashboardNav = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [activeModal, setActiveModal] = useState("");
 	const handleCloseModal = () => setActiveModal("");
@@ -159,4 +159,6 @@ export default function DashboardNav() {
 			)}
 		</>
 	);
-}
+};
+
+export default DashboardNav;

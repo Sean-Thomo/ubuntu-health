@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-export default function Pricing() {
+const Pricing = () => {
 	return (
 		<div id="pricing">
 			<div className="pt-20 lg:pt-[120px] relative overflow-hidden container">
@@ -142,4 +142,6 @@ export default function Pricing() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default Pricing;

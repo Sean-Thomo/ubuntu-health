@@ -5,7 +5,7 @@ import Services from "./components/Services";
 import Pricing from "./components/Pricing";
 import WaitingList from "./components/WaitingList";
 
-export default function Home() {
+const Home = () => {
 	return (
 		<>
 			<div className="flex min-h-screen text-cyan-50 flex-col items-center justify-center px-2 sm:px-24">
@@ -29,4 +29,6 @@ export default function Home() {
 			</div>
 		</>
 	);
-}
+};
+
+export default Home;

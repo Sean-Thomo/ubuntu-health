@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-export default function Landing() {
+const Landing = () => {
 	return (
 		<div className="md:h-[85vh]  flex items-center justify-center top-10">
 			<div className="max-w-6xl text-center grid gap-8">
@@ -32,4 +32,6 @@ export default function Landing() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default Landing;

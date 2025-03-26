@@ -5,7 +5,7 @@ import { Search, Plus } from "lucide-react";
 import Layout from "../components/Layout";
 import PrescriptionsTable from "../components/Tables/PrescriptionsTable";
 
-export default function Page() {
+const Page = () => {
 	const [activeModal, setActiveModal] = useState("");
 	const handleCloseModal = () => setActiveModal("");
 	return (
@@ -50,4 +50,6 @@ export default function Page() {
 			</div>
 		</Layout>
 	);
-}
+};
+
+export default Page;

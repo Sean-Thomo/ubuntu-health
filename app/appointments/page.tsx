@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import { Search, Plus } from "lucide-react";
 import AppointmentForm from "../components/Forms/AppointmentForm";
 
-export default function Page() {
+const Page = () => {
 	const [activeModal, setActiveModal] = useState("");
 	const handleCloseModal = () => setActiveModal("");
 	return (
@@ -70,4 +70,6 @@ export default function Page() {
 			)}
 		</Layout>
 	);
-}
+};
+
+export default Page;
