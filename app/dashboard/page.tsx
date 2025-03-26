@@ -45,13 +45,13 @@ const Dashboard: React.FC = () => {
 
 	return (
 		<Layout>
-			<ToastContainer
-				theme="dark"
-				position="top-right"
-				hideProgressBar={false}
-				toastClassName="bg-gray-800 text-cyan-50"
-			/>
 			<div className="min-h-screen bg-gray-900 text-cyan-50 p-6 overflow-y-auto">
+				<ToastContainer
+					theme="dark"
+					position="top-right"
+					hideProgressBar={false}
+					toastClassName="bg-gray-800 text-cyan-50"
+				/>
 				<h1 className="text-3xl font-bold mb-6 text-cyan-400">Dashboard</h1>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
