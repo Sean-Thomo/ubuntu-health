@@ -22,10 +22,10 @@ function Services() {
                     hover:bg-blue-500"
 					rel="noopener noreferrer"
 				>
-					<h2 className="mb-3 text-2xl font-semibold group-hover:text-white">
+					<h2 className="mb-3 text-2xl font-semibold group-hover:">
 						Patient Management{" "}
 					</h2>
-					<p className="text-sm text-gray-500 group-hover:text-white">
+					<p className="text-sm text-gray-500 group-hover:">
 						Comprehensive tools for storing and managing patient demographics,
 						medical history, and treatment plans.
 					</p>
@@ -36,10 +36,10 @@ function Services() {
                     hover:bg-blue-500"
 					rel="noopener noreferrer"
 				>
-					<h2 className="mb-3 text-2xl font-semibold group-hover:text-white">
+					<h2 className="mb-3 text-2xl font-semibold group-hover:">
 						Appointment Scheduling
 					</h2>
-					<p className="text-sm text-gray-500 group-hover:text-white">
+					<p className="text-sm text-gray-500 group-hover:">
 						Flexible scheduling options with reminders and notifications for
 						practitioners and patients.
 					</p>
@@ -50,10 +50,10 @@ function Services() {
                     hover:bg-blue-500"
 					rel="noopener noreferrer"
 				>
-					<h2 className="mb-3 text-2xl font-semibold group-hover:text-white">
+					<h2 className="mb-3 text-2xl font-semibold group-hover:">
 						E-Prescriptions
 					</h2>
-					<p className="text-sm text-gray-500 group-hover:text-white">
+					<p className="text-sm text-gray-500 group-hover:">
 						Generate electronic prescriptions with ease, reducing errors and
 						improving medication management.
 					</p>
@@ -64,10 +64,10 @@ function Services() {
                     hover:bg-blue-500"
 					rel="noopener noreferrer"
 				>
-					<h2 className="mb-3 text-2xl font-semibold group-hover:text-white">
+					<h2 className="mb-3 text-2xl font-semibold group-hover:">
 						Billing and Invoicing
 					</h2>
-					<p className="text-sm text-gray-500 group-hover:text-white">
+					<p className="text-sm text-gray-500 group-hover:">
 						Automate billing processes and generate invoices seamlessly
 					</p>
 				</div>

@@ -6,7 +6,7 @@ const Landing = () => {
 		<div className="md:h-[85vh]  flex items-center justify-center top-10">
 			<div className="max-w-6xl text-center grid gap-8">
 				<h1
-					className="text-white font-extrabold text-3xl md:text-5xl
+					className=" font-extrabold text-3xl md:text-5xl
                             lg:text-6xl tracking-tight text-center"
 				>
 					Streamline Patient Care and Practice Efficiency with{" "}

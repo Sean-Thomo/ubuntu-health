@@ -58,32 +58,28 @@ const NewPrescriptionPage = () => {
 	});
 
 	return (
-		<div className="min-h-screen bg-gray-900 text-cyan-50 p-6">
+		<div className="min-h-screen text-cyan-50 p-6">
 			<div className="max-w-4xl mx-auto">
 				{/* Header */}
 				<div className="flex justify-between items-center mb-8">
 					<div>
-						<h1 className="text-2xl font-bold text-cyan-400">
-							New Prescription
-						</h1>
-						<p className="text-cyan-400/70 mt-1">
-							Create a new medication prescription
-						</p>
+						<h1 className="text-2xl font-bold  ">New Prescription</h1>
+						<p className="  mt-1">Create a new medication prescription</p>
 					</div>
 					<Link
 						href="/prescriptions"
-						className="px-4 py-2 border border-cyan-800/30 rounded-md text-cyan-400 hover:bg-cyan-900/30 transition-colors"
+						className="px-4 py-2 border   rounded-md   hover:  transition-colors"
 					>
 						Back to Prescriptions
 					</Link>
 				</div>
 
 				{/* Form */}
-				<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg shadow-lg shadow-cyan-500/10 p-6">
+				<div className="  border   rounded-lg shadow-lg   p-6">
 					<form onSubmit={formik.handleSubmit} className="space-y-6">
 						{/* Patient Information */}
-						<div className="bg-gray-800/30 border border-cyan-800/20 rounded-lg p-4">
-							<h2 className="text-lg font-semibold text-cyan-400 mb-4 flex items-center gap-2">
+						<div className=" /30 border   rounded-lg p-4">
+							<h2 className="text-lg font-semibold   mb-4 flex items-center gap-2">
 								<User size={18} />
 								Patient Information
 							</h2>
@@ -92,7 +88,7 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="patientId"
-										className="block text-sm font-medium text-cyan-400 mb-1"
+										className="block text-sm font-medium   mb-1"
 									>
 										Patient ID
 									</label>
@@ -103,7 +99,7 @@ const NewPrescriptionPage = () => {
 										value={formik.values.patientId}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 										placeholder="PAT-12345"
 									/>
 									{formik.touched.patientId && formik.errors.patientId && (
@@ -118,8 +114,8 @@ const NewPrescriptionPage = () => {
 						</div>
 
 						{/* Medication Details */}
-						<div className="bg-gray-800/30 border border-cyan-800/20 rounded-lg p-4">
-							<h2 className="text-lg font-semibold text-cyan-400 mb-4 flex items-center gap-2">
+						<div className=" /30 border   rounded-lg p-4">
+							<h2 className="text-lg font-semibold   mb-4 flex items-center gap-2">
 								<Pill size={18} />
 								Medication Details
 							</h2>
@@ -128,7 +124,7 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="medication"
-										className="block text-sm font-medium text-cyan-400 mb-1"
+										className="block text-sm font-medium   mb-1"
 									>
 										Medication Name
 									</label>
@@ -139,7 +135,7 @@ const NewPrescriptionPage = () => {
 										value={formik.values.medication}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 										placeholder="e.g., Amoxicillin"
 									/>
 									{formik.touched.medication && formik.errors.medication && (
@@ -152,7 +148,7 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="dosage"
-										className="block text-sm font-medium text-cyan-400 mb-1"
+										className="block text-sm font-medium   mb-1"
 									>
 										Dosage
 									</label>
@@ -163,7 +159,7 @@ const NewPrescriptionPage = () => {
 										value={formik.values.dosage}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 										placeholder="e.g., 500mg"
 									/>
 									{formik.touched.dosage && formik.errors.dosage && (
@@ -176,7 +172,7 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="frequency"
-										className="block text-sm font-medium text-cyan-400 mb-1"
+										className="block text-sm font-medium   mb-1"
 									>
 										Frequency
 									</label>
@@ -187,7 +183,7 @@ const NewPrescriptionPage = () => {
 											value={formik.values.frequency}
 											onChange={formik.handleChange}
 											onBlur={formik.handleBlur}
-											className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 appearance-none"
+											className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 appearance-none"
 										>
 											<option value="">Select frequency</option>
 											<option value="Once daily">Once daily</option>
@@ -209,7 +205,7 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="refills"
-										className="block text-sm font-medium text-cyan-400 mb-1"
+										className="block text-sm font-medium   mb-1"
 									>
 										Refills
 									</label>
@@ -221,7 +217,7 @@ const NewPrescriptionPage = () => {
 										max="10"
 										value={formik.values.refills}
 										onChange={formik.handleChange}
-										className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 									/>
 								</div>
 							</div>
@@ -229,7 +225,7 @@ const NewPrescriptionPage = () => {
 							<div className="mt-6">
 								<label
 									htmlFor="instructions"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium   mb-1"
 								>
 									Additional Instructions
 								</label>
@@ -239,15 +235,15 @@ const NewPrescriptionPage = () => {
 									rows={3}
 									value={formik.values.instructions}
 									onChange={formik.handleChange}
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 									placeholder="Special instructions for the patient..."
 								/>
 							</div>
 						</div>
 
 						{/* Dates */}
-						<div className="bg-gray-800/30 border border-cyan-800/20 rounded-lg p-4">
-							<h2 className="text-lg font-semibold text-cyan-400 mb-4 flex items-center gap-2">
+						<div className=" /30 border   rounded-lg p-4">
+							<h2 className="text-lg font-semibold   mb-4 flex items-center gap-2">
 								<Calendar size={18} />
 								Prescription Dates
 							</h2>
@@ -256,7 +252,7 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="startDate"
-										className="block text-sm font-medium text-cyan-400 mb-1"
+										className="block text-sm font-medium   mb-1"
 									>
 										Start Date
 									</label>
@@ -268,7 +264,7 @@ const NewPrescriptionPage = () => {
 											value={formik.values.startDate}
 											onChange={formik.handleChange}
 											onBlur={formik.handleBlur}
-											className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+											className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 										/>
 									</div>
 									{formik.touched.startDate && formik.errors.startDate && (
@@ -281,7 +277,7 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="endDate"
-										className="block text-sm font-medium text-cyan-400 mb-1"
+										className="block text-sm font-medium   mb-1"
 									>
 										End Date (Optional)
 									</label>
@@ -292,7 +288,7 @@ const NewPrescriptionPage = () => {
 											name="endDate"
 											value={formik.values.endDate}
 											onChange={formik.handleChange}
-											className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+											className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 										/>
 									</div>
 								</div>
@@ -304,14 +300,14 @@ const NewPrescriptionPage = () => {
 							<button
 								type="button"
 								onClick={() => formik.resetForm()}
-								className="px-6 py-2 border border-cyan-800/30 rounded-md text-cyan-400 hover:bg-cyan-900/30 transition-colors"
+								className="px-6 py-2 border   rounded-md   hover:  transition-colors"
 							>
 								Reset
 							</button>
 							<button
 								type="submit"
 								disabled={isSubmitting}
-								className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-white font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+								className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md  font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
 							>
 								{isSubmitting ? "Creating..." : "Create Prescription"}
 							</button>

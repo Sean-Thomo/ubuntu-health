@@ -13,14 +13,12 @@ const PrescriptionsOverview: React.FC<PrescriptionsOverviewProps> = ({
 	return (
 		<div className="space-y-6">
 			<div>
-				<h2 className="text-cyan-400 text-lg font-medium mb-4">
-					Active Prescriptions
-				</h2>
+				<h2 className=" text-lg font-medium mb-4">Active Prescriptions</h2>
 				{activePrescriptions.length > 0 ? (
-					<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg overflow-hidden">
+					<div className="  border   rounded-lg overflow-hidden">
 						<table className="w-full text-sm">
 							<thead>
-								<tr className="bg-gray-800/70">
+								<tr className=" /70">
 									<th className="text-left p-4">Medication</th>
 									<th className="text-left p-4">Dosage</th>
 									<th className="text-left p-4">Frequency</th>
@@ -30,10 +28,7 @@ const PrescriptionsOverview: React.FC<PrescriptionsOverviewProps> = ({
 							</thead>
 							<tbody>
 								{activePrescriptions.map((prescription: any) => (
-									<tr
-										key={prescription.id}
-										className="border-t border-cyan-800/20"
-									>
+									<tr key={prescription.id} className="border-t  ">
 										<td className="p-4">{prescription.medication}</td>
 										<td className="p-4">{prescription.dosage}</td>
 										<td className="p-4">{prescription.frequency}</td>
@@ -45,19 +40,17 @@ const PrescriptionsOverview: React.FC<PrescriptionsOverviewProps> = ({
 						</table>
 					</div>
 				) : (
-					<p className="text-cyan-400/70">No active prescriptions</p>
+					<p className="/70">No active prescriptions</p>
 				)}
 			</div>
 
 			<div>
-				<h2 className="text-cyan-400 text-lg font-medium mb-4">
-					Past Prescriptions
-				</h2>
+				<h2 className=" text-lg font-medium mb-4">Past Prescriptions</h2>
 				{pastPrescriptions.length > 0 ? (
-					<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg overflow-hidden">
+					<div className="  border   rounded-lg overflow-hidden">
 						<table className="w-full text-sm">
 							<thead>
-								<tr className="bg-gray-800/70">
+								<tr className=" /70">
 									<th className="text-left p-4">Medication</th>
 									<th className="text-left p-4">Dosage</th>
 									<th className="text-left p-4">Frequency</th>
@@ -67,10 +60,7 @@ const PrescriptionsOverview: React.FC<PrescriptionsOverviewProps> = ({
 							</thead>
 							<tbody>
 								{pastPrescriptions.map((prescription: any) => (
-									<tr
-										key={prescription.id}
-										className="border-t border-cyan-800/20"
-									>
+									<tr key={prescription.id} className="border-t  ">
 										<td className="p-4">{prescription.medication}</td>
 										<td className="p-4">{prescription.dosage}</td>
 										<td className="p-4">{prescription.frequency}</td>
@@ -82,7 +72,7 @@ const PrescriptionsOverview: React.FC<PrescriptionsOverviewProps> = ({
 						</table>
 					</div>
 				) : (
-					<p className="text-cyan-400/70">No past prescriptions</p>
+					<p className="/70">No past prescriptions</p>
 				)}
 			</div>
 		</div>

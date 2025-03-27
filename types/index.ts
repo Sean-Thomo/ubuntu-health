@@ -104,7 +104,7 @@ export const STATUS_COLORS = {
 	inProgress: "bg-green-900/30 text-green-400",
 	completed: "!bg-teal-900/30 bg-teal-900 text-teal-400",
 	cancelled: "bg-red-900/30 text-red-400",
-	noShow: "bg-gray-700 text-cyan-400",
+	noShow: "   ",
 	rescheduled: "!bg-orange-900/30 text-orange-400",
 };
 

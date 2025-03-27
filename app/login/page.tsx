@@ -163,14 +163,14 @@ const LoginPage = () => {
 					<button
 						type="submit"
 						disabled={isLoading}
-						className={`w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+						className={`w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium  bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
 							isLoading ? "opacity-70 cursor-not-allowed" : ""
 						}`}
 					>
 						{isLoading ? (
 							<span className="flex items-center justify-center">
 								<svg
-									className="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
+									className="animate-spin -ml-1 mr-3 h-4 w-4 "
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"

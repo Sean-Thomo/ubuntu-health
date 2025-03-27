@@ -75,27 +75,23 @@ const DoctorDashboard = () => {
 
 	return (
 		<Layout>
-			<div className="min-h-screen bg-gray-900 text-cyan-50 p-6">
+			<div className="min-h-screen text-cyan-50 p-6">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
 					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
 						<div>
-							<h1 className="text-3xl font-bold text-cyan-400">
-								Doctor Dashboard
-							</h1>
-							<p className="text-cyan-400/70 mt-2">
-								Patient care and clinical management
-							</p>
+							<h1 className="text-3xl font-bold ">Doctor Dashboard</h1>
+							<p className=" mt-2">Patient care and clinical management</p>
 						</div>
 						<div className="relative mt-4 md:mt-0">
 							<Search
-								className="absolute left-3 top-1/2 -translate-y-1/2 text-cyan-400/50"
+								className="absolute left-3 top-1/2 -translate-y-1/2 "
 								size={18}
 							/>
 							<input
 								type="text"
 								placeholder="Search patients, conditions..."
-								className="pl-10 pr-4 py-2 bg-gray-800 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="pl-10 pr-4 py-2   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 							/>
 						</div>
 					</div>
@@ -103,12 +99,10 @@ const DoctorDashboard = () => {
 					{/* Stats Cards */}
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 						<Link href="/appointments">
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4 hover:bg-gray-800/70 transition-colors cursor-pointer">
+							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm text-cyan-400/70">
-											Today&lsquo;s Consultations
-										</p>
+										<p className="text-sm ">Today&lsquo;s Consultations</p>
 										<p className="text-2xl font-semibold text-blue-400">5</p>
 									</div>
 									<div className="p-3 rounded-full bg-blue-900/30 text-blue-400">
@@ -119,12 +113,10 @@ const DoctorDashboard = () => {
 						</Link>
 
 						<Link href="/prescriptions">
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4 hover:bg-gray-800/70 transition-colors cursor-pointer">
+							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm text-cyan-400/70">
-											Active Prescriptions
-										</p>
+										<p className="text-sm ">Active Prescriptions</p>
 										<p className="text-2xl font-semibold text-purple-400">18</p>
 									</div>
 									<div className="p-3 rounded-full bg-purple-900/30 text-purple-400">
@@ -135,12 +127,10 @@ const DoctorDashboard = () => {
 						</Link>
 
 						<Link href="/lab-results">
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4 hover:bg-gray-800/70 transition-colors cursor-pointer">
+							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm text-cyan-400/70">
-											Pending Lab Results
-										</p>
+										<p className="text-sm ">Pending Lab Results</p>
 										<p className="text-2xl font-semibold text-yellow-400">3</p>
 									</div>
 									<div className="p-3 rounded-full bg-yellow-900/30 text-yellow-400">
@@ -151,12 +141,10 @@ const DoctorDashboard = () => {
 						</Link>
 
 						<Link href="/patients">
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4 hover:bg-gray-800/70 transition-colors cursor-pointer">
+							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm text-cyan-400/70">
-											High-Risk Patients
-										</p>
+										<p className="text-sm ">High-Risk Patients</p>
 										<p className="text-2xl font-semibold text-red-400">2</p>
 									</div>
 									<div className="p-3 rounded-full bg-red-900/30 text-red-400">
@@ -170,14 +158,14 @@ const DoctorDashboard = () => {
 					{/* Main Content */}
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
 						{/* Today's Consultations */}
-						<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 lg:col-span-2">
+						<div className="  border   rounded-lg p-6 lg:col-span-2">
 							<div className="flex justify-between items-center mb-4">
-								<h2 className="text-xl font-semibold text-cyan-400">
+								<h2 className="text-xl font-semibold ">
 									Today&lsquo;s Consultations
 								</h2>
 								<Link
 									href="/appointments"
-									className="text-sm text-cyan-400 hover:text-cyan-300 flex items-center"
+									className="text-sm  hover:text-cyan-300 flex items-center"
 								>
 									View all <ChevronRight size={16} />
 								</Link>
@@ -186,12 +174,12 @@ const DoctorDashboard = () => {
 								{todaysConsultations.map((consult) => (
 									<div
 										key={consult.id}
-										className="p-4 hover:bg-gray-800/70 rounded-lg transition-colors border border-cyan-800/30"
+										className="p-4 hover: /70 rounded-lg transition-colors border  "
 									>
 										<div className="flex justify-between items-start">
 											<div>
 												<p className="font-medium text-lg">{consult.patient}</p>
-												<p className="text-sm text-cyan-400/70 mb-2">
+												<p className="text-sm  mb-2">
 													<ClientDate
 														dateString={consult.time}
 														// format="h:mm a"
@@ -201,15 +189,13 @@ const DoctorDashboard = () => {
 													{consult.history.map((condition, idx) => (
 														<span
 															key={idx}
-															className="px-2 py-1 bg-gray-700 rounded-md text-xs"
+															className="px-2 py-1   rounded-md text-xs"
 														>
 															{condition}
 														</span>
 													))}
 												</div>
-												<p className="text-cyan-400/80 italic">
-													{consult.notes}
-												</p>
+												<p className="/80 italic">{consult.notes}</p>
 											</div>
 											<div className="flex flex-col items-end">
 												<span className="px-3 py-1 rounded-full bg-blue-900/30 text-blue-400 text-xs">
@@ -219,7 +205,7 @@ const DoctorDashboard = () => {
 												</span>
 												<Link
 													href={`/patients/${consult.id}`}
-													className="mt-4 text-sm text-cyan-400 hover:text-cyan-300 flex items-center"
+													className="mt-4 text-sm  hover:text-cyan-300 flex items-center"
 												>
 													View Patient <ChevronRight size={16} />
 												</Link>
@@ -231,20 +217,16 @@ const DoctorDashboard = () => {
 						</div>
 
 						{/* Clinical Quick View */}
-						<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6">
-							<h2 className="text-xl font-semibold text-cyan-400 mb-4">
-								Clinical Tasks
-							</h2>
+						<div className="  border   rounded-lg p-6">
+							<h2 className="text-xl font-semibold  mb-4">Clinical Tasks</h2>
 
 							{/* Pending Prescriptions */}
 							<div className="mb-6">
 								<div className="flex justify-between items-center mb-3">
-									<h3 className="font-medium text-cyan-400">
-										Prescriptions to Review
-									</h3>
+									<h3 className="font-medium ">Prescriptions to Review</h3>
 									<Link
 										href="/prescriptions"
-										className="text-xs text-cyan-400/70 hover:text-cyan-300"
+										className="text-xs  hover:text-cyan-300"
 									>
 										View all
 									</Link>
@@ -253,14 +235,12 @@ const DoctorDashboard = () => {
 									{pendingPrescriptions.map((rx) => (
 										<div
 											key={rx.id}
-											className="p-3 hover:bg-gray-800/70 rounded-lg transition-colors border border-cyan-800/30"
+											className="p-3 hover: /70 rounded-lg transition-colors border  "
 										>
 											<div className="flex justify-between items-center">
 												<div>
 													<p className="font-medium">{rx.patient}</p>
-													<p className="text-sm text-cyan-400/70">
-														{rx.medication}
-													</p>
+													<p className="text-sm ">{rx.medication}</p>
 												</div>
 												<span
 													className={`px-2 py-1 rounded-full text-xs ${
@@ -280,10 +260,10 @@ const DoctorDashboard = () => {
 							{/* Lab Results */}
 							<div className="mb-6">
 								<div className="flex justify-between items-center mb-3">
-									<h3 className="font-medium text-cyan-400">Lab Results</h3>
+									<h3 className="font-medium ">Lab Results</h3>
 									<Link
 										href="/lab-results"
-										className="text-xs text-cyan-400/70 hover:text-cyan-300"
+										className="text-xs  hover:text-cyan-300"
 									>
 										View all
 									</Link>
@@ -292,12 +272,12 @@ const DoctorDashboard = () => {
 									{labResults.map((lab) => (
 										<div
 											key={lab.id}
-											className="p-3 hover:bg-gray-800/70 rounded-lg transition-colors border border-cyan-800/30"
+											className="p-3 hover: /70 rounded-lg transition-colors border  "
 										>
 											<div className="flex justify-between items-center">
 												<div>
 													<p className="font-medium">{lab.patient}</p>
-													<p className="text-sm text-cyan-400/70">{lab.test}</p>
+													<p className="text-sm ">{lab.test}</p>
 												</div>
 												<span
 													className={`px-2 py-1 rounded-full text-xs ${
@@ -316,29 +296,27 @@ const DoctorDashboard = () => {
 
 							{/* Quick Actions */}
 							<div>
-								<h3 className="font-medium text-cyan-400 mb-3">
-									Quick Actions
-								</h3>
+								<h3 className="font-medium  mb-3">Quick Actions</h3>
 								<div className="space-y-2">
 									<Link
 										href="/e-prescribe"
-										className="flex items-center gap-2 p-2 hover:bg-gray-800/70 rounded transition-colors"
+										className="flex items-center gap-2 p-2 hover: /70 rounded transition-colors"
 									>
-										<Pill size={16} className="text-cyan-400" />
+										<Pill size={16} className="" />
 										<span>E-Prescribe Medication</span>
 									</Link>
 									<Link
 										href="/notes/new"
-										className="flex items-center gap-2 p-2 hover:bg-gray-800/70 rounded transition-colors"
+										className="flex items-center gap-2 p-2 hover: /70 rounded transition-colors"
 									>
-										<ClipboardList size={16} className="text-cyan-400" />
+										<ClipboardList size={16} className="" />
 										<span>Add Clinical Note</span>
 									</Link>
 									<Link
 										href="/lab-orders/new"
-										className="flex items-center gap-2 p-2 hover:bg-gray-800/70 rounded transition-colors"
+										className="flex items-center gap-2 p-2 hover: /70 rounded transition-colors"
 									>
-										<ClipboardList size={16} className="text-cyan-400" />
+										<ClipboardList size={16} className="" />
 										<span>Order Lab Test</span>
 									</Link>
 								</div>

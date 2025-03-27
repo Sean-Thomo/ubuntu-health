@@ -17,10 +17,10 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 }) => {
 	return (
 		<>
-			<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg overflow-hidden shadow-lg shadow-cyan-500/10">
+			<div className="  border   rounded-lg overflow-hidden shadow-lg  ">
 				<div className="overflow-x-auto">
 					<table className="w-full text-sm text-cyan-50">
-						<thead className="bg-gray-800/70 text-cyan-400">
+						<thead className=" /70 ">
 							<tr>
 								<th scope="col" className="px-6 py-4 text-left">
 									Patient Name
@@ -46,7 +46,7 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 							{appointments.map((appointment) => (
 								<tr
 									key={appointment.id}
-									className="hover:bg-gray-800/80 transition-colors"
+									className="hover: /80 transition-colors"
 								>
 									<td className="px-6 py-4">
 										{appointment.patientFirstName} {appointment.patientLastName}
@@ -69,7 +69,7 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 										<div className="flex gap-4">
 											<Link
 												href="#"
-												className="text-cyan-400 hover:text-cyan-300 transition-colors"
+												className=" hover:text-cyan-300 transition-colors"
 												title="Edit Appointment"
 											>
 												<Pencil size={18} />
@@ -90,17 +90,15 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 				</div>
 			</div>
 
-			<div className="flex justify-between items-center mt-6 text-sm text-cyan-400/70">
+			<div className="flex justify-between items-center mt-6 text-sm ">
 				<div>
 					Showing 1-{appointments.length} of {appointments.length} appointments
 				</div>
 				<div className="flex gap-2">
-					<button className="px-3 py-1 rounded border border-cyan-800/30 hover:bg-cyan-900/30">
+					<button className="px-3 py-1 rounded border   hover: ">
 						Previous
 					</button>
-					<button className="px-3 py-1 rounded border border-cyan-800/30 hover:bg-cyan-900/30">
-						Next
-					</button>
+					<button className="px-3 py-1 rounded border   hover: ">Next</button>
 				</div>
 			</div>
 		</>

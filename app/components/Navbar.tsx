@@ -59,7 +59,6 @@ const Navbar = () => {
                 w-full px-4 md:px-10
                 flex items-center justify-between 
                 z-50 h-16 shadow-sm
-                bg-gray-900
             "
 		>
 			<Link
@@ -112,7 +111,7 @@ const Navbar = () => {
 							className="
                                 text-2xl 
                                 md:text-sm 
-                                text-white
+                                
                                 hover:text-blue-600 
                                 transition-colors 
                                 duration-700

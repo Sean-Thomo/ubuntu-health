@@ -89,7 +89,7 @@ const DashboardPage = () => {
 			case "overdue":
 				return "bg-red-900/30 text-red-400";
 			default:
-				return "bg-gray-700 text-cyan-400";
+				return "  text-blue-400";
 		}
 	};
 
@@ -108,25 +108,23 @@ const DashboardPage = () => {
 
 	return (
 		<Layout>
-			<div className="min-h-screen bg-gray-900 text-cyan-50 p-6">
+			<div className="min-h-screen text-cyan-50 p-6">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
 					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
 						<div>
-							<h1 className="text-3xl font-bold text-cyan-400">Dashboard</h1>
-							<p className="text-cyan-400/70 mt-2">
-								Overview of your medical practice
-							</p>
+							<h1 className="text-3xl font-bold ">Dashboard</h1>
+							<p className=" mt-2">Overview of your medical practice</p>
 						</div>
 						<div className="relative mt-4 md:mt-0">
 							<Search
-								className="absolute left-3 top-1/2 -translate-y-1/2 text-cyan-400/50"
+								className="absolute left-3 top-1/2 -translate-y-1/2 "
 								size={18}
 							/>
 							<input
 								type="text"
 								placeholder="Search..."
-								className="pl-10 pr-4 py-2 bg-gray-800 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="pl-10 pr-4 py-2   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 							/>
 						</div>
 					</div>
@@ -135,15 +133,13 @@ const DashboardPage = () => {
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 						{/* Patients Card */}
 						<Link href="/patients">
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4 hover:bg-gray-800/70 transition-colors cursor-pointer">
+							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm text-cyan-400/70">Total Patients</p>
-										<p className="text-2xl font-semibold text-cyan-400">
-											{stats.patients}
-										</p>
+										<p className="text-sm ">Total Patients</p>
+										<p className="text-2xl font-semibold ">{stats.patients}</p>
 									</div>
-									<div className="p-3 rounded-full bg-cyan-900/30 text-cyan-400">
+									<div className="p-3 rounded-full   ">
 										<User size={20} />
 									</div>
 								</div>
@@ -152,12 +148,10 @@ const DashboardPage = () => {
 
 						{/* Appointments Card */}
 						<Link href="/appointments">
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4 hover:bg-gray-800/70 transition-colors cursor-pointer">
+							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm text-cyan-400/70">
-											Today&lsquo;s Appointments
-										</p>
+										<p className="text-sm ">Today&lsquo;s Appointments</p>
 										<p className="text-2xl font-semibold text-blue-400">
 											{stats.appointments}
 										</p>
@@ -171,12 +165,10 @@ const DashboardPage = () => {
 
 						{/* Prescriptions Card */}
 						<Link href="/prescriptions">
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4 hover:bg-gray-800/70 transition-colors cursor-pointer">
+							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm text-cyan-400/70">
-											Active Prescriptions
-										</p>
+										<p className="text-sm ">Active Prescriptions</p>
 										<p className="text-2xl font-semibold text-purple-400">
 											{stats.prescriptions}
 										</p>
@@ -190,10 +182,10 @@ const DashboardPage = () => {
 
 						{/* Revenue Card */}
 						<Link href="/invoices">
-							<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4 hover:bg-gray-800/70 transition-colors cursor-pointer">
+							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm text-cyan-400/70">Monthly Revenue</p>
+										<p className="text-sm ">Monthly Revenue</p>
 										<p className="text-2xl font-semibold text-green-400">
 											R{stats.revenue.toLocaleString()}
 										</p>
@@ -209,14 +201,12 @@ const DashboardPage = () => {
 					{/* Main Content */}
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
 						{/* Recent Patients */}
-						<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 lg:col-span-1">
+						<div className="  border   rounded-lg p-6 lg:col-span-1">
 							<div className="flex justify-between items-center mb-4">
-								<h2 className="text-xl font-semibold text-cyan-400">
-									Recent Patients
-								</h2>
+								<h2 className="text-xl font-semibold ">Recent Patients</h2>
 								<Link
 									href="/patients"
-									className="text-sm text-cyan-400 hover:text-cyan-300 flex items-center"
+									className="text-sm  hover:text-cyan-300 flex items-center"
 								>
 									View all <ChevronRight size={16} />
 								</Link>
@@ -225,18 +215,18 @@ const DashboardPage = () => {
 								{recentPatients.map((patient) => (
 									<div
 										key={patient.id}
-										className="flex items-center justify-between p-3 hover:bg-gray-800/70 rounded-lg transition-colors"
+										className="flex items-center justify-between p-3 hover: /70 rounded-lg transition-colors"
 									>
 										<div>
 											<p className="font-medium">{patient.name}</p>
-											<p className="text-sm text-cyan-400/70">
+											<p className="text-sm ">
 												Last visit:{" "}
 												<ClientDate dateString={patient.lastVisit} />
 											</p>
 										</div>
 										<Link
 											href={`/patients/${patient.id}`}
-											className="mt-4 text-sm text-cyan-400 hover:text-cyan-300 flex items-center"
+											className="mt-4 text-sm  hover:text-cyan-300 flex items-center"
 										>
 											<ChevronRight size={18} />
 										</Link>
@@ -246,14 +236,14 @@ const DashboardPage = () => {
 						</div>
 
 						{/* Upcoming Appointments */}
-						<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 lg:col-span-1">
+						<div className="  border   rounded-lg p-6 lg:col-span-1">
 							<div className="flex justify-between items-center mb-4">
-								<h2 className="text-xl font-semibold text-cyan-400">
+								<h2 className="text-xl font-semibold ">
 									Upcoming Appointments
 								</h2>
 								<Link
 									href="/appointments"
-									className="text-sm text-cyan-400 hover:text-cyan-300 flex items-center"
+									className="text-sm  hover:text-cyan-300 flex items-center"
 								>
 									View all <ChevronRight size={16} />
 								</Link>
@@ -262,23 +252,21 @@ const DashboardPage = () => {
 								{upcomingAppointments.map((appointment) => (
 									<div
 										key={appointment.id}
-										className="p-3 hover:bg-gray-800/70 rounded-lg transition-colors"
+										className="p-3 hover: /70 rounded-lg transition-colors"
 									>
 										<div className="flex justify-between items-start">
 											<div>
 												<p className="font-medium">{appointment.patient}</p>
-												<p className="text-sm text-cyan-400/70">
-													{appointment.type}
-												</p>
+												<p className="text-sm ">{appointment.type}</p>
 											</div>
 											<div className="text-right">
-												<p className="text-cyan-400">
+												<p className="">
 													<ClientDate
 														dateString={appointment.date}
 														// format="h:mm a"
 													/>
 												</p>
-												<p className="text-sm text-cyan-400/70">
+												<p className="text-sm ">
 													<ClientDate
 														dateString={appointment.date}
 														// format="MMM d, yyyy"
@@ -301,14 +289,12 @@ const DashboardPage = () => {
 						</div>
 
 						{/* Recent Invoices */}
-						<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 lg:col-span-1">
+						<div className="  border   rounded-lg p-6 lg:col-span-1">
 							<div className="flex justify-between items-center mb-4">
-								<h2 className="text-xl font-semibold text-cyan-400">
-									Recent Invoices
-								</h2>
+								<h2 className="text-xl font-semibold ">Recent Invoices</h2>
 								<Link
 									href="/invoices"
-									className="text-sm text-cyan-400 hover:text-cyan-300 flex items-center"
+									className="text-sm  hover:text-cyan-300 flex items-center"
 								>
 									View all <ChevronRight size={16} />
 								</Link>
@@ -317,12 +303,12 @@ const DashboardPage = () => {
 								{recentInvoices.map((invoice) => (
 									<div
 										key={invoice.id}
-										className="p-3 hover:bg-gray-800/70 rounded-lg transition-colors"
+										className="p-3 hover: /70 rounded-lg transition-colors"
 									>
 										<div className="flex justify-between items-center">
 											<div>
 												<p className="font-medium">{invoice.patient}</p>
-												<p className="text-sm text-cyan-400/70">
+												<p className="text-sm ">
 													<ClientDate dateString={invoice.date} />
 												</p>
 											</div>
@@ -360,34 +346,30 @@ const DashboardPage = () => {
 					</div>
 
 					{/* Financial Overview */}
-					<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-6 mb-8">
-						<h2 className="text-xl font-semibold text-cyan-400 mb-4">
-							Financial Overview
-						</h2>
+					<div className="  border   rounded-lg p-6 mb-8">
+						<h2 className="text-xl font-semibold  mb-4">Financial Overview</h2>
 						<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-							<div className="bg-gray-800/70 p-4 rounded-lg">
+							<div className=" /70 p-4 rounded-lg">
 								<div className="flex justify-between items-center mb-2">
-									<p className="text-sm text-cyan-400/70">Total Revenue</p>
+									<p className="text-sm ">Total Revenue</p>
 									<CreditCard size={18} className="text-green-400" />
 								</div>
 								<p className="text-2xl font-semibold text-green-400">
 									R{stats.revenue.toLocaleString()}
 								</p>
 							</div>
-							<div className="bg-gray-800/70 p-4 rounded-lg">
+							<div className=" /70 p-4 rounded-lg">
 								<div className="flex justify-between items-center mb-2">
-									<p className="text-sm text-cyan-400/70">Pending Payments</p>
+									<p className="text-sm ">Pending Payments</p>
 									<Clock size={18} className="text-yellow-400" />
 								</div>
 								<p className="text-2xl font-semibold text-yellow-400">
 									R{stats.pendingPayments.toLocaleString()}
 								</p>
 							</div>
-							<div className="bg-gray-800/70 p-4 rounded-lg">
+							<div className=" /70 p-4 rounded-lg">
 								<div className="flex justify-between items-center mb-2">
-									<p className="text-sm text-cyan-400/70">
-										Outstanding Invoices
-									</p>
+									<p className="text-sm ">Outstanding Invoices</p>
 									<AlertCircle size={18} className="text-red-400" />
 								</div>
 								<p className="text-2xl font-semibold text-red-400">

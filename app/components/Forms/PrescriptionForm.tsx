@@ -88,40 +88,37 @@ export default function PrescriptionForm({
 	};
 
 	return (
-		<div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-			<div className="bg-gray-800 border border-cyan-800/30 rounded-xl p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-xl shadow-cyan-500/10">
-				<button
-					onClick={onClose}
-					className="absolute top-4 right-4 text-cyan-400 hover:text-cyan-300 text-2xl"
-				>
+		<div className="fixed inset-0   backdrop-blur-sm flex items-center justify-center z-50 p-4">
+			<div className="  border   rounded-xl p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-xl  ">
+				<button onClick={onClose} className="absolute top-4 right-4  text-2xl">
 					&times;
 				</button>
 
 				<form onSubmit={formik.handleSubmit} className="space-y-6">
-					<h2 className="text-2xl font-bold text-cyan-400 mb-6 text-center">
+					<h2 className="text-2xl font-bold mb-6 text-center">
 						e-Prescription
 					</h2>
 
 					{/* Patient and Doctor Info */}
 					<div className="grid md:grid-cols-2 gap-6">
 						<div>
-							<label className="block text-sm font-medium text-cyan-400 mb-1">
+							<label className="block text-sm font-medium mb-1">
 								Patient ID
 							</label>
 							<input
 								type="text"
-								className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50"
+								className="w-full p-3   border   rounded-md text-cyan-50"
 								value={formik.values.patientId}
 								disabled
 							/>
 						</div>
 						<div>
-							<label className="block text-sm font-medium text-cyan-400 mb-1">
+							<label className="block text-sm font-medium mb-1">
 								Prescribing Doctor
 							</label>
 							<input
 								type="text"
-								className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50"
+								className="w-full p-3   border   rounded-md text-cyan-50"
 								value="Dr. Smith"
 								disabled
 							/>
@@ -133,7 +130,7 @@ export default function PrescriptionForm({
 						<div>
 							<label
 								htmlFor="issueDate"
-								className="block text-sm font-medium text-cyan-400 mb-1"
+								className="block text-sm font-medium mb-1"
 							>
 								Issue Date
 							</label>
@@ -144,13 +141,13 @@ export default function PrescriptionForm({
 								value={formik.values.issueDate}
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
-								className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 							/>
 						</div>
 						<div>
 							<label
 								htmlFor="expiryDate"
-								className="block text-sm font-medium text-cyan-400 mb-1"
+								className="block text-sm font-medium mb-1"
 							>
 								Expiry Date
 							</label>
@@ -161,7 +158,7 @@ export default function PrescriptionForm({
 								value={formik.values.expiryDate}
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
-								className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 							/>
 							{formik.touched.expiryDate && formik.errors.expiryDate && (
 								<p className="text-red-400 text-xs mt-1">
@@ -173,14 +170,12 @@ export default function PrescriptionForm({
 
 					{/* Medications */}
 					<div>
-						<h3 className="text-lg font-semibold text-cyan-400 mb-3">
-							Medications
-						</h3>
+						<h3 className="text-lg font-semibold mb-3">Medications</h3>
 						{medications.map((med, index) => (
-							<div key={index} className="mb-4 p-4 bg-gray-700/50 rounded-lg">
+							<div key={index} className="mb-4 p-4   rounded-lg">
 								<div className="grid md:grid-cols-2 gap-4 mb-3">
 									<div>
-										<label className="block text-sm font-medium text-cyan-400 mb-1">
+										<label className="block text-sm font-medium mb-1">
 											Medication Name
 										</label>
 										<input
@@ -189,12 +184,12 @@ export default function PrescriptionForm({
 											onChange={(e) =>
 												handleMedicationChange(index, "name", e.target.value)
 											}
-											className="w-full p-2 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50"
+											className="w-full p-2   border   rounded-md text-cyan-50"
 											required
 										/>
 									</div>
 									<div>
-										<label className="block text-sm font-medium text-cyan-400 mb-1">
+										<label className="block text-sm font-medium mb-1">
 											Type
 										</label>
 										<select
@@ -202,7 +197,7 @@ export default function PrescriptionForm({
 											onChange={(e) =>
 												handleMedicationChange(index, "type", e.target.value)
 											}
-											className="w-full p-2 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50"
+											className="w-full p-2   border   rounded-md text-cyan-50"
 										>
 											<option value="">Select type</option>
 											{Object.entries(MEDICATION_TYPES).map(([key, value]) => (
@@ -215,7 +210,7 @@ export default function PrescriptionForm({
 								</div>
 								<div className="grid md:grid-cols-2 gap-4">
 									<div>
-										<label className="block text-sm font-medium text-cyan-400 mb-1">
+										<label className="block text-sm font-medium mb-1">
 											Dosage
 										</label>
 										<input
@@ -224,12 +219,12 @@ export default function PrescriptionForm({
 											onChange={(e) =>
 												handleMedicationChange(index, "dosage", e.target.value)
 											}
-											className="w-full p-2 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50"
+											className="w-full p-2   border   rounded-md text-cyan-50"
 											required
 										/>
 									</div>
 									<div>
-										<label className="block text-sm font-medium text-cyan-400 mb-1">
+										<label className="block text-sm font-medium mb-1">
 											Frequency
 										</label>
 										<input
@@ -242,7 +237,7 @@ export default function PrescriptionForm({
 													e.target.value
 												)
 											}
-											className="w-full p-2 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50"
+											className="w-full p-2   border   rounded-md text-cyan-50"
 											required
 										/>
 									</div>
@@ -261,7 +256,7 @@ export default function PrescriptionForm({
 						<button
 							type="button"
 							onClick={addMedication}
-							className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 text-sm"
+							className="flex items-center gap-2  text-sm"
 						>
 							<Plus size={16} />
 							Add Another Medication
@@ -273,7 +268,7 @@ export default function PrescriptionForm({
 						<div>
 							<label
 								htmlFor="status"
-								className="block text-sm font-medium text-cyan-400 mb-1"
+								className="block text-sm font-medium mb-1"
 							>
 								Status
 							</label>
@@ -282,7 +277,7 @@ export default function PrescriptionForm({
 								name="status"
 								value={formik.values.status}
 								onChange={formik.handleChange}
-								className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 							>
 								{Object.entries(PRESCRIPTION_STATUS).map(([value, label]) => (
 									<option key={value} value={value}>
@@ -294,10 +289,7 @@ export default function PrescriptionForm({
 					</div>
 
 					<div>
-						<label
-							htmlFor="notes"
-							className="block text-sm font-medium text-cyan-400 mb-1"
-						>
+						<label htmlFor="notes" className="block text-sm font-medium mb-1">
 							Additional Notes
 						</label>
 						<textarea
@@ -306,7 +298,7 @@ export default function PrescriptionForm({
 							value={formik.values.notes}
 							onChange={formik.handleChange}
 							rows={3}
-							className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+							className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 						/>
 					</div>
 
@@ -315,13 +307,13 @@ export default function PrescriptionForm({
 						<button
 							type="button"
 							onClick={onClose}
-							className="px-6 py-2 border border-cyan-800/30 rounded-md text-cyan-400 hover:bg-cyan-900/30 transition-colors"
+							className="px-6 py-2 border   rounded-md hover:  transition-colors"
 						>
 							Cancel
 						</button>
 						<button
 							type="submit"
-							className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-white font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all"
+							className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md  font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all"
 						>
 							Create Prescription
 						</button>

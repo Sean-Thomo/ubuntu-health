@@ -161,15 +161,15 @@ export default function PatientPage({ params }: PatientPageProps) {
 
 	if (loading) {
 		return (
-			<div className="min-h-screen bg-gray-900 text-cyan-50 flex items-center justify-center">
-				<div className="text-cyan-400">Loading patient data...</div>
+			<div className="min-h-screen text-cyan-50 flex items-center justify-center">
+				<div className=" ">Loading patient data...</div>
 			</div>
 		);
 	}
 
 	if (!patient) {
 		return (
-			<div className="min-h-screen bg-gray-900 text-cyan-50 flex items-center justify-center">
+			<div className="min-h-screen text-cyan-50 flex items-center justify-center">
 				<div className="text-red-400">Patient not found</div>
 			</div>
 		);
@@ -178,16 +178,14 @@ export default function PatientPage({ params }: PatientPageProps) {
 	return (
 		<div className="min-h-screen text-cyan-50">
 			{/* Header */}
-			<header className="border-b border-cyan-800/30 p-4">
+			<header className="border-b   p-4">
 				<div className="max-w-7xl mx-auto flex justify-between items-center">
 					<div>
-						<p className="text-xs text-cyan-400 tracking-wider">
-							PATIENT ID: {patient.id}
-						</p>
+						<p className="text-xs   tracking-wider">PATIENT ID: {patient.id}</p>
 						<h1 className="text-2xl font-semibold">{`${patient.firstName} ${patient.lastName}`}</h1>
 					</div>
 					<div className="flex items-center gap-4">
-						<span className="mx-4 mt-3 px-4 py-1 rounded-full bg-cyan-900/30 border border-cyan-400/20 text-cyan-400 text-xs">
+						<span className="mx-4 mt-3 px-4 py-1 rounded-full   border border-cyan-400/20   text-xs">
 							{patient.activeConditions.length > 0
 								? "Active Conditions"
 								: "No Active Conditions"}
@@ -205,13 +203,11 @@ export default function PatientPage({ params }: PatientPageProps) {
 			{/* Main Content */}
 			<main className="max-w-7xl mx-auto p-4">
 				{/* Tabs */}
-				<div className="flex gap-6 mb-6 border-b border-cyan-800/30">
+				<div className="flex gap-6 mb-6 border-b  ">
 					<button
 						onClick={() => setActiveTab("overview")}
 						className={`pb-4 px-2 relative ${
-							activeTab === "overview"
-								? "text-cyan-400"
-								: "text-cyan-400/50 hover:text-cyan-400/70"
+							activeTab === "overview" ? " " : "  hover: "
 						}`}
 					>
 						Overview
@@ -222,9 +218,7 @@ export default function PatientPage({ params }: PatientPageProps) {
 					<button
 						onClick={() => setActiveTab("visits")}
 						className={`pb-4 px-2 relative ${
-							activeTab === "visits"
-								? "text-cyan-400"
-								: "text-cyan-400/50 hover:text-cyan-400/70"
+							activeTab === "visits" ? " " : "  hover: "
 						}`}
 					>
 						Visit History
@@ -235,9 +229,7 @@ export default function PatientPage({ params }: PatientPageProps) {
 					<button
 						onClick={() => setActiveTab("prescriptions")}
 						className={`pb-4 px-2 relative ${
-							activeTab === "prescriptions"
-								? "text-cyan-400"
-								: "text-cyan-400/50 hover:text-cyan-400/70"
+							activeTab === "prescriptions" ? " " : "  hover: "
 						}`}
 					>
 						Prescriptions
@@ -248,9 +240,7 @@ export default function PatientPage({ params }: PatientPageProps) {
 					<button
 						onClick={() => setActiveTab("billing")}
 						className={`pb-4 px-2 relative ${
-							activeTab === "billing"
-								? "text-cyan-400"
-								: "text-cyan-400/50 hover:text-cyan-400/70"
+							activeTab === "billing" ? " " : "  hover: "
 						}`}
 					>
 						Billing & Appointments

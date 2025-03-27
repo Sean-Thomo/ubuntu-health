@@ -93,7 +93,7 @@ const InvoicePage = () => {
 	const getStatusColor = (status: string) => {
 		switch (status) {
 			case "draft":
-				return "bg-gray-700 text-cyan-400";
+				return "   ";
 			case "sent":
 				return "bg-blue-900/30 text-blue-400";
 			case "paid":
@@ -101,7 +101,7 @@ const InvoicePage = () => {
 			case "overdue":
 				return "bg-red-900/30 text-red-400";
 			default:
-				return "bg-gray-700 text-cyan-400";
+				return "   ";
 		}
 	};
 
@@ -120,26 +120,24 @@ const InvoicePage = () => {
 
 	return (
 		<Layout>
-			<div className="min-h-screen bg-gray-900 text-cyan-50 p-6">
+			<div className="min-h-scree text-cyan-50 p-6">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
 					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
 						<div>
-							<h1 className="text-3xl font-bold text-cyan-400">Invoices</h1>
-							<p className="text-cyan-400/70 mt-2">
-								Manage and track formal patient invoices
-							</p>
+							<h1 className="text-3xl font-bold  ">Invoices</h1>
+							<p className="  mt-2">Manage and track formal patient invoices</p>
 						</div>
 						<div className="flex gap-4 mt-4 md:mt-0">
 							<div className="relative">
 								<Search
-									className="absolute left-3 top-1/2 -translate-y-1/2 text-cyan-400/50"
+									className="absolute left-3 top-1/2 -translate-y-1/2  "
 									size={18}
 								/>
 								<input
 									type="text"
 									placeholder="Search invoices..."
-									className="pl-10 pr-4 py-2 bg-gray-800 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="pl-10 pr-4 py-2   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 									value={searchQuery}
 									onChange={(e) => setSearchQuery(e.target.value)}
 								/>
@@ -156,24 +154,22 @@ const InvoicePage = () => {
 
 					{/* Stats Cards */}
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-						<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4">
+						<div className="  border   rounded-lg p-4">
 							<div className="flex justify-between items-center">
 								<div>
-									<p className="text-sm text-cyan-400/70">Total Invoices</p>
-									<p className="text-2xl font-semibold text-cyan-400">
-										{invoices.length}
-									</p>
+									<p className="text-sm  ">Total Invoices</p>
+									<p className="text-2xl font-semibold  ">{invoices.length}</p>
 								</div>
-								<div className="p-3 rounded-full bg-cyan-900/30 text-cyan-400">
+								<div className="p-3 rounded-full    ">
 									<FileText size={20} />
 								</div>
 							</div>
 						</div>
 
-						<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4">
+						<div className="  border   rounded-lg p-4">
 							<div className="flex justify-between items-center">
 								<div>
-									<p className="text-sm text-cyan-400/70">Amount Due</p>
+									<p className="text-sm  ">Amount Due</p>
 									<p className="text-2xl font-semibold text-yellow-400">
 										R
 										{invoices
@@ -188,10 +184,10 @@ const InvoicePage = () => {
 							</div>
 						</div>
 
-						<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4">
+						<div className="  border   rounded-lg p-4">
 							<div className="flex justify-between items-center">
 								<div>
-									<p className="text-sm text-cyan-400/70">Overdue</p>
+									<p className="text-sm  ">Overdue</p>
 									<p className="text-2xl font-semibold text-red-400">
 										{invoices.filter((i) => i.status === "overdue").length}
 									</p>
@@ -202,10 +198,10 @@ const InvoicePage = () => {
 							</div>
 						</div>
 
-						<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4">
+						<div className="  border   rounded-lg p-4">
 							<div className="flex justify-between items-center">
 								<div>
-									<p className="text-sm text-cyan-400/70">Paid</p>
+									<p className="text-sm  ">Paid</p>
 									<p className="text-2xl font-semibold text-green-400">
 										R
 										{invoices
@@ -227,8 +223,8 @@ const InvoicePage = () => {
 							onClick={() => setFilter("all")}
 							className={`px-4 py-2 rounded-md text-sm font-medium border ${
 								filter === "all"
-									? "bg-cyan-900/30 border-cyan-500/50 text-cyan-400"
-									: "border-cyan-800/30 text-cyan-400/70 hover:bg-cyan-900/20"
+									? "  border-cyan-500/50  "
+									: "    hover:bg-cyan-900/20"
 							}`}
 						>
 							All Invoices
@@ -237,8 +233,8 @@ const InvoicePage = () => {
 							onClick={() => setFilter("draft")}
 							className={`px-4 py-2 rounded-md text-sm font-medium border ${
 								filter === "draft"
-									? "bg-gray-700 border-gray-500/50 text-cyan-400"
-									: "border-cyan-800/30 text-cyan-400/70 hover:bg-cyan-900/20"
+									? "  border-gray-500/50  "
+									: "    hover:bg-cyan-900/20"
 							}`}
 						>
 							Drafts
@@ -248,7 +244,7 @@ const InvoicePage = () => {
 							className={`px-4 py-2 rounded-md text-sm font-medium border ${
 								filter === "sent"
 									? "bg-blue-900/30 border-blue-500/50 text-blue-400"
-									: "border-cyan-800/30 text-cyan-400/70 hover:bg-cyan-900/20"
+									: "    hover:bg-cyan-900/20"
 							}`}
 						>
 							Sent
@@ -258,7 +254,7 @@ const InvoicePage = () => {
 							className={`px-4 py-2 rounded-md text-sm font-medium border ${
 								filter === "paid"
 									? "bg-green-900/30 border-green-500/50 text-green-400"
-									: "border-cyan-800/30 text-cyan-400/70 hover:bg-cyan-900/20"
+									: "    hover:bg-cyan-900/20"
 							}`}
 						>
 							Paid
@@ -268,7 +264,7 @@ const InvoicePage = () => {
 							className={`px-4 py-2 rounded-md text-sm font-medium border ${
 								filter === "overdue"
 									? "bg-red-900/30 border-red-500/50 text-red-400"
-									: "border-cyan-800/30 text-cyan-400/70 hover:bg-cyan-900/20"
+									: "    hover:bg-cyan-900/20"
 							}`}
 						>
 							Overdue
@@ -276,10 +272,10 @@ const InvoicePage = () => {
 					</div>
 
 					{/* Invoices Table */}
-					<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg overflow-hidden shadow-lg shadow-cyan-500/10">
+					<div className="  border   rounded-lg overflow-hidden shadow-lg  ">
 						<div className="overflow-x-auto">
 							<table className="w-full text-sm text-cyan-50">
-								<thead className="bg-gray-800/70 text-cyan-400">
+								<thead className=" /70  ">
 									<tr>
 										<th className="px-6 py-4 text-left">Invoice #</th>
 										<th className="px-6 py-4 text-left">Patient</th>
@@ -294,9 +290,9 @@ const InvoicePage = () => {
 									{filteredInvoices.map((invoice) => (
 										<tr
 											key={invoice.id}
-											className="hover:bg-gray-800/80 transition-colors"
+											className="hover: /80 transition-colors"
 										>
-											<td className="px-6 py-4 font-mono text-cyan-400/80">
+											<td className="px-6 py-4 font-mono  /80">
 												{invoice.invoiceNumber}
 											</td>
 											<td className="px-6 py-4">{invoice.patientName}</td>
@@ -324,19 +320,19 @@ const InvoicePage = () => {
 											<td className="px-6 py-4">
 												<div className="flex gap-4">
 													<button
-														className="text-cyan-400 hover:text-cyan-300 transition-colors"
+														className="  hover:text-cyan-300 transition-colors"
 														title="View"
 													>
 														<FileText size={18} />
 													</button>
 													<button
-														className="text-cyan-400 hover:text-cyan-300 transition-colors"
+														className="  hover:text-cyan-300 transition-colors"
 														title="Print"
 													>
 														<Printer size={18} />
 													</button>
 													<button
-														className="text-cyan-400 hover:text-cyan-300 transition-colors"
+														className="  hover:text-cyan-300 transition-colors"
 														title="Download"
 													>
 														<Download size={18} />
@@ -352,11 +348,11 @@ const InvoicePage = () => {
 						{/* Empty State */}
 						{filteredInvoices.length === 0 && (
 							<div className="p-8 text-center">
-								<FileText className="mx-auto text-cyan-400/50" size={48} />
-								<h3 className="mt-4 text-lg font-medium text-cyan-400">
+								<FileText className="mx-auto  " size={48} />
+								<h3 className="mt-4 text-lg font-medium  ">
 									No invoices found
 								</h3>
-								<p className="mt-2 text-cyan-400/70">
+								<p className="mt-2  ">
 									{searchQuery
 										? "Try a different search term"
 										: "Create a new invoice to get started"}

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
+import { User, MapPin, Users, PillBottle, ClipboardList } from "lucide-react";
 import "react-toastify/dist/ReactToastify.css";
 
 interface PatientFormProps {
@@ -74,32 +75,31 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 	});
 
 	return (
-		<div className="bg-black/70 fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-			<div className="bg-gray-800 border border-cyan-800/30 rounded-xl p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-xl shadow-cyan-500/10">
-				<button
-					onClick={onClose}
-					className="absolute top-4 right-4 text-cyan-400 hover:text-cyan-300 text-2xl"
-				>
+		<div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+			<div className="rounded-xl shadow-lg border border-gray-200 p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+				<button onClick={onClose} className="absolute top-4 right-4 text-2xl">
 					&times;
 				</button>
 
 				<form onSubmit={formik.handleSubmit} className="space-y-6">
-					<h2 className="text-2xl font-bold text-cyan-400 mb-6 text-center">
+					<h2 className="text-2xl font-bold mb-6 text-center">
 						Patient Registration
 					</h2>
 
 					{/* Personal Information */}
-					<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4">
-						<h3 className="text-lg font-semibold text-cyan-400 mb-4">
+					<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+						<h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center">
+							<User className="mr-2 text-gray-500" size={18} />
 							Personal Information
-						</h3>
-						<div className="grid md:grid-cols-2 gap-6">
+						</h2>
+						<div className="grid md:grid-cols-2 gap-4">
+							{/* First Name */}
 							<div>
 								<label
 									htmlFor="firstName"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
-									First Name
+									First Name *
 								</label>
 								<input
 									type="text"
@@ -108,20 +108,22 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.firstName}
 									onChange={formik.handleChange}
 									placeholder="John"
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.firstName && formik.errors.firstName && (
-									<p className="text-red-400 text-xs mt-1">
+									<p className="text-red-600 text-xs mt-1">
 										{formik.errors.firstName}
 									</p>
 								)}
 							</div>
+
+							{/* Last Name */}
 							<div>
 								<label
 									htmlFor="lastName"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
-									Last Name
+									Last Name *
 								</label>
 								<input
 									type="text"
@@ -130,19 +132,20 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.lastName}
 									onChange={formik.handleChange}
 									placeholder="Doe"
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.lastName && formik.errors.lastName && (
-									<p className="text-red-400 text-xs mt-1">
+									<p className="text-red-600 text-xs mt-1">
 										{formik.errors.lastName}
 									</p>
 								)}
 							</div>
 
+							{/* ID Number */}
 							<div>
 								<label
 									htmlFor="idNumber"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									ID Number
 								</label>
@@ -152,42 +155,38 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="idNumber"
 									value={formik.values.idNumber}
 									onChange={formik.handleChange}
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
+							{/* Gender */}
 							<div>
 								<label
 									htmlFor="gender"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
-									Sex
+									Sex *
 								</label>
 								<select
 									required
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									value={sex}
 									onChange={(e) => {
 										setSex(e.target.value);
 										formik.setFieldValue("gender", e.target.value);
 									}}
 								>
-									<option value="" disabled className="bg-gray-800">
-										Select Sex
-									</option>
-									<option value="male" className="bg-gray-800">
-										Male
-									</option>
-									<option value="female" className="bg-gray-800">
-										Female
-									</option>
+									<option value="">Select Sex</option>
+									<option value="male">Male</option>
+									<option value="female">Female</option>
 								</select>
 							</div>
 
+							{/* Phone Number */}
 							<div>
 								<label
 									htmlFor="phone"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Phone Number
 								</label>
@@ -198,14 +197,15 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.phone}
 									onChange={formik.handleChange}
 									placeholder="000 000 0000"
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
+							{/* Email */}
 							<div>
 								<label
 									htmlFor="email"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Email
 								</label>
@@ -216,10 +216,10 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.email}
 									onChange={formik.handleChange}
 									placeholder="johndoe@email.com"
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.email && formik.errors.email && (
-									<p className="text-red-400 text-xs mt-1">
+									<p className="text-red-600 text-xs mt-1">
 										{formik.errors.email}
 									</p>
 								)}
@@ -228,15 +228,17 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 					</div>
 
 					{/* Address */}
-					<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4">
-						<h3 className="text-lg font-semibold text-cyan-400 mb-4">
+					<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+						<h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center">
+							<MapPin className="mr-2 text-gray-500" size={18} />
 							Address
-						</h3>
-						<div className="grid md:grid-cols-2 gap-6">
+						</h2>
+						<div className="grid md:grid-cols-2 gap-4">
+							{/* Street Address */}
 							<div>
 								<label
 									htmlFor="street"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Street Address
 								</label>
@@ -246,14 +248,15 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="street"
 									value={formik.values.street}
 									onChange={formik.handleChange}
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
+							{/* Street Address Line 2 */}
 							<div>
 								<label
 									htmlFor="streetTwo"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Street Address Line 2
 								</label>
@@ -263,14 +266,15 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="streetTwo"
 									value={formik.values.streetTwo}
 									onChange={formik.handleChange}
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
+							{/* City */}
 							<div>
 								<label
 									htmlFor="city"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									City
 								</label>
@@ -280,14 +284,15 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="city"
 									value={formik.values.city}
 									onChange={formik.handleChange}
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
+							{/* Province */}
 							<div>
 								<label
 									htmlFor="province"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Province
 								</label>
@@ -297,22 +302,24 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="province"
 									value={formik.values.province}
 									onChange={formik.handleChange}
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 						</div>
 					</div>
 
 					{/* Emergency Contact */}
-					<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4">
-						<h3 className="text-lg font-semibold text-cyan-400 mb-4">
+					<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+						<h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center">
+							<Users className="mr-2 text-gray-500" size={18} />
 							Emergency Contact
-						</h3>
-						<div className="grid md:grid-cols-2 gap-6">
+						</h2>
+						<div className="grid md:grid-cols-2 gap-4">
+							{/* Emergency Contact First Name */}
 							<div>
 								<label
 									htmlFor="emergencyContactFirstName"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									First Name
 								</label>
@@ -323,14 +330,15 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.emergencyContactFirstName}
 									onChange={formik.handleChange}
 									placeholder="Jane"
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
+							{/* Emergency Contact Last Name */}
 							<div>
 								<label
 									htmlFor="emergencyContactLastName"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Last Name
 								</label>
@@ -341,14 +349,15 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.emergencyContactLastName}
 									onChange={formik.handleChange}
 									placeholder="Doe"
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
+							{/* Relationship */}
 							<div>
 								<label
 									htmlFor="emergencyContactRelationship"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Relationship
 								</label>
@@ -359,14 +368,15 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.emergencyContactRelationship}
 									onChange={formik.handleChange}
 									placeholder="Mother"
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
+							{/* Contact Number */}
 							<div>
 								<label
 									htmlFor="emergencyContactPhone"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Contact Number
 								</label>
@@ -376,22 +386,24 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="emergencyContactPhone"
 									value={formik.values.emergencyContactPhone}
 									onChange={formik.handleChange}
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 						</div>
 					</div>
 
 					{/* Medical Aid */}
-					<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4">
-						<h3 className="text-lg font-semibold text-cyan-400 mb-4">
+					<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+						<h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center">
+							<PillBottle className="mr-2 text-gray-500" size={18} />
 							Medical Aid
-						</h3>
-						<div className="grid md:grid-cols-2 gap-6">
+						</h2>
+						<div className="grid md:grid-cols-2 gap-4">
+							{/* Medical Aid Name */}
 							<div>
 								<label
 									htmlFor="medicalAidName"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Medical Aid Name
 								</label>
@@ -402,14 +414,15 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.medicalAidName}
 									onChange={formik.handleChange}
 									placeholder="Discovery"
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
+							{/* Membership Number */}
 							<div>
 								<label
 									htmlFor="membershipNumber"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Membership Number
 								</label>
@@ -420,51 +433,48 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.membershipNumber}
 									onChange={formik.handleChange}
 									placeholder="123456789"
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 						</div>
 					</div>
 
 					{/* Additional Information */}
-					<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg p-4">
-						<h3 className="text-lg font-semibold text-cyan-400 mb-4">
+					<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+						<h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center">
+							<ClipboardList className="mr-2 text-gray-500" size={18} />
 							Additional Information
-						</h3>
-						<div className="grid md:grid-cols-2 gap-6">
+						</h2>
+						<div className="grid md:grid-cols-2 gap-4">
+							{/* Current Medication */}
 							<div>
 								<label
 									htmlFor="currentMedication"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Taking any medication?
 								</label>
 								<select
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									value={currentMeds}
 									onChange={(e) => {
 										setCurrentMeds(e.target.value);
 										formik.setFieldValue("currentMedication", e.target.value);
 									}}
 								>
-									<option value="" disabled className="bg-gray-800">
-										Choice
-									</option>
-									<option value="Yes" className="bg-gray-800">
-										Yes
-									</option>
-									<option value="No" className="bg-gray-800">
-										No
-									</option>
+									<option value="">Select</option>
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
 								</select>
 							</div>
 
-							<div>
+							{/* Allergies */}
+							<div className="md:col-span-2">
 								<label
 									htmlFor="allergies"
-									className="block text-sm font-medium text-cyan-400 mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
-									Allergies
+									Allergies *
 								</label>
 								<textarea
 									required
@@ -472,7 +482,7 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="allergies"
 									value={formik.values.allergies}
 									onChange={formik.handleChange}
-									className="w-full p-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									rows={3}
 								/>
 							</div>
@@ -480,17 +490,17 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 					</div>
 
 					{/* Submit button */}
-					<div className="flex justify-center gap-4 pt-4 pb-6">
+					<div className="flex justify-center gap-4 pt-4">
 						<button
 							type="button"
 							onClick={onClose}
-							className="px-6 py-2 border border-cyan-800/30 rounded-md text-cyan-400 hover:bg-cyan-900/30 transition-colors"
+							className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-200 transition-colors"
 						>
 							Cancel
 						</button>
 						<button
 							type="submit"
-							className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-white font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all"
+							className="px-6 py-2 bg-blue-600 rounded-md text-white font-medium hover:bg-blue-700 transition-colors"
 						>
 							Register Patient
 						</button>

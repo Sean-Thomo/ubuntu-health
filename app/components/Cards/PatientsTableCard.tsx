@@ -16,10 +16,10 @@ const PatientsTableCard: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 
 	return (
 		<>
-			<div className="bg-gray-800/50 border border-cyan-800/30 rounded-lg overflow-hidden shadow-lg shadow-cyan-500/10">
+			<div className="  border   rounded-lg overflow-hidden shadow-lg  ">
 				<div className="overflow-x-auto">
 					<table className="w-full text-sm text-cyan-50">
-						<thead className="bg-gray-800/70 text-cyan-400">
+						<thead className=" /70 ">
 							<tr>
 								<th className="px-6 py-4 text-left">Patient</th>
 								<th className="px-6 py-4 text-left">Contact</th>
@@ -33,27 +33,25 @@ const PatientsTableCard: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 								<tr
 									onClick={() => handleRowClick(patient.id)}
 									key={patient.id}
-									className="hover:bg-gray-800/80 transition-colors"
+									className="hover: /80 transition-colors"
 								>
 									<td className="px-6 py-4">
 										<div className="flex items-center gap-4">
-											<div className="flex items-center justify-center w-10 h-10 rounded-full bg-cyan-900/30 text-cyan-400">
+											<div className="flex items-center justify-center w-10 h-10 rounded-full   ">
 												<User size={18} />
 											</div>
 											<div>
 												<div className="font-medium">
 													{patient.firstName} {patient.lastName}
 												</div>
-												<div className="text-xs text-cyan-400/70">
-													ID: {patient.id}
-												</div>
+												<div className="text-xs ">ID: {patient.id}</div>
 											</div>
 										</div>
 									</td>
 									<td className="px-6 py-4">
 										<div className="space-y-1">
 											<div>{patient.phone || "Not provided"}</div>
-											<div className="text-cyan-400/70 text-sm">
+											<div className="/70 text-sm">
 												{patient.email || "Not provided"}
 											</div>
 										</div>
@@ -61,7 +59,7 @@ const PatientsTableCard: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 									<td className="px-6 py-4">
 										<div className="space-y-1">
 											<div className="flex items-center gap-2">
-												<span className="text-xs px-2 py-1 rounded-full bg-gray-700 text-cyan-400">
+												<span className="text-xs px-2 py-1 rounded-full   ">
 													{patient.bloodType || "N/A"}
 												</span>
 												{(patient.activeConditions?.length || 0) > 0 && (
@@ -70,7 +68,7 @@ const PatientsTableCard: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 													</span>
 												)}
 											</div>
-											<div className="text-xs text-cyan-400/70">
+											<div className="text-xs ">
 												{patient.allergies?.length || 0} allergies
 											</div>
 										</div>
@@ -92,7 +90,7 @@ const PatientsTableCard: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 										<div className="flex gap-4">
 											<Link
 												href={`/patients/${patient.id}`}
-												className="text-cyan-400 hover:text-cyan-300 transition-colors"
+												className=" hover:text-cyan-300 transition-colors"
 												title="View Patient"
 											>
 												<Pencil size={18} />
@@ -113,17 +111,15 @@ const PatientsTableCard: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 			</div>
 
 			{/* Pagination */}
-			<div className="flex justify-between items-center mt-6 text-sm text-cyan-400/70">
+			<div className="flex justify-between items-center mt-6 text-sm ">
 				<div>
 					Showing 1-{patients.length} of {patients.length} patients
 				</div>
 				<div className="flex gap-2">
-					<button className="px-3 py-1 rounded border border-cyan-800/30 hover:bg-cyan-900/30">
+					<button className="px-3 py-1 rounded border   hover: ">
 						Previous
 					</button>
-					<button className="px-3 py-1 rounded border border-cyan-800/30 hover:bg-cyan-900/30">
-						Next
-					</button>
+					<button className="px-3 py-1 rounded border   hover: ">Next</button>
 				</div>
 			</div>
 		</>
