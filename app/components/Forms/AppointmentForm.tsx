@@ -295,7 +295,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 						<button
 							type="button"
 							onClick={onClose}
-							className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
+							className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-200 transition-colors"
 						>
 							Cancel
 						</button>

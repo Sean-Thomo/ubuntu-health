@@ -195,10 +195,10 @@ export interface Invoice {
 }
 
 export const INVOICE_STATUS = {
-	DRAFT: "Draft",
-	PENDING: "Pending",
-	PAID: "Paid",
-	OVERDUE: "Overdue",
-	CANCELLED: "Cancelled",
-	PARTIALLY_PAID: "Partially Paid",
+	draft: "Draft",
+	pending: "Pending",
+	paid: "Paid",
+	overdue: "Overdue",
+	cancelled: "Cancelled",
+	partiallyPaid: "Partially Paid",
 } as const;
