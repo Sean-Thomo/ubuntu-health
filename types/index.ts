@@ -174,11 +174,11 @@ export interface Bill {
 }
 
 export const BILL_STATUS = {
-	PENDING: "Pending",
-	PAID: "Paid",
-	OVERDUE: "Overdue",
-	CANCELLED: "Cancelled",
-	REFUNDED: "Refunded",
+	pending: "Pending",
+	paid: "Paid",
+	overdue: "Overdue",
+	cancelled: "Cancelled",
+	refunded: "Refunded",
 } as const;
 
 export interface InvoiceItem {

@@ -39,7 +39,6 @@ const getPatientData = async (id: string): Promise<Patient> => {
 
 // Example data for visits
 const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
-	// This would be an API call in a real application
 	return [
 		{
 			id: "V-001",
@@ -57,6 +56,11 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 					startDate: "2023-10-15",
 					endDate: "2023-10-22",
 					active: false,
+					doctorId: "",
+					issueDate: "",
+					expiryDate: "",
+					status: "PENDING",
+					medications: [],
 				},
 			],
 		},
@@ -76,6 +80,11 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 					startDate: "2023-12-05",
 					endDate: "2024-06-05",
 					active: true,
+					doctorId: "",
+					issueDate: "",
+					expiryDate: "",
+					status: "PENDING",
+					medications: [],
 				},
 			],
 		},
@@ -107,7 +116,10 @@ const getPatientBills = async (patientId: string): Promise<Bill[]> => {
 			date: "2023-12-05",
 			amount: 75.0,
 			description: "Co-pay for consultation",
-			status: "Unpaid",
+			status: "paid",
+			patientId: "",
+			billNumber: "",
+			service: "",
 		},
 	];
 };
@@ -120,7 +132,6 @@ export default function PatientPage({ params }: PatientPageProps) {
 	const [bills, setBills] = useState<Bill[]>([]);
 	const [loading, setLoading] = useState<boolean>(true);
 
-	// Load data on component mount
 	useEffect(() => {
 		const loadData = async () => {
 			try {
