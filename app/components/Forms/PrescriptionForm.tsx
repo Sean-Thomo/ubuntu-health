@@ -3,43 +3,52 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
-import { MEDICATION_TYPES, PRESCRIPTION_STATUS } from "@/types";
-import { Plus } from "lucide-react";
+import {
+	Pill,
+	User,
+	Calendar,
+	Plus,
+	Trash2,
+	ClipboardList,
+	FileText,
+} from "lucide-react";
+import { PRESCRIPTION_STATUS } from "@/types";
 
 interface PrescriptionFormProps {
 	onClose: () => void;
-	patientId?: string;
 }
 
-export default function PrescriptionForm({
-	onClose,
-	patientId,
-}: PrescriptionFormProps) {
-	const [medications, setMedications] = useState([
-		{ name: "", dosage: "", frequency: "", type: "" },
-	]);
+export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
+	const [status, setStatus] = useState("active");
 
 	const formik = useFormik({
 		initialValues: {
-			patientId: patientId || "",
-			doctorId: "",
+			patientId: "",
+			doctorId: "DOC-123", // Assuming current doctor is logged in
+			dosage: "",
 			issueDate: new Date().toISOString().split("T")[0],
-			expiryDate: "",
+			endDate: "",
+			frequency: "",
+			refills: 0,
 			status: "active",
-			notes: "",
+			medications: [
+				{ id: Date.now().toString(), name: "", dosage: "", instructions: "" },
+			],
+			instructions: "",
 		},
 		validationSchema: Yup.object({
 			patientId: Yup.string().required("Patient ID is required"),
+			medications: Yup.array().of(
+				Yup.object().shape({
+					name: Yup.string().required("Medication name is required"),
+					dosage: Yup.string().required("Dosage is required"),
+				})
+			),
+			frequency: Yup.string().required("Frequency is required"),
 			issueDate: Yup.date().required("Issue date is required"),
-			expiryDate: Yup.date().required("Expiry date is required"),
 		}),
 		onSubmit: async (values) => {
 			try {
-				const payload = {
-					...values,
-					medications,
-				};
-
 				const response = await fetch(
 					"http://localhost:5290/api/Prescriptions",
 					{
@@ -47,7 +56,7 @@ export default function PrescriptionForm({
 						headers: {
 							"Content-Type": "application/json",
 						},
-						body: JSON.stringify(payload),
+						body: JSON.stringify(values),
 					}
 				);
 
@@ -55,7 +64,8 @@ export default function PrescriptionForm({
 					throw new Error("Failed to create prescription");
 				}
 
-				toast.success("Prescription created successfully!");
+				toast.success("Prescription created!");
+				formik.resetForm();
 				setTimeout(onClose, 1000);
 			} catch (err) {
 				console.error(`Error creating prescription: ${err}`);
@@ -65,241 +75,322 @@ export default function PrescriptionForm({
 	});
 
 	const addMedication = () => {
-		setMedications([
-			...medications,
-			{ name: "", dosage: "", frequency: "", type: "" },
+		formik.setFieldValue("medications", [
+			...formik.values.medications,
+			{ id: Date.now().toString(), name: "", dosage: "", instructions: "" },
 		]);
 	};
 
 	const removeMedication = (index: number) => {
-		const newMedications = [...medications];
-		newMedications.splice(index, 1);
-		setMedications(newMedications);
-	};
-
-	const handleMedicationChange = (
-		index: number,
-		field: string,
-		value: string
-	) => {
-		const newMedications = [...medications];
-		newMedications[index] = { ...newMedications[index], [field]: value };
-		setMedications(newMedications);
+		const medications = [...formik.values.medications];
+		medications.splice(index, 1);
+		formik.setFieldValue("medications", medications);
 	};
 
 	return (
-		<div className="fixed inset-0   backdrop-blur-sm flex items-center justify-center z-50 p-4">
-			<div className="  border   rounded-xl p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-xl  ">
-				<button onClick={onClose} className="absolute top-4 right-4  text-2xl">
+		<div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+			<div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+				<button
+					onClick={onClose}
+					className="absolute top-4 right-4 text-blue-700 hover:text-gray-700 text-2xl"
+				>
 					&times;
 				</button>
 
 				<form onSubmit={formik.handleSubmit} className="space-y-6">
-					<h2 className="text-2xl font-bold mb-6 text-center">
-						e-Prescription
+					<h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center flex items-center justify-center">
+						<Pill className="mr-2 text-blue-500" size={24} />
+						New Prescription
 					</h2>
 
-					{/* Patient and Doctor Info */}
-					<div className="grid md:grid-cols-2 gap-6">
-						<div>
-							<label className="block text-sm font-medium mb-1">
-								Patient ID
-							</label>
-							<input
-								type="text"
-								className="w-full p-3   border   rounded-md  "
-								value={formik.values.patientId}
-								disabled
-							/>
+					{/* Patient Information */}
+					<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+						<div className="flex items-center text-lg font-semibold text-gray-700 mb-4">
+							<User className="mr-2 text-gray-500" size={18} />
+							Patient Information
 						</div>
-						<div>
-							<label className="block text-sm font-medium mb-1">
-								Prescribing Doctor
-							</label>
-							<input
-								type="text"
-								className="w-full p-3   border   rounded-md  "
-								value="Dr. Smith"
-								disabled
-							/>
-						</div>
-					</div>
-
-					{/* Dates */}
-					<div className="grid md:grid-cols-2 gap-6">
-						<div>
-							<label
-								htmlFor="issueDate"
-								className="block text-sm font-medium mb-1"
-							>
-								Issue Date
-							</label>
-							<input
-								type="date"
-								id="issueDate"
-								name="issueDate"
-								value={formik.values.issueDate}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-								className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
-							/>
-						</div>
-						<div>
-							<label
-								htmlFor="expiryDate"
-								className="block text-sm font-medium mb-1"
-							>
-								Expiry Date
-							</label>
-							<input
-								type="date"
-								id="expiryDate"
-								name="expiryDate"
-								value={formik.values.expiryDate}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-								className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
-							/>
-							{formik.touched.expiryDate && formik.errors.expiryDate && (
-								<p className="text-red-400 text-xs mt-1">
-									{formik.errors.expiryDate}
-								</p>
-							)}
+						<div className="grid md:grid-cols-2 gap-4">
+							<div>
+								<label
+									htmlFor="patientId"
+									className="block text-sm font-medium text-gray-700 mb-1"
+								>
+									Patient ID
+								</label>
+								<input
+									type="text"
+									id="patientId"
+									name="patientId"
+									value={formik.values.patientId}
+									onChange={formik.handleChange}
+									onBlur={formik.handleBlur}
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									placeholder="PAT-12345"
+								/>
+								{formik.touched.patientId && formik.errors.patientId && (
+									<p className="text-red-600 text-xs mt-1">
+										{formik.errors.patientId}
+									</p>
+								)}
+							</div>
 						</div>
 					</div>
 
 					{/* Medications */}
-					<div>
-						<h3 className="text-lg font-semibold mb-3">Medications</h3>
-						{medications.map((med, index) => (
-							<div key={index} className="mb-4 p-4   rounded-lg">
-								<div className="grid md:grid-cols-2 gap-4 mb-3">
+					<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+						<div className="flex items-center text-lg font-semibold text-gray-700 mb-4">
+							<Pill className="mr-2 text-gray-500" size={18} />
+							Medications
+						</div>
+						{formik.values.medications.map((med, index) => (
+							<div key={med.id} className="mb-4 last:mb-0">
+								<div className="flex justify-between items-center mb-2">
+									<h2 className="text-sm font-bold text-gray-700">
+										Medication #{index + 1}
+									</h2>
+									{index > 0 && (
+										<button
+											type="button"
+											onClick={() => removeMedication(index)}
+											className="text-red-600 hover:text-red-800"
+										>
+											<Trash2 size={16} />
+										</button>
+									)}
+								</div>
+								<div className="grid md:grid-cols-3 gap-4">
 									<div>
-										<label className="block text-sm font-medium mb-1">
-											Medication Name
+										<label
+											htmlFor={`medications[${index}].name`}
+											className="block text-sm font-medium text-gray-700 mb-1"
+										>
+											Name
 										</label>
 										<input
 											type="text"
+											id={`medications[${index}].name`}
+											name={`medications[${index}].name`}
 											value={med.name}
-											onChange={(e) =>
-												handleMedicationChange(index, "name", e.target.value)
-											}
-											className="w-full p-2   border   rounded-md  "
-											required
+											onChange={formik.handleChange}
+											onBlur={formik.handleBlur}
+											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+											placeholder="e.g., Amoxicillin"
 										/>
+										{formik.touched.medications?.[index]?.name &&
+											Array.isArray(formik.errors.medications) &&
+											typeof formik.errors.medications[index] === "object" &&
+											formik.errors.medications[index]?.name && (
+												<p className="text-red-600 text-xs mt-1">
+													{formik.errors.medications[index].name}
+												</p>
+											)}
 									</div>
 									<div>
-										<label className="block text-sm font-medium mb-1">
-											Type
-										</label>
-										<select
-											value={med.type}
-											onChange={(e) =>
-												handleMedicationChange(index, "type", e.target.value)
-											}
-											className="w-full p-2   border   rounded-md  "
+										<label
+											htmlFor={`medications[${index}].dosage`}
+											className="block text-sm font-medium text-gray-700 mb-1"
 										>
-											<option value="">Select type</option>
-											{Object.entries(MEDICATION_TYPES).map(([key, value]) => (
-												<option key={key} value={key}>
-													{value}
-												</option>
-											))}
-										</select>
-									</div>
-								</div>
-								<div className="grid md:grid-cols-2 gap-4">
-									<div>
-										<label className="block text-sm font-medium mb-1">
 											Dosage
 										</label>
 										<input
 											type="text"
+											id={`medications[${index}].dosage`}
+											name={`medications[${index}].dosage`}
 											value={med.dosage}
-											onChange={(e) =>
-												handleMedicationChange(index, "dosage", e.target.value)
-											}
-											className="w-full p-2   border   rounded-md  "
-											required
+											onChange={formik.handleChange}
+											onBlur={formik.handleBlur}
+											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+											placeholder="e.g., 500mg"
 										/>
+										{formik.touched.medications?.[index]?.dosage &&
+											typeof formik.errors.medications?.[index] === "object" &&
+											formik.errors.medications?.[index]?.dosage && (
+												<p className="text-red-600 text-xs mt-1">
+													{formik.errors.medications[index].dosage}
+												</p>
+											)}
 									</div>
 									<div>
-										<label className="block text-sm font-medium mb-1">
-											Frequency
+										<label
+											htmlFor={`medications[${index}].instructions`}
+											className="block text-sm font-medium text-gray-700 mb-1"
+										>
+											Instructions
 										</label>
 										<input
 											type="text"
-											value={med.frequency}
-											onChange={(e) =>
-												handleMedicationChange(
-													index,
-													"frequency",
-													e.target.value
-												)
-											}
-											className="w-full p-2   border   rounded-md  "
-											required
+											id={`medications[${index}].instructions`}
+											name={`medications[${index}].instructions`}
+											value={med.instructions || ""}
+											onChange={formik.handleChange}
+											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+											placeholder="Special instructions"
 										/>
 									</div>
 								</div>
-								{medications.length > 1 && (
-									<button
-										type="button"
-										onClick={() => removeMedication(index)}
-										className="mt-2 text-red-400 text-sm hover:text-red-300"
-									>
-										Remove Medication
-									</button>
-								)}
 							</div>
 						))}
 						<button
 							type="button"
 							onClick={addMedication}
-							className="flex items-center gap-2  text-sm"
+							className="mt-2 text-sm text-blue-600 hover:text-blue-800 flex items-center"
 						>
-							<Plus size={16} />
-							Add Another Medication
+							<Plus size={16} className="mr-1" />
+							Add another medication
 						</button>
 					</div>
 
-					{/* Status and Notes */}
-					<div className="grid md:grid-cols-2 gap-6">
-						<div>
-							<label
-								htmlFor="status"
-								className="block text-sm font-medium mb-1"
-							>
-								Status
-							</label>
-							<select
-								id="status"
-								name="status"
-								value={formik.values.status}
-								onChange={formik.handleChange}
-								className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
-							>
-								{Object.entries(PRESCRIPTION_STATUS).map(([value, label]) => (
-									<option key={value} value={value}>
-										{label}
-									</option>
-								))}
-							</select>
+					{/* Prescription Details */}
+					<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+						<div className="flex items-center text-lg font-semibold text-gray-700 mb-4">
+							<ClipboardList className="mr-2 text-gray-500" size={18} />
+							Prescription Details
+						</div>
+						<div className="grid md:grid-cols-2 gap-4">
+							<div>
+								<label
+									htmlFor="frequency"
+									className="block text-sm font-medium text-gray-700 mb-1"
+								>
+									Frequency
+								</label>
+								<select
+									id="frequency"
+									name="frequency"
+									value={formik.values.frequency}
+									onChange={formik.handleChange}
+									onBlur={formik.handleBlur}
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								>
+									<option value="">Select frequency</option>
+									<option value="Once daily">Once daily</option>
+									<option value="Twice daily">Twice daily</option>
+									<option value="Three times daily">Three times daily</option>
+									<option value="Four times daily">Four times daily</option>
+									<option value="As needed">As needed</option>
+								</select>
+								{formik.touched.frequency && formik.errors.frequency && (
+									<p className="text-red-600 text-xs mt-1">
+										{formik.errors.frequency}
+									</p>
+								)}
+							</div>
+							<div>
+								<label
+									htmlFor="refills"
+									className="block text-sm font-medium text-gray-700 mb-1"
+								>
+									Refills
+								</label>
+								<input
+									type="number"
+									id="refills"
+									name="refills"
+									min="0"
+									max="10"
+									value={formik.values.refills}
+									onChange={formik.handleChange}
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								/>
+							</div>
+							<div>
+								<label
+									htmlFor="status"
+									className="block text-sm font-medium text-gray-700 mb-1"
+								>
+									Status
+								</label>
+								<select
+									id="status"
+									name="status"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									value={status}
+									onChange={(e) => {
+										setStatus(e.target.value);
+										formik.setFieldValue("status", e.target.value);
+									}}
+								>
+									{Object.entries(PRESCRIPTION_STATUS).map(([key, value]) => (
+										<option key={key} value={key}>
+											{value}
+										</option>
+									))}
+								</select>
+							</div>
 						</div>
 					</div>
 
-					<div>
-						<label htmlFor="notes" className="block text-sm font-medium mb-1">
-							Additional Notes
-						</label>
-						<textarea
-							id="notes"
-							name="notes"
-							value={formik.values.notes}
-							onChange={formik.handleChange}
-							rows={3}
-							className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
-						/>
+					{/* Dates */}
+					<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+						<div className="flex items-center text-lg font-semibold text-gray-700 mb-4">
+							<Calendar className="mr-2 text-gray-500" size={18} />
+							Prescription Dates
+						</div>
+						<div className="grid md:grid-cols-2 gap-4">
+							<div>
+								<label
+									htmlFor="issueDate"
+									className="block text-sm font-medium text-gray-700 mb-1"
+								>
+									Issue Date
+								</label>
+								<input
+									type="date"
+									id="issueDate"
+									name="issueDate"
+									value={formik.values.issueDate}
+									onChange={formik.handleChange}
+									onBlur={formik.handleBlur}
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								/>
+								{formik.touched.issueDate && formik.errors.issueDate && (
+									<p className="text-red-600 text-xs mt-1">
+										{formik.errors.issueDate}
+									</p>
+								)}
+							</div>
+							<div>
+								<label
+									htmlFor="endDate"
+									className="block text-sm font-medium text-gray-700 mb-1"
+								>
+									End Date (Optional)
+								</label>
+								<input
+									type="date"
+									id="endDate"
+									name="endDate"
+									value={formik.values.endDate}
+									onChange={formik.handleChange}
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								/>
+							</div>
+						</div>
+					</div>
+
+					{/* Additional Instructions */}
+					<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+						<div className="flex items-center text-lg font-semibold text-gray-700 mb-4">
+							<FileText className="mr-2 text-gray-500" size={18} />
+							Additional Information
+						</div>
+						<div>
+							<label
+								htmlFor="instructions"
+								className="block text-sm font-medium text-gray-700 mb-1"
+							>
+								Instructions
+							</label>
+							<textarea
+								id="instructions"
+								name="instructions"
+								rows={3}
+								value={formik.values.instructions}
+								onChange={formik.handleChange}
+								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								placeholder="Special instructions for the patient..."
+							/>
+						</div>
 					</div>
 
 					{/* Submit Button */}
@@ -307,14 +398,15 @@ export default function PrescriptionForm({
 						<button
 							type="button"
 							onClick={onClose}
-							className="px-6 py-2 border   rounded-md hover:  transition-colors"
+							className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
 						>
 							Cancel
 						</button>
 						<button
 							type="submit"
-							className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md  font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all"
+							className="px-6 py-2 bg-blue-600 rounded-md text-white font-medium hover:bg-blue-700 transition-colors flex items-center"
 						>
+							<Pill className="mr-2" size={18} />
 							Create Prescription
 						</button>
 					</div>

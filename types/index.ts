@@ -39,17 +39,6 @@ export interface Invoice {
 	notes?: string;
 }
 
-export interface Prescription {
-	id: string;
-	patientId: string;
-	medication: string;
-	dosage: string;
-	frequency: string;
-	startDate: string;
-	endDate: string;
-	active: boolean;
-}
-
 export interface Visit {
 	id: string;
 	date: string;
@@ -119,34 +108,38 @@ export interface Prescription {
 	id: string;
 	patientId: string;
 	doctorId: string;
+	dosage: string;
 	issueDate: string;
-	expiryDate: string;
+	endDate: string;
+	frequency: string;
+	refills: number;
 	status: keyof typeof PRESCRIPTION_STATUS;
-	medications: Medication[];
-	notes?: string;
+	// medications: Medication[];
+	medicationName: string;
+	instructions?: string;
 	createdAt?: string;
 	updatedAt?: string;
 }
 
 export const MEDICATION_TYPES = {
-	TABLET: "Tablet",
-	CAPSULE: "Capsule",
-	SYRUP: "Syrup",
-	INJECTION: "Injection",
-	OINTMENT: "Ointment",
-	DROPS: "Drops",
-	INHALER: "Inhaler",
-	PATCH: "Transdermal Patch",
-	SUPPOSITORY: "Suppository",
-	OTHER: "Other",
+	tablet: "Tablet",
+	capsule: "Capsule",
+	syrup: "Syrup",
+	injection: "Injection",
+	ointment: "Ointment",
+	drops: "Drops",
+	inhaler: "Inhaler",
+	patch: "Transdermal Patch",
+	suppository: "Suppository",
+	other: "Other",
 } as const;
 
 export const PRESCRIPTION_STATUS = {
-	ACTIVE: "Active",
-	PENDING: "Pending",
-	COMPLETED: "Completed",
-	CANCELLED: "Cancelled",
-	EXPIRED: "Expired",
+	active: "Active",
+	prending: "Pending",
+	completed: "Completed",
+	cancelled: "Cancelled",
+	expired: "Expired",
 } as const;
 
 // Optional: Type for the form values

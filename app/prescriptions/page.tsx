@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import PrescriptionsTableCard from "../components/Cards/PrescriptionsTableCard";
 import { Search, Plus } from "lucide-react";
 import Layout from "../components/Layout";
 import PrescriptionsTable from "../components/Tables/PrescriptionsTable";
+import PrescriptionForm from "../components/Forms/PrescriptionForm";
 
 const Page = () => {
-	const [activeModal, setActiveModal] = useState("");
-	const handleCloseModal = () => setActiveModal("");
+
+
 	return (
 		<Layout>
 			<div className="min-h-screen   p-6">
@@ -15,8 +15,8 @@ const Page = () => {
 					{/* Header */}
 					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
 						<div>
-							<h1 className="text-3xl font-bold  ">Prescriptions Registry</h1>
-							<p className="  mt-2">
+							<h1 className="text-3xl font-bold">Prescriptions Registry</h1>
+							<p className="mt-2">
 								Manage all patient prescriptions and medications
 							</p>
 						</div>
@@ -29,17 +29,9 @@ const Page = () => {
 								<input
 									type="text"
 									placeholder="Search prescriptions..."
-									className="pl-10 pr-4 py-2   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="pl-10 pr-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
-							<button
-								onClick={() => setActiveModal("schedulePrescription")}
-								className="w-44 flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500  py-2 rounded-md 
-                                hover:shadow-cyan-500/30 shadow-lg transition-all font-medium"
-							>
-								<Plus size={18} />
-								New Prescription
-							</button>
 						</div>
 					</div>
 

@@ -287,15 +287,6 @@ const DashboardPage = () => {
 									</div>
 								))}
 							</div>
-							<div className="mt-4">
-								<Link
-									href="/appointments/new"
-									className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 rounded-md text-white text-sm font-medium hover:bg-blue-700 transition-colors"
-								>
-									<Plus size={18} />
-									Schedule New Appointment
-								</Link>
-							</div>
 						</div>
 
 						{/* Recent Invoices */}

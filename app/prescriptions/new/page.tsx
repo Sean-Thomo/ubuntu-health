@@ -30,7 +30,6 @@ const NewPrescriptionPage = () => {
 		onSubmit: async (values) => {
 			setIsSubmitting(true);
 			try {
-				// Replace with your actual API endpoint
 				const response = await fetch(
 					"http://localhost:5290/api/Prescriptions",
 					{
@@ -58,29 +57,33 @@ const NewPrescriptionPage = () => {
 	});
 
 	return (
-		<div className="min-h-screen   p-6">
+		<div className="min-h-screen bg-gray-50 p-6">
 			<div className="max-w-4xl mx-auto">
 				{/* Header */}
 				<div className="flex justify-between items-center mb-8">
 					<div>
-						<h1 className="text-2xl font-bold  ">New Prescription</h1>
-						<p className="  mt-1">Create a new medication prescription</p>
+						<h1 className="text-2xl font-bold text-gray-800">
+							New Prescription
+						</h1>
+						<p className="text-gray-600 mt-1">
+							Create a new medication prescription
+						</p>
 					</div>
 					<Link
 						href="/prescriptions"
-						className="px-4 py-2 border   rounded-md   hover:  transition-colors"
+						className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
 					>
 						Back to Prescriptions
 					</Link>
 				</div>
 
 				{/* Form */}
-				<div className="  border   rounded-lg shadow-lg   p-6">
+				<div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
 					<form onSubmit={formik.handleSubmit} className="space-y-6">
 						{/* Patient Information */}
-						<div className=" /30 border   rounded-lg p-4">
-							<h2 className="text-lg font-semibold   mb-4 flex items-center gap-2">
-								<User size={18} />
+						<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+							<h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
+								<User size={18} className="text-gray-500" />
 								Patient Information
 							</h2>
 
@@ -88,7 +91,7 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="patientId"
-										className="block text-sm font-medium   mb-1"
+										className="block text-sm font-medium text-gray-700 mb-1"
 									>
 										Patient ID
 									</label>
@@ -99,24 +102,22 @@ const NewPrescriptionPage = () => {
 										value={formik.values.patientId}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 										placeholder="PAT-12345"
 									/>
 									{formik.touched.patientId && formik.errors.patientId && (
-										<p className="text-red-400 text-xs mt-1">
+										<p className="text-red-600 text-xs mt-1">
 											{formik.errors.patientId}
 										</p>
 									)}
 								</div>
-
-								{/* Patient search/select could be added here */}
 							</div>
 						</div>
 
 						{/* Medication Details */}
-						<div className=" /30 border   rounded-lg p-4">
-							<h2 className="text-lg font-semibold   mb-4 flex items-center gap-2">
-								<Pill size={18} />
+						<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+							<h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
+								<Pill size={18} className="text-gray-500" />
 								Medication Details
 							</h2>
 
@@ -124,7 +125,7 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="medication"
-										className="block text-sm font-medium   mb-1"
+										className="block text-sm font-medium text-gray-700 mb-1"
 									>
 										Medication Name
 									</label>
@@ -135,11 +136,11 @@ const NewPrescriptionPage = () => {
 										value={formik.values.medication}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 										placeholder="e.g., Amoxicillin"
 									/>
 									{formik.touched.medication && formik.errors.medication && (
-										<p className="text-red-400 text-xs mt-1">
+										<p className="text-red-600 text-xs mt-1">
 											{formik.errors.medication}
 										</p>
 									)}
@@ -148,7 +149,7 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="dosage"
-										className="block text-sm font-medium   mb-1"
+										className="block text-sm font-medium text-gray-700 mb-1"
 									>
 										Dosage
 									</label>
@@ -159,11 +160,11 @@ const NewPrescriptionPage = () => {
 										value={formik.values.dosage}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 										placeholder="e.g., 500mg"
 									/>
 									{formik.touched.dosage && formik.errors.dosage && (
-										<p className="text-red-400 text-xs mt-1">
+										<p className="text-red-600 text-xs mt-1">
 											{formik.errors.dosage}
 										</p>
 									)}
@@ -172,31 +173,27 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="frequency"
-										className="block text-sm font-medium   mb-1"
+										className="block text-sm font-medium text-gray-700 mb-1"
 									>
 										Frequency
 									</label>
-									<div className="relative">
-										<select
-											id="frequency"
-											name="frequency"
-											value={formik.values.frequency}
-											onChange={formik.handleChange}
-											onBlur={formik.handleBlur}
-											className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50 appearance-none"
-										>
-											<option value="">Select frequency</option>
-											<option value="Once daily">Once daily</option>
-											<option value="Twice daily">Twice daily</option>
-											<option value="Three times daily">
-												Three times daily
-											</option>
-											<option value="Four times daily">Four times daily</option>
-											<option value="As needed">As needed</option>
-										</select>
-									</div>
+									<select
+										id="frequency"
+										name="frequency"
+										value={formik.values.frequency}
+										onChange={formik.handleChange}
+										onBlur={formik.handleBlur}
+										className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									>
+										<option value="">Select frequency</option>
+										<option value="Once daily">Once daily</option>
+										<option value="Twice daily">Twice daily</option>
+										<option value="Three times daily">Three times daily</option>
+										<option value="Four times daily">Four times daily</option>
+										<option value="As needed">As needed</option>
+									</select>
 									{formik.touched.frequency && formik.errors.frequency && (
-										<p className="text-red-400 text-xs mt-1">
+										<p className="text-red-600 text-xs mt-1">
 											{formik.errors.frequency}
 										</p>
 									)}
@@ -205,7 +202,7 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="refills"
-										className="block text-sm font-medium   mb-1"
+										className="block text-sm font-medium text-gray-700 mb-1"
 									>
 										Refills
 									</label>
@@ -217,7 +214,7 @@ const NewPrescriptionPage = () => {
 										max="10"
 										value={formik.values.refills}
 										onChange={formik.handleChange}
-										className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									/>
 								</div>
 							</div>
@@ -225,7 +222,7 @@ const NewPrescriptionPage = () => {
 							<div className="mt-6">
 								<label
 									htmlFor="instructions"
-									className="block text-sm font-medium   mb-1"
+									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Additional Instructions
 								</label>
@@ -235,16 +232,16 @@ const NewPrescriptionPage = () => {
 									rows={3}
 									value={formik.values.instructions}
 									onChange={formik.handleChange}
-									className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									placeholder="Special instructions for the patient..."
 								/>
 							</div>
 						</div>
 
 						{/* Dates */}
-						<div className=" /30 border   rounded-lg p-4">
-							<h2 className="text-lg font-semibold   mb-4 flex items-center gap-2">
-								<Calendar size={18} />
+						<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+							<h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
+								<Calendar size={18} className="text-gray-500" />
 								Prescription Dates
 							</h2>
 
@@ -252,23 +249,21 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="startDate"
-										className="block text-sm font-medium   mb-1"
+										className="block text-sm font-medium text-gray-700 mb-1"
 									>
 										Start Date
 									</label>
-									<div className="relative">
-										<input
-											type="date"
-											id="startDate"
-											name="startDate"
-											value={formik.values.startDate}
-											onChange={formik.handleChange}
-											onBlur={formik.handleBlur}
-											className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
-										/>
-									</div>
+									<input
+										type="date"
+										id="startDate"
+										name="startDate"
+										value={formik.values.startDate}
+										onChange={formik.handleChange}
+										onBlur={formik.handleBlur}
+										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									/>
 									{formik.touched.startDate && formik.errors.startDate && (
-										<p className="text-red-400 text-xs mt-1">
+										<p className="text-red-600 text-xs mt-1">
 											{formik.errors.startDate}
 										</p>
 									)}
@@ -277,20 +272,18 @@ const NewPrescriptionPage = () => {
 								<div>
 									<label
 										htmlFor="endDate"
-										className="block text-sm font-medium   mb-1"
+										className="block text-sm font-medium text-gray-700 mb-1"
 									>
 										End Date (Optional)
 									</label>
-									<div className="relative">
-										<input
-											type="date"
-											id="endDate"
-											name="endDate"
-											value={formik.values.endDate}
-											onChange={formik.handleChange}
-											className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
-										/>
-									</div>
+									<input
+										type="date"
+										id="endDate"
+										name="endDate"
+										value={formik.values.endDate}
+										onChange={formik.handleChange}
+										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									/>
 								</div>
 							</div>
 						</div>
@@ -300,14 +293,14 @@ const NewPrescriptionPage = () => {
 							<button
 								type="button"
 								onClick={() => formik.resetForm()}
-								className="px-6 py-2 border   rounded-md   hover:  transition-colors"
+								className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
 							>
 								Reset
 							</button>
 							<button
 								type="submit"
 								disabled={isSubmitting}
-								className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md  font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+								className="px-6 py-2 bg-blue-600 rounded-md text-white font-medium hover:bg-blue-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
 							>
 								{isSubmitting ? "Creating..." : "Create Prescription"}
 							</button>
