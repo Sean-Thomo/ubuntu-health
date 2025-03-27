@@ -102,10 +102,10 @@ export const STATUS_COLORS = {
 	confirmed: "bg-blue-900/30 text-blue-400",
 	checkedIn: "bg-purple-900/30 text-purple-400",
 	inProgress: "bg-green-900/30 text-green-400",
-	completed: "bg-teal-900/30 text-teal-400",
+	completed: "!bg-teal-900/30 bg-teal-900 text-teal-400",
 	cancelled: "bg-red-900/30 text-red-400",
 	noShow: "bg-gray-700 text-cyan-400",
-	rescheduled: "bg-orange-900/30 text-orange-400",
+	rescheduled: "!bg-orange-900/30 text-orange-400",
 };
 
 export interface Medication {
