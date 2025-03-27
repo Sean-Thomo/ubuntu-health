@@ -35,6 +35,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 				{ id: Date.now().toString(), name: "", dosage: "", instructions: "" },
 			],
 			instructions: "",
+			createdAt: new Date().toString(),
+			updatedAt: new Date().toString(),
 		},
 		validationSchema: Yup.object({
 			patientId: Yup.string().required("Patient ID is required"),
