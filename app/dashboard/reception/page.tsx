@@ -108,23 +108,25 @@ const DashboardPage = () => {
 
 	return (
 		<Layout>
-			<div className="min-h-screen text-cyan-50 p-6">
+			<div className="min-h-screen bg-gray-50 p-6">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
 					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
 						<div>
-							<h1 className="text-3xl font-bold ">Dashboard</h1>
-							<p className=" mt-2">Overview of your medical practice</p>
+							<h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
+							<p className="mt-2 text-gray-600">
+								Overview of your medical practice
+							</p>
 						</div>
 						<div className="relative mt-4 md:mt-0">
 							<Search
-								className="absolute left-3 top-1/2 -translate-y-1/2 "
+								className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
 								size={18}
 							/>
 							<input
 								type="text"
 								placeholder="Search..."
-								className="pl-10 pr-4 py-2   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="pl-10 pr-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 							/>
 						</div>
 					</div>
@@ -133,13 +135,15 @@ const DashboardPage = () => {
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 						{/* Patients Card */}
 						<Link href="/patients">
-							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
+							<div className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer shadow-sm">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm ">Total Patients</p>
-										<p className="text-2xl font-semibold ">{stats.patients}</p>
+										<p className="text-sm text-gray-500">Total Patients</p>
+										<p className="text-2xl font-semibold text-gray-800">
+											{stats.patients}
+										</p>
 									</div>
-									<div className="p-3 rounded-full   ">
+									<div className="p-3 rounded-full bg-blue-50 text-blue-600">
 										<User size={20} />
 									</div>
 								</div>
@@ -148,15 +152,17 @@ const DashboardPage = () => {
 
 						{/* Appointments Card */}
 						<Link href="/appointments">
-							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
+							<div className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer shadow-sm">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm ">Today&lsquo;s Appointments</p>
-										<p className="text-2xl font-semibold text-blue-400">
+										<p className="text-sm text-gray-500">
+											Today&lsquo;s Appointments
+										</p>
+										<p className="text-2xl font-semibold text-blue-600">
 											{stats.appointments}
 										</p>
 									</div>
-									<div className="p-3 rounded-full bg-blue-900/30 text-blue-400">
+									<div className="p-3 rounded-full bg-blue-50 text-blue-600">
 										<Calendar size={20} />
 									</div>
 								</div>
@@ -165,15 +171,17 @@ const DashboardPage = () => {
 
 						{/* Prescriptions Card */}
 						<Link href="/prescriptions">
-							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
+							<div className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer shadow-sm">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm ">Active Prescriptions</p>
-										<p className="text-2xl font-semibold text-purple-400">
+										<p className="text-sm text-gray-500">
+											Active Prescriptions
+										</p>
+										<p className="text-2xl font-semibold text-purple-600">
 											{stats.prescriptions}
 										</p>
 									</div>
-									<div className="p-3 rounded-full bg-purple-900/30 text-purple-400">
+									<div className="p-3 rounded-full bg-purple-50 text-purple-600">
 										<Pill size={20} />
 									</div>
 								</div>
@@ -182,15 +190,15 @@ const DashboardPage = () => {
 
 						{/* Revenue Card */}
 						<Link href="/invoices">
-							<div className="  border   rounded-lg p-4 hover: /70 transition-colors cursor-pointer">
+							<div className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer shadow-sm">
 								<div className="flex justify-between items-center">
 									<div>
-										<p className="text-sm ">Monthly Revenue</p>
-										<p className="text-2xl font-semibold text-green-400">
+										<p className="text-sm text-gray-500">Monthly Revenue</p>
+										<p className="text-2xl font-semibold text-green-600">
 											R{stats.revenue.toLocaleString()}
 										</p>
 									</div>
-									<div className="p-3 rounded-full bg-green-900/30 text-green-400">
+									<div className="p-3 rounded-full bg-green-50 text-green-600">
 										<CreditCard size={20} />
 									</div>
 								</div>
@@ -201,12 +209,14 @@ const DashboardPage = () => {
 					{/* Main Content */}
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
 						{/* Recent Patients */}
-						<div className="  border   rounded-lg p-6 lg:col-span-1">
+						<div className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1 shadow-sm">
 							<div className="flex justify-between items-center mb-4">
-								<h2 className="text-xl font-semibold ">Recent Patients</h2>
+								<h2 className="text-xl font-semibold text-gray-800">
+									Recent Patients
+								</h2>
 								<Link
 									href="/patients"
-									className="text-sm  hover:text-cyan-300 flex items-center"
+									className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
 								>
 									View all <ChevronRight size={16} />
 								</Link>
@@ -215,18 +225,20 @@ const DashboardPage = () => {
 								{recentPatients.map((patient) => (
 									<div
 										key={patient.id}
-										className="flex items-center justify-between p-3 hover: /70 rounded-lg transition-colors"
+										className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors"
 									>
 										<div>
-											<p className="font-medium">{patient.name}</p>
-											<p className="text-sm ">
+											<p className="font-medium text-gray-800">
+												{patient.name}
+											</p>
+											<p className="text-sm text-gray-500">
 												Last visit:{" "}
 												<ClientDate dateString={patient.lastVisit} />
 											</p>
 										</div>
 										<Link
 											href={`/patients/${patient.id}`}
-											className="mt-4 text-sm  hover:text-cyan-300 flex items-center"
+											className="text-blue-600 hover:text-blue-800 flex items-center"
 										>
 											<ChevronRight size={18} />
 										</Link>
@@ -236,14 +248,14 @@ const DashboardPage = () => {
 						</div>
 
 						{/* Upcoming Appointments */}
-						<div className="  border   rounded-lg p-6 lg:col-span-1">
+						<div className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1 shadow-sm">
 							<div className="flex justify-between items-center mb-4">
-								<h2 className="text-xl font-semibold ">
+								<h2 className="text-xl font-semibold text-gray-800">
 									Upcoming Appointments
 								</h2>
 								<Link
 									href="/appointments"
-									className="text-sm  hover:text-cyan-300 flex items-center"
+									className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
 								>
 									View all <ChevronRight size={16} />
 								</Link>
@@ -252,25 +264,23 @@ const DashboardPage = () => {
 								{upcomingAppointments.map((appointment) => (
 									<div
 										key={appointment.id}
-										className="p-3 hover: /70 rounded-lg transition-colors"
+										className="p-3 hover:bg-gray-50 rounded-lg transition-colors"
 									>
 										<div className="flex justify-between items-start">
 											<div>
-												<p className="font-medium">{appointment.patient}</p>
-												<p className="text-sm ">{appointment.type}</p>
+												<p className="font-medium text-gray-800">
+													{appointment.patient}
+												</p>
+												<p className="text-sm text-gray-500">
+													{appointment.type}
+												</p>
 											</div>
 											<div className="text-right">
-												<p className="">
-													<ClientDate
-														dateString={appointment.date}
-														// format="h:mm a"
-													/>
+												<p className="text-gray-800">
+													<ClientDate dateString={appointment.date} />
 												</p>
-												<p className="text-sm ">
-													<ClientDate
-														dateString={appointment.date}
-														// format="MMM d, yyyy"
-													/>
+												<p className="text-sm text-gray-500">
+													<ClientDate dateString={appointment.date} />
 												</p>
 											</div>
 										</div>
@@ -280,7 +290,7 @@ const DashboardPage = () => {
 							<div className="mt-4">
 								<Link
 									href="/appointments/new"
-									className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-sm font-medium hover:shadow-cyan-500/30 transition-all"
+									className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 rounded-md text-white text-sm font-medium hover:bg-blue-700 transition-colors"
 								>
 									<Plus size={18} />
 									Schedule New Appointment
@@ -289,12 +299,14 @@ const DashboardPage = () => {
 						</div>
 
 						{/* Recent Invoices */}
-						<div className="  border   rounded-lg p-6 lg:col-span-1">
+						<div className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1 shadow-sm">
 							<div className="flex justify-between items-center mb-4">
-								<h2 className="text-xl font-semibold ">Recent Invoices</h2>
+								<h2 className="text-xl font-semibold text-gray-800">
+									Recent Invoices
+								</h2>
 								<Link
 									href="/invoices"
-									className="text-sm  hover:text-cyan-300 flex items-center"
+									className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
 								>
 									View all <ChevronRight size={16} />
 								</Link>
@@ -303,17 +315,19 @@ const DashboardPage = () => {
 								{recentInvoices.map((invoice) => (
 									<div
 										key={invoice.id}
-										className="p-3 hover: /70 rounded-lg transition-colors"
+										className="p-3 hover:bg-gray-50 rounded-lg transition-colors"
 									>
 										<div className="flex justify-between items-center">
 											<div>
-												<p className="font-medium">{invoice.patient}</p>
-												<p className="text-sm ">
+												<p className="font-medium text-gray-800">
+													{invoice.patient}
+												</p>
+												<p className="text-sm text-gray-500">
 													<ClientDate dateString={invoice.date} />
 												</p>
 											</div>
 											<div className="text-right">
-												<p className="font-medium">
+												<p className="font-medium text-gray-800">
 													R{invoice.amount.toLocaleString()}
 												</p>
 												<div className="flex items-center justify-end gap-1">
@@ -324,7 +338,7 @@ const DashboardPage = () => {
 													>
 														{getStatusIcon(invoice.status)}
 													</span>
-													<span className="text-sm capitalize">
+													<span className="text-sm capitalize text-gray-500">
 														{invoice.status}
 													</span>
 												</div>
@@ -336,7 +350,7 @@ const DashboardPage = () => {
 							<div className="mt-4">
 								<Link
 									href="/invoices/new"
-									className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-sm font-medium hover:shadow-cyan-500/30 transition-all"
+									className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 rounded-md text-white text-sm font-medium hover:bg-blue-700 transition-colors"
 								>
 									<Plus size={18} />
 									Create New Invoice
@@ -346,33 +360,35 @@ const DashboardPage = () => {
 					</div>
 
 					{/* Financial Overview */}
-					<div className="  border   rounded-lg p-6 mb-8">
-						<h2 className="text-xl font-semibold  mb-4">Financial Overview</h2>
+					<div className="bg-white border border-gray-200 rounded-lg p-6 mb-8 shadow-sm">
+						<h2 className="text-xl font-semibold text-gray-800 mb-4">
+							Financial Overview
+						</h2>
 						<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-							<div className=" /70 p-4 rounded-lg">
+							<div className="bg-gray-50 p-4 rounded-lg">
 								<div className="flex justify-between items-center mb-2">
-									<p className="text-sm ">Total Revenue</p>
-									<CreditCard size={18} className="text-green-400" />
+									<p className="text-sm text-gray-500">Total Revenue</p>
+									<CreditCard size={18} className="text-green-600" />
 								</div>
-								<p className="text-2xl font-semibold text-green-400">
+								<p className="text-2xl font-semibold text-green-600">
 									R{stats.revenue.toLocaleString()}
 								</p>
 							</div>
-							<div className=" /70 p-4 rounded-lg">
+							<div className="bg-gray-50 p-4 rounded-lg">
 								<div className="flex justify-between items-center mb-2">
-									<p className="text-sm ">Pending Payments</p>
-									<Clock size={18} className="text-yellow-400" />
+									<p className="text-sm text-gray-500">Pending Payments</p>
+									<Clock size={18} className="text-yellow-600" />
 								</div>
-								<p className="text-2xl font-semibold text-yellow-400">
+								<p className="text-2xl font-semibold text-yellow-600">
 									R{stats.pendingPayments.toLocaleString()}
 								</p>
 							</div>
-							<div className=" /70 p-4 rounded-lg">
+							<div className="bg-gray-50 p-4 rounded-lg">
 								<div className="flex justify-between items-center mb-2">
-									<p className="text-sm ">Outstanding Invoices</p>
-									<AlertCircle size={18} className="text-red-400" />
+									<p className="text-sm text-gray-500">Outstanding Invoices</p>
+									<AlertCircle size={18} className="text-red-600" />
 								</div>
-								<p className="text-2xl font-semibold text-red-400">
+								<p className="text-2xl font-semibold text-red-600">
 									{recentInvoices.filter((i) => i.status !== "paid").length}
 								</p>
 							</div>

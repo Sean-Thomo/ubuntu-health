@@ -58,7 +58,7 @@ const NewPrescriptionPage = () => {
 	});
 
 	return (
-		<div className="min-h-screen text-cyan-50 p-6">
+		<div className="min-h-screen   p-6">
 			<div className="max-w-4xl mx-auto">
 				{/* Header */}
 				<div className="flex justify-between items-center mb-8">
@@ -99,7 +99,7 @@ const NewPrescriptionPage = () => {
 										value={formik.values.patientId}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 										placeholder="PAT-12345"
 									/>
 									{formik.touched.patientId && formik.errors.patientId && (
@@ -135,7 +135,7 @@ const NewPrescriptionPage = () => {
 										value={formik.values.medication}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 										placeholder="e.g., Amoxicillin"
 									/>
 									{formik.touched.medication && formik.errors.medication && (
@@ -159,7 +159,7 @@ const NewPrescriptionPage = () => {
 										value={formik.values.dosage}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 										placeholder="e.g., 500mg"
 									/>
 									{formik.touched.dosage && formik.errors.dosage && (
@@ -183,7 +183,7 @@ const NewPrescriptionPage = () => {
 											value={formik.values.frequency}
 											onChange={formik.handleChange}
 											onBlur={formik.handleBlur}
-											className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 appearance-none"
+											className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50 appearance-none"
 										>
 											<option value="">Select frequency</option>
 											<option value="Once daily">Once daily</option>
@@ -217,7 +217,7 @@ const NewPrescriptionPage = () => {
 										max="10"
 										value={formik.values.refills}
 										onChange={formik.handleChange}
-										className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 									/>
 								</div>
 							</div>
@@ -235,7 +235,7 @@ const NewPrescriptionPage = () => {
 									rows={3}
 									value={formik.values.instructions}
 									onChange={formik.handleChange}
-									className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 									placeholder="Special instructions for the patient..."
 								/>
 							</div>
@@ -264,7 +264,7 @@ const NewPrescriptionPage = () => {
 											value={formik.values.startDate}
 											onChange={formik.handleChange}
 											onBlur={formik.handleBlur}
-											className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+											className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 										/>
 									</div>
 									{formik.touched.startDate && formik.errors.startDate && (
@@ -288,7 +288,7 @@ const NewPrescriptionPage = () => {
 											name="endDate"
 											value={formik.values.endDate}
 											onChange={formik.handleChange}
-											className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+											className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 										/>
 									</div>
 								</div>

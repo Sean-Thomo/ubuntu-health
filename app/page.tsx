@@ -8,7 +8,7 @@ import WaitingList from "./components/WaitingList";
 const Home = () => {
 	return (
 		<>
-			<div className="flex min-h-screen text-cyan-50 flex-col items-center justify-center px-2 sm:px-24">
+			<div className="flex min-h-screen   flex-col items-center justify-center px-2 sm:px-24">
 				{/* Navbar */}
 				<Navbar />
 

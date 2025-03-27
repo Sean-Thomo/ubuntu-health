@@ -161,7 +161,7 @@ export default function PatientPage({ params }: PatientPageProps) {
 
 	if (loading) {
 		return (
-			<div className="min-h-screen text-cyan-50 flex items-center justify-center">
+			<div className="min-h-screen   flex items-center justify-center">
 				<div className=" ">Loading patient data...</div>
 			</div>
 		);
@@ -169,14 +169,14 @@ export default function PatientPage({ params }: PatientPageProps) {
 
 	if (!patient) {
 		return (
-			<div className="min-h-screen text-cyan-50 flex items-center justify-center">
+			<div className="min-h-screen   flex items-center justify-center">
 				<div className="text-red-400">Patient not found</div>
 			</div>
 		);
 	}
 
 	return (
-		<div className="min-h-screen text-cyan-50">
+		<div className="min-h-screen  ">
 			{/* Header */}
 			<header className="border-b   p-4">
 				<div className="max-w-7xl mx-auto flex justify-between items-center">

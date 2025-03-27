@@ -75,7 +75,7 @@ const DoctorDashboard = () => {
 
 	return (
 		<Layout>
-			<div className="min-h-screen text-cyan-50 p-6">
+			<div className="min-h-screen   p-6">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
 					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
@@ -91,7 +91,7 @@ const DoctorDashboard = () => {
 							<input
 								type="text"
 								placeholder="Search patients, conditions..."
-								className="pl-10 pr-4 py-2   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="pl-10 pr-4 py-2   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 							/>
 						</div>
 					</div>

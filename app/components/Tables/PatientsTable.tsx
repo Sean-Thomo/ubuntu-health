@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import PatientsTableCard from "../Cards/PatientsTableCard";
 import useApiData from "@/hooks/useApiData";
 import { Patient } from "@/types";
-import { Search, Plus } from "lucide-react";
-import PatientForm from "../Forms/PatientForm";
 
 const PatientsTable: React.FC = () => {
 	const [activeModal, setActiveModal] = useState("");

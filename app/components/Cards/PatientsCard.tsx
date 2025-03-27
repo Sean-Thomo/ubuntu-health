@@ -20,13 +20,12 @@ const PatientsCard: React.FC<PatientsCardProps> = ({ patients = [] }) => {
 	const patientsThisWeekLength = patientsThisWeek.length;
 
 	return (
-		<div className="space-y-2 text-cyan-50">
+		<div className="space-y-2  ">
 			<p>
 				Total Patients: <span className="">{patientsLength}</span>
 			</p>
 			<p>
-				New This Week:{" "}
-				<span className="">{patientsThisWeekLength}</span>
+				New This Week: <span className="">{patientsThisWeekLength}</span>
 			</p>
 		</div>
 	);

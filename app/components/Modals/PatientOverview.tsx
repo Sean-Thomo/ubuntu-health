@@ -44,7 +44,7 @@ const PatientOverview: React.FC<PatientOverviewProps> = ({ patient }) => {
 				<h2 className=" text-lg font-medium mb-4">Medical History</h2>
 				<ul className="list-disc list-inside space-y-1">
 					{patient.medicalHistory.map((item, index) => (
-						<li key={index} className="text-cyan-50">
+						<li key={index} className=" ">
 							{item}
 						</li>
 					))}

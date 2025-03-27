@@ -107,7 +107,7 @@ export default function PrescriptionForm({
 							</label>
 							<input
 								type="text"
-								className="w-full p-3   border   rounded-md text-cyan-50"
+								className="w-full p-3   border   rounded-md  "
 								value={formik.values.patientId}
 								disabled
 							/>
@@ -118,7 +118,7 @@ export default function PrescriptionForm({
 							</label>
 							<input
 								type="text"
-								className="w-full p-3   border   rounded-md text-cyan-50"
+								className="w-full p-3   border   rounded-md  "
 								value="Dr. Smith"
 								disabled
 							/>
@@ -141,7 +141,7 @@ export default function PrescriptionForm({
 								value={formik.values.issueDate}
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
-								className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 							/>
 						</div>
 						<div>
@@ -158,7 +158,7 @@ export default function PrescriptionForm({
 								value={formik.values.expiryDate}
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
-								className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 							/>
 							{formik.touched.expiryDate && formik.errors.expiryDate && (
 								<p className="text-red-400 text-xs mt-1">
@@ -184,7 +184,7 @@ export default function PrescriptionForm({
 											onChange={(e) =>
 												handleMedicationChange(index, "name", e.target.value)
 											}
-											className="w-full p-2   border   rounded-md text-cyan-50"
+											className="w-full p-2   border   rounded-md  "
 											required
 										/>
 									</div>
@@ -197,7 +197,7 @@ export default function PrescriptionForm({
 											onChange={(e) =>
 												handleMedicationChange(index, "type", e.target.value)
 											}
-											className="w-full p-2   border   rounded-md text-cyan-50"
+											className="w-full p-2   border   rounded-md  "
 										>
 											<option value="">Select type</option>
 											{Object.entries(MEDICATION_TYPES).map(([key, value]) => (
@@ -219,7 +219,7 @@ export default function PrescriptionForm({
 											onChange={(e) =>
 												handleMedicationChange(index, "dosage", e.target.value)
 											}
-											className="w-full p-2   border   rounded-md text-cyan-50"
+											className="w-full p-2   border   rounded-md  "
 											required
 										/>
 									</div>
@@ -237,7 +237,7 @@ export default function PrescriptionForm({
 													e.target.value
 												)
 											}
-											className="w-full p-2   border   rounded-md text-cyan-50"
+											className="w-full p-2   border   rounded-md  "
 											required
 										/>
 									</div>
@@ -277,7 +277,7 @@ export default function PrescriptionForm({
 								name="status"
 								value={formik.values.status}
 								onChange={formik.handleChange}
-								className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 							>
 								{Object.entries(PRESCRIPTION_STATUS).map(([value, label]) => (
 									<option key={value} value={value}>
@@ -298,7 +298,7 @@ export default function PrescriptionForm({
 							value={formik.values.notes}
 							onChange={formik.handleChange}
 							rows={3}
-							className="w-full p-3   border   rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+							className="w-full p-3   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 						/>
 					</div>
 

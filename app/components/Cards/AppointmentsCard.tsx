@@ -16,10 +16,9 @@ const AppointmentsCard: React.FC<AppointmentsCardProps> = ({
 	).length;
 
 	return (
-		<div className="space-y-2 text-cyan-50">
+		<div className="space-y-2  ">
 			<p>
-				Todays Appointments:{" "}
-				<span className="">{appointments.length}</span>
+				Todays Appointments: <span className="">{appointments.length}</span>
 			</p>
 			<div className="flex justify-between">
 				<span className="px-2 py-1 rounded bg-yellow-100 text-yellow-800">
