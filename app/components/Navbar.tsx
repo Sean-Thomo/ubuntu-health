@@ -91,42 +91,18 @@ const Navbar = () => {
 			<nav
 				ref={navRef}
 				className={`
-                    fixed 
-                    top-0 left-0 
-                    w-full h-screen 
-                    bg-white 
-                    flex flex-col 
-                    items-center 
-                    justify-center 
-                    space-y-6 
-                    z-40 
-                    transition-all 
-                    duration-700 
-                    ease-in-out
+                    fixed top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center 
+                    space-y-6 z-40 transition-all duration-700 ease-in-out md:static md:h-auto md:w-auto 
+                    md:flex-row md:bg-transparent md:translate-y-0 md:opacity-100 md:pointer-events-auto
                     ${
 											isMenuOpen
 												? "translate-y-0 opacity-100"
 												: "-translate-y-full opacity-0 pointer-events-none"
-										}
-                    md:static 
-                    md:h-auto 
-                    md:w-auto 
-                    md:flex-row 
-                    md:bg-transparent 
-                    md:translate-y-0 
-                    md:opacity-100 
-                    md:pointer-events-auto
-                `}
+										}`}
 			>
 				<div
 					className="
-                    flex 
-                    flex-col 
-                    md:flex-row 
-                    items-center 
-                    space-y-6 
-                    md:space-y-0 
-                    md:space-x-4
+                    flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-4
                 "
 				>
 					{navItems.map((item, index) => (

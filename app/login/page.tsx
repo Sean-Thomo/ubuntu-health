@@ -16,7 +16,6 @@ const LoginPage = () => {
 		initialValues: {
 			email: "",
 			password: "",
-			// rememberMe: false,
 		},
 		validationSchema: Yup.object({
 			email: Yup.string()
@@ -29,7 +28,6 @@ const LoginPage = () => {
 		onSubmit: async (values) => {
 			setIsLoading(true);
 			try {
-				// Replace with your actual API endpoint
 				const response = await fetch("/api/auth/login", {
 					method: "POST",
 					headers: {
@@ -58,13 +56,16 @@ const LoginPage = () => {
 	});
 
 	return (
-		<div className="min-h-screen bg-gray-900 text-cyan-50 flex items-center justify-center p-4">
-			<div className="bg-gray-800/50 border border-cyan-800/30 rounded-xl p-8 max-w-md w-full shadow-xl shadow-cyan-500/10">
+		<div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
+			<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 max-w-md w-full">
 				<div className="text-center mb-8">
-					<h1 className="text-3xl font-bold text-cyan-400 mb-2">
-						Welcome Back
+					<div className="mx-auto w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
+						<Lock className="text-blue-600" size={24} />
+					</div>
+					<h1 className="text-2xl font-semibold text-gray-800">
+						Medical Portal Login
 					</h1>
-					<p className="text-cyan-400/70">Sign in to your account</p>
+					<p className="text-gray-600 mt-2">Access your EMR system</p>
 				</div>
 
 				<form onSubmit={formik.handleSubmit} className="space-y-6">
@@ -72,13 +73,13 @@ const LoginPage = () => {
 					<div>
 						<label
 							htmlFor="email"
-							className="block text-sm font-medium text-cyan-400 mb-1"
+							className="block text-sm font-medium text-gray-700 mb-1"
 						>
-							Email Address
+							Email Address *
 						</label>
 						<div className="relative">
 							<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-								<Mail size={18} className="text-cyan-400/50" />
+								<Mail className="text-gray-400" size={16} />
 							</div>
 							<input
 								id="email"
@@ -88,13 +89,13 @@ const LoginPage = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.email}
-								className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								placeholder="your@email.com"
 								disabled={isLoading}
 							/>
 						</div>
 						{formik.touched.email && formik.errors.email ? (
-							<p className="text-red-400 text-xs mt-1">{formik.errors.email}</p>
+							<p className="text-red-600 text-xs mt-1">{formik.errors.email}</p>
 						) : null}
 					</div>
 
@@ -102,13 +103,13 @@ const LoginPage = () => {
 					<div>
 						<label
 							htmlFor="password"
-							className="block text-sm font-medium text-cyan-400 mb-1"
+							className="block text-sm font-medium text-gray-700 mb-1"
 						>
-							Password
+							Password *
 						</label>
 						<div className="relative">
 							<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-								<Lock size={18} className="text-cyan-400/50" />
+								<Lock className="text-gray-400" size={16} />
 							</div>
 							<input
 								id="password"
@@ -118,7 +119,7 @@ const LoginPage = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.password}
-								className="w-full pl-10 pr-10 py-3 bg-gray-700 border border-cyan-800/30 rounded-md text-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+								className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								placeholder="••••••••"
 								disabled={isLoading}
 							/>
@@ -130,68 +131,46 @@ const LoginPage = () => {
 							>
 								{showPassword ? (
 									<EyeOff
-										size={18}
-										className="text-cyan-400/50 hover:text-cyan-400"
+										className="text-gray-400 hover:text-gray-500"
+										size={16}
 									/>
 								) : (
 									<Eye
-										size={18}
-										className="text-cyan-400/50 hover:text-cyan-400"
+										className="text-gray-400 hover:text-gray-500"
+										size={16}
 									/>
 								)}
 							</button>
 						</div>
 						{formik.touched.password && formik.errors.password ? (
-							<p className="text-red-400 text-xs mt-1">
+							<p className="text-red-600 text-xs mt-1">
 								{formik.errors.password}
 							</p>
 						) : null}
 					</div>
 
-					{/* Remember Me & Forgot Password */}
-					{/* <div className="flex items-center justify-between">
-						<div className="flex items-center">
-							<input
-								id="rememberMe"
-								name="rememberMe"
-								type="checkbox"
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-								checked={formik.values.rememberMe}
-								className="w-4 h-4 rounded bg-gray-700 border-cyan-800/30 focus:ring-cyan-500/50 text-cyan-400"
-								disabled={isLoading}
-							/>
-							<label
-								htmlFor="rememberMe"
-								className="ml-2 block text-sm text-cyan-400/80"
-							>
-								Remember me
-							</label>
-						</div>
-						<div className="text-sm">
-							<Link
-								href="/forgot-password"
-								className="text-cyan-400 hover:underline"
-							>
-								Forgot password?
-							</Link>
-						</div>
-					</div> */}
+					{/* Forgot Password */}
+					<div className="flex justify-end">
+						<Link
+							href="/forgot-password"
+							className="text-sm text-blue-600 hover:underline"
+						>
+							Forgot password?
+						</Link>
+					</div>
 
 					{/* Submit Button */}
 					<button
 						type="submit"
 						disabled={isLoading}
-						className={`w-full py-3 px-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-white font-medium shadow-lg transition-all ${
-							isLoading
-								? "opacity-70 cursor-not-allowed"
-								: "hover:shadow-cyan-500/40"
+						className={`w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+							isLoading ? "opacity-70 cursor-not-allowed" : ""
 						}`}
 					>
 						{isLoading ? (
 							<span className="flex items-center justify-center">
 								<svg
-									className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+									className="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
@@ -218,34 +197,41 @@ const LoginPage = () => {
 					</button>
 
 					{/* Sign Up Link */}
-					<div className="text-center text-sm text-cyan-400/70">
+					<div className="text-center text-sm text-gray-600">
 						Don&lsquo;t have an account?{" "}
-						<Link href="/signup" className="text-cyan-400 hover:underline">
-							Sign up
+						<Link href="/signup" className="text-blue-600 hover:underline">
+							Register now
 						</Link>
 					</div>
 				</form>
 
-				{/* Social Login Options */}
+				{/* Social Login Option */}
 				<div className="mt-8">
 					<div className="relative">
 						<div className="absolute inset-0 flex items-center">
-							<div className="w-full border-t border-cyan-800/30"></div>
+							<div className="w-full border-t border-gray-300"></div>
 						</div>
 						<div className="relative flex justify-center text-sm">
-							<span className="px-2 bg-gray-800/50 text-cyan-400/70">
+							<span className="px-2 bg-white text-gray-500">
 								Or continue with
 							</span>
 						</div>
 					</div>
 
-					<div className="mt-6 grid gap-3">
+					<div className="mt-6">
 						<button
 							type="button"
 							disabled={isLoading}
-							className="w-full inline-flex justify-center py-2 px-4 border border-cyan-800/30 rounded-md shadow-sm bg-gray-700 text-sm font-medium text-cyan-400 hover:bg-gray-600 transition-colors"
+							className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
 						>
-							Google
+							<svg
+								className="w-5 h-5 mr-2"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+							>
+								<path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
+							</svg>
+							Sign in with Google
 						</button>
 					</div>
 				</div>
