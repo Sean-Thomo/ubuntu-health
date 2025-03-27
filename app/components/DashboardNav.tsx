@@ -22,7 +22,7 @@ const DashboardNav = () => {
 	const navItems = [
 		{
 			name: "Dashboard",
-			href: "/dashboard",
+			href: "/dashboard/reception",
 			icon: LayoutDashboard,
 		},
 		{
@@ -97,19 +97,17 @@ const DashboardNav = () => {
 							);
 						})}
 					</ul>
-					<div className="p-4 border-t  ">
+					<div className="p-4 border-t text-white">
 						<button
 							onClick={() => setActiveModal("addPatient")}
-							className="w-full bg-gradient-to-r from-cyan-500 to-blue-500  py-2 rounded-md 
-                hover:shadow-cyan-500/30 shadow-lg transition-all mb-3 font-medium"
+							className="w-full bg-blue-600 py-2 rounded-md hover:bg-blue-700 shadow-lg transition-all mb-3 font-medium"
 						>
 							Add New Patient
 						</button>
 
 						<button
 							onClick={() => setActiveModal("scheduleAppointment")}
-							className="w-full bg-gradient-to-r from-blue-500 to-indigo-500  py-2 rounded-md 
-                hover:shadow-blue-500/30 shadow-lg transition-all font-medium"
+							className="w-full bg-blue-600 py-2 rounded-md hover:bg-blue-700 shadow-lg transition-all font-medium"
 						>
 							Schedule Appointment
 						</button>
