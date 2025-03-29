@@ -1,9 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
-import { Plus, Pill, Calendar, Pencil, Trash2 } from "lucide-react";
+import { Pill, Calendar, Pencil, Trash2 } from "lucide-react";
 import { Prescription } from "@/types";
-import PrescriptionForm from "../Forms/PrescriptionForm";
 
 interface PrescriptionsPageProps {
 	prescriptions: Prescription[];
@@ -12,10 +10,6 @@ interface PrescriptionsPageProps {
 const PrescriptionsTableCard: React.FC<PrescriptionsPageProps> = ({
 	prescriptions = [],
 }) => {
-	const [isOpen, setIsOpen] = useState(false);
-	const [activeModal, setActiveModal] = useState("");
-	const handleCloseModal = () => setActiveModal("");
-
 	return (
 		<div>
 			{prescriptions.length === 0 ? (
@@ -27,13 +21,6 @@ const PrescriptionsTableCard: React.FC<PrescriptionsPageProps> = ({
 					<p className="mt-2 text-gray-600">
 						Create a new prescription to get started
 					</p>
-					<button
-						onClick={() => setActiveModal("addPrescription")}
-						className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-blue-600 rounded-md text-white text-sm font-medium hover:bg-blue-700 transition-colors"
-					>
-						<Plus size={18} />
-						Add Prescription
-					</button>
 				</div>
 			) : (
 				/* Prescriptions Table */
@@ -65,7 +52,7 @@ const PrescriptionsTableCard: React.FC<PrescriptionsPageProps> = ({
 							<tbody className="divide-y divide-gray-200">
 								{prescriptions.map((prescription) => (
 									<tr
-										key={prescription.id}
+										key={prescription.prescriptionId}
 										className="hover:bg-gray-50 transition-colors"
 									>
 										<td className="px-6 py-4 font-mono text-gray-900">
@@ -75,7 +62,13 @@ const PrescriptionsTableCard: React.FC<PrescriptionsPageProps> = ({
 											<div className="flex items-center gap-2">
 												<Pill className="text-blue-600" size={16} />
 												<span className="text-gray-900">
-													{prescription.medicationName}
+													{prescription.medications.map((medication, index) => (
+														<span key={index}>
+															{medication.name}
+															{index < prescription.medications.length - 1 &&
+																", "}
+														</span>
+													))}
 												</span>
 											</div>
 										</td>
@@ -114,21 +107,6 @@ const PrescriptionsTableCard: React.FC<PrescriptionsPageProps> = ({
 							</tbody>
 						</table>
 					</div>
-				</div>
-			)}
-
-			{isOpen && (
-				<div
-					className="fixed inset-0 backdrop-blur-sm z-30 md:hidden"
-					onClick={() => setIsOpen(false)}
-				/>
-			)}
-
-			{activeModal && (
-				<div>
-					{activeModal === "addPrescription" && (
-						<PrescriptionForm onClose={handleCloseModal} />
-					)}
 				</div>
 			)}
 		</div>

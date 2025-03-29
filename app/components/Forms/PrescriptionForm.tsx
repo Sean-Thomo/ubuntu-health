@@ -23,8 +23,10 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 
 	const formik = useFormik({
 		initialValues: {
+			prescriptionId: "",
+			tenantId: "TENANT-123", // Assuming current tenant is logged in
 			patientId: "",
-			doctorId: "DOC-123", // Assuming current doctor is logged in
+			practitionerId: "DOC-123", // Assuming current doctor is logged in
 			dosage: "",
 			issueDate: new Date().toISOString().split("T")[0],
 			endDate: "",
@@ -61,6 +63,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 						body: JSON.stringify(values),
 					}
 				);
+
+				console.log(values);
 
 				if (!response.ok) {
 					throw new Error("Failed to create prescription");

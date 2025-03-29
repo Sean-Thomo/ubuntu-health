@@ -52,12 +52,6 @@ const DashboardNav = () => {
 		},
 	];
 
-	// const handleOverlayClick = (e: any) => {
-	// 	if (e.target === e.currentTarget) {
-	// 		handleCloseModal();
-	// 	}
-	// };
-
 	return (
 		<>
 			<button

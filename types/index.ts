@@ -98,6 +98,8 @@ export const STATUS_COLORS = {
 };
 
 export interface Medication {
+	id: string;
+	prescriptionId: string;
 	name: string;
 	dosage: string;
 	frequency: string;
@@ -105,17 +107,17 @@ export interface Medication {
 }
 
 export interface Prescription {
-	id: string;
+	prescriptionId: string;
+	tenantId: string;
 	patientId: string;
-	doctorId: string;
+	practitionerId: string;
 	dosage: string;
 	issueDate: string;
 	endDate: string;
 	frequency: string;
 	refills: number;
 	status: keyof typeof PRESCRIPTION_STATUS;
-	// medications: Medication[];
-	medicationName: string;
+	medications: Medication[];
 	instructions?: string;
 	createdAt?: string;
 	updatedAt?: string;
@@ -142,7 +144,6 @@ export const PRESCRIPTION_STATUS = {
 	expired: "Expired",
 } as const;
 
-// Optional: Type for the form values
 export interface PrescriptionFormValues {
 	patientId: string;
 	doctorId: string;
