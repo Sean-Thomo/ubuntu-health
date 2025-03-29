@@ -23,16 +23,14 @@ const Pricing = () => {
 				<div className="flex flex-wrap justify-center max-w-[70rem]">
 					<div className="md:w-1/2 lg:w-1/3 px-4">
 						<div className="rounded-xl relative overflow-hidden border py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
-							<span className="text-primary font-semibold text-lg block mb-4">
-								Basic
-							</span>
+							<span className="font-semibold text-lg block mb-4">Basic</span>
 							<h2 className="font-bold text-dark mb-5 text-[42px]">
 								R499
 								<span className="text-base text-body-color font-medium">
 									/ Month
 								</span>
 							</h2>
-							<p className="text-base text-body-color pb-8 mb-8 border-b border-[#F2F2F2]">
+							<p className="text-base text-body-color pb-8 mb-8 border-b border-gray-200">
 								Features
 							</p>
 							<div className="mb-7 px-2">
@@ -44,7 +42,7 @@ const Pricing = () => {
 							</div>
 							<Link
 								href="/basic"
-								className="flex flex-col items-center justify-center m-auto w-5/6 text-primary-50 bg-primary-600 hover:bg-primary-700
+								className="flex flex-col items-center justify-center m-auto w-5/6 text-white bg-blue-600 hover:bg-blue-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-md
                                     text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
                                     dark:focus:ring-blue-800"
@@ -55,16 +53,14 @@ const Pricing = () => {
 					</div>
 					<div className="md:w-1/2 lg:w-1/3 px-4">
 						<div className="rounded-xl relative overflow-hidden border py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
-							<span className="text-primary font-semibold text-lg block mb-4">
-								Standard
-							</span>
+							<span className="font-semibold text-lg block mb-4">Standard</span>
 							<h2 className="font-bold text-dark mb-5 text-[42px]">
 								R999
 								<span className="text-base text-body-color font-medium">
 									/ Month
 								</span>
 							</h2>
-							<p className="text-base text-body-color pb-8 mb-8 border-b border-[#F2F2F2] ">
+							<p className="text-base text-body-color pb-8 mb-8 border-b border-gray-200 ">
 								Features
 							</p>
 							<div className="mb-7 px-2">
@@ -82,7 +78,7 @@ const Pricing = () => {
 							</div>
 							<Link
 								href="/standard"
-								className="flex flex-col items-center justify-center m-auto w-5/6 text-primary-50 bg-primary-600 hover:bg-primary-700
+								className="flex flex-col items-center justify-center m-auto w-5/6 text-white bg-blue-600 hover:bg-blue-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-md
                                     text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
                                     dark:focus:ring-blue-800"
@@ -93,16 +89,14 @@ const Pricing = () => {
 					</div>
 					<div className=" md:w-1/2 lg:w-1/3 px-4">
 						<div className="rounded-xl relative overflow-hidden border py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10">
-							<span className="text-primary font-semibold text-lg block mb-4">
-								Premium
-							</span>
+							<span className="font-semibold text-lg block mb-4">Premium</span>
 							<h2 className="font-bold text-dark mb-5 text-[42px]">
 								R1499
 								<span className="text-base text-body-color font-medium">
 									/ Month
 								</span>
 							</h2>
-							<p className="text-base text-body-color pb-8 mb-8 border-b border-[#F2F2F2]">
+							<p className="text-base text-body-color pb-8 mb-8 border-b border-gray-200">
 								Features
 							</p>
 							<div className="mb-7 px-2">
@@ -126,7 +120,7 @@ const Pricing = () => {
 							</div>
 							<Link
 								href="/premium"
-								className="flex flex-col items-center justify-center m-auto w-5/6 text-primary-50 bg-primary-600 hover:bg-primary-700
+								className="flex flex-col items-center justify-center m-auto w-5/6 text-white bg-blue-600 hover:bg-blue-700
                                     focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-md
                                     text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700
                                     dark:focus:ring-blue-800"
