@@ -42,8 +42,8 @@ const WaitingList = () => {
 		<form onSubmit={formik.handleSubmit} className="rounded-lg pb-20">
 			<div id="waitlist" className="pt-20 md:flex">
 				<div className="px-4 md:w-2/5">
-					<div className="text-center mx-auto lg:mb-10 max-w-[720px]">
-						<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4 py-6">
+					<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[70vw]">
+						<h2 className="font-bold text-3xl sm:text-4xl md:text-5xl text-dark mb-4 py-6">
 							Join Our Waiting List
 						</h2>
 						<p className="text-base text-body-color">

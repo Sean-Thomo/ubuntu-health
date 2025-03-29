@@ -5,8 +5,8 @@ const Mission = () => {
 		<div id="about">
 			<div className="pt-20 flex flex-wrap">
 				<div className="w-full">
-					<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[720px]">
-						<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4 py-6">
+					<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[70vw]">
+						<h2 className="font-bold text-3xl sm:text-4xl md:text-5xl text-dark mb-4 py-6">
 							Our Mission
 						</h2>
 						<p className="text-base text-body-color">

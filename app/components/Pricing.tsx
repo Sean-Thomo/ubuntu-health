@@ -7,11 +7,8 @@ const Pricing = () => {
 			<div className="pt-20 lg:pt-[120px] relative overflow-hidden container">
 				<div className="flex flex-wrap -mx-4">
 					<div className="w-full px-4">
-						<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[720px]">
-							<h2
-								className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark
-                                mb-4"
-							>
+						<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[70vw]">
+							<h2 className="font-bold text-3xl sm:text-4xl md:text-5xl text-dark mb-4 py-6">
 								Our Pricing Plan
 							</h2>
 							<p className="text-base text-body-color">
