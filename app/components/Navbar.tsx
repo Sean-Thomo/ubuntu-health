@@ -53,23 +53,20 @@ const Navbar = () => {
 	];
 
 	return (
-		<div className="flex items-center justify-center">
-			<header
-				className="max-w-[90vw] bg-white fixed top-0 w-full px-4 md:px-10 flex items-center 
-            justify-between z-50 h-16 shadow-sm transition-all duration-300 ease-in-out mb-6 md:mb-0"
-			>
-				<Link
-					href="/"
-					className="
-                    text-blue-600 text-xl font-extrabold 
-                    md:text-3xl 
-                    transition-colors 
-                    hover:text-blue-700
-                "
-					aria-label="Ubuntu Health Home"
-				>
-					Ubuntu Health
-				</Link>
+		<header className="bg-white shadow-sm sticky top-0 z-50">
+			<div className="container mx-auto px-4 py-4 flex justify-between items-center">
+				<div className="flex items-center space-x-2">
+					<div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
+						UH
+					</div>
+					<Link
+						href="/"
+						className="text-xl font-semibold text-gray-800"
+						aria-label="Ubuntu Health Home"
+					>
+						Ubuntu Health
+					</Link>
+				</div>
 
 				<button
 					className="md:hidden z-50"
@@ -96,11 +93,7 @@ const Navbar = () => {
 												: "-translate-y-full opacity-0 pointer-events-none"
 										}`}
 				>
-					<div
-						className="
-                    flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-4
-                "
-					>
+					<div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-4">
 						{navItems.map((item, index) => (
 							<Link
 								key={item.href}
@@ -123,6 +116,19 @@ const Navbar = () => {
 								{item.label}
 							</Link>
 						))}
+
+						<Link
+							href={"login"}
+							className="px-4 py-2 text-blue-600 border border-blue-600 rounded-md hover:bg-blue-600 hover:text-white"
+						>
+							Login
+						</Link>
+						<Link
+							href={"free-trial"}
+							className="px-4 py-2 text-blue-600 border border-blue-600 rounded-md hover:bg-blue-600 hover:text-white"
+						>
+							Free Trial
+						</Link>
 					</div>
 				</nav>
 
@@ -139,8 +145,8 @@ const Navbar = () => {
 						onClick={handleMenuClose}
 					/>
 				)}
-			</header>
-		</div>
+			</div>
+		</header>
 	);
 };
 

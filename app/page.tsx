@@ -1,34 +1,36 @@
+import Head from "next/head";
 import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
-import Mission from "./components/Mission";
 import Services from "./components/Services";
 import Pricing from "./components/Pricing";
-import WaitingList from "./components/WaitingList";
+import Footer from "./components/Footer";
 
-const Home = () => {
+export default function Home() {
 	return (
 		<>
-			<div className="flex bg-white text-gray-800 min-h-screen flex-col items-center justify-center px-2 sm:px-24">
-				{/* Navbar */}
-				<Navbar />
+			<Head>
+				<title>
+					Ubuntu Health | Streamlined EMR for Independent Practitioners
+				</title>
+				<meta
+					name="description"
+					content="Comprehensive EMR/EHR solution designed specifically for independent practitioners and small clinics"
+				/>
+			</Head>
 
-				{/* Landing Section */}
-				<Landing />
+			{/* Header */}
+			<Navbar />
 
-				{/* Mission Statement */}
-				<Mission />
+			{/* Hero Section */}
+			<Landing />
 
-				{/* Services */}
-				<Services />
+			{/* Features Section */}
+			<Services />
 
-				{/* Pricing */}
-				<Pricing />
+			{/* Pricing Section */}
+			<Pricing />
 
-				{/* Waing List */}
-				<WaitingList />
-			</div>
+			<Footer />
 		</>
 	);
-};
-
-export default Home;
+}
