@@ -28,7 +28,33 @@ const MedicalSignUpPage = () => {
 			specialty: Yup.string().required("Specialty required"),
 		}),
 		onSubmit: async (values) => {
-			// Handle sign up
+			try {
+				const response = await fetch(
+					"http://localhost:5290/api/auth/register",
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(values),
+					}
+				);
+
+				const data = await response.json();
+
+				if (!response.ok) {
+					alert(
+						`Registration failed: ${data.message}\n${data.errors?.join("\n")}`
+					);
+					return;
+				}
+
+				formik.resetForm();
+				alert("Registration successful!");
+			} catch (err) {
+				console.error(`Error registering user: ${err}`);
+				alert("An unexpected error occurred");
+			}
 		},
 	});
 
@@ -306,7 +332,7 @@ const MedicalSignUpPage = () => {
 					<div className="md:col-span-2">
 						<button
 							type="submit"
-							className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium  bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+							className="w-full text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium  bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
 						>
 							Register Account
 						</button>
