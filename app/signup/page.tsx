@@ -15,7 +15,7 @@ const MedicalSignUpPage = () => {
 			licenseNumber: "",
 			specialty: "",
 			practiceName: "",
-			practiceAddress: "",
+			practicePhone: "",
 		},
 		validationSchema: Yup.object({
 			firstName: Yup.string().required("Required"),
@@ -260,18 +260,18 @@ const MedicalSignUpPage = () => {
 							</div>
 							<div>
 								<label
-									htmlFor="practiceAddress"
+									htmlFor="practicePhone"
 									className="block text-sm font-medium text-gray-700 mb-1"
 								>
-									Practice Address
+									Phone Number
 								</label>
 								<input
-									id="practiceAddress"
-									name="practiceAddress"
+									id="practicePhone"
+									name="practicePhone"
 									type="text"
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									value={formik.values.practiceAddress}
+									value={formik.values.practicePhone}
 									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
