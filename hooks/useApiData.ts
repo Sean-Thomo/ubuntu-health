@@ -8,8 +8,15 @@ export default function useApiData<T>(endpoint: string) {
 
 	useEffect(() => {
 		const fetchData = async () => {
+			const token = localStorage.getItem("token");
+
 			try {
-				const response = await fetch(`http://localhost:5290/api/${endpoint}`);
+				const response = await fetch(`http://localhost:5290/api/${endpoint}`, {
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				});
+
 				if (!response.ok) {
 					throw new Error(`API error: ${response.status}`);
 				}

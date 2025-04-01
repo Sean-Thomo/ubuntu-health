@@ -1,6 +1,5 @@
 import React from "react";
 import DashboardNav from "./DashboardNav";
-
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	return (
 		<div className="flex flex-row gap-4 h-screen bg-gray-50 text-gray-800">

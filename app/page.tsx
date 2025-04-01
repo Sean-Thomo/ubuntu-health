@@ -4,7 +4,6 @@ import Landing from "./components/Landing";
 import Services from "./components/Services";
 import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
-import { ToastContainer } from "react-toastify";
 
 export default function Home() {
 	return (
@@ -24,7 +23,6 @@ export default function Home() {
 
 			{/* Hero Section */}
 			<Landing />
-			<ToastContainer />
 
 			{/* Features Section */}
 			<Services />
