@@ -107,6 +107,7 @@ export interface Medication {
 }
 
 export interface Prescription {
+	active: unknown;
 	prescriptionId: string;
 	tenantId: string;
 	patientId: string;
@@ -138,7 +139,7 @@ export const MEDICATION_TYPES = {
 
 export const PRESCRIPTION_STATUS = {
 	active: "Active",
-	prending: "Pending",
+	pending: "Pending",
 	completed: "Completed",
 	cancelled: "Cancelled",
 	expired: "Expired",

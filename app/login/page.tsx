@@ -28,7 +28,7 @@ const LoginPage = () => {
 		onSubmit: async (values) => {
 			setIsLoading(true);
 			try {
-				const response = await fetch("/api/auth/login", {
+				const response = await fetch("http://localhost:5290/api/auth/login", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
@@ -36,19 +36,20 @@ const LoginPage = () => {
 					body: JSON.stringify(values),
 				});
 
+				const data = await response.json();
+
 				if (!response.ok) {
-					throw new Error("Invalid credentials");
+					toast.error(`Login failed: ${data.message}`);
+					return;
 				}
 
-				const data = await response.json();
+				localStorage.setItem("token", data.token);
+
 				toast.success("Login successful!");
-				router.push("/dashboard");
-			} catch (error) {
-				toast.error(
-					error instanceof Error
-						? error.message
-						: "Login failed. Please try again."
-				);
+				router.push(`/${data.licenseNumber}/dashboard`);
+			} catch (err) {
+				console.error(`Error logging in: ${err}`);
+				toast.error("An unexpected error occurred");
 			} finally {
 				setIsLoading(false);
 			}

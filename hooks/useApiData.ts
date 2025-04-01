@@ -17,9 +17,9 @@ export default function useApiData<T>(endpoint: string) {
 				const result = await response.json();
 				setData(result);
 				setIsLoading(false);
-			} catch (error) {
-				console.error(`Error fetching ${endpoint}:`, error);
-				setError(error instanceof Error ? error.message : "Unknown error");
+			} catch (err) {
+				console.error(`Error fetching ${endpoint}:`, err);
+				setError(err instanceof Error ? err.message : "Unknown error");
 				setIsLoading(false);
 			}
 		};

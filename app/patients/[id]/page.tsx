@@ -48,19 +48,27 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 			notes: "Patient presented with persistent cough and fever for 3 days",
 			prescriptions: [
 				{
-					id: "RX-001",
+					prescriptionId: "RX-001",
 					patientId: "P-001",
-					medication: "Amoxicillin",
+					medications: [
+						{
+							id: "1",
+							prescriptionId: "RX-001",
+							name: "Amoxicillin",
+							dosage: "500mg",
+							frequency: "3x daily",
+							type: "tablet",
+						},
+					],
 					dosage: "500mg",
 					frequency: "3x daily",
-					startDate: "2023-10-15",
+					issueDate: "2023-10-15",
 					endDate: "2023-10-22",
-					active: false,
-					doctorId: "",
-					issueDate: "",
-					expiryDate: "",
-					status: "PENDING",
-					medications: [],
+					status: "pending",
+					tenantId: "",
+					practitionerId: "",
+					refills: 0,
+					active: "Active",
 				},
 			],
 		},
@@ -72,19 +80,27 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 			notes: "Blood pressure: 130/85. Improved from previous visit.",
 			prescriptions: [
 				{
-					id: "RX-002",
+					prescriptionId: "RX-001",
 					patientId: "P-001",
-					medication: "Lisinopril",
-					dosage: "10mg",
-					frequency: "1x daily",
-					startDate: "2023-12-05",
-					endDate: "2024-06-05",
-					active: true,
-					doctorId: "",
-					issueDate: "",
-					expiryDate: "",
-					status: "PENDING",
-					medications: [],
+					medications: [
+						{
+							id: "1",
+							prescriptionId: "RX-001",
+							name: "Amoxicillin",
+							dosage: "500mg",
+							frequency: "3x daily",
+							type: "tablet",
+						},
+					],
+					dosage: "500mg",
+					frequency: "3x daily",
+					issueDate: "2023-10-15",
+					endDate: "2023-10-22",
+					status: "pending",
+					tenantId: "",
+					practitionerId: "",
+					refills: 0,
+					active: "Completed",
 				},
 			],
 		},
@@ -144,8 +160,8 @@ export default function PatientPage({ params }: PatientPageProps) {
 				setVisits(visitsData);
 				setAppointments(appointmentsData);
 				setBills(billsData);
-			} catch (error) {
-				console.error("Failed to load patient data", error);
+			} catch (err) {
+				console.error("Failed to load patient data", err);
 			} finally {
 				setLoading(false);
 			}
