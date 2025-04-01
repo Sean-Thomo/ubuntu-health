@@ -185,7 +185,7 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 										{formik.touched.medications?.[index]?.name &&
 											Array.isArray(formik.errors.medications) &&
 											typeof formik.errors.medications[index] === "object" &&
-											formik.errors.medications[index]?.name && (
+											"name" in formik.errors.medications[index] && (
 												<p className="text-red-600 text-xs mt-1">
 													{formik.errors.medications[index].name}
 												</p>
