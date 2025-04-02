@@ -302,7 +302,7 @@ const BillingPage = () => {
 						{filteredBills.length === 0 && (
 							<div className="p-8 text-center">
 								<CreditCard className="mx-auto" size={48} />
-								<h3 className="mt-4 text-lg font-medium">No bills found</h3>
+								<h2 className="mt-4 text-lg font-medium">No bills found</h2>
 								<p className="mt-2 ">
 									{searchQuery
 										? "Try a different search term"
