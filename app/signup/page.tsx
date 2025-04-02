@@ -19,7 +19,7 @@ const MedicalSignUpPage = () => {
 			lastName: "",
 			email: "",
 			password: "",
-			licenseNumberber: "",
+			licenseNumber: "",
 			specialty: "",
 			practiceName: "",
 			practicePhone: "",
@@ -31,7 +31,7 @@ const MedicalSignUpPage = () => {
 			password: Yup.string()
 				.min(8, "Minimum 8 characters")
 				.required("Required"),
-			licenseNumberber: Yup.string().required("Medical license required"),
+			licenseNumber: Yup.string().required("Medical license required"),
 			specialty: Yup.string().required("Specialty required"),
 		}),
 		onSubmit: async (values) => {
@@ -48,7 +48,7 @@ const MedicalSignUpPage = () => {
 				);
 
 				const data = await response.json();
-				const licenseNumber = values.licenseNumberber;
+				const licenseNumber = values.licenseNumber;
 
 				localStorage.setItem("token", data.token);
 				localStorage.setItem("licenseNumber", licenseNumber);
@@ -123,7 +123,7 @@ const MedicalSignUpPage = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.firstName}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.firstName && formik.errors.firstName && (
 									<p className="text-red-600 text-xs mt-1">
@@ -145,7 +145,7 @@ const MedicalSignUpPage = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.lastName}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.lastName && formik.errors.lastName && (
 									<p className="text-red-600 text-xs mt-1">
@@ -175,7 +175,7 @@ const MedicalSignUpPage = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.email}
-								className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 							/>
 						</div>
 						{formik.touched.email && formik.errors.email && (
@@ -202,8 +202,8 @@ const MedicalSignUpPage = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.password}
-								className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-								placeholder="••••••••"
+								className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								placeholder="••••••••••••••••"
 								disabled={isLoading}
 							/>
 							<button
@@ -213,12 +213,12 @@ const MedicalSignUpPage = () => {
 								disabled={isLoading}
 							>
 								{showPassword ? (
-									<EyeOff
+									<Eye
 										className="text-gray-400 hover:text-gray-500"
 										size={16}
 									/>
 								) : (
-									<Eye
+									<EyeOff
 										className="text-gray-400 hover:text-gray-500"
 										size={16}
 									/>
@@ -241,24 +241,24 @@ const MedicalSignUpPage = () => {
 						<div className="grid md:grid-cols-2 gap-4">
 							<div>
 								<label
-									htmlFor="licenseNumberber"
+									htmlFor="licenseNumber"
 									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Medical License Number *
 								</label>
 								<input
-									id="licenseNumberber"
-									name="licenseNumberber"
+									id="licenseNumber"
+									name="licenseNumber"
 									type="text"
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									value={formik.values.licenseNumberber}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									value={formik.values.licenseNumber}
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
-								{formik.touched.licenseNumberber &&
-									formik.errors.licenseNumberber && (
+								{formik.touched.licenseNumber &&
+									formik.errors.licenseNumber && (
 										<p className="text-red-600 text-xs mt-1">
-											{formik.errors.licenseNumberber}
+											{formik.errors.licenseNumber}
 										</p>
 									)}
 							</div>
@@ -275,7 +275,7 @@ const MedicalSignUpPage = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.specialty}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								>
 									<option value="">Select your specialty</option>
 									{medicalSpecialties.map((specialty) => (
@@ -314,7 +314,7 @@ const MedicalSignUpPage = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.practiceName}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 							<div>
@@ -331,7 +331,7 @@ const MedicalSignUpPage = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.practicePhone}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 						</div>

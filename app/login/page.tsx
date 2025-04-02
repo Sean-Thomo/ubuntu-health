@@ -93,7 +93,7 @@ const LoginPage = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.email}
-								className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								placeholder="your@email.com"
 								disabled={isLoading}
 							/>
@@ -123,8 +123,8 @@ const LoginPage = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.password}
-								className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-								placeholder="••••••••"
+								className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								placeholder="••••••••••••••••"
 								disabled={isLoading}
 							/>
 							<button
@@ -134,12 +134,12 @@ const LoginPage = () => {
 								disabled={isLoading}
 							>
 								{showPassword ? (
-									<EyeOff
+									<Eye
 										className="text-gray-400 hover:text-gray-500"
 										size={16}
 									/>
 								) : (
-									<Eye
+									<EyeOff
 										className="text-gray-400 hover:text-gray-500"
 										size={16}
 									/>
