@@ -43,6 +43,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 			status: Yup.string().required("Appointment status is required"),
 		}),
 		onSubmit: async (values) => {
+			const token = localStorage.getItem("token");
 			try {
 				const response = await fetch("http://localhost:5290/api/Appointments", {
 					method: "POST",

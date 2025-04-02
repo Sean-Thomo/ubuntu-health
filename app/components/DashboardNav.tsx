@@ -63,10 +63,10 @@ const DashboardNav = () => {
 
 			<nav
 				className={`bg-inherit text-inherit
-          fixed top-0 left-0 h-full w-64 border-r transform transition-transform
-          duration-300 ease-in-out md:relative md:translate-x-0 md:w-full md:max-w-xs 
-          ${isOpen ? "translate-x-0 pt-16" : "-translate-x-full"}
-          z-40`}
+                fixed top-0 left-0 h-screen w-64 border-r transform transition-transform
+                duration-300 ease-in-out md:relative md:translate-x-0 md:w-full md:max-w-xs 
+                ${isOpen ? "translate-x-0 pt-16" : "-translate-x-full"}
+                z-40`}
 			>
 				<div className="flex flex-col h-full">
 					<div className="p-6 hidden md:block border-b text-blue-600">
