@@ -44,9 +44,10 @@ const LoginPage = () => {
 				}
 
 				localStorage.setItem("token", data.token);
+				console.log(data.token);
 
 				toast.success("Login successful!");
-				router.push(`/${data.licenseNumber}/dashboard`);
+				router.push(`/dashboard/${data.licenseNumber}`);
 			} catch (err) {
 				console.error(`Error logging in: ${err}`);
 				toast.error("An unexpected error occurred");

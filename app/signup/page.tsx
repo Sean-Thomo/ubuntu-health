@@ -60,7 +60,7 @@ const MedicalSignUpPage = () => {
 
 				formik.resetForm();
 				toast.success("Registration successful!");
-				router.push(`${licenceNum}/dashboard`);
+				router.push(`/dashboard/${licenceNum}`);
 			} catch (err) {
 				console.error(`Error registering user: ${err}`);
 				toast.error("An unexpected error occurred");
