@@ -18,9 +18,7 @@ const PrescriptionsTableCard: React.FC<PrescriptionsPageProps> = ({
 					<h2 className="mt-4 text-lg font-bold text-gray-800">
 						No prescriptions found
 					</h2>
-					<p className="mt-2 text-gray-600">
-						Create a new prescription to get started
-					</p>
+					<p className="mt-2 text-gray-600">Create a new prescription.</p>
 				</div>
 			) : (
 				/* Prescriptions Table */

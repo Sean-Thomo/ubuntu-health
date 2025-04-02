@@ -12,6 +12,7 @@ import {
 import Link from "next/link";
 import Layout from "@/app/components/Layout";
 import ClientDate from "@/app/components/ClientDate";
+import BillForm from "@/app/components/Forms/BillForm";
 
 interface Bill {
 	id: string;
@@ -27,7 +28,11 @@ const BillingPage = () => {
 	const [filter, setFilter] = useState<"all" | "paid" | "pending" | "overdue">(
 		"all"
 	);
+	const [isOpen, setIsOpen] = useState(false);
 	const [searchQuery, setSearchQuery] = useState("");
+	const [activeModal, setActiveModal] = useState("");
+
+	const handleCloseModal = () => setActiveModal("");
 
 	// Mock data - replace with your actual data fetching
 	const bills: Bill[] = [
@@ -113,7 +118,7 @@ const BillingPage = () => {
 
 	return (
 		<Layout>
-			<div className="min-h-screen   p-6">
+			<div className="min-h-screen p-6">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
 					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
@@ -135,19 +140,19 @@ const BillingPage = () => {
 									onChange={(e) => setSearchQuery(e.target.value)}
 								/>
 							</div>
-							<Link
-								href="/billing/new"
+							<button
+								onClick={() => setActiveModal("addBill")}
 								className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 rounded-md text-white text-sm font-medium hover:bg-blue-700 transition-colors"
 							>
 								<Plus size={18} />
 								New Invoice
-							</Link>
+							</button>
 						</div>
 					</div>
 
 					{/* Stats Cards */}
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-						<div className="  border   rounded-lg p-4">
+						<div className="border rounded-lg p-4">
 							<div className="flex justify-between items-center">
 								<div>
 									<p className="text-sm ">Total Paid</p>
@@ -308,6 +313,19 @@ const BillingPage = () => {
 					</div>
 				</div>
 			</div>
+
+			{isOpen && (
+				<div
+					className="fixed inset-0 backdrop-blur-sm z-30 md:hidden"
+					onClick={() => setIsOpen(false)}
+				/>
+			)}
+
+			{activeModal && (
+				<div>
+					{activeModal === "addBill" && <BillForm onClose={handleCloseModal} />}
+				</div>
+			)}
 		</Layout>
 	);
 };

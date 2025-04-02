@@ -14,7 +14,7 @@ const Page = () => {
 
 	return (
 		<Layout>
-			<div className="min-h-screen   p-6">
+			<div className="min-h-screen p-6">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
 					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
@@ -25,14 +25,14 @@ const Page = () => {
 							</p>
 						</div>
 						<div className="flex gap-4 mt-4 md:mt-0">
-							<div>
+							<div className="relative">
 								<Search
-									className="absolute left-3 top-1/2 -translate-y-1/2  "
+									className="absolute left-3 top-1/2 -translate-y-1/2"
 									size={18}
 								/>
 								<input
 									type="text"
-									placeholder="Search prescriptions..."
+									placeholder="Search ..."
 									className="pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 									value={searchQuery}
 									onChange={(e) => setSearchQuery(e.target.value)}
@@ -48,7 +48,7 @@ const Page = () => {
 						</div>
 					</div>
 
-					<PrescriptionsTable />
+					<PrescriptionsTable searchQuery={searchQuery} />
 				</div>
 			</div>
 

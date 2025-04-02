@@ -3,7 +3,13 @@ import { Prescription } from "@/types";
 import PrescriptionsTableCard from "../Cards/PrescriptionsTableCard";
 import useApiData from "@/hooks/useApiData";
 
-const PrescriptionsTable = () => {
+interface PrescriptionTableProps {
+	searchQuery: string;
+}
+
+const PrescriptionsTable: React.FC<PrescriptionTableProps> = ({
+	searchQuery,
+}) => {
 	const {
 		data: prescriptions,
 		isLoading: prescriptionsLoading,
@@ -12,6 +18,13 @@ const PrescriptionsTable = () => {
 
 	const isLoading = prescriptionsLoading;
 	const error = prescriptionsError;
+
+	const filterdPrescriptions = prescriptions.filter((prescription) => {
+		const matchesSearch = prescription.patientId
+			.toLowerCase()
+			.includes(searchQuery.toLowerCase());
+		return matchesSearch;
+	});
 
 	if (isLoading) {
 		return (
@@ -32,7 +45,7 @@ const PrescriptionsTable = () => {
 	return (
 		<div className="space-y-6">
 			<div className="mt-8">
-				<PrescriptionsTableCard prescriptions={prescriptions} />
+				<PrescriptionsTableCard prescriptions={filterdPrescriptions} />
 			</div>
 		</div>
 	);
