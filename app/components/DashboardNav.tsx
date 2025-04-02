@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import {
 	LayoutDashboard,
@@ -17,37 +17,44 @@ import AppointmentForm from "./Forms/AppointmentForm";
 const DashboardNav = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [activeModal, setActiveModal] = useState("");
+	const [licenseNumber, setLicenseNumber] = useState<string | null>(null);
 	const handleCloseModal = () => setActiveModal("");
 
+	useEffect(() => {
+		const storedLicenseNumber = localStorage.getItem("licenseNumber");
+		setLicenseNumber(storedLicenseNumber);
+	}, []);
+
+	console.log("License Number:", licenseNumber);
 	const navItems = [
 		{
 			name: "Dashboard",
-			href: "/dashboard/reception",
+			href: `/dashboard/${licenseNumber}`,
 			icon: LayoutDashboard,
 		},
 		{
 			name: "Appointments",
-			href: "/appointments",
+			href: `/appointments/${licenseNumber}`,
 			icon: CalendarCheck,
 		},
 		{
 			name: "Patients",
-			href: "/patients",
+			href: `/patients/${licenseNumber}`,
 			icon: Users,
 		},
 		{
 			name: "Prescriptions",
-			href: "/prescriptions",
+			href: `/prescriptions/${licenseNumber}`,
 			icon: PillBottle,
 		},
 		{
 			name: "Billing",
-			href: "/billing",
+			href: `/billing/${licenseNumber}`,
 			icon: CreditCard,
 		},
 		{
 			name: "Invoices",
-			href: "/invoices",
+			href: `/invoices/${licenseNumber}`,
 			icon: FileText,
 		},
 	];

@@ -10,8 +10,8 @@ import {
 	MoreVertical,
 } from "lucide-react";
 import Link from "next/link";
-import Layout from "../components/Layout";
-import ClientDate from "../components/ClientDate";
+import Layout from "@/app/components/Layout";
+import ClientDate from "@/app/components/ClientDate";
 
 interface Bill {
 	id: string;
@@ -130,14 +130,14 @@ const BillingPage = () => {
 								<input
 									type="text"
 									placeholder="Search bills..."
-									className="pl-10 pr-4 py-2   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
 									value={searchQuery}
 									onChange={(e) => setSearchQuery(e.target.value)}
 								/>
 							</div>
 							<Link
 								href="/billing/new"
-								className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-sm font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all"
+								className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 rounded-md text-white text-sm font-medium hover:bg-blue-700 transition-colors"
 							>
 								<Plus size={18} />
 								New Invoice
@@ -235,7 +235,7 @@ const BillingPage = () => {
 					</div>
 
 					{/* Bills Table */}
-					<div className="  border   rounded-lg overflow-hidden shadow-lg  ">
+					<div className="border rounded-lg overflow-hidden shadow-lg">
 						<div className="overflow-x-auto">
 							<table className="w-full text-sm  ">
 								<thead className=" /70">

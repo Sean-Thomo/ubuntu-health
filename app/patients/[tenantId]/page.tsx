@@ -1,25 +1,24 @@
 "use client";
 import React, { useState } from "react";
-import AppointmentsTable from "../components/Tables/AppointmentsTable";
-import Layout from "../components/Layout";
-import { Search, Plus } from "lucide-react";
-import AppointmentForm from "../components/Forms/AppointmentForm";
+import { Search } from "lucide-react";
+import Layout from "@/app/components/Layout";
+import PatientsTable from "@/app/components/Tables/PatientsTable";
+import PatientForm from "@/app/components/Forms/PatientForm";
 
-const Page = () => {
+const PatientsPage = () => {
 	const [activeModal, setActiveModal] = useState("");
 	const handleCloseModal = () => setActiveModal("");
+
 	return (
 		<Layout>
-			<div className="min-h-screen bg-gray-50 p-6">
+			<div className="min-h-screen   p-6">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
 					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
 						<div>
-							<h1 className="text-3xl font-bold text-gray-800">
-								Appointments Registry
-							</h1>
-							<p className="mt-2 text-gray-600">
-								Manage all patient appointments and schedules
+							<h1 className="text-3xl font-bold  ">Patient Registry</h1>
+							<p className="  mt-2">
+								Manage all patient records and information
 							</p>
 						</div>
 						<div className="flex gap-4 mt-4 md:mt-0">
@@ -30,26 +29,27 @@ const Page = () => {
 								/>
 								<input
 									type="text"
-									placeholder="Search appointments..."
+									placeholder="Search patients..."
 									className="pl-10 pr-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 						</div>
 					</div>
 
-					<AppointmentsTable />
+					{/* Patients Table */}
+					<PatientsTable />
 				</div>
-
-				{activeModal && (
-					<div>
-						{activeModal === "scheduleAppointment" && (
-							<AppointmentForm onClose={handleCloseModal} />
-						)}
-					</div>
-				)}
 			</div>
+
+			{activeModal && (
+				<div>
+					{activeModal === "addPatient" && (
+						<PatientForm onClose={handleCloseModal} />
+					)}
+				</div>
+			)}
 		</Layout>
 	);
 };
 
-export default Page;
+export default PatientsPage;

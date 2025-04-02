@@ -12,8 +12,8 @@ import {
 	AlertCircle,
 } from "lucide-react";
 import Link from "next/link";
-import Layout from "../components/Layout";
-import ClientDate from "../components/ClientDate";
+import Layout from "@/app/components/Layout";
+import ClientDate from "@/app/components/ClientDate";
 
 interface Invoice {
 	id: string;

@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 
 const MedicalSignUpPage = () => {
 	const [showPassword, setShowPassword] = React.useState(false);
-	const [isLoading, setIsLoading] = React.useState(false);
+	const [isLoading] = React.useState(false);
 	const router = useRouter();
 
 	const formik = useFormik({
@@ -19,7 +19,7 @@ const MedicalSignUpPage = () => {
 			lastName: "",
 			email: "",
 			password: "",
-			licenseNumber: "",
+			licenseNumberber: "",
 			specialty: "",
 			practiceName: "",
 			practicePhone: "",
@@ -31,7 +31,7 @@ const MedicalSignUpPage = () => {
 			password: Yup.string()
 				.min(8, "Minimum 8 characters")
 				.required("Required"),
-			licenseNumber: Yup.string().required("Medical license required"),
+			licenseNumberber: Yup.string().required("Medical license required"),
 			specialty: Yup.string().required("Specialty required"),
 		}),
 		onSubmit: async (values) => {
@@ -48,8 +48,10 @@ const MedicalSignUpPage = () => {
 				);
 
 				const data = await response.json();
+				const licenseNumber = values.licenseNumberber;
 
-				const licenceNum = values.licenseNumber;
+				localStorage.setItem("token", data.token);
+				localStorage.setItem("licenseNumber", licenseNumber);
 
 				if (!response.ok) {
 					alert(
@@ -60,7 +62,7 @@ const MedicalSignUpPage = () => {
 
 				formik.resetForm();
 				toast.success("Registration successful!");
-				router.push(`/dashboard/${licenceNum}`);
+				router.push(`/dashboard/${licenseNumber}`);
 			} catch (err) {
 				console.error(`Error registering user: ${err}`);
 				toast.error("An unexpected error occurred");
@@ -239,24 +241,24 @@ const MedicalSignUpPage = () => {
 						<div className="grid md:grid-cols-2 gap-4">
 							<div>
 								<label
-									htmlFor="licenseNumber"
+									htmlFor="licenseNumberber"
 									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Medical License Number *
 								</label>
 								<input
-									id="licenseNumber"
-									name="licenseNumber"
+									id="licenseNumberber"
+									name="licenseNumberber"
 									type="text"
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									value={formik.values.licenseNumber}
+									value={formik.values.licenseNumberber}
 									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
-								{formik.touched.licenseNumber &&
-									formik.errors.licenseNumber && (
+								{formik.touched.licenseNumberber &&
+									formik.errors.licenseNumberber && (
 										<p className="text-red-600 text-xs mt-1">
-											{formik.errors.licenseNumber}
+											{formik.errors.licenseNumberber}
 										</p>
 									)}
 							</div>
