@@ -25,7 +25,6 @@ const DashboardNav = () => {
 		setLicenseNumber(storedLicenseNumber);
 	}, []);
 
-	console.log("License Number:", licenseNumber);
 	const navItems = [
 		{
 			name: "Dashboard",

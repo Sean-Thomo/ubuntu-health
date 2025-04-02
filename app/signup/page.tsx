@@ -35,6 +35,13 @@ const MedicalSignUpPage = () => {
 			specialty: Yup.string().required("Specialty required"),
 		}),
 		onSubmit: async (values) => {
+			const licenseNumber = values.licenseNumber;
+
+			const payload = {
+				...values,
+				tenantId: licenseNumber,
+			};
+
 			try {
 				const response = await fetch(
 					"http://localhost:5290/api/auth/register",
@@ -43,12 +50,11 @@ const MedicalSignUpPage = () => {
 						headers: {
 							"Content-Type": "application/json",
 						},
-						body: JSON.stringify(values),
+						body: JSON.stringify(payload),
 					}
 				);
 
 				const data = await response.json();
-				const licenseNumber = values.licenseNumber;
 
 				localStorage.setItem("token", data.token);
 				localStorage.setItem("licenseNumber", licenseNumber);

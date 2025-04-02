@@ -23,7 +23,7 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 
 	const formik = useFormik({
 		initialValues: {
-			tenantId: 1,
+			tenantId: "",
 			firstName: "",
 			lastName: "",
 			idNumber: "",
@@ -59,12 +59,20 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 		}),
 		onSubmit: async (values) => {
 			try {
+				const token = localStorage.getItem("token");
+				const licenseNumber = localStorage.getItem("licenseNumber");
+				const payload = {
+					...values,
+					tenantId: licenseNumber,
+				};
+
 				const response = await fetch("http://localhost:5290/api/Patients", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
 					},
-					body: JSON.stringify(values),
+					body: JSON.stringify(payload),
 				});
 
 				if (!response.ok) {

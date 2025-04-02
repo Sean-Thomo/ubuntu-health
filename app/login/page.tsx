@@ -46,8 +46,6 @@ const LoginPage = () => {
 				localStorage.setItem("token", data.token);
 				localStorage.setItem("licenseNumber", data.licenseNumber);
 
-				console.log(data.token);
-
 				toast.success("Login successful!");
 				router.push(`/dashboard/${data.licenseNumber}`);
 			} catch (err) {

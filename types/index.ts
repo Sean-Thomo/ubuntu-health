@@ -1,5 +1,6 @@
 export interface Patient {
 	id: string;
+	tenantId: string;
 	firstName: string;
 	lastName: string;
 	gender: string;
@@ -22,6 +23,7 @@ export interface Patient {
 
 export interface Appointment {
 	id: string;
+	tenantId: string;
 	patientFirstName: string;
 	patientLastName: string;
 	appointmentDate: string;
@@ -33,6 +35,7 @@ export interface Appointment {
 
 export interface Invoice {
 	id: string;
+	tenantId: string;
 	issueDate: string;
 	totalAmount: number;
 	status: keyof typeof INVOICE_STATUS;
@@ -41,6 +44,7 @@ export interface Invoice {
 
 export interface Visit {
 	id: string;
+	tenantId: string;
 	date: string;
 	diagnosis: string;
 	treatment: string;
@@ -50,6 +54,7 @@ export interface Visit {
 
 export interface Bill {
 	id: string;
+	tenantId: string;
 	date: string;
 	amount: number;
 	description: string;
@@ -99,6 +104,7 @@ export const STATUS_COLORS = {
 
 export interface Medication {
 	id: string;
+	tenantId: string;
 	prescriptionId: string;
 	name: string;
 	dosage: string;
@@ -107,9 +113,9 @@ export interface Medication {
 }
 
 export interface Prescription {
-	active: unknown;
 	prescriptionId: string;
 	tenantId: string;
+	active: unknown;
 	patientId: string;
 	practitionerId: string;
 	dosage: string;
@@ -158,6 +164,7 @@ export interface PrescriptionFormValues {
 export interface Bill {
 	id: string;
 	patientId: string;
+	tenantId: string;
 	billNumber: string;
 	date: string;
 	amount: number;
@@ -184,6 +191,7 @@ export interface InvoiceItem {
 
 export interface Invoice {
 	id: string;
+	tenantId: string;
 	patientId: string;
 	invoiceNumber: string;
 	issueDate: string;

@@ -64,8 +64,6 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 					}
 				);
 
-				console.log(values);
-
 				if (!response.ok) {
 					throw new Error("Failed to create prescription");
 				}
