@@ -43,14 +43,21 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 			status: Yup.string().required("Appointment status is required"),
 		}),
 		onSubmit: async (values) => {
-			const token = localStorage.getItem("token");
 			try {
+				const token = localStorage.getItem("token");
+				const licenseNumber = localStorage.getItem("licenseNumber");
+				const payload = {
+					...values,
+					tenantId: licenseNumber,
+				};
+
 				const response = await fetch("http://localhost:5290/api/Appointments", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
 					},
-					body: JSON.stringify(values),
+					body: JSON.stringify(payload),
 				});
 
 				if (!response.ok) {
