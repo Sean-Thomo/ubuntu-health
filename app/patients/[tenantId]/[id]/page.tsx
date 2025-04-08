@@ -18,6 +18,7 @@ interface PatientPageProps {
 const getPatientData = async (id: string): Promise<Patient> => {
 	return {
 		id,
+		tenantId: "",
 		firstName: "Zethu",
 		lastName: "Johnson",
 		dob: "1985-06-15",
@@ -58,6 +59,7 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 							dosage: "500mg",
 							frequency: "3x daily",
 							type: "tablet",
+							tenantId: "",
 						},
 					],
 					dosage: "500mg",
@@ -71,6 +73,7 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 					active: "Active",
 				},
 			],
+			tenantId: "",
 		},
 		{
 			id: "V-002",
@@ -90,6 +93,7 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 							dosage: "500mg",
 							frequency: "3x daily",
 							type: "tablet",
+							tenantId: "",
 						},
 					],
 					dosage: "500mg",
@@ -103,6 +107,7 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 					active: "Completed",
 				},
 			],
+			tenantId: "",
 		},
 	];
 };
@@ -121,6 +126,7 @@ const getPatientAppointments = async (
 			appointmentType: "annualPhysical",
 			doctor: "Dr. Smith",
 			status: "scheduled",
+			tenantId: "",
 		},
 	];
 };
@@ -136,6 +142,7 @@ const getPatientBills = async (patientId: string): Promise<Bill[]> => {
 			patientId: "",
 			billNumber: "",
 			service: "",
+			tenantId: "",
 		},
 	];
 };
