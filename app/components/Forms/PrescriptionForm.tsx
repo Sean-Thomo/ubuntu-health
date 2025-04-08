@@ -189,11 +189,17 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 										/>
 										{formik.touched.medications?.[index]?.name &&
 											Array.isArray(formik.errors.medications) &&
+											formik.errors.medications[index] &&
 											typeof formik.errors.medications[index] === "object" &&
-											formik.errors.medications[index] !== null &&
 											"name" in formik.errors.medications[index] && (
 												<p className="text-red-600 text-xs mt-1">
-													{formik.errors.medications[index].name as string}
+													{
+														(
+															formik.errors.medications[index] as {
+																name: string;
+															}
+														).name
+													}
 												</p>
 											)}
 									</div>
@@ -216,10 +222,17 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 										/>
 										{formik.touched.medications?.[index]?.dosage &&
 											Array.isArray(formik.errors.medications) &&
+											formik.errors.medications[index] &&
 											typeof formik.errors.medications?.[index] === "object" &&
-											formik.errors.medications?.[index]?.dosage && (
+											"name" in formik.errors.medications?.[index] && (
 												<p className="text-red-600 text-xs mt-1">
-													{formik.errors.medications[index].dosage as string}
+													{
+														(
+															formik.errors.medications[index] as {
+																dosage: string;
+															}
+														).dosage
+													}
 												</p>
 											)}
 									</div>
