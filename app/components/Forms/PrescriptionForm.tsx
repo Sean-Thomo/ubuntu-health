@@ -193,7 +193,7 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 											formik.errors.medications[index] !== null &&
 											"name" in formik.errors.medications[index] && (
 												<p className="text-red-600 text-xs mt-1">
-													{formik.errors.medications[index].name}
+													{formik.errors.medications[index].name as string}
 												</p>
 											)}
 									</div>
@@ -219,7 +219,7 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 											typeof formik.errors.medications?.[index] === "object" &&
 											formik.errors.medications?.[index]?.dosage && (
 												<p className="text-red-600 text-xs mt-1">
-													{formik.errors.medications[index].dosage}
+													{formik.errors.medications[index].dosage as string}
 												</p>
 											)}
 									</div>
