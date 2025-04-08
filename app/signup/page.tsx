@@ -23,6 +23,7 @@ const MedicalSignUpPage = () => {
 			specialty: "",
 			practiceName: "",
 			practicePhone: "",
+			role: "admin",
 		},
 		validationSchema: Yup.object({
 			firstName: Yup.string().required("Required"),
@@ -77,17 +78,19 @@ const MedicalSignUpPage = () => {
 	});
 
 	const medicalSpecialties = [
-		"Family Medicine",
-		"Pediatrics",
-		"Internal Medicine",
-		"Cardiology",
-		"Dermatology",
-		"Neurology",
-		"OB/GYN",
-		"Ophthalmology",
-		"Orthopedics",
-		"Psychiatry",
+		"family medicine",
+		"pediatrics",
+		"internal medicine",
+		"cardiology",
+		"dermatology",
+		"neurology",
+		"ob/gyn",
+		"ophthalmology",
+		"orthopedics",
+		"psychiatry",
 	];
+
+	const roles = ["admin", "doctor", "nurse", "receptionist"];
 
 	return (
 		<div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
@@ -191,6 +194,33 @@ const MedicalSignUpPage = () => {
 
 					<div>
 						<label
+							htmlFor="role"
+							className="block text-sm font-medium text-gray-700 mb-1"
+						>
+							Role
+						</label>
+						<select
+							id="role"
+							name="role"
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+							value={formik.values.role}
+							className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+						>
+							<option value="">Select your role</option>
+							{roles.map((role) => (
+								<option key={role} value={role}>
+									{role.toUpperCase()}
+								</option>
+							))}
+						</select>
+						{formik.touched.role && formik.errors.role && (
+							<p className="text-red-600 text-xs mt-1">{formik.errors.role}</p>
+						)}
+					</div>
+
+					<div>
+						<label
 							htmlFor="password"
 							className="block text-sm font-medium text-gray-700 mb-1"
 						>
@@ -286,7 +316,7 @@ const MedicalSignUpPage = () => {
 									<option value="">Select your specialty</option>
 									{medicalSpecialties.map((specialty) => (
 										<option key={specialty} value={specialty}>
-											{specialty}
+											{specialty.toUpperCase()}
 										</option>
 									))}
 								</select>

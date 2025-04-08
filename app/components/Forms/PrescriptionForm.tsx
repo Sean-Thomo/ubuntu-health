@@ -323,7 +323,7 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 								>
 									{Object.entries(PRESCRIPTION_STATUS).map(([key, value]) => (
 										<option key={key} value={key}>
-											{value}
+											{value.toUpperCase()}
 										</option>
 									))}
 								</select>

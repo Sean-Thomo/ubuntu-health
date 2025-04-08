@@ -175,7 +175,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 									</option>
 									{Object.entries(APPOINTMENT_TYPES).map(([key, label]) => (
 										<option key={key} value={key}>
-											{label}
+											{label.toUpperCase()}
 										</option>
 									))}
 								</select>

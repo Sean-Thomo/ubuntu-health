@@ -62,33 +62,33 @@ export interface Bill {
 }
 
 export const APPOINTMENT_TYPES = {
-	initialConsultation: "Initial Consultation",
-	followUp: "Follow-up",
-	annualPhysical: "Annual Physical",
-	urgentCare: "Urgent Care",
-	specialistReferral: "Specialist Referral",
-	procedure: "Procedure",
-	labWork: "Lab Work",
-	vaccination: "Vaccination",
-	preventiveCare: "Preventive Care",
-	chronicDisease: "Chronic Disease Management",
-	mentalHealth: "Mental Health",
-	telehealth: "Telehealth",
-	preOperative: "Pre-operative",
-	postOperative: "Post-operative",
-	physicalTherapy: "Physical Therapy",
-	other: "Other",
+	initialConsultation: "initial consultation",
+	followUp: "follow-up",
+	annualPhysical: "annual physical",
+	urgentCare: "urgent care",
+	specialistReferral: "specialist referral",
+	procedure: "procedure",
+	labWork: "lab work",
+	vaccination: "vaccination",
+	preventiveCare: "preventive care",
+	chronicDisease: "chronic disease management",
+	mentalHealth: "mental health",
+	telehealth: "telehealth",
+	preOperative: "pre-operative",
+	postOperative: "post-operative",
+	physicalTherapy: "physical therapy",
+	other: "other",
 };
 
 export const STATUS_LABELS = {
-	scheduled: "Scheduled",
-	confirmed: "Confirmed",
-	checkedIn: "Checked In",
-	inProgress: "In Progress",
-	completed: "Completed",
-	cancelled: "Cancelled",
-	noShow: "No Show",
-	rescheduled: "Rescheduled",
+	scheduled: "scheduled",
+	confirmed: "confirmed",
+	checkedIn: "checked in",
+	inProgress: "in Progress",
+	completed: "completed",
+	cancelled: "cancelled",
+	noShow: "no show",
+	rescheduled: "rescheduled",
 };
 
 export const STATUS_COLORS = {
@@ -131,24 +131,24 @@ export interface Prescription {
 }
 
 export const MEDICATION_TYPES = {
-	tablet: "Tablet",
-	capsule: "Capsule",
-	syrup: "Syrup",
-	injection: "Injection",
-	ointment: "Ointment",
-	drops: "Drops",
-	inhaler: "Inhaler",
-	patch: "Transdermal Patch",
-	suppository: "Suppository",
-	other: "Other",
+	tablet: "tablet",
+	capsule: "capsule",
+	syrup: "syrup",
+	injection: "injection",
+	ointment: "ointment",
+	drops: "drops",
+	inhaler: "inhaler",
+	patch: "transdermal patch",
+	suppository: "suppository",
+	other: "other",
 } as const;
 
 export const PRESCRIPTION_STATUS = {
-	active: "Active",
-	pending: "Pending",
-	completed: "Completed",
-	cancelled: "Cancelled",
-	expired: "Expired",
+	active: "active",
+	pending: "pending",
+	completed: "completed",
+	cancelled: "cancelled",
+	expired: "expired",
 } as const;
 
 export interface PrescriptionFormValues {
