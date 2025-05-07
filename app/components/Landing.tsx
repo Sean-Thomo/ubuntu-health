@@ -28,11 +28,10 @@ const Landing = () => {
 				<div className="md:w-1/2 flex justify-center">
 					<div className="relative w-full max-w-lg h-80 md:h-96">
 						<Image
-							src="/public/images/dashboard.png"
+							src="/dashboard.png"
 							alt="Ubuntu Health EMR Dashboard"
 							layout="fill"
 							objectFit="contain"
-							className="rounded-lg shadow-md"
 						/>
 					</div>
 				</div>
