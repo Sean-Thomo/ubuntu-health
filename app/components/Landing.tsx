@@ -1,34 +1,44 @@
+import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
-export default function Landing() {
+const Landing = () => {
 	return (
-		<div className="md:h-[85vh] flex items-center justify-center top-10">
-			<div className="max-w-6xl text-center grid gap-8">
-				<h1
-					className="text-slate-700 font-extrabold text-3xl md:text-5xl
-                            lg:text-6xl tracking-tight text-center dark:text-white"
-				>
-					Streamline Patient Care and Practice Efficiency with{" "}
-					<span className="text-primary-600">Ubuntu Health</span>
-				</h1>
-				<p className="text-base text-body-color my-6">
-					Experience the simplicity of managing patient records, scheduling
-					appointments, and enhancing communication, all in one secure platform.
-					Our EHR web app is designed to streamline your practice workflow,
-					ensuring compliance and providing peace of mind.
-				</p>
-				<div className="flex justify-center items-center">
-					<a
-						href="#waitlist"
-						className="text-primary-50 bg-primary-600 hover:bg-primary-700
-                    focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
-                    text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
-                    dark:focus:ring-blue-800"
-					>
-						Join The Waiting List
-					</a>
+		<section className="bg-gradient-to-r from-blue-200 to-gray-50 py-16">
+			<div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+				<div className="md:w-1/2 mb-10 md:mb-0">
+					<h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+						Modern EMR Designed for{" "}
+						<span className="text-blue-600">Independent</span> Practitioners
+					</h1>
+					<p className="text-lg text-gray-700 mb-8">
+						Streamline your practice with an intuitive, affordable EHR solution
+						that saves time and improves patient care.
+					</p>
+					<div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+						<Link
+							href={"free-trial"}
+							className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-medium flex items-center"
+						>
+							Start 30-Day Free Trial <ArrowRight className="ml-2 h-4 w-4" />
+						</Link>
+					</div>
+				</div>
+				<div className="md:w-1/2 flex justify-center">
+					<div className="relative w-full max-w-lg h-80 md:h-96">
+						<Image
+							src="/public/images/dashboard.png"
+							alt="Ubuntu Health EMR Dashboard"
+							layout="fill"
+							objectFit="contain"
+							className="rounded-lg shadow-md"
+						/>
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
-}
+};
+
+export default Landing;

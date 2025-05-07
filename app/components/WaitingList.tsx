@@ -8,13 +8,12 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function WaitingList() {
+const WaitingList = () => {
 	const formik = useFormik({
 		initialValues: {
 			name: "",
 			email: "",
 		},
-		// Validate form
 		validationSchema: Yup.object({
 			name: Yup.string()
 				.max(20, "Name must be 20 characters or less.")
@@ -23,7 +22,6 @@ export default function WaitingList() {
 				.email("Invalid email address.")
 				.required("E-Mail is required."),
 		}),
-		// Submit form
 		onSubmit: async (values) => {
 			try {
 				const docRef = await addDoc(collection(db, "WaitingList"), {
@@ -33,9 +31,9 @@ export default function WaitingList() {
 				});
 				toast.success("Thank you for joining the waiting list!");
 				formik.resetForm();
-			} catch (e) {
-				console.error(`Error adding document: ${e}.`);
-				toast.error(`Something went wrong, ${e}.`);
+			} catch (err) {
+				console.error(`Error adding document: ${err}.`);
+				toast.error(`${err}.`);
 			}
 		},
 	});
@@ -44,8 +42,8 @@ export default function WaitingList() {
 		<form onSubmit={formik.handleSubmit} className="rounded-lg pb-20">
 			<div id="waitlist" className="pt-20 md:flex">
 				<div className="px-4 md:w-2/5">
-					<div className="text-center mx-auto lg:mb-10 max-w-[720px]">
-						<h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4 py-6">
+					<div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[70vw]">
+						<h2 className="font-bold text-3xl sm:text-4xl md:text-5xl text-dark mb-4 py-6">
 							Join Our Waiting List
 						</h2>
 						<p className="text-base text-body-color">
@@ -72,9 +70,8 @@ export default function WaitingList() {
 								onChange={formik.handleChange}
 								placeholder="John Doe"
 								className="rounded-lg bg-gray-50 border text-gray-900 focus:ring-blue-500
-                                focus:border-primary-500 block flex-1 min-w-0 w-full text-sm border-gray-300
-                                p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
-                                dark:focus:ring-blue-500 dark:focus:border-primary-500"
+                                focus:border-blue-600 block flex-1 min-w-0 w-full text-sm border-gray-300
+                                p-2.5"
 							/>
 						</div>
 					</div>
@@ -92,28 +89,24 @@ export default function WaitingList() {
 								onChange={formik.handleChange}
 								placeholder="john.doe@email.com"
 								className="rounded-lg bg-gray-50 border text-gray-900 focus:ring-blue-500
-                                focus:border-primary-500 block flex-1 min-w-0 w-full text-sm border-gray-300
-                                p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
-                                dark:focus:ring-blue-500 dark:focus:border-primary-500"
+                                focus:border-blue-600 block flex-1 min-w-0 w-full text-sm border-gray-300
+                                p-2.5"
 							/>
 						</div>
 					</div>
 					<button
 						type="submit"
-						className="text-primary-50 bg-primary-600 hover:bg-primary-700
-                        focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl
-                        text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
-                        dark:focus:ring-blue-800 flex flex-col items-center justify-center"
+						className="px-6 py-2 bg-gradient-to-r w-48
+                        from-cyan-500 to-blue-500 rounded-md
+                        text-sm font-medium shadow-lg shadow-cyan-500/20
+                        hover:shadow-cyan-500/40 transition-all"
 					>
 						Join Waitlist
 					</button>
 				</div>
 			</div>
-			<ToastContainer
-				theme="light"
-				position="top-right"
-				hideProgressBar={false}
-			/>
 		</form>
 	);
-}
+};
+
+export default WaitingList;
