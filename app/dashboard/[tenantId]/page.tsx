@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
 	Search,
 	FileText,
@@ -18,6 +18,12 @@ import Layout from "../../components/Layout";
 import ClientDate from "../../components/ClientDate";
 
 const DashboardPage = () => {
+	const [licenseNumber, setLicenseNumber] = useState<string | null>(null);
+
+	useEffect(() => {
+		const storedLicenseNumber = localStorage.getItem("licenseNumber");
+		setLicenseNumber(storedLicenseNumber);
+	}, []);
 	// Mock data - replace with actual API calls
 	const stats = {
 		patients: 42,
@@ -231,7 +237,7 @@ const DashboardPage = () => {
 									Recent Patients
 								</h2>
 								<Link
-									href="/patients"
+									href={`/patients/${licenseNumber}`}
 									className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
 								>
 									View all <ChevronRight size={16} />
@@ -274,7 +280,7 @@ const DashboardPage = () => {
 									Upcoming Appointments
 								</h2>
 								<Link
-									href="/appointments"
+									href={`/appointments/${licenseNumber}`}
 									className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
 								>
 									View all <ChevronRight size={16} />
@@ -319,7 +325,7 @@ const DashboardPage = () => {
 									Recent Invoices
 								</h2>
 								<Link
-									href="/invoices"
+									href={`/invoices/${licenseNumber}`}
 									className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
 								>
 									View all <ChevronRight size={16} />

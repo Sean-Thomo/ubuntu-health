@@ -7,7 +7,6 @@ const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const navRef = useRef<HTMLDivElement>(null);
 
-	// Close menu when clicking outside
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
@@ -25,7 +24,6 @@ const Navbar = () => {
 		};
 	}, []);
 
-	// Close menu on window resize
 	useEffect(() => {
 		const handleResize = () => {
 			if (window.innerWidth >= 768) {
@@ -102,19 +100,9 @@ const Navbar = () => {
 							<Link
 								key={item.href}
 								href={item.href}
-								className="
-                                text-2xl 
-                                md:text-sm
-                                px-4 py-2
-                                rounded-md
-                                text-gray-800
-                                hover:bg-blue-600
-                                hover:text-white
-                                transition-colors 
-                                duration-500
-                                transform 
-                                hover:scale-105
-                            "
+								className="text-2xl md:text-sm px-4 py-2 rounded-md text-gray-800
+                hover:bg-blue-600 hover:text-white transition-colors duration-500 transform
+                hover:scale-105"
 								onClick={handleMenuClose}
 							>
 								{item.label}
@@ -140,14 +128,7 @@ const Navbar = () => {
 
 				{isMenuOpen && (
 					<div
-						className="
-                        fixed 
-                        inset-0 
-                        bg-black 
-                        bg-opacity-50 
-                        z-30 
-                        md:hidden
-                    "
+						className="fixed inset bg-black bg-opacity-50 z-30 md:hidden"
 						onClick={handleMenuClose}
 					/>
 				)}
