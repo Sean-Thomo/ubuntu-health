@@ -13,7 +13,10 @@ const PrescriptionsTableCard: React.FC<PrescriptionsPageProps> = ({
 	return (
 		<div>
 			{prescriptions.length === 0 ? (
-				<div className="bg-white border border-gray-200 rounded-xl p-8 text-center mt-8 shadow-sm">
+				<div
+					className="bg-white border border-gray-200 rounded-xl p-8 text-center mt-8
+        shadow-sm"
+				>
 					<Pill className="mx-auto text-gray-400" size={48} />
 					<h2 className="mt-4 text-lg font-bold text-gray-800">
 						No prescriptions found

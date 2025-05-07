@@ -23,7 +23,7 @@ const AppointmentsTable = () => {
 
 	if (error) {
 		return (
-			<div className="min-h-screen text-red-400flex items-center justify-center">
+			<div className="min-h-screen flex items-center justify-center text-red-400">
 				Error loading appointments. Please try again later.
 			</div>
 		);

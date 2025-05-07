@@ -15,7 +15,9 @@ const Footer = () => {
 				<div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
 					<Link
 						href={"free-trial"}
-						className="px-4 py-2 bg-white text-blue-600 border border-blue-600 rounded-md hover:bg-white hover:text-blue-600 hover:scale-105 hover:font-medium flex items-center transition-transform duration-300"
+						className="px-4 py-2 bg-white text-blue-600 border border-blue-600 rounded-md
+            hover:bg-white hover:text-blue-600 hover:scale-105 hover:font-medium flex
+            items-center transition-transform duration-300"
 					>
 						Start Free Trial!
 					</Link>

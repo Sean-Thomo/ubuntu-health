@@ -36,7 +36,7 @@ const PrescriptionsTable: React.FC<PrescriptionTableProps> = ({
 
 	if (error) {
 		return (
-			<div className="min-h-screen  text-red-400 flex items-center justify-center">
+			<div className="min-h-screen flex items-center justify-center text-red-400">
 				Error loading prescriptions. Please try again later.
 			</div>
 		);

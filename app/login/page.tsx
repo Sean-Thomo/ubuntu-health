@@ -61,7 +61,10 @@ const LoginPage = () => {
 		<div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
 			<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 max-w-md w-full">
 				<div className="text-center mb-8">
-					<div className="mx-auto w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
+					<div
+						className="mx-auto w-16 h-16 bg-blue-50 rounded-full flex items-center
+          justify-center mb-4"
+					>
 						<Lock className="text-blue-600" size={24} />
 					</div>
 					<h1 className="text-2xl font-semibold text-gray-800">
@@ -91,7 +94,9 @@ const LoginPage = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.email}
-								className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md
+                text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500
+                focus:border-blue-500"
 								placeholder="your@email.com"
 								disabled={isLoading}
 							/>
@@ -121,7 +126,9 @@ const LoginPage = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.password}
-								className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md
+                text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500
+                focus:border-blue-500"
 								placeholder="••••••••••••••••"
 								disabled={isLoading}
 							/>
@@ -165,9 +172,11 @@ const LoginPage = () => {
 					<button
 						type="submit"
 						disabled={isLoading}
-						className={`w-full text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium  bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-							isLoading ? "opacity-70 cursor-not-allowed" : ""
-						}`}
+						className={`w-full text-white py-2 px-4 border border-transparent rounded-md
+              shadow-sm text-sm font-medium  bg-blue-600 hover:bg-blue-700 focus:outline-none
+              focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+								isLoading ? "opacity-70 cursor-not-allowed" : ""
+							}`}
 					>
 						{isLoading ? (
 							<span className="flex items-center justify-center">
@@ -188,7 +197,8 @@ const LoginPage = () => {
 									<path
 										className="opacity-75"
 										fill="currentColor"
-										d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+										d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0
+                    3.042 1.135 5.824 3 7.938l3-2.647z"
 									></path>
 								</svg>
 								Signing in...
@@ -224,14 +234,21 @@ const LoginPage = () => {
 						<button
 							type="button"
 							disabled={isLoading}
-							className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+							className="w-full inline-flex justify-center py-2 px-4 border border-gray-300
+              rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50
+              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
 						>
 							<svg
 								className="w-5 h-5 mr-2"
 								viewBox="0 0 24 24"
 								fill="currentColor"
 							>
-								<path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
+								<path
+									d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933
+                2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907
+                2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173
+                12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
+								/>
 							</svg>
 							Sign in with Google
 						</button>

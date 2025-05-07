@@ -99,8 +99,14 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 	};
 
 	return (
-		<div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-			<div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+		<div
+			className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center
+    z-50 p-4"
+		>
+			<div
+				className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 max-w-3xl w-full
+      max-h-[90vh] overflow-y-auto"
+			>
 				<button
 					onClick={onClose}
 					className="absolute top-4 right-4 text-blue-700 hover:text-gray-700 text-2xl"
@@ -109,7 +115,10 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 				</button>
 
 				<form onSubmit={formik.handleSubmit} className="space-y-6">
-					<h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center flex items-center justify-center">
+					<h2
+						className="text-2xl font-semibold text-gray-800 mb-6 text-center flex items-center
+          justify-center"
+					>
 						<Pill className="mr-2 text-blue-500" size={24} />
 						New Prescription
 					</h2>
@@ -135,7 +144,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 									value={formik.values.patientId}
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									placeholder="PAT-12345"
 								/>
 								{formik.touched.patientId && formik.errors.patientId && (
@@ -184,7 +194,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 											value={med.name}
 											onChange={formik.handleChange}
 											onBlur={formik.handleBlur}
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                      focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 											placeholder="e.g., Amoxicillin"
 										/>
 										{formik.touched.medications?.[index]?.name &&
@@ -219,7 +230,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 											value={med.dosage}
 											onChange={formik.handleChange}
 											onBlur={formik.handleBlur}
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                      focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 											placeholder="e.g., 500mg"
 										/>
 										{formik.touched.medications?.[index]?.dosage &&
@@ -253,7 +265,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 											name={`medications[${index}].instructions`}
 											value={med.instructions || ""}
 											onChange={formik.handleChange}
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                      focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 											placeholder="Special instructions"
 										/>
 									</div>
@@ -290,7 +303,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 									value={formik.values.frequency}
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								>
 									<option value="">Select frequency</option>
 									<option value="Once daily">Once daily</option>
@@ -320,7 +334,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 									max="10"
 									value={formik.values.refills}
 									onChange={formik.handleChange}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 							<div>
@@ -333,7 +348,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 								<select
 									id="status"
 									name="status"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									value={status}
 									onChange={(e) => {
 										setStatus(e.target.value);
@@ -371,7 +387,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 									value={formik.values.issueDate}
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.issueDate && formik.errors.issueDate && (
 									<p className="text-red-600 text-xs mt-1">
@@ -392,7 +409,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 									name="endDate"
 									value={formik.values.endDate}
 									onChange={formik.handleChange}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 						</div>
@@ -417,7 +435,8 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 								rows={3}
 								value={formik.values.instructions}
 								onChange={formik.handleChange}
-								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								placeholder="Special instructions for the patient..."
 							/>
 						</div>
@@ -428,13 +447,15 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 						<button
 							type="button"
 							onClick={onClose}
-							className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-200 transition-colors"
+							className="px-6 py-2 border border-gray-300 rounded-md text-gray-700
+              hover:bg-gray-200 transition-colors"
 						>
 							Cancel
 						</button>
 						<button
 							type="submit"
-							className="px-6 py-2 bg-blue-600 rounded-md text-white font-medium hover:bg-blue-700 transition-colors flex items-center"
+							className="px-6 py-2 bg-blue-600 rounded-md text-white font-medium
+              hover:bg-blue-700 transition-colors flex items-center"
 						>
 							<Pill className="mr-2" size={18} />
 							Create Prescription

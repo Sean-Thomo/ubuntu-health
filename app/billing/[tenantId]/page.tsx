@@ -135,14 +135,16 @@ const BillingPage = () => {
 								<input
 									type="text"
 									placeholder="Search bills..."
-									className="pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2
+                  focus:ring-cyan-500/50"
 									value={searchQuery}
 									onChange={(e) => setSearchQuery(e.target.value)}
 								/>
 							</div>
 							<button
 								onClick={() => setActiveModal("addBill")}
-								className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 rounded-md text-white text-sm font-medium hover:bg-blue-700 transition-colors"
+								className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 rounded-md
+                text-white text-sm font-medium hover:bg-blue-700 transition-colors"
 							>
 								<Plus size={18} />
 								New Invoice

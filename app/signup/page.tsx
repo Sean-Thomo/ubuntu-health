@@ -96,7 +96,10 @@ const MedicalSignUpPage = () => {
 		<div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
 			<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 max-w-3xl w-full">
 				<div className="text-center mb-8">
-					<div className="mx-auto w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
+					<div
+						className="mx-auto w-16 h-16 bg-blue-50 rounded-full flex items-center
+          justify-center mb-4"
+					>
 						<BriefcaseMedical className="text-blue-600" size={24} />
 					</div>
 					<h1 className="text-2xl font-semibold text-gray-800">
@@ -132,7 +135,8 @@ const MedicalSignUpPage = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.firstName}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800
+                  focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.firstName && formik.errors.firstName && (
 									<p className="text-red-600 text-xs mt-1">
@@ -154,7 +158,8 @@ const MedicalSignUpPage = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.lastName}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800
+                  focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.lastName && formik.errors.lastName && (
 									<p className="text-red-600 text-xs mt-1">
@@ -184,7 +189,8 @@ const MedicalSignUpPage = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.email}
-								className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md
+                text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 							/>
 						</div>
 						{formik.touched.email && formik.errors.email && (
@@ -205,7 +211,8 @@ const MedicalSignUpPage = () => {
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
 							value={formik.values.role}
-							className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+							className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800
+              focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 						>
 							<option value="">Select your role</option>
 							{roles.map((role) => (
@@ -238,7 +245,8 @@ const MedicalSignUpPage = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.password}
-								className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md
+                text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								placeholder="••••••••••••••••"
 								disabled={isLoading}
 							/>
@@ -289,7 +297,8 @@ const MedicalSignUpPage = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.licenseNumber}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800
+                  focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.licenseNumber &&
 									formik.errors.licenseNumber && (
@@ -311,7 +320,8 @@ const MedicalSignUpPage = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.specialty}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800
+                  focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								>
 									<option value="">Select your specialty</option>
 									{medicalSpecialties.map((specialty) => (
@@ -350,7 +360,8 @@ const MedicalSignUpPage = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.practiceName}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800
+                  focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 							<div>
@@ -367,7 +378,8 @@ const MedicalSignUpPage = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.practicePhone}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800
+                  focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 						</div>
@@ -401,7 +413,8 @@ const MedicalSignUpPage = () => {
 					<div className="md:col-span-2">
 						<button
 							type="submit"
-							className="w-full text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium  bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+							className="w-full text-white py-2 px-4 border border-transparent rounded-md
+              shadow-sm text-sm font-medium  bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
 						>
 							Register Account
 						</button>

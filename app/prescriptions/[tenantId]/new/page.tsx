@@ -71,7 +71,8 @@ const NewPrescriptionPage = () => {
 					</div>
 					<Link
 						href="/prescriptions"
-						className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
+						className="px-4 py-2 border border-gray-300 rounded-md text-gray-700
+            hover:bg-gray-50 transition-colors"
 					>
 						Back to Prescriptions
 					</Link>
@@ -102,7 +103,8 @@ const NewPrescriptionPage = () => {
 										value={formik.values.patientId}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+										className="w-full px-3 py-2 border border-gray-300 rounded-md
+                    focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 										placeholder="PAT-12345"
 									/>
 									{formik.touched.patientId && formik.errors.patientId && (
@@ -136,7 +138,8 @@ const NewPrescriptionPage = () => {
 										value={formik.values.medication}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+										className="w-full px-3 py-2 border border-gray-300 rounded-md
+                    focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 										placeholder="e.g., Amoxicillin"
 									/>
 									{formik.touched.medication && formik.errors.medication && (
@@ -160,7 +163,8 @@ const NewPrescriptionPage = () => {
 										value={formik.values.dosage}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+										className="w-full px-3 py-2 border border-gray-300 rounded-md
+                    focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 										placeholder="e.g., 500mg"
 									/>
 									{formik.touched.dosage && formik.errors.dosage && (
@@ -183,7 +187,8 @@ const NewPrescriptionPage = () => {
 										value={formik.values.frequency}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+										className="w-full p-3 border rounded-md focus:outline-none focus:ring-2
+                    focus:ring-cyan-500/50"
 									>
 										<option value="">Select frequency</option>
 										<option value="Once daily">Once daily</option>
@@ -214,7 +219,8 @@ const NewPrescriptionPage = () => {
 										max="10"
 										value={formik.values.refills}
 										onChange={formik.handleChange}
-										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+										className="w-full px-3 py-2 border border-gray-300 rounded-md
+                    focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									/>
 								</div>
 							</div>
@@ -260,7 +266,8 @@ const NewPrescriptionPage = () => {
 										value={formik.values.startDate}
 										onChange={formik.handleChange}
 										onBlur={formik.handleBlur}
-										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+										className="w-full px-3 py-2 border border-gray-300 rounded-md
+                    focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									/>
 									{formik.touched.startDate && formik.errors.startDate && (
 										<p className="text-red-600 text-xs mt-1">
@@ -282,7 +289,8 @@ const NewPrescriptionPage = () => {
 										name="endDate"
 										value={formik.values.endDate}
 										onChange={formik.handleChange}
-										className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+										className="w-full px-3 py-2 border border-gray-300 rounded-md
+                    focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									/>
 								</div>
 							</div>
@@ -293,14 +301,16 @@ const NewPrescriptionPage = () => {
 							<button
 								type="button"
 								onClick={() => formik.resetForm()}
-								className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
+								className="px-6 py-2 border border-gray-300 rounded-md text-gray-700
+                hover:bg-gray-50 transition-colors"
 							>
 								Reset
 							</button>
 							<button
 								type="submit"
 								disabled={isSubmitting}
-								className="px-6 py-2 bg-blue-600 rounded-md text-white font-medium hover:bg-blue-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+								className="px-6 py-2 bg-blue-600 rounded-md text-white font-medium
+                hover:bg-blue-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
 							>
 								{isSubmitting ? "Creating..." : "Create Prescription"}
 							</button>

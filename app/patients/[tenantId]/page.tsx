@@ -14,7 +14,10 @@ const PatientsPage = () => {
 			<div className="min-h-screen   p-6">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
-					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+					<div
+						className="flex flex-col md:flex-row justify-between items-start md:items-center
+          mb-8"
+					>
 						<div>
 							<h1 className="text-3xl font-bold  ">Patient Registry</h1>
 							<p className="  mt-2">
@@ -30,7 +33,8 @@ const PatientsPage = () => {
 								<input
 									type="text"
 									placeholder="Search patients..."
-									className="pl-10 pr-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="pl-10 pr-4 py-2 border border-gray-300 rounded-md bg-white
+                  focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 						</div>

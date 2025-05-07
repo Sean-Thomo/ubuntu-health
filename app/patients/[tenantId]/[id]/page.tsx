@@ -208,14 +208,15 @@ export default function PatientPage({ params }: PatientPageProps) {
 						<h1 className="text-2xl font-semibold">{`${patient.firstName} ${patient.lastName}`}</h1>
 					</div>
 					<div className="flex items-center gap-4">
-						<span className="mx-4 mt-3 px-4 py-1 rounded-full   border border-cyan-400/20   text-xs">
+						<span className="mx-4 mt-3 px-4 py-1 rounded-full border border-cyan-400/20 text-xs">
 							{patient.activeConditions.length > 0
 								? "Active Conditions"
 								: "No Active Conditions"}
 						</span>
 						<Link
 							href={`/patients/${patient.id}/consultation/new`}
-							className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-sm font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all"
+							className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-sm
+              font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all"
 						>
 							+ New Consultation
 						</Link>

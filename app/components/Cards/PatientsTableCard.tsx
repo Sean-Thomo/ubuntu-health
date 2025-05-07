@@ -38,7 +38,10 @@ const PatientsTableCard: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 							>
 								<td className="px-6 py-4">
 									<div className="flex items-center gap-4">
-										<div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-50 text-blue-600">
+										<div
+											className="flex items-center justify-center w-10 h-10 rounded-full
+                    bg-blue-50 text-blue-600"
+										>
 											<User size={18} />
 										</div>
 										<div>
@@ -81,11 +84,17 @@ const PatientsTableCard: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 								<td className="px-6 py-4">
 									<div className="flex items-center gap-2">
 										{patient.medicalAidName ? (
-											<span className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-800">
+											<span
+												className="text-xs px-2 py-1 rounded-full bg-green-100
+                      text-green-800"
+											>
 												Medical Aid: {patient.medicalAidName}
 											</span>
 										) : (
-											<span className="text-xs px-2 py-1 rounded-full bg-yellow-100 text-yellow-800">
+											<span
+												className="text-xs px-2 py-1 rounded-full bg-yellow-100
+                      text-yellow-800"
+											>
 												Private Pay
 											</span>
 										)}
@@ -122,10 +131,16 @@ const PatientsTableCard: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 					Showing 1-{patients.length} of {patients.length} patients
 				</div>
 				<div className="flex gap-2">
-					<button className="px-3 py-1 rounded border border-gray-300 bg-white hover:bg-gray-50 transition-colors">
+					<button
+						className="px-3 py-1 rounded border border-gray-300 bg-white
+          hover:bg-gray-50 transition-colors"
+					>
 						Previous
 					</button>
-					<button className="px-3 py-1 rounded border border-gray-300 bg-white hover:bg-gray-50 transition-colors">
+					<button
+						className="px-3 py-1 rounded border border-gray-300 bg-white
+          hover:bg-gray-50 transition-colors"
+					>
 						Next
 					</button>
 				</div>

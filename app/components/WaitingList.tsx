@@ -70,8 +70,8 @@ const WaitingList = () => {
 								onChange={formik.handleChange}
 								placeholder="John Doe"
 								className="rounded-lg bg-gray-50 border text-gray-900 focus:ring-blue-500
-                                focus:border-blue-600 block flex-1 min-w-0 w-full text-sm border-gray-300
-                                p-2.5"
+                                focus:border-blue-600 block flex-1 min-w-0 w-full text-sm
+                                border-gray-300 p-2.5"
 							/>
 						</div>
 					</div>
@@ -80,7 +80,10 @@ const WaitingList = () => {
 						<label htmlFor="email" className="font-semibold text-md pb-2">
 							Email
 						</label>
-						<div className="mt-2 pb-4 w-[18rem] md:w-[20rem] md:flex flex-col items-center justify-center">
+						<div
+							className="mt-2 pb-4 w-[18rem] md:w-[20rem] md:flex flex-col items-center
+            justify-center"
+						>
 							<input
 								type="email"
 								name="email"
@@ -89,8 +92,8 @@ const WaitingList = () => {
 								onChange={formik.handleChange}
 								placeholder="john.doe@email.com"
 								className="rounded-lg bg-gray-50 border text-gray-900 focus:ring-blue-500
-                                focus:border-blue-600 block flex-1 min-w-0 w-full text-sm border-gray-300
-                                p-2.5"
+                                focus:border-blue-600 block flex-1 min-w-0 w-full text-sm
+                                border-gray-300 p-2.5"
 							/>
 						</div>
 					</div>

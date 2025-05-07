@@ -126,7 +126,8 @@ const DashboardPage = () => {
 							<input
 								type="text"
 								placeholder="Search..."
-								className="pl-10 pr-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								className="pl-10 pr-4 py-2 border border-gray-300 rounded-md bg-white
+                focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 							/>
 						</div>
 					</div>
@@ -135,7 +136,10 @@ const DashboardPage = () => {
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 						{/* Patients Card */}
 						<Link href="/patients">
-							<div className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer shadow-sm">
+							<div
+								className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50
+              transition-colors cursor-pointer shadow-sm"
+							>
 								<div className="flex justify-between items-center">
 									<div>
 										<p className="text-sm text-gray-500">Total Patients</p>
@@ -152,7 +156,10 @@ const DashboardPage = () => {
 
 						{/* Appointments Card */}
 						<Link href="/appointments">
-							<div className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer shadow-sm">
+							<div
+								className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50
+              transition-colors cursor-pointer shadow-sm"
+							>
 								<div className="flex justify-between items-center">
 									<div>
 										<p className="text-sm text-gray-500">
@@ -171,7 +178,10 @@ const DashboardPage = () => {
 
 						{/* Prescriptions Card */}
 						<Link href="/prescriptions">
-							<div className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer shadow-sm">
+							<div
+								className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50
+              transition-colors cursor-pointer shadow-sm"
+							>
 								<div className="flex justify-between items-center">
 									<div>
 										<p className="text-sm text-gray-500">
@@ -190,7 +200,10 @@ const DashboardPage = () => {
 
 						{/* Revenue Card */}
 						<Link href="/invoices">
-							<div className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer shadow-sm">
+							<div
+								className="bg-white border border-gray-200 rounded-lg p-4 hover:bg-gray-50
+              transition-colors cursor-pointer shadow-sm"
+							>
 								<div className="flex justify-between items-center">
 									<div>
 										<p className="text-sm text-gray-500">Monthly Revenue</p>
@@ -209,7 +222,10 @@ const DashboardPage = () => {
 					{/* Main Content */}
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
 						{/* Recent Patients */}
-						<div className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1 shadow-sm">
+						<div
+							className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1
+            shadow-sm"
+						>
 							<div className="flex justify-between items-center mb-4">
 								<h2 className="text-xl font-semibold text-gray-800">
 									Recent Patients
@@ -225,7 +241,8 @@ const DashboardPage = () => {
 								{recentPatients.map((patient) => (
 									<div
 										key={patient.id}
-										className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors"
+										className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg
+                    transition-colors"
 									>
 										<div>
 											<p className="font-medium text-gray-800">
@@ -248,7 +265,10 @@ const DashboardPage = () => {
 						</div>
 
 						{/* Upcoming Appointments */}
-						<div className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1 shadow-sm">
+						<div
+							className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1
+            shadow-sm"
+						>
 							<div className="flex justify-between items-center mb-4">
 								<h2 className="text-xl font-semibold text-gray-800">
 									Upcoming Appointments
@@ -290,7 +310,10 @@ const DashboardPage = () => {
 						</div>
 
 						{/* Recent Invoices */}
-						<div className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1 shadow-sm">
+						<div
+							className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1
+            shadow-sm"
+						>
 							<div className="flex justify-between items-center mb-4">
 								<h2 className="text-xl font-semibold text-gray-800">
 									Recent Invoices
@@ -341,7 +364,8 @@ const DashboardPage = () => {
 							<div className="mt-4">
 								<Link
 									href="/invoices/new"
-									className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 rounded-md text-white text-sm font-medium hover:bg-blue-700 transition-colors"
+									className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600
+                  rounded-md text-white text-sm font-medium hover:bg-blue-700 transition-colors"
 								>
 									<Plus size={18} />
 									Create New Invoice

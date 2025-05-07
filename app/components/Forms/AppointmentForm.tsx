@@ -75,8 +75,14 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 	});
 
 	return (
-		<div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-			<div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+		<div
+			className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center
+    z-50 p-4"
+		>
+			<div
+				className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 max-w-3xl w-full
+      max-h-[90vh] overflow-y-auto"
+			>
 				<button
 					onClick={onClose}
 					className="absolute top-4 right-4 text-blue-700 hover:text-gray-700 text-2xl"
@@ -85,7 +91,10 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 				</button>
 
 				<form onSubmit={formik.handleSubmit} className="space-y-6">
-					<h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center flex items-center justify-center">
+					<h2
+						className="text-2xl font-semibold text-gray-800 mb-6 text-center flex items-center
+          justify-center"
+					>
 						<Calendar className="mr-2 text-blue-500" size={24} />
 						Schedule Appointment
 					</h2>
@@ -111,7 +120,8 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 									value={formik.values.patientFirstName}
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.patientFirstName &&
 									formik.errors.patientFirstName && (
@@ -134,7 +144,8 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 									value={formik.values.patientLastName}
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.patientLastName &&
 									formik.errors.patientLastName && (
@@ -163,7 +174,8 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 								<select
 									id="appointmentType"
 									name="appointmentType"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									value={appointmentType}
 									onChange={(e) => {
 										setAppointmentType(e.target.value);
@@ -196,7 +208,8 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 								<select
 									id="status"
 									name="status"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									value={formik.values.status}
 									onChange={(e) => {
 										setStatus(e.target.value);
@@ -239,7 +252,8 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 									value={formik.values.appointmentDate}
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.appointmentDate &&
 									formik.errors.appointmentDate && (
@@ -262,7 +276,8 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 									value={formik.values.appointmentTime}
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.appointmentTime &&
 									formik.errors.appointmentTime && (
@@ -293,7 +308,8 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 								value={formik.values.notes}
 								onChange={formik.handleChange}
 								rows={3}
-								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 							/>
 						</div>
 					</div>
@@ -303,13 +319,15 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 						<button
 							type="button"
 							onClick={onClose}
-							className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-200 transition-colors"
+							className="px-6 py-2 border border-gray-300 rounded-md text-gray-700
+              hover:bg-gray-200 transition-colors"
 						>
 							Cancel
 						</button>
 						<button
 							type="submit"
-							className="px-6 py-2 bg-blue-600 rounded-md text-white font-medium hover:bg-blue-700 transition-colors flex items-center"
+							className="px-6 py-2 bg-blue-600 rounded-md text-white font-medium
+              hover:bg-blue-700 transition-colors flex items-center"
 						>
 							<CalendarCheck className="mr-2" size={18} />
 							Schedule Appointment

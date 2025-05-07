@@ -137,14 +137,16 @@ const InvoicePage = () => {
 								<input
 									type="text"
 									placeholder="Search invoices..."
-									className="pl-10 pr-4 py-2   border   rounded-md   focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+									className="pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 
+                  focus:ring-cyan-500/50"
 									value={searchQuery}
 									onChange={(e) => setSearchQuery(e.target.value)}
 								/>
 							</div>
 							<Link
 								href="/invoices/new"
-								className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-sm font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all"
+								className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 rounded-md
+                text-white text-sm font-medium hover:bg-blue-700 transition-colors"
 							>
 								<Plus size={18} />
 								New Invoice
@@ -170,7 +172,7 @@ const InvoicePage = () => {
 							<div className="flex justify-between items-center">
 								<div>
 									<p className="text-sm  ">Amount Due</p>
-									<p className="text-2xl font-semibold text-yellow-400">
+									<p className="text-2xl font-semibold text-yellow-600">
 										R
 										{invoices
 											.filter((i) => i.status !== "paid")

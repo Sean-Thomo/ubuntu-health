@@ -34,15 +34,22 @@ const Pricing = () => {
 						</ul>
 						<Link
 							href="/signup"
-							className="block w-full py-2 border border-blue-600 text-blue-600 text-center rounded-md hover:bg-blue-50"
+							className="block w-full py-2 border border-blue-600 text-blue-600 text-center
+              rounded-md hover:bg-blue-50"
 						>
 							Sign Up
 						</Link>
 					</div>
 
 					{/* Standard Plan */}
-					<div className="border-2 border-blue-600 rounded-lg p-6 hover:shadow-md transition-shadow relative">
-						<div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl rounded-tr">
+					<div
+						className="border-2 border-blue-600 rounded-lg p-6 hover:shadow-md
+          transition-shadow relative"
+					>
+						<div
+							className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3
+            py-1 rounded-bl rounded-tr"
+						>
 							POPULAR
 						</div>
 						<h2 className="text-xl font-semibold text-gray-800 mb-2">
@@ -70,7 +77,8 @@ const Pricing = () => {
 						</ul>
 						<Link
 							href="/signup"
-							className="block w-full py-2 bg-blue-600 text-white text-center rounded-md hover:bg-blue-700"
+							className="block w-full py-2 bg-blue-600 text-white text-center rounded-md
+              hover:bg-blue-700"
 						>
 							Sign Up
 						</Link>
@@ -111,7 +119,8 @@ const Pricing = () => {
 						</ul>
 						<Link
 							href="/signup"
-							className="block w-full py-2 border border-blue-600 text-blue-600 text-center rounded-md hover:bg-blue-50"
+							className="block w-full py-2 border border-blue-600 text-blue-600 text-center
+              rounded-md hover:bg-blue-50"
 						>
 							Sign Up
 						</Link>

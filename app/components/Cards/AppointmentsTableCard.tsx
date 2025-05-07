@@ -97,10 +97,16 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 					Showing 1-{appointments.length} of {appointments.length} appointments
 				</div>
 				<div className="flex gap-2">
-					<button className="px-3 py-1 rounded border border-gray-300 bg-white hover:bg-gray-50 transition-colors">
+					<button
+						className="px-3 py-1 rounded border border-gray-300 bg-white
+          hover:bg-gray-50 transition-colors"
+					>
 						Previous
 					</button>
-					<button className="px-3 py-1 rounded border border-gray-300 bg-white hover:bg-gray-50 transition-colors">
+					<button
+						className="px-3 py-1 rounded border border-gray-300 bg-white
+          hover:bg-gray-50 transition-colors"
+					>
 						Next
 					</button>
 				</div>

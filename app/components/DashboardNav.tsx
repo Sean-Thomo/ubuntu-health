@@ -61,7 +61,8 @@ const DashboardNav = () => {
 	return (
 		<>
 			<button
-				className="md:hidden mb-auto fixed top-4 left-4 z-50 p-2 border border-cyan-400/20 rounded-full shadow-lg  "
+				className="md:hidden mb-auto fixed top-4 left-4 z-50 p-2 border border-cyan-400/20
+        rounded-full shadow-lg  "
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				{isOpen ? <X className="" /> : <Menu className="" />}
@@ -100,14 +101,16 @@ const DashboardNav = () => {
 					<div className="p-4 border-t text-white">
 						<button
 							onClick={() => setActiveModal("addPatient")}
-							className="w-full bg-blue-600 py-2 rounded-md hover:bg-blue-700 shadow-lg transition-all mb-3 font-medium"
+							className="w-full bg-blue-600 py-2 rounded-md hover:bg-blue-700 shadow-lg
+              transition-all mb-3 font-medium"
 						>
 							Add New Patient
 						</button>
 
 						<button
 							onClick={() => setActiveModal("scheduleAppointment")}
-							className="w-full bg-blue-600 py-2 rounded-md hover:bg-blue-700 shadow-lg transition-all font-medium"
+							className="w-full bg-blue-600 py-2 rounded-md hover:bg-blue-700 shadow-lg
+              transition-all font-medium"
 						>
 							Schedule Appointment
 						</button>

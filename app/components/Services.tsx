@@ -22,7 +22,10 @@ function Services() {
                     hover:shadow-md hover:bg-blue-600 group transition-all duration-400
                     ease-in-out hover:scale-105"
 					>
-						<div className="w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-500">
+						<div
+							className="w-12 h-12 rounded-full flex items-center justify-center mb-4
+            group-hover:bg-blue-500"
+						>
 							<Stethoscope className="text-blue-600 h-5 w-5 group-hover:text-white" />
 						</div>
 						<h2 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-white">
@@ -40,7 +43,10 @@ function Services() {
                     hover:shadow-md hover:bg-blue-600 group transition-all duration-400
                     ease-in-out hover:scale-105"
 					>
-						<div className="w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-500">
+						<div
+							className="w-12 h-12 rounded-full flex items-center justify-center mb-4
+            group-hover:bg-blue-500"
+						>
 							<Calendar className="text-blue-600 h-5 w-5 group-hover:text-white" />
 						</div>
 						<h2 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-white">
@@ -58,7 +64,10 @@ function Services() {
                     hover:shadow-md hover:bg-blue-600 group transition-all duration-400
                     ease-in-out hover:scale-105"
 					>
-						<div className="w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-500">
+						<div
+							className="w-12 h-12 rounded-full flex items-center justify-center mb-4
+            group-hover:bg-blue-500"
+						>
 							<Pill className="text-blue-600 h-5 w-5 group-hover:text-white" />
 						</div>
 						<h2 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-white">
@@ -76,7 +85,10 @@ function Services() {
                     hover:shadow-md hover:bg-blue-600 group transition-all duration-400
                     ease-in-out hover:scale-105"
 					>
-						<div className="w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-500">
+						<div
+							className="w-12 h-12 rounded-full flex items-center justify-center mb-4
+            group-hover:bg-blue-500"
+						>
 							<FileText className="text-blue-600 h-5 w-5 group-hover:text-white" />
 						</div>
 						<h2 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-white">

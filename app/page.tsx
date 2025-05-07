@@ -14,7 +14,8 @@ export default function Home() {
 				</title>
 				<meta
 					name="description"
-					content="Comprehensive EMR/EHR solution designed specifically for independent practitioners and small clinics"
+					content="Comprehensive EMR/EHR solution designed specifically for independent
+          practitioners and small clinics"
 				/>
 			</Head>
 

@@ -127,7 +127,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.firstName}
 									onChange={formik.handleChange}
 									placeholder="John"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.firstName && formik.errors.firstName && (
 									<p className="text-red-600 text-xs mt-1">
@@ -151,7 +152,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.lastName}
 									onChange={formik.handleChange}
 									placeholder="Doe"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.lastName && formik.errors.lastName && (
 									<p className="text-red-600 text-xs mt-1">
@@ -174,7 +176,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="idNumber"
 									value={formik.values.idNumber}
 									onChange={formik.handleChange}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
@@ -188,7 +191,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 								</label>
 								<select
 									required
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									value={sex}
 									onChange={(e) => {
 										setSex(e.target.value);
@@ -216,7 +220,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.phone}
 									onChange={formik.handleChange}
 									placeholder="000 000 0000"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
@@ -235,7 +240,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.email}
 									onChange={formik.handleChange}
 									placeholder="johndoe@email.com"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 								{formik.touched.email && formik.errors.email && (
 									<p className="text-red-600 text-xs mt-1">
@@ -267,7 +273,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="street"
 									value={formik.values.street}
 									onChange={formik.handleChange}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
@@ -285,7 +292,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="streetTwo"
 									value={formik.values.streetTwo}
 									onChange={formik.handleChange}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
@@ -303,7 +311,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="city"
 									value={formik.values.city}
 									onChange={formik.handleChange}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
@@ -321,7 +330,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="province"
 									value={formik.values.province}
 									onChange={formik.handleChange}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 						</div>
@@ -349,7 +359,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.emergencyContactFirstName}
 									onChange={formik.handleChange}
 									placeholder="Jane"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
@@ -368,7 +379,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.emergencyContactLastName}
 									onChange={formik.handleChange}
 									placeholder="Doe"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
@@ -387,7 +399,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.emergencyContactRelationship}
 									onChange={formik.handleChange}
 									placeholder="Mother"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
@@ -405,7 +418,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="emergencyContactPhone"
 									value={formik.values.emergencyContactPhone}
 									onChange={formik.handleChange}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 						</div>
@@ -433,7 +447,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.medicalAidName}
 									onChange={formik.handleChange}
 									placeholder="Discovery"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 
@@ -452,7 +467,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={formik.values.membershipNumber}
 									onChange={formik.handleChange}
 									placeholder="123456789"
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
 							</div>
 						</div>
@@ -474,7 +490,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									Taking any medication?
 								</label>
 								<select
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									value={currentMeds}
 									onChange={(e) => {
 										setCurrentMeds(e.target.value);
@@ -501,7 +518,8 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									id="allergies"
 									value={formik.values.allergies}
 									onChange={formik.handleChange}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									rows={3}
 								/>
 							</div>
@@ -513,13 +531,15 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 						<button
 							type="button"
 							onClick={onClose}
-							className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-200 transition-colors"
+							className="px-6 py-2 border border-gray-300 rounded-md text-gray-700
+              hover:bg-gray-200 transition-colors"
 						>
 							Cancel
 						</button>
 						<button
 							type="submit"
-							className="px-6 py-2 bg-blue-600 rounded-md text-white font-medium hover:bg-blue-700 transition-colors"
+							className="px-6 py-2 bg-blue-600 rounded-md text-white font-medium
+              hover:bg-blue-700 transition-colors"
 						>
 							Register Patient
 						</button>
