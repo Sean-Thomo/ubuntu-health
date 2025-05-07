@@ -238,7 +238,8 @@ const NewPrescriptionPage = () => {
 									rows={3}
 									value={formik.values.instructions}
 									onChange={formik.handleChange}
-									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
+                  focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 									placeholder="Special instructions for the patient..."
 								/>
 							</div>

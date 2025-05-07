@@ -91,7 +91,10 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 
 	return (
 		<div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-			<div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+			<div
+				className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 max-w-3xl w-full
+      max-h-[90vh] overflow-y-auto"
+			>
 				<button
 					onClick={onClose}
 					className="absolute top-4 right-4 text-blue-700 hover:text-gray-700 text-2xl"
@@ -100,7 +103,10 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 				</button>
 
 				<form onSubmit={formik.handleSubmit} className="space-y-6">
-					<h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center flex items-center justify-center">
+					<h2
+						className="text-2xl font-semibold text-gray-800 mb-6 text-center flex items-center
+          justify-center"
+					>
 						<UserRoundPen className="mr-2 text-blue-500" size={24} />
 						Patient Registration
 					</h2>
