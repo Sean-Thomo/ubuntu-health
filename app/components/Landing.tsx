@@ -18,7 +18,10 @@ const Landing = () => {
 					</p>
 					<div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
 						<Link
-							href={"free-trial"}
+							href={{
+								pathname: "/signup",
+								query: { plan: "freeTrial" },
+							}}
 							className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700
               font-medium flex items-center"
 						>

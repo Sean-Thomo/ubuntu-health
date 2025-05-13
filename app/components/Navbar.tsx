@@ -85,15 +85,15 @@ const Navbar = () => {
 				<nav
 					ref={navRef}
 					className={`
-                    fixed top-0 left-0 w-full bg-white h-screen flex flex-col items-center
-                    justify-center space-y-6 z-40 transition-all duration-500 ease-in-out md:static
-                    md:h-auto md:w-auto md:flex-row md:translate-y-0 md:opacity-100 
-                    md:pointer-events-auto
-                    ${
-											isMenuOpen
-												? "translate-y-0 opacity-100"
-												: "-translate-y-full opacity-0 pointer-events-none"
-										}`}
+          fixed top-0 left-0 w-full bg-white h-screen flex flex-col items-center
+          justify-center space-y-6 z-40 transition-all duration-500 ease-in-out md:static
+          md:h-auto md:w-auto md:flex-row md:translate-y-0 md:opacity-100 
+          md:pointer-events-auto
+          ${
+						isMenuOpen
+							? "translate-y-0 opacity-100"
+							: "-translate-y-full opacity-0 pointer-events-none"
+					}`}
 				>
 					<div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-4">
 						{navItems.map((item, index) => (
@@ -115,13 +115,6 @@ const Navbar = () => {
               hover:bg-blue-600 hover:text-white"
 						>
 							Login
-						</Link>
-						<Link
-							href={"free-trial"}
-							className="px-4 py-2 text-blue-600 border border-blue-600 rounded-md
-              hover:bg-blue-600 hover:text-white"
-						>
-							Free Trial
 						</Link>
 					</div>
 				</nav>

@@ -6,14 +6,14 @@ import { User, Lock, Mail, BriefcaseMedical, MapPin } from "lucide-react";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import { Eye, EyeOff } from "lucide-react";
-// import { useRouter } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const MedicalSignUpPage = () => {
 	const [showPassword, setShowPassword] = React.useState(false);
 	const [isLoading] = React.useState(false);
 	const router = useRouter();
-	const { plan } = router.query;
+	const searchParams = useSearchParams();
+	const plan = searchParams.get("plan");
 
 	const formik = useFormik({
 		initialValues: {
@@ -386,7 +386,11 @@ const MedicalSignUpPage = () => {
 									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800
                   focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
-								<input type="hidden" name="subscriptionPlan" value={plan} />
+								<input
+									type="hidden"
+									name="subscriptionPlan"
+									value={plan || ""}
+								/>
 							</div>
 						</div>
 					</div>

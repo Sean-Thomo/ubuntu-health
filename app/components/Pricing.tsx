@@ -52,7 +52,7 @@ const Pricing = () => {
 						<div
 							key={plan.name}
 							className={`border rounded-lg p-6 ${
-								plan.popular ? "border-2 border-blue-600" : "border-gray-200"
+								plan.popular ? "border-2 border-blue-600" : "border-gray-400"
 							}`}
 						>
 							{plan.popular && (
@@ -69,7 +69,7 @@ const Pricing = () => {
 									/ Month
 								</span>
 							</p>
-							<ul>
+							<ul className="space-y-3 mb-6 text-black">
 								{plan.features.map((feature) => (
 									<li className="flex items-center" key={feature}>
 										<CircleCheck className="text-blue-500 h-4 w-4 mr-2" />
