@@ -25,7 +25,7 @@ const MedicalSignUpPage = () => {
 			specialty: "",
 			practiceName: "",
 			practicePhone: "",
-			subscriptionPlan: "",
+			subscriptionPlan: plan,
 			role: "",
 		},
 		validationSchema: Yup.object({
