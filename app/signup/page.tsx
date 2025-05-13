@@ -6,12 +6,14 @@ import { User, Lock, Mail, BriefcaseMedical, MapPin } from "lucide-react";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import { Eye, EyeOff } from "lucide-react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 
 const MedicalSignUpPage = () => {
 	const [showPassword, setShowPassword] = React.useState(false);
 	const [isLoading] = React.useState(false);
 	const router = useRouter();
+	const { plan } = router.query;
 
 	const formik = useFormik({
 		initialValues: {
@@ -23,7 +25,8 @@ const MedicalSignUpPage = () => {
 			specialty: "",
 			practiceName: "",
 			practicePhone: "",
-			role: "admin",
+			subscriptionPlan: "",
+			role: "",
 		},
 		validationSchema: Yup.object({
 			firstName: Yup.string().required("Required"),
@@ -58,7 +61,7 @@ const MedicalSignUpPage = () => {
 				const data = await response.json();
 
 				localStorage.setItem("token", data.token);
-				localStorage.setItem("licenseNumber", licenseNumber);
+				localStorage.setItem("tenantId", data.tenantId);
 
 				if (!response.ok) {
 					alert(
@@ -69,7 +72,7 @@ const MedicalSignUpPage = () => {
 
 				formik.resetForm();
 				toast.success("Registration successful!");
-				router.push(`/dashboard/${licenseNumber}`);
+				router.push(`/dashboard/${data.tenantId}`);
 			} catch (err) {
 				console.error(`Error registering user: ${err}`);
 				toast.error("An unexpected error occurred");
@@ -383,6 +386,7 @@ const MedicalSignUpPage = () => {
 									className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800
                   focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
 								/>
+								<input type="hidden" name="subscriptionPlan" value={plan} />
 							</div>
 						</div>
 					</div>

@@ -10,8 +10,8 @@ interface PatientsTableProps {
 
 const PatientsTableCard: React.FC<PatientsTableProps> = ({ patients = [] }) => {
 	const router = useRouter();
-	const handleRowClick = (patientId: string) => {
-		router.push(`/patients/${patientId}`);
+	const handleRowClick = (id: string) => {
+		router.push(`/patients/${id}`);
 	};
 
 	return (
