@@ -113,7 +113,7 @@ export interface Medication {
 }
 
 export interface Prescription {
-	prescriptionId: string;
+	id: number;
 	tenantId: string;
 	active: unknown;
 	patientId: string;

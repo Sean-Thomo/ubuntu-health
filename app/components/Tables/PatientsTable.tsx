@@ -5,20 +5,22 @@ import useApiData from "@/hooks/useApiData";
 import { Patient } from "@/types";
 
 const PatientsTable: React.FC = () => {
-	const [activeModal, setActiveModal] = useState("");
-	const handleCloseModal = () => setActiveModal("");
+	// const [activeModal, setActiveModal] = useState("");
+	// const handleCloseModal = () => setActiveModal("");
 
-	const handleOverlayClick = (e: any) => {
-		if (e.target === e.currentTarget) {
-			handleCloseModal();
-		}
-	};
+	// const handleOverlayClick = (e: any) => {
+	// 	if (e.target === e.currentTarget) {
+	// 		handleCloseModal();
+	// 	}
+	// };
 
 	const {
 		data: patients,
 		isLoading: patientsLoading,
 		error: patientsError,
 	} = useApiData<Patient>("Patients");
+
+	console.log(patients);
 
 	const isLoading = patientsLoading;
 	const error = patientsError;

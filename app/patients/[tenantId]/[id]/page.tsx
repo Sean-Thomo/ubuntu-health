@@ -49,7 +49,7 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 			notes: "Patient presented with persistent cough and fever for 3 days",
 			prescriptions: [
 				{
-					prescriptionId: "RX-001",
+					id: 1,
 					patientId: "P-001",
 					medications: [
 						{
@@ -83,7 +83,7 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 			notes: "Blood pressure: 130/85. Improved from previous visit.",
 			prescriptions: [
 				{
-					prescriptionId: "RX-001",
+					id: 1,
 					patientId: "P-001",
 					medications: [
 						{

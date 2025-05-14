@@ -16,14 +16,14 @@ const PrescriptionsTable: React.FC<PrescriptionTableProps> = ({
 		error: prescriptionsError,
 	} = useApiData<Prescription>("Prescriptions");
 
+	console.log(prescriptions);
+
 	const isLoading = prescriptionsLoading;
 	const error = prescriptionsError;
 
 	const filterdPrescriptions = prescriptions.filter((prescription) => {
-		const matchesSearch = prescription.patientId
-			.toLowerCase()
-			.includes(searchQuery.toLowerCase());
-		return matchesSearch;
+		// const matchesSearch = prescription.patientId.includes(searchQuery);
+		// return matchesSearch;
 	});
 
 	if (isLoading) {
@@ -45,7 +45,7 @@ const PrescriptionsTable: React.FC<PrescriptionTableProps> = ({
 	return (
 		<div className="space-y-6">
 			<div className="mt-8">
-				<PrescriptionsTableCard prescriptions={filterdPrescriptions} />
+				<PrescriptionsTableCard prescriptions={prescriptions} />
 			</div>
 		</div>
 	);

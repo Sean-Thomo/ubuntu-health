@@ -10,6 +10,8 @@ const AppointmentsTable = () => {
 		error: appointmentsError,
 	} = useApiData<Appointment>("Appointments");
 
+	console.log(appointments);
+
 	const isLoading = appointmentsLoading;
 	const error = appointmentsError;
 

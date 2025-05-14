@@ -9,10 +9,10 @@ import {
 	Printer,
 	MoreVertical,
 } from "lucide-react";
-import Link from "next/link";
 import Layout from "@/app/components/Layout";
 import ClientDate from "@/app/components/ClientDate";
 import BillForm from "@/app/components/Forms/BillForm";
+import BillingStatusCards from "@/app/components/Cards/BillingStatusCards";
 
 interface Bill {
 	id: string;
@@ -110,9 +110,9 @@ const BillingPage = () => {
 			case "overdue":
 				return "bg-red-900/30 text-red-400";
 			case "cancelled":
-				return "  text-blue-400";
+				return "text-blue-400";
 			default:
-				return "  text-blue-400";
+				return "text-blue-400";
 		}
 	};
 
@@ -136,7 +136,7 @@ const BillingPage = () => {
 									type="text"
 									placeholder="Search bills..."
 									className="pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2
-                  focus:ring-cyan-500/50"
+                focus:ring-cyan-500/50"
 									value={searchQuery}
 									onChange={(e) => setSearchQuery(e.target.value)}
 								/>
@@ -144,7 +144,7 @@ const BillingPage = () => {
 							<button
 								onClick={() => setActiveModal("addBill")}
 								className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 rounded-md
-                text-white text-sm font-medium hover:bg-blue-700 transition-colors"
+              text-white text-sm font-medium hover:bg-blue-700 transition-colors"
 							>
 								<Plus size={18} />
 								New Invoice
@@ -153,58 +153,18 @@ const BillingPage = () => {
 					</div>
 
 					{/* Stats Cards */}
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-						<div className="border rounded-lg p-4">
-							<div className="flex justify-between items-center">
-								<div>
-									<p className="text-sm ">Total Paid</p>
-									<p className="text-2xl font-semibold text-green-400">
-										R{totalPaid.toLocaleString()}
-									</p>
-								</div>
-								<div className="p-3 rounded-full bg-green-900/30 text-green-400">
-									<CreditCard size={20} />
-								</div>
-							</div>
-						</div>
-
-						<div className="  border   rounded-lg p-4">
-							<div className="flex justify-between items-center">
-								<div>
-									<p className="text-sm ">Pending Payments</p>
-									<p className="text-2xl font-semibold text-yellow-400">
-										R{totalPending.toLocaleString()}
-									</p>
-								</div>
-								<div className="p-3 rounded-full bg-yellow-900/30 text-yellow-400">
-									<CreditCard size={20} />
-								</div>
-							</div>
-						</div>
-
-						<div className="  border   rounded-lg p-4">
-							<div className="flex justify-between items-center">
-								<div>
-									<p className="text-sm ">Overdue</p>
-									<p className="text-2xl font-semibold text-red-400">
-										R{totalOverdue.toLocaleString()}
-									</p>
-								</div>
-								<div className="p-3 rounded-full bg-red-900/30 text-red-400">
-									<CreditCard size={20} />
-								</div>
-							</div>
-						</div>
-					</div>
+					<BillingStatusCards
+						totalOverdue={totalOverdue}
+						totalPaid={totalPaid}
+						totalPending={totalPending}
+					/>
 
 					{/* Filters */}
 					<div className="flex flex-wrap gap-3 mb-6">
 						<button
 							onClick={() => setFilter("all")}
 							className={`px-4 py-2 rounded-md text-sm font-medium border ${
-								filter === "all"
-									? "  border-cyan-500/50"
-									: "   hover:bg-cyan-900/20"
+								filter === "all" ? "border-cyan-500/50" : "hover:bg-cyan-900/20"
 							}`}
 						>
 							All Bills
@@ -214,7 +174,7 @@ const BillingPage = () => {
 							className={`px-4 py-2 rounded-md text-sm font-medium border ${
 								filter === "paid"
 									? "bg-green-900/30 border-green-500/50 text-green-400"
-									: "   hover:bg-cyan-900/20"
+									: "hover:bg-cyan-900/20"
 							}`}
 						>
 							Paid
@@ -224,7 +184,7 @@ const BillingPage = () => {
 							className={`px-4 py-2 rounded-md text-sm font-medium border ${
 								filter === "pending"
 									? "bg-yellow-900/30 border-yellow-500/50 text-yellow-400"
-									: "   hover:bg-cyan-900/20"
+									: "hover:bg-cyan-900/20"
 							}`}
 						>
 							Pending
@@ -234,7 +194,7 @@ const BillingPage = () => {
 							className={`px-4 py-2 rounded-md text-sm font-medium border ${
 								filter === "overdue"
 									? "bg-red-900/30 border-red-500/50 text-red-400"
-									: "   hover:bg-cyan-900/20"
+									: "hover:bg-cyan-900/20"
 							}`}
 						>
 							Overdue
@@ -244,7 +204,7 @@ const BillingPage = () => {
 					{/* Bills Table */}
 					<div className="border rounded-lg overflow-hidden shadow-lg">
 						<div className="overflow-x-auto">
-							<table className="w-full text-sm  ">
+							<table className="w-full text-sm">
 								<thead className=" /70">
 									<tr>
 										<th className="px-6 py-4 text-left">Invoice #</th>

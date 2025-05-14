@@ -37,13 +37,6 @@ const SignUpForm = ({ plan = "basic" }) => {
 			specialty: Yup.string().required("Specialty required"),
 		}),
 		onSubmit: async (values) => {
-			const licenseNumber = values.licenseNumber;
-
-			const payload = {
-				...values,
-				tenantId: licenseNumber,
-			};
-
 			try {
 				const response = await fetch(
 					"http://localhost:5290/api/auth/register",
@@ -52,21 +45,19 @@ const SignUpForm = ({ plan = "basic" }) => {
 						headers: {
 							"Content-Type": "application/json",
 						},
-						body: JSON.stringify(payload),
+						body: JSON.stringify(values),
 					}
 				);
 
 				const data = await response.json();
 
-				localStorage.setItem("token", data.token);
-				localStorage.setItem("tenantId", data.tenantId);
-
 				if (!response.ok) {
-					alert(
-						`Registration failed: ${data.message}\n${data.errors?.join("\n")}`
-					);
+					toast.error(`Registration failed: ${data.message}`);
 					return;
 				}
+
+				localStorage.setItem("token", data.token);
+				localStorage.setItem("tenantId", data.tenantId);
 
 				formik.resetForm();
 				toast.success("Registration successful!");
@@ -105,7 +96,11 @@ const SignUpForm = ({ plan = "basic" }) => {
 							<BriefcaseMedical className="text-blue-600" size={24} />
 						</div>
 						<h1 className="text-2xl font-semibold text-gray-800">
-							Create Your Medical Account
+							Register for{" "}
+							<span className="font-bold text-blue-600">
+								{plan.toLocaleUpperCase()}
+							</span>{" "}
+							plan
 						</h1>
 						<p className="text-gray-600 mt-2">
 							Register to access the EMR system

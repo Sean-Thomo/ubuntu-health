@@ -20,7 +20,7 @@ const Landing = () => {
 						<Link
 							href={{
 								pathname: "/signup",
-								query: { plan: "freeTrial" },
+								query: { plan: "free" },
 							}}
 							className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700
               font-medium flex items-center"

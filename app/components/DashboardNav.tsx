@@ -17,43 +17,43 @@ import AppointmentForm from "./Forms/AppointmentForm";
 const DashboardNav = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [activeModal, setActiveModal] = useState("");
-	const [licenseNumber, setLicenseNumber] = useState<string | null>(null);
+	const [tenantId, setTenantId] = useState<string | null>(null);
 	const handleCloseModal = () => setActiveModal("");
 
 	useEffect(() => {
-		const storedLicenseNumber = localStorage.getItem("licenseNumber");
-		setLicenseNumber(storedLicenseNumber);
+		const storedtenantId = localStorage.getItem("tenantId");
+		setTenantId(storedtenantId);
 	}, []);
 
 	const navItems = [
 		{
 			name: "Dashboard",
-			href: `/dashboard/${licenseNumber}`,
+			href: `/dashboard/${tenantId}`,
 			icon: LayoutDashboard,
 		},
 		{
 			name: "Appointments",
-			href: `/appointments/${licenseNumber}`,
+			href: `/appointments/${tenantId}`,
 			icon: CalendarCheck,
 		},
 		{
 			name: "Patients",
-			href: `/patients/${licenseNumber}`,
+			href: `/patients/${tenantId}`,
 			icon: Users,
 		},
 		{
 			name: "Prescriptions",
-			href: `/prescriptions/${licenseNumber}`,
+			href: `/prescriptions/${tenantId}`,
 			icon: PillBottle,
 		},
 		{
 			name: "Billing",
-			href: `/billing/${licenseNumber}`,
+			href: `/billing/${tenantId}`,
 			icon: CreditCard,
 		},
 		{
 			name: "Invoices",
-			href: `/invoices/${licenseNumber}`,
+			href: `/invoices/${tenantId}`,
 			icon: FileText,
 		},
 	];
