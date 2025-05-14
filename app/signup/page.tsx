@@ -1,19 +1,17 @@
 "use client";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { User, Lock, Mail, BriefcaseMedical, MapPin } from "lucide-react";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import { Eye, EyeOff } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-const MedicalSignUpPage = () => {
-	const [showPassword, setShowPassword] = React.useState(false);
-	const [isLoading] = React.useState(false);
+const SignUpForm = ({ plan = "basic" }) => {
+	const [showPassword, setShowPassword] = useState(false);
+	const [isLoading] = useState(false);
 	const router = useRouter();
-	const searchParams = useSearchParams();
-	const plan = searchParams.get("plan") || "basic";
 
 	const formik = useFormik({
 		initialValues: {
@@ -445,6 +443,34 @@ const MedicalSignUpPage = () => {
 					</form>
 				</div>
 			</div>
+		</Suspense>
+	);
+};
+
+const MedicalSignUpPage = () => {
+	const [mounted, setMounted] = useState(false);
+
+	// Only render client component after mounting
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	// Client component for handling the query parameters
+	const ClientFormWrapper = () => {
+		const { useSearchParams } = require("next/navigation");
+		const searchParams = useSearchParams();
+		const plan = searchParams.get("plan") || "basic";
+
+		return <SignUpForm plan={plan} />;
+	};
+
+	if (!mounted) {
+		return <div>Loading...</div>;
+	}
+
+	return (
+		<Suspense fallback={<div>Loading...</div>}>
+			<ClientFormWrapper />
 		</Suspense>
 	);
 };
