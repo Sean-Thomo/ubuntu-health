@@ -23,22 +23,22 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 
 	const formik = useFormik({
 		initialValues: {
-			prescriptionId: "",
-			tenantId: "TENANT-123", // Assuming current tenant is logged in
 			patientId: "",
-			practitionerId: "DOC-123", // Assuming current doctor is logged in
-			dosage: "",
+			practitionerId: "1",
 			issueDate: new Date().toISOString().split("T")[0],
 			endDate: "",
 			frequency: "",
 			refills: 0,
 			status: "active",
 			medications: [
-				{ id: Date.now().toString(), name: "", dosage: "", instructions: "" },
+				{
+					medicationId: Date.now().toString(),
+					name: "",
+					dosage: "",
+					instructions: "",
+				},
 			],
 			instructions: "",
-			createdAt: new Date().toString(),
-			updatedAt: new Date().toString(),
 		},
 		validationSchema: Yup.object({
 			patientId: Yup.string().required("Patient ID is required"),
@@ -54,11 +54,10 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 		onSubmit: async (values) => {
 			try {
 				const token = localStorage.getItem("token");
-				const licenseNumber = localStorage.getItem("licenseNumber");
-				const payload = {
-					...values,
-					tenantId: licenseNumber,
-				};
+
+				console.log("SUBMIT VALUES JSON:");
+				console.log(JSON.stringify(values, null, 2));
+
 				const response = await fetch(
 					"http://localhost:5290/api/Prescriptions",
 					{
@@ -67,7 +66,7 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 							"Content-Type": "application/json",
 							Authorization: `Bearer ${token}`,
 						},
-						body: JSON.stringify(payload),
+						body: JSON.stringify(values),
 					}
 				);
 
@@ -164,7 +163,7 @@ export default function PrescriptionForm({ onClose }: PrescriptionFormProps) {
 							Medications
 						</div>
 						{formik.values.medications.map((med, index) => (
-							<div key={med.id} className="mb-4 last:mb-0">
+							<div key={med.medicationId} className="mb-4 last:mb-0">
 								<div className="flex justify-between items-center mb-2">
 									<h2 className="text-sm font-bold text-gray-700">
 										Medication #{index + 1}

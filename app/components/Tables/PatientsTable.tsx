@@ -20,7 +20,8 @@ const PatientsTable: React.FC = () => {
 		error: patientsError,
 	} = useApiData<Patient>("Patients");
 
-	console.log(patients);
+	console.log("FETCH VALUES JSON:");
+	console.log(JSON.stringify(patients, null, 2));
 
 	const isLoading = patientsLoading;
 	const error = patientsError;

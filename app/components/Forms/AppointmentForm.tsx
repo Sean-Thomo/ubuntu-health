@@ -23,7 +23,6 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 
 	const formik = useFormik({
 		initialValues: {
-			tenantId: 1,
 			patientFirstName: "",
 			patientLastName: "",
 			appointmentDate: "",
@@ -31,8 +30,6 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 			appointmentType: "",
 			status: "scheduled",
 			notes: "",
-			createdAt: new Date().toString(),
-			updatedAt: new Date().toString(),
 		},
 		validationSchema: Yup.object({
 			patientFirstName: Yup.string().required("First name is required"),
@@ -45,11 +42,9 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 		onSubmit: async (values) => {
 			try {
 				const token = localStorage.getItem("token");
-				const licenseNumber = localStorage.getItem("licenseNumber");
-				const payload = {
-					...values,
-					tenantId: licenseNumber,
-				};
+
+				console.log("SUBMIT VALUES JSON:");
+				console.log(JSON.stringify(values, null, 2));
 
 				const response = await fetch("http://localhost:5290/api/Appointments", {
 					method: "POST",
@@ -57,7 +52,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 						"Content-Type": "application/json",
 						Authorization: `Bearer ${token}`,
 					},
-					body: JSON.stringify(payload),
+					body: JSON.stringify(values),
 				});
 
 				if (!response.ok) {

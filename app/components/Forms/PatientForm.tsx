@@ -43,8 +43,6 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 			emergencyContactRelationship: "",
 			medicalAidName: "",
 			membershipNumber: "",
-			createdAt: new Date().toString(),
-			updatedAt: new Date().toString(),
 		},
 		validationSchema: Yup.object({
 			firstName: Yup.string()
@@ -60,11 +58,9 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 		onSubmit: async (values) => {
 			try {
 				const token = localStorage.getItem("token");
-				const licenseNumber = localStorage.getItem("licenseNumber");
-				const payload = {
-					...values,
-					tenantId: licenseNumber,
-				};
+
+				console.log("SUBMIT VALUES JSON:");
+				console.log(JSON.stringify(values, null, 2));
 
 				const response = await fetch("http://localhost:5290/api/Patients", {
 					method: "POST",
@@ -72,7 +68,7 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 						"Content-Type": "application/json",
 						Authorization: `Bearer ${token}`,
 					},
-					body: JSON.stringify(payload),
+					body: JSON.stringify(values),
 				});
 
 				if (!response.ok) {

@@ -16,7 +16,8 @@ const PrescriptionsTable: React.FC<PrescriptionTableProps> = ({
 		error: prescriptionsError,
 	} = useApiData<Prescription>("Prescriptions");
 
-	console.log(prescriptions);
+	console.log("SUBMIT VALUES JSON:");
+	console.log(JSON.stringify(prescriptions, null, 2));
 
 	const isLoading = prescriptionsLoading;
 	const error = prescriptionsError;
