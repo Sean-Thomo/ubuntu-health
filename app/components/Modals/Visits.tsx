@@ -5,7 +5,7 @@ interface VisitOverviewProps {
 	visits: Visit[];
 }
 
-const VisitsOverview: React.FC<VisitOverviewProps> = ({ visits }) => {
+const VisitsOverview = ({ visits }: VisitOverviewProps) => {
 	return (
 		<div className="space-y-4">
 			<h2 className="text-lg font-medium">Visit History</h2>

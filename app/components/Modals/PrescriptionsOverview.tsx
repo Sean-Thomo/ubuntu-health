@@ -6,10 +6,10 @@ interface PrescriptionsOverviewProps {
 	pastPrescriptions: any[];
 }
 
-const PrescriptionsOverview: React.FC<PrescriptionsOverviewProps> = ({
+const PrescriptionsOverview = ({
 	activePrescriptions,
 	pastPrescriptions,
-}) => {
+}: PrescriptionsOverviewProps) => {
 	return (
 		<div className="space-y-6">
 			<div>

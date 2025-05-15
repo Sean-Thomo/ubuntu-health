@@ -8,7 +8,7 @@ interface PatientsTableProps {
 	patients: Patient[];
 }
 
-const PatientsTableCard: React.FC<PatientsTableProps> = ({ patients = [] }) => {
+const PatientsTableCard = ({ patients }: PatientsTableProps) => {
 	const router = useRouter();
 	const handleRowClick = (id: string) => {
 		router.push(`/patients/${id}`);

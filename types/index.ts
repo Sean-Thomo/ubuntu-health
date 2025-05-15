@@ -23,7 +23,6 @@ export interface Patient {
 
 export interface Appointment {
 	id: string;
-	tenantId: string;
 	patientFirstName: string;
 	patientLastName: string;
 	appointmentDate: string;
@@ -31,6 +30,7 @@ export interface Appointment {
 	doctor: string;
 	appointmentType: keyof typeof APPOINTMENT_TYPES;
 	status: keyof typeof STATUS_LABELS;
+	notes: string;
 }
 
 export interface Invoice {

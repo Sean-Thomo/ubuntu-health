@@ -5,7 +5,7 @@ interface PatientOverviewProps {
 	patient: Patient;
 }
 
-const PatientOverview: React.FC<PatientOverviewProps> = ({ patient }) => {
+const PatientOverview = ({ patient }: PatientOverviewProps) => {
 	return (
 		<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 			<div className="  border   rounded-lg p-6 backdrop-blur-sm">

@@ -1,5 +1,4 @@
-import React from "react";
-import Link from "next/link";
+import React, { useState } from "react";
 import { Trash2, Pencil } from "lucide-react";
 import {
 	Appointment,
@@ -7,14 +6,103 @@ import {
 	STATUS_COLORS,
 	STATUS_LABELS,
 } from "@/types";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import EditAppointmentModal from "../Modals/EditAppointmentModal";
 
 interface AppointmentsCardProps {
 	appointments: Appointment[];
+	onDelete?: (id: string) => void;
+	onEdit?: (id: string) => void;
 }
 
-const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
-	appointments = [],
-}) => {
+const AppointmentsTableCard = ({
+	appointments,
+	onDelete,
+	onEdit,
+}: AppointmentsCardProps) => {
+	const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+	const [editingAppointment, setEditingAppointment] =
+		useState<Appointment | null>(null);
+	const token = localStorage.getItem("token");
+
+	const handleDelete = async (id: string) => {
+		try {
+			const response = await fetch(
+				`http://localhost:5290/api/Appointments/${id}`,
+				{
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+
+			if (!response.ok) {
+				toast.error("Failed to delete appointment");
+				throw new Error("Failed to delete appointment");
+			}
+
+			if (onDelete) {
+				onDelete(id);
+			}
+
+			toast.success("Appointment deleted successfully");
+		} catch (error) {
+			toast.error("Error deleting appointment");
+			console.error("Error deleting appointment:", error);
+		}
+	};
+
+	const handleEditClick = (appointment: Appointment) => {
+		setEditingAppointment(appointment);
+		setIsEditModalOpen(true);
+	};
+
+	const handleSave = async (updatedAppointment: Appointment) => {
+		try {
+			const appointmentUpdateDto = {
+				patientFirstName: updatedAppointment.patientFirstName,
+				patientLastName: updatedAppointment.patientLastName,
+				appointmentDate: updatedAppointment.appointmentDate,
+				appointmentTime: updatedAppointment.appointmentTime,
+				appointmentType: updatedAppointment.appointmentType,
+				status: updatedAppointment.status,
+				notes: updatedAppointment.notes || "",
+			};
+
+			console.log("SUBMIT VALUES JSON:");
+			console.log(JSON.stringify(appointmentUpdateDto, null, 2));
+
+			const response = await fetch(
+				`http://localhost:5290/api/Appointments/${updatedAppointment.id}`,
+				{
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
+					},
+					body: JSON.stringify(appointmentUpdateDto),
+				}
+			);
+
+			if (!response.ok) {
+				const errorData = await response.text();
+				console.error("API error response:", errorData);
+				throw new Error("Failed to update appointment");
+			}
+
+			if (onEdit) onEdit(updatedAppointment.id);
+
+			setIsEditModalOpen(false);
+			toast.success("Appointment updated successfully");
+		} catch (error) {
+			console.error("Error updating appointment:", error);
+			toast.error("Failed to update appointment");
+		}
+	};
+
 	return (
 		<div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
 			<div className="overflow-x-auto">
@@ -70,20 +158,20 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 								</td>
 								<td className="px-6 py-4">
 									<div className="flex gap-4">
-										<Link
-											href="#"
+										<button
+											onClick={() => handleEditClick(appointment)}
 											className="text-blue-600 hover:text-blue-800 transition-colors"
 											title="Edit Appointment"
 										>
 											<Pencil size={18} />
-										</Link>
-										<Link
-											href="#"
+										</button>
+										<button
+											onClick={() => handleDelete(appointment.id)}
 											className="text-red-600 hover:text-red-800 transition-colors"
 											title="Delete Appointment"
 										>
 											<Trash2 size={18} />
-										</Link>
+										</button>
 									</div>
 								</td>
 							</tr>
@@ -91,6 +179,15 @@ const AppointmentsTableCard: React.FC<AppointmentsCardProps> = ({
 					</tbody>
 				</table>
 			</div>
+
+			{/* Edit Appointment Modal */}
+			{isEditModalOpen && editingAppointment && (
+				<EditAppointmentModal
+					appointment={editingAppointment}
+					onSave={handleSave}
+					onClose={() => setIsEditModalOpen(false)}
+				/>
+			)}
 
 			<div className="flex justify-between items-center mt-6 text-sm text-gray-600">
 				<div>

@@ -4,7 +4,7 @@ import PatientsTableCard from "../Cards/PatientsTableCard";
 import useApiData from "@/hooks/useApiData";
 import { Patient } from "@/types";
 
-const PatientsTable: React.FC = () => {
+const PatientsTable = () => {
 	// const [activeModal, setActiveModal] = useState("");
 	// const handleCloseModal = () => setActiveModal("");
 

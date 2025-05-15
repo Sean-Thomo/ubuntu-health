@@ -17,7 +17,7 @@ interface AppointmentFormProps {
 	onClose: () => void;
 }
 
-export default function AppointmentForm({ onClose }: AppointmentFormProps) {
+const AppointmentForm = ({ onClose }: AppointmentFormProps) => {
 	const [appointmentType, setAppointmentType] = useState("");
 	const [status, setStatus] = useState("");
 
@@ -43,9 +43,6 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 			try {
 				const token = localStorage.getItem("token");
 
-				console.log("SUBMIT VALUES JSON:");
-				console.log(JSON.stringify(values, null, 2));
-
 				const response = await fetch("http://localhost:5290/api/Appointments", {
 					method: "POST",
 					headers: {
@@ -70,10 +67,7 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 	});
 
 	return (
-		<div
-			className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center
-    z-50 p-4"
-		>
+		<div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
 			<div
 				className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 max-w-3xl w-full
       max-h-[90vh] overflow-y-auto"
@@ -332,4 +326,6 @@ export default function AppointmentForm({ onClose }: AppointmentFormProps) {
 			</div>
 		</div>
 	);
-}
+};
+
+export default AppointmentForm;

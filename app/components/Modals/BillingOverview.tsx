@@ -6,10 +6,7 @@ interface BillingOverviewProps {
 	bills: Bill[];
 }
 
-const BillingOverview: React.FC<BillingOverviewProps> = ({
-	appointments,
-	bills,
-}) => {
+const BillingOverview = ({ appointments, bills }: BillingOverviewProps) => {
 	return (
 		<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 			<div>

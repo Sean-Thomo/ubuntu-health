@@ -7,9 +7,7 @@ interface PrescriptionTableProps {
 	searchQuery: string;
 }
 
-const PrescriptionsTable: React.FC<PrescriptionTableProps> = ({
-	searchQuery,
-}) => {
+const PrescriptionsTable = ({ searchQuery }: PrescriptionTableProps) => {
 	const {
 		data: prescriptions,
 		isLoading: prescriptionsLoading,
@@ -21,11 +19,6 @@ const PrescriptionsTable: React.FC<PrescriptionTableProps> = ({
 
 	const isLoading = prescriptionsLoading;
 	const error = prescriptionsError;
-
-	const filterdPrescriptions = prescriptions.filter((prescription) => {
-		// const matchesSearch = prescription.patientId.includes(searchQuery);
-		// return matchesSearch;
-	});
 
 	if (isLoading) {
 		return (

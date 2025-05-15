@@ -7,9 +7,7 @@ interface PrescriptionsPageProps {
 	prescriptions: Prescription[];
 }
 
-const PrescriptionsTableCard: React.FC<PrescriptionsPageProps> = ({
-	prescriptions = [],
-}) => {
+const PrescriptionsTableCard = ({ prescriptions }: PrescriptionsPageProps) => {
 	return (
 		<div>
 			{prescriptions.length === 0 ? (

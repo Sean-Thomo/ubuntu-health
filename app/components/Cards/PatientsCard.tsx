@@ -6,7 +6,7 @@ interface PatientsCardProps {
 	patients: Patient[];
 }
 
-const PatientsCard: React.FC<PatientsCardProps> = ({ patients = [] }) => {
+const PatientsCard = ({ patients }: PatientsCardProps) => {
 	const now = new Date();
 	const startOfCurrentWeek = startOfWeek(now, { weekStartsOn: 1 });
 	const endOfCurrentWeek = endOfWeek(now, { weekStartsOn: 1 });

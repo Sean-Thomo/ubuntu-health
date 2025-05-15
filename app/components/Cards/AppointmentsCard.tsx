@@ -5,9 +5,7 @@ interface AppointmentsCardProps {
 	appointments: Appointment[];
 }
 
-const AppointmentsCard: React.FC<AppointmentsCardProps> = ({
-	appointments = [],
-}) => {
+const AppointmentsCard = ({ appointments }: AppointmentsCardProps) => {
 	const scheduledCount = appointments.filter(
 		(a) => a.status === "scheduled"
 	).length;
