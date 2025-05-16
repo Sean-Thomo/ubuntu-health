@@ -47,14 +47,9 @@ const DashboardNav = () => {
 			icon: PillBottle,
 		},
 		{
-			name: "Billing",
-			href: `/billing/${tenantId}`,
-			icon: CreditCard,
-		},
-		{
 			name: "Invoices",
 			href: `/invoices/${tenantId}`,
-			icon: FileText,
+			icon: CreditCard,
 		},
 	];
 

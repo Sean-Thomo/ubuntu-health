@@ -9,9 +9,6 @@ interface PrescriptionsPageProps {
 }
 
 const PrescriptionsTableCard = ({ prescriptions }: PrescriptionsPageProps) => {
-	console.log("======= PRESCRIPTION");
-	console.log(JSON.stringify(prescriptions, null, 2));
-
 	return (
 		<div>
 			{prescriptions.length === 0 ? (

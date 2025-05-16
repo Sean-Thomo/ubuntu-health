@@ -92,7 +92,7 @@ function Services() {
 							<FileText className="text-blue-600 h-5 w-5 group-hover:text-white" />
 						</div>
 						<h2 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-white">
-							Billing & Invoicing
+							Invoicing
 						</h2>
 						<p className="text-gray-600 group-hover:text-white">
 							Automate billing processes and generate invoices seamlessly with

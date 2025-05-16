@@ -27,7 +27,7 @@ const Pricing = () => {
 				"Patient Management",
 				"Appointment Scheduling",
 				"E-Prescriptions",
-				"Billing and Invoicing",
+				"Invoicing",
 				"Secure Communication",
 			],
 			popular: false,

@@ -3,6 +3,7 @@ import { Pencil, Trash2, User } from "lucide-react";
 import { Patient } from "@/types/index";
 import { toast } from "react-toastify";
 import EditPatientModal from "../Modals/EditPatientModal";
+import { useParams, useRouter } from "next/navigation";
 
 interface PatientsTableProps {
 	patients: Patient[];
@@ -17,6 +18,8 @@ const PatientsTableCard = ({
 }: PatientsTableProps) => {
 	const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 	const [editingPatient, setEditingPatient] = useState<Patient | null>(null);
+	const router = useRouter();
+	const { tenantId } = useParams() as { tenantId: string };
 
 	const token = localStorage.getItem("token");
 	const handleDelete = async (id: string) => {
@@ -69,7 +72,8 @@ const PatientsTableCard = ({
 				EmergencyContactFirstName: updatedPatient.emergencyContactFirstName,
 				EmergencyContactLastName: updatedPatient.emergencyContactLastName,
 				EmergencyContactPhone: updatedPatient.emergencyContactPhone,
-				EmergencyContactRelationship: updatedPatient.emergencyRelationship,
+				EmergencyContactRelationship:
+					updatedPatient.emergencyContactRelationship,
 				MedicalAidName: updatedPatient.medicalAidName,
 				MembershipNumber: updatedPatient.membershipNumber,
 			};
@@ -93,7 +97,7 @@ const PatientsTableCard = ({
 				throw new Error("Failed to update patient");
 			}
 
-			if (onEdit) onEdit(updatedPatient.id);
+			if (onEdit) onEdit(String(updatedPatient.id));
 
 			setIsEditModalOpen(false);
 			toast.success("Patient updated successfully");
@@ -101,6 +105,10 @@ const PatientsTableCard = ({
 			console.error("Error updating patient:", e);
 			throw new Error(e instanceof Error ? e.message : String(e));
 		}
+	};
+
+	const handleRowClick = (patientId: string) => {
+		router.push(`/patients/${tenantId}/${patientId}`);
 	};
 
 	return (
@@ -121,7 +129,7 @@ const PatientsTableCard = ({
 					<tbody className="divide-y divide-gray-200">
 						{patients.map((patient) => (
 							<tr
-								// onClick={() => handleRowClick(patient.id)}
+								onClick={() => handleRowClick(String(patient.id))}
 								key={patient.id}
 								className="hover:bg-gray-50 transition-colors cursor-pointer"
 							>
@@ -156,14 +164,14 @@ const PatientsTableCard = ({
 								<td className="px-6 py-4">
 									<div className="space-y-1">
 										<div className="flex items-center gap-2">
-											<span className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-800">
+											{/* <span className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-800">
 												{patient.bloodType || "N/A"}
 											</span>
 											{(patient.activeConditions?.length || 0) > 0 && (
 												<span className="text-xs px-2 py-1 rounded-full bg-red-100 text-red-800">
 													{patient.activeConditions?.length} active
 												</span>
-											)}
+											)} */}
 										</div>
 										<div className="text-xs text-gray-500">
 											{patient.allergies?.length || 0} allergies
@@ -199,7 +207,7 @@ const PatientsTableCard = ({
 											<Pencil size={18} />
 										</button>
 										<button
-											onClick={() => handleDelete(patient.id)}
+											onClick={() => handleDelete(String(patient.id))}
 											className="text-red-600 hover:text-red-800 transition-colors"
 											title="Delete Patient"
 										>

@@ -18,7 +18,7 @@ export default function useApiData<T>(endpoint: string) {
 				});
 
 				if (!response.ok) {
-					throw new Error(`API error: ${response.status}`);
+					throw new Error(`API error: ${response.text}`);
 				}
 
 				const result = await response.json();

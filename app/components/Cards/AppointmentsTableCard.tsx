@@ -91,7 +91,7 @@ const AppointmentsTableCard = ({
 				throw new Error("Failed to update appointment");
 			}
 
-			if (onEdit) onEdit(updatedAppointment.id);
+			if (onEdit) onEdit(String(updatedAppointment.id));
 
 			setIsEditModalOpen(false);
 			toast.success("Appointment updated successfully");
@@ -164,7 +164,7 @@ const AppointmentsTableCard = ({
 											<Pencil size={18} />
 										</button>
 										<button
-											onClick={() => handleDelete(appointment.id)}
+											onClick={() => handleDelete(String(appointment.id))}
 											className="text-red-600 hover:text-red-800 transition-colors"
 											title="Delete Appointment"
 										>

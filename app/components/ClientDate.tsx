@@ -11,7 +11,7 @@ interface ClientDateProps {
 const ClientDate = ({
 	dateString,
 	format = "date",
-	locale = "en-US",
+	locale = "en-ZA",
 	timeZone,
 }: ClientDateProps) => {
 	const [formattedDate, setFormattedDate] = useState("");
@@ -40,7 +40,6 @@ const ClientDate = ({
 				case "time":
 					options.hour = "2-digit";
 					options.minute = "2-digit";
-					options.second = "2-digit";
 					formatted = date.toLocaleTimeString(locale, options);
 					break;
 
