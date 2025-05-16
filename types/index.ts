@@ -1,10 +1,9 @@
 export interface Patient {
 	id: string;
-	tenantId: string;
 	firstName: string;
 	lastName: string;
-	gender: string;
-	dob: string;
+	idNumber: string;
+	sex: string;
 	email: string;
 	phone: string;
 	street: string;
@@ -13,7 +12,13 @@ export interface Patient {
 	city: string;
 	province: string;
 	postalCode: string;
+	currentMedication: string;
 	medicalAidName?: string;
+	membershipNumber?: string;
+	emergencyContactFirstName?: string;
+	emergencyContactLastName?: string;
+	emergencyContactPhone?: string;
+	emergencyRelationship?: string;
 	medicalHistory: string[];
 	allergies: string[];
 	activeConditions: string[];

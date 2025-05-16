@@ -18,11 +18,10 @@ interface PatientPageProps {
 const getPatientData = async (id: string): Promise<Patient> => {
 	return {
 		id,
-		tenantId: "",
 		firstName: "Zethu",
 		lastName: "Johnson",
-		dob: "1985-06-15",
-		gender: "male",
+		idNumber: "021014579086",
+		sex: "male",
 		phone: "+27 23 456 7890",
 		street: "123 Main St",
 		streetTwo: "Apt 4B",
@@ -31,6 +30,7 @@ const getPatientData = async (id: string): Promise<Patient> => {
 		postalCode: "8001",
 		email: "zethu.johnson@example.com",
 		bloodType: "A+",
+		currentMedication: "None",
 		medicalHistory: ["Appendectomy (2010)", "Hypertension (2018-Present)"],
 		allergies: ["Penicillin", "Peanuts"],
 		activeConditions: ["Hypertension", "Seasonal Allergies"],
@@ -112,7 +112,6 @@ const getPatientVisits = async (patientId: string): Promise<Visit[]> => {
 	];
 };
 
-// Example data for appointments and bills
 const getPatientAppointments = async (
 	patientId: string
 ): Promise<Appointment[]> => {
@@ -126,7 +125,7 @@ const getPatientAppointments = async (
 			appointmentType: "annualPhysical",
 			doctor: "Dr. Smith",
 			status: "scheduled",
-			tenantId: "",
+			notes: "",
 		},
 	];
 };

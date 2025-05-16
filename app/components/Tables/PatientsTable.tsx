@@ -5,23 +5,11 @@ import useApiData from "@/hooks/useApiData";
 import { Patient } from "@/types";
 
 const PatientsTable = () => {
-	// const [activeModal, setActiveModal] = useState("");
-	// const handleCloseModal = () => setActiveModal("");
-
-	// const handleOverlayClick = (e: any) => {
-	// 	if (e.target === e.currentTarget) {
-	// 		handleCloseModal();
-	// 	}
-	// };
-
 	const {
 		data: patients,
 		isLoading: patientsLoading,
 		error: patientsError,
 	} = useApiData<Patient>("Patients");
-
-	console.log("FETCH VALUES JSON:");
-	console.log(JSON.stringify(patients, null, 2));
 
 	const isLoading = patientsLoading;
 	const error = patientsError;

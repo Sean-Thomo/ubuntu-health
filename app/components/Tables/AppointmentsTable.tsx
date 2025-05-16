@@ -10,9 +10,6 @@ const AppointmentsTable = () => {
 		error: appointmentsError,
 	} = useApiData<Appointment>("Appointments");
 
-	console.log("FETCH VALUES JSON:");
-	console.log(JSON.stringify(appointments, null, 2));
-
 	const isLoading = appointmentsLoading;
 	const error = appointmentsError;
 

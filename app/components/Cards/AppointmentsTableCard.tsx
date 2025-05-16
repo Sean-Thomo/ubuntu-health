@@ -24,6 +24,7 @@ const AppointmentsTableCard = ({
 	const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 	const [editingAppointment, setEditingAppointment] =
 		useState<Appointment | null>(null);
+
 	const token = localStorage.getItem("token");
 
 	const handleDelete = async (id: string) => {
@@ -71,9 +72,6 @@ const AppointmentsTableCard = ({
 				status: updatedAppointment.status,
 				notes: updatedAppointment.notes || "",
 			};
-
-			console.log("SUBMIT VALUES JSON:");
-			console.log(JSON.stringify(appointmentUpdateDto, null, 2));
 
 			const response = await fetch(
 				`http://localhost:5290/api/Appointments/${updatedAppointment.id}`,
