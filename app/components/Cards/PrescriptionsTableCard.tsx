@@ -2,12 +2,16 @@
 import React, { useState } from "react";
 import { Pill, Calendar, Pencil, Trash2 } from "lucide-react";
 import { Prescription } from "@/types";
+import ClientDate from "../ClientDate";
 
 interface PrescriptionsPageProps {
 	prescriptions: Prescription[];
 }
 
 const PrescriptionsTableCard = ({ prescriptions }: PrescriptionsPageProps) => {
+	console.log("======= PRESCRIPTION");
+	console.log(JSON.stringify(prescriptions, null, 2));
+
 	return (
 		<div>
 			{prescriptions.length === 0 ? (
@@ -28,7 +32,7 @@ const PrescriptionsTableCard = ({ prescriptions }: PrescriptionsPageProps) => {
 										Patient ID
 									</th>
 									<th className="px-6 py-3 font-medium text-gray-700">
-										Dosage
+										Refills
 									</th>
 									<th className="px-6 py-3 font-medium text-gray-700">
 										Frequency
@@ -37,7 +41,7 @@ const PrescriptionsTableCard = ({ prescriptions }: PrescriptionsPageProps) => {
 										Instructions
 									</th>
 									<th className="px-6 py-3 font-medium text-gray-700">
-										Issue Date
+										End Date
 									</th>
 									<th className="px-6 py-3 font-medium text-gray-700">
 										Action
@@ -55,7 +59,7 @@ const PrescriptionsTableCard = ({ prescriptions }: PrescriptionsPageProps) => {
 										</td>
 										<td className="px-6 py-4">
 											<span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-												{prescription.dosage}
+												{prescription.refills}
 											</span>
 										</td>
 										<td className="px-6 py-4">
@@ -71,11 +75,7 @@ const PrescriptionsTableCard = ({ prescriptions }: PrescriptionsPageProps) => {
 										<td className="px-6 py-4">
 											<div className="flex items-center gap-2 text-gray-500">
 												<Calendar size={14} />
-												<span>
-													{new Date(
-														prescription.issueDate
-													).toLocaleDateString()}
-												</span>
+												<ClientDate dateString={prescription.endDate} />
 											</div>
 										</td>
 										<td className="px-6 py-4">
@@ -92,6 +92,28 @@ const PrescriptionsTableCard = ({ prescriptions }: PrescriptionsPageProps) => {
 								))}
 							</tbody>
 						</table>
+					</div>
+
+					{/* Pagination */}
+					<div className="flex justify-between items-center m-3 text-sm text-gray-600">
+						<div>
+							Showing 1-{prescriptions.length} of {prescriptions.length}{" "}
+							appointments
+						</div>
+						<div className="flex gap-2">
+							<button
+								className="px-3 py-1 rounded border border-gray-300 bg-white
+          hover:bg-gray-50 transition-colors"
+							>
+								Previous
+							</button>
+							<button
+								className="px-3 py-1 rounded border border-gray-300 bg-white
+          hover:bg-gray-50 transition-colors"
+							>
+								Next
+							</button>
+						</div>
 					</div>
 				</div>
 			)}

@@ -102,7 +102,7 @@ const AppointmentsTableCard = ({
 	};
 
 	return (
-		<div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+		<div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
 			<div className="overflow-x-auto">
 				<table className="w-full text-sm text-left text-gray-700">
 					<thead className="bg-gray-50">
@@ -187,7 +187,7 @@ const AppointmentsTableCard = ({
 				/>
 			)}
 
-			<div className="flex justify-between items-center mt-6 text-sm text-gray-600">
+			<div className="flex justify-between items-center m-3 text-sm text-gray-600">
 				<div>
 					Showing 1-{appointments.length} of {appointments.length} appointments
 				</div>

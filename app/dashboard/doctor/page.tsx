@@ -1,6 +1,5 @@
-// app/dashboard/doctor/page.tsx
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
 	Stethoscope,
 	Pill,
@@ -13,18 +12,11 @@ import {
 	Search,
 } from "lucide-react";
 import Link from "next/link";
-// import Layout from "@/components/Layout";
-// import ClientDate from "@/components/ClientDate";
 import Layout from "@/app/components/Layout";
 import ClientDate from "@/app/components/ClientDate";
 
 const DoctorDashboard = () => {
-	const [licenseNumber, setLicenseNumber] = useState<string | null>(null);
-
-	useEffect(() => {
-		const storedLicenseNumber = localStorage.getItem("licenseNumber");
-		setLicenseNumber(storedLicenseNumber);
-	}, []);
+	const tenantId = localStorage.getItem("tenantId");
 
 	// Mock data
 	const todaysConsultations = [
@@ -171,7 +163,7 @@ const DoctorDashboard = () => {
 									Today&lsquo;s Consultations
 								</h2>
 								<Link
-									href={`/appointments/${licenseNumber}`}
+									href={`/appointments/${tenantId}`}
 									className="text-sm  hover:text-cyan-300 flex items-center"
 								>
 									View all <ChevronRight size={16} />
@@ -232,7 +224,7 @@ const DoctorDashboard = () => {
 								<div className="flex justify-between items-center mb-3">
 									<h3 className="font-medium ">Prescriptions to Review</h3>
 									<Link
-										href={`/prescriptions/${licenseNumber}`}
+										href={`/prescriptions/${tenantId}`}
 										className="text-xs  hover:text-cyan-300"
 									>
 										View all

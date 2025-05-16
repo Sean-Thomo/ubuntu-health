@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
 	Search,
 	FileText,
@@ -16,75 +16,54 @@ import {
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import ClientDate from "../../components/ClientDate";
+import useApiData from "@/hooks/useApiData";
+import {
+	Appointment,
+	Invoice,
+	Patient,
+	Prescription,
+	STATUS_LABELS,
+} from "@/types";
 
-const DashboardPage = () => {
-	const [licenseNumber, setLicenseNumber] = useState<string | null>(null);
+interface DashboardPageProps {
+	params: { tenantId: string };
+}
 
-	useEffect(() => {
-		const storedLicenseNumber = localStorage.getItem("licenseNumber");
-		setLicenseNumber(storedLicenseNumber);
-	}, []);
-	// Mock data - replace with actual API calls
+const DashboardPage = ({ params }: DashboardPageProps) => {
+	const tenantId = params.tenantId;
+
+	const {
+		data: patients,
+		isLoading: patientsLoading,
+		error: patientsError,
+	} = useApiData<Patient>("Patients");
+
+	const {
+		data: prescriptions,
+		isLoading: prescriptionsLoading,
+		error: prescriptionsError,
+	} = useApiData<Prescription>("Prescriptions");
+
+	const {
+		data: appointments,
+		isLoading: appointmentsLoading,
+		error: appointmentsError,
+	} = useApiData<Appointment>("Appointments");
+
+	const {
+		data: invoices,
+		isLoading: invoicesLoading,
+		error: invoicesError,
+	} = useApiData<Invoice>("Invoices");
+
 	const stats = {
-		patients: 42,
-		appointments: 18,
-		prescriptions: 27,
+		patients: patients.length,
+		appointments: appointments.length,
+		prescriptions: prescriptions.length,
 		invoices: 15,
 		revenue: 58250,
 		pendingPayments: 12750,
 	};
-
-	const recentPatients = [
-		{ id: "P-001", name: "Zethu Johnson", lastVisit: "2023-10-15" },
-		{ id: "P-002", name: "Lerato Mbeki", lastVisit: "2023-10-14" },
-		{ id: "P-003", name: "Thando Williams", lastVisit: "2023-10-13" },
-		{ id: "P-004", name: "Nomsa Khumalo", lastVisit: "2023-10-12" },
-	];
-
-	const upcomingAppointments = [
-		{
-			id: "A-001",
-			patient: "Zethu Johnson",
-			date: "2023-10-16T09:30",
-			type: "Follow-up",
-		},
-		{
-			id: "A-002",
-			patient: "Sipho Dlamini",
-			date: "2023-10-16T11:00",
-			type: "Consultation",
-		},
-		{
-			id: "A-003",
-			patient: "Nomsa Khumalo",
-			date: "2023-10-17T10:15",
-			type: "Checkup",
-		},
-	];
-
-	const recentInvoices = [
-		{
-			id: "INV-001",
-			patient: "Zethu Johnson",
-			amount: 1550,
-			status: "paid",
-			date: "2023-10-15",
-		},
-		{
-			id: "INV-002",
-			patient: "Lerato Mbeki",
-			amount: 750,
-			status: "sent",
-			date: "2023-10-16",
-		},
-		{
-			id: "INV-003",
-			patient: "Thando Williams",
-			amount: 350,
-			status: "overdue",
-			date: "2023-10-17",
-		},
-	];
 
 	const getStatusColor = (status: string) => {
 		switch (status) {
@@ -95,7 +74,7 @@ const DashboardPage = () => {
 			case "overdue":
 				return "bg-red-900/30 text-red-400";
 			default:
-				return "  text-blue-400";
+				return "text-blue-400";
 		}
 	};
 
@@ -229,42 +208,36 @@ const DashboardPage = () => {
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
 						{/* Recent Patients */}
 						<div
-							className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1
-            shadow-sm"
+							className="bg-white border border-gray-200 rounded-lg p-6 max-h-[29em]
+              shadow-sm overflow-auto lg:col-span-1"
 						>
-							<div className="flex justify-between items-center mb-4">
+							<div className="flex justify-between items-center mb-4 bg-white">
 								<h2 className="text-xl font-semibold text-gray-800">
 									Recent Patients
 								</h2>
 								<Link
-									href={`/patients/${licenseNumber}`}
+									href={`/patients/${tenantId}`}
 									className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
 								>
 									View all <ChevronRight size={16} />
 								</Link>
 							</div>
-							<div className="space-y-4">
-								{recentPatients.map((patient) => (
+							<div className="space-y-1">
+								{patients.reverse().map((patient) => (
 									<div
 										key={patient.id}
-										className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg
+										className="p-3 hover:bg-gray-50 rounded-lg
                     transition-colors"
 									>
 										<div>
 											<p className="font-medium text-gray-800">
-												{patient.name}
+												{patient.firstName} {patient.lastName}
 											</p>
-											<p className="text-sm text-gray-500">
-												Last visit:{" "}
-												<ClientDate dateString={patient.lastVisit} />
+											<p className="text-sm text-gray-500 flex justify-between">
+												Medical Aid:
+												<span>{patient.medicalAidName}</span>
 											</p>
 										</div>
-										<Link
-											href={`/patients/${patient.id}`}
-											className="text-blue-600 hover:text-blue-800 flex items-center"
-										>
-											<ChevronRight size={18} />
-										</Link>
 									</div>
 								))}
 							</div>
@@ -272,22 +245,22 @@ const DashboardPage = () => {
 
 						{/* Upcoming Appointments */}
 						<div
-							className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1
-            shadow-sm"
+							className="bg-white border border-gray-200 rounded-lg p-6 max-h-[29em]
+              shadow-sm overflow-auto lg:col-span-1"
 						>
-							<div className="flex justify-between items-center mb-4">
+							<div className="flex justify-between items-center mb-4 ">
 								<h2 className="text-xl font-semibold text-gray-800">
 									Upcoming Appointments
 								</h2>
 								<Link
-									href={`/appointments/${licenseNumber}`}
+									href={`/appointments/${tenantId}`}
 									className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
 								>
 									View all <ChevronRight size={16} />
 								</Link>
 							</div>
 							<div className="space-y-4">
-								{upcomingAppointments.map((appointment) => (
+								{appointments.map((appointment) => (
 									<div
 										key={appointment.id}
 										className="p-3 hover:bg-gray-50 rounded-lg transition-colors"
@@ -295,18 +268,24 @@ const DashboardPage = () => {
 										<div className="flex justify-between items-start">
 											<div>
 												<p className="font-medium text-gray-800">
-													{appointment.patient}
+													{appointment.patientFirstName}{" "}
+													{appointment.patientLastName}
 												</p>
 												<p className="text-sm text-gray-500">
-													{appointment.type}
+													{STATUS_LABELS[appointment.status].toUpperCase()}
 												</p>
 											</div>
 											<div className="text-right">
 												<p className="text-gray-800">
-													<ClientDate dateString={appointment.date} />
+													<ClientDate
+														dateString={appointment.appointmentDate}
+													/>
 												</p>
-												<p className="text-sm text-gray-500">
-													<ClientDate dateString={appointment.date} />
+												<p className="text-gray-700">
+													<ClientDate
+														dateString={appointment.appointmentDate}
+														format="time"
+													/>
 												</p>
 											</div>
 										</div>
@@ -317,22 +296,22 @@ const DashboardPage = () => {
 
 						{/* Recent Invoices */}
 						<div
-							className="bg-white border border-gray-200 rounded-lg p-6 lg:col-span-1
-            shadow-sm"
+							className="bg-white border border-gray-200 rounded-lg p-6 max-h-[29em]
+              shadow-sm overflow-auto lg:col-span-1"
 						>
 							<div className="flex justify-between items-center mb-4">
 								<h2 className="text-xl font-semibold text-gray-800">
 									Recent Invoices
 								</h2>
 								<Link
-									href={`/invoices/${licenseNumber}`}
+									href={`/invoices/${tenantId}`}
 									className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
 								>
 									View all <ChevronRight size={16} />
 								</Link>
 							</div>
 							<div className="space-y-4">
-								{recentInvoices.map((invoice) => (
+								{invoices.map((invoice) => (
 									<div
 										key={invoice.id}
 										className="p-3 hover:bg-gray-50 rounded-lg transition-colors"
@@ -340,15 +319,15 @@ const DashboardPage = () => {
 										<div className="flex justify-between items-center">
 											<div>
 												<p className="font-medium text-gray-800">
-													{invoice.patient}
+													PATIENT ID: {invoice.patientId}
 												</p>
 												<p className="text-sm text-gray-500">
-													<ClientDate dateString={invoice.date} />
+													<ClientDate dateString={invoice.createdAt ?? ""} />
 												</p>
 											</div>
 											<div className="text-right">
 												<p className="font-medium text-gray-800">
-													R{invoice.amount.toLocaleString()}
+													R{invoice.totalAmount}
 												</p>
 												<div className="flex items-center justify-end gap-1">
 													<span
@@ -410,7 +389,7 @@ const DashboardPage = () => {
 									<AlertCircle size={18} className="text-red-600" />
 								</div>
 								<p className="text-2xl font-semibold text-red-600">
-									{recentInvoices.filter((i) => i.status !== "paid").length}
+									{invoices.filter((i) => i.status !== "paid").length}
 								</p>
 							</div>
 						</div>
