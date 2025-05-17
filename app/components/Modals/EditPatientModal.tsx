@@ -135,7 +135,7 @@ const EditPatientModal = ({
 									Sex *
 								</label>
 								<select
-									// required
+									required
 									id="sex"
 									name="sex"
 									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
@@ -229,7 +229,7 @@ const EditPatientModal = ({
 									type="text"
 									name="streetTwo"
 									id="streetTwo"
-									value={formData.streetTwo}
+									value={formData.streetTwo ?? ""}
 									onChange={handleChange}
 									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
                 focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
@@ -383,7 +383,7 @@ const EditPatientModal = ({
 									type="text"
 									name="medicalAidName"
 									id="medicalAidName"
-									value={formData.medicalAidName}
+									value={formData.medicalAidName ?? ""}
 									onChange={handleChange}
 									placeholder="Discovery"
 									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
@@ -403,7 +403,7 @@ const EditPatientModal = ({
 									type="text"
 									name="membershipNumber"
 									id="membershipNumber"
-									value={formData.membershipNumber}
+									value={formData.membershipNumber ?? ""}
 									onChange={handleChange}
 									placeholder="123456789"
 									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
@@ -431,7 +431,7 @@ const EditPatientModal = ({
 								<select
 									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
                 focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-									value={formData.medicalHistory}
+									value={formData.currentMedication ?? ""}
 									onChange={handleChange}
 								>
 									<option value="">Select</option>
@@ -449,10 +449,9 @@ const EditPatientModal = ({
 									Allergies *
 								</label>
 								<textarea
-									// required
 									name="allergies"
 									id="allergies"
-									value={formData.allergies}
+									value={formData.allergies ?? ""}
 									onChange={handleChange}
 									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
                 focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
