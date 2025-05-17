@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import PatientsTableCard from "../Cards/PatientsTableCard";
 import useApiData from "@/hooks/useApiData";
 import { Patient } from "@/types";

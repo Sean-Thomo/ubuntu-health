@@ -55,29 +55,6 @@ const PatientsTableCard = ({
 
 	const handleSave = async (updatedPatient: Patient) => {
 		try {
-			const patientUpdateDto = {
-				FirstName: updatedPatient.firstName,
-				LastName: updatedPatient.lastName,
-				IdNumber: updatedPatient.idNumber,
-				Sex: updatedPatient.sex,
-				Email: updatedPatient.email,
-				Phone: updatedPatient.phone,
-				Street: updatedPatient.street,
-				StreetTwo: updatedPatient.streetTwo,
-				City: updatedPatient.city,
-				Province: updatedPatient.province,
-				PostalCode: updatedPatient.postalCode,
-				Allergies: updatedPatient.allergies,
-				CurrentMedication: updatedPatient.currentMedication,
-				EmergencyContactFirstName: updatedPatient.emergencyContactFirstName,
-				EmergencyContactLastName: updatedPatient.emergencyContactLastName,
-				EmergencyContactPhone: updatedPatient.emergencyContactPhone,
-				EmergencyContactRelationship:
-					updatedPatient.emergencyContactRelationship,
-				MedicalAidName: updatedPatient.medicalAidName,
-				MembershipNumber: updatedPatient.membershipNumber,
-			};
-
 			const response = await fetch(
 				`http://localhost:5290/api/Patients/${updatedPatient.id}`,
 				{
@@ -86,7 +63,7 @@ const PatientsTableCard = ({
 						"Content-Type": "application/json",
 						Authorization: `Bearer ${token}`,
 					},
-					body: JSON.stringify(patientUpdateDto),
+					body: JSON.stringify(updatedPatient),
 				}
 			);
 
@@ -112,114 +89,112 @@ const PatientsTableCard = ({
 	};
 
 	return (
-		<div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-			<div className="overflow-x-auto">
-				<table className="w-full text-sm text-left text-gray-700">
-					<thead className="bg-gray-50">
-						<tr>
-							<th className="px-6 py-3 font-medium text-gray-700">Patient</th>
-							<th className="px-6 py-3 font-medium text-gray-700">Contact</th>
-							<th className="px-6 py-3 font-medium text-gray-700">
-								Medical Info
-							</th>
-							<th className="px-6 py-3 font-medium text-gray-700">Status</th>
-							<th className="px-6 py-3 font-medium text-gray-700">Actions</th>
-						</tr>
-					</thead>
-					<tbody className="divide-y divide-gray-200">
-						{patients.map((patient) => (
-							<tr
+		<div className="relative max-h-[80vh] overflow-y-auto bg-white border border-gray-200 rounded-xl shadow-sm">
+			<table className="w-full text-sm table-auto text-left">
+				<thead>
+					<tr>
+						<th className="sticky top-0 bg-gray-50 z-10 px-6 py-3 font-medium text-gray-700">
+							Patient
+						</th>
+						<th className="sticky top-0 bg-gray-50 z-10 px-6 py-3 font-medium text-gray-700">
+							Contact
+						</th>
+						<th className="sticky top-0 bg-gray-50 z-10 px-6 py-3 font-medium text-gray-700">
+							Medical Info
+						</th>
+						<th className="sticky top-0 bg-gray-50 z-10 px-6 py-3 font-medium text-gray-700">
+							Status
+						</th>
+						<th className="sticky top-0 bg-gray-50 z-10 px-6 py-3 font-medium text-gray-700">
+							Actions
+						</th>
+					</tr>
+				</thead>
+				<tbody className="divide-y divide-gray-200">
+					{patients.map((patient) => (
+						<tr
+							key={patient.id}
+							className="hover:bg-gray-50 transition-colors cursor-pointer"
+						>
+							<td
 								onClick={() => handleRowClick(String(patient.id))}
-								key={patient.id}
-								className="hover:bg-gray-50 transition-colors cursor-pointer"
+								className="px-6 py-4"
 							>
-								<td className="px-6 py-4">
-									<div className="flex items-center gap-4">
-										<div
-											className="flex items-center justify-center w-10 h-10 rounded-full
+								<div className="flex items-center gap-4">
+									<div
+										className="flex items-center justify-center w-10 h-10 rounded-full
                     bg-blue-50 text-blue-600"
-										>
-											<User size={18} />
-										</div>
-										<div>
-											<div className="font-medium text-gray-900">
-												{patient.firstName} {patient.lastName}
-											</div>
-											<div className="text-xs text-gray-500">
-												ID: {patient.id}
-											</div>
-										</div>
+									>
+										<User size={18} />
 									</div>
-								</td>
-								<td className="px-6 py-4">
-									<div className="space-y-1">
-										<div className="text-gray-900">
-											{patient.phone || "Not provided"}
-										</div>
-										<div className="text-gray-500 text-sm">
-											{patient.email || "Not provided"}
-										</div>
-									</div>
-								</td>
-								<td className="px-6 py-4">
-									<div className="space-y-1">
-										<div className="flex items-center gap-2">
-											{/* <span className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-800">
-												{patient.bloodType || "N/A"}
-											</span>
-											{(patient.activeConditions?.length || 0) > 0 && (
-												<span className="text-xs px-2 py-1 rounded-full bg-red-100 text-red-800">
-													{patient.activeConditions?.length} active
-												</span>
-											)} */}
+									<div>
+										<div className="font-medium text-gray-900">
+											{patient.firstName} {patient.lastName}
 										</div>
 										<div className="text-xs text-gray-500">
-											{patient.allergies?.length || 0} allergies
+											ID: {patient.id}
 										</div>
 									</div>
-								</td>
-								<td className="px-6 py-4">
-									<div className="flex items-center gap-2">
-										{patient.medicalAidName ? (
-											<span
-												className="text-xs px-2 py-1 rounded-full bg-green-100
+								</div>
+							</td>
+							<td className="px-6 py-4">
+								<div className="space-y-1">
+									<div className="text-gray-900">
+										{patient.phone || "Not provided"}
+									</div>
+									<div className="text-gray-500 text-sm">
+										{patient.email || "Not provided"}
+									</div>
+								</div>
+							</td>
+							<td className="px-6 py-4">
+								<div className="space-y-1">
+									<div className="text-xs text-gray-500">
+										{patient.allergies?.length || 0} allergies
+									</div>
+								</div>
+							</td>
+							<td className="px-6 py-4">
+								<div className="flex items-center gap-2">
+									{patient.medicalAidName ? (
+										<span
+											className="text-xs px-2 py-1 rounded-full bg-green-100
                       text-green-800"
-											>
-												Medical Aid: {patient.medicalAidName}
-											</span>
-										) : (
-											<span
-												className="text-xs px-2 py-1 rounded-full bg-yellow-100
+										>
+											Medical Aid: {patient.medicalAidName}
+										</span>
+									) : (
+										<span
+											className="text-xs px-2 py-1 rounded-full bg-yellow-100
                       text-yellow-800"
-											>
-												Private Pay
-											</span>
-										)}
-									</div>
-								</td>
-								<td className="px-6 py-4">
-									<div className="flex gap-4">
-										<button
-											onClick={() => handleEditClick(patient)}
-											className="text-blue-600 hover:text-blue-800 transition-colors"
-											title="Edit Patient"
 										>
-											<Pencil size={18} />
-										</button>
-										<button
-											onClick={() => handleDelete(String(patient.id))}
-											className="text-red-600 hover:text-red-800 transition-colors"
-											title="Delete Patient"
-										>
-											<Trash2 size={18} />
-										</button>
-									</div>
-								</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
+											Private Pay
+										</span>
+									)}
+								</div>
+							</td>
+							<td className="px-6 py-4">
+								<div className="flex gap-4">
+									<button
+										onClick={() => handleEditClick(patient)}
+										className="text-blue-600 hover:text-blue-800 transition-colors"
+										title="Edit Patient"
+									>
+										<Pencil size={18} />
+									</button>
+									<button
+										onClick={() => handleDelete(String(patient.id))}
+										className="text-red-600 hover:text-red-800 transition-colors"
+										title="Delete Patient"
+									>
+										<Trash2 size={18} />
+									</button>
+								</div>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
 
 			{isEditModalOpen && editingPatient && (
 				<EditPatientModal

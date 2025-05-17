@@ -10,7 +10,7 @@ const clinicalNotesOverview = ({
 }: clinicalNoteOverviewProps) => {
 	return (
 		<div className="space-y-4">
-			<h2 className="text-lg font-medium">clinicalNote History</h2>
+			<h2 className="text-lg font-medium">Visit History</h2>
 			{clinicalNotes.map((clinicalNote) => (
 				<div
 					key={clinicalNote.id}
@@ -36,30 +36,6 @@ const clinicalNotesOverview = ({
 							<p>{clinicalNote.notes}</p>
 						</div>
 					</div>
-
-					{/* {clinicalNote.prescriptions.length > 0 && (
-						<div className="mt-4">
-							<p className="text-xs  mb-2">Prescriptions</p>
-							<div className="space-y-2">
-								{clinicalNote.prescriptions.map((prescription: any) => (
-									<div
-										key={prescription.id}
-										className="flex items-center gap-2 text-sm"
-									>
-										<span
-											className={`w-2 h-2 rounded-full ${
-												prescription.active ? "bg-green-400" : "bg-gray-400"
-											}`}
-										></span>
-										<span>
-											{prescription.medication} {prescription.dosage},{" "}
-											{prescription.frequency}
-										</span>
-									</div>
-								))}
-							</div>
-						</div>
-					)} */}
 				</div>
 			))}
 		</div>

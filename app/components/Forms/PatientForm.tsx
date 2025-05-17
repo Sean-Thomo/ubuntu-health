@@ -27,7 +27,7 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 			firstName: "",
 			lastName: "",
 			idNumber: "",
-			gender: "",
+			sex: "",
 			email: "",
 			phone: "",
 			street: "",
@@ -180,10 +180,10 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 								/>
 							</div>
 
-							{/* Gender */}
+							{/* Sex */}
 							<div>
 								<label
-									htmlFor="gender"
+									htmlFor="sex"
 									className="block text-sm font-medium text-gray-700 mb-1"
 								>
 									Sex *
@@ -195,7 +195,7 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 									value={sex}
 									onChange={(e) => {
 										setSex(e.target.value);
-										formik.setFieldValue("gender", e.target.value);
+										formik.setFieldValue("sex", e.target.value);
 									}}
 								>
 									<option value="">Select Sex</option>

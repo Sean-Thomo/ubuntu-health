@@ -34,7 +34,7 @@ const PatientPage = ({ params }: PatientPageProps) => {
 	const token = localStorage.getItem("token");
 
 	useEffect(() => {
-		// Fetch Patients
+		// Fetch Patient Data
 		const fetchPatientData = async () => {
 			try {
 				const response = await fetch(
@@ -51,11 +51,15 @@ const PatientPage = ({ params }: PatientPageProps) => {
 				}
 
 				const result = await response.json();
+
+				console.log("======= PATIENT =======");
+				console.log(JSON.stringify(result, null, 2));
+
 				setPatient(result);
 				setIsLoading(false);
 			} catch (error) {
-				toast.error("failed to fetch data");
-				throw new Error("Failed to fetch");
+				toast.error("Failed to fetch patient data");
+				throw new Error(String(error));
 			}
 		};
 
@@ -79,8 +83,8 @@ const PatientPage = ({ params }: PatientPageProps) => {
 				setClinicalNotes(Array.isArray(result) ? result : [result]);
 				setIsLoading(false);
 			} catch (error) {
-				toast.error("failed to fetch data");
-				throw new Error("Failed to fetch");
+				toast.error("Failed to fetch clinicalnotes data");
+				throw new Error(String(error));
 			}
 		};
 
@@ -104,22 +108,19 @@ const PatientPage = ({ params }: PatientPageProps) => {
 				setPrescriptions(result);
 				setIsLoading(false);
 			} catch (error) {
-				toast.error("failed to fetch data");
-				throw new Error("Failed to fetch");
+				toast.error("Failed to fetch prescription data");
+				throw new Error(String(error));
 			}
 		};
 
 		// Fetch Invoices
 		const fetchInvoices = async () => {
 			try {
-				const response = await fetch(
-					`http://localhost:5290/api/Invoices/${params.id}`,
-					{
-						headers: {
-							Authorization: `Bearer ${token}`,
-						},
-					}
-				);
+				const response = await fetch(`http://localhost:5290/api/Invoices/`, {
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				});
 
 				if (!response.ok) {
 					throw new Error(`API error: ${response.text}`);
@@ -129,16 +130,16 @@ const PatientPage = ({ params }: PatientPageProps) => {
 				setInvoices(result);
 				setIsLoading(false);
 			} catch (error) {
-				toast.error("failed to fetch data");
-				throw new Error("Failed to fetch");
+				toast.error("Failed to fetch invoices data");
+				throw new Error(String(error));
 			}
 		};
 
 		// Fetch Appointmentrs
-		const fetchAppointmentrs = async () => {
+		const fetchAppointments = async () => {
 			try {
 				const response = await fetch(
-					`http://localhost:5290/api/Appointmentrs/${params.id}`,
+					`http://localhost:5290/api/Appointments/`,
 					{
 						headers: {
 							Authorization: `Bearer ${token}`,
@@ -154,35 +155,17 @@ const PatientPage = ({ params }: PatientPageProps) => {
 				setAppointments(result);
 				setIsLoading(false);
 			} catch (error) {
-				toast.error("failed to fetch data");
-				throw new Error("Failed to fetch");
+				toast.error("Failed to fetch appointment data");
+				throw new Error(String(error));
 			}
 		};
+
+		fetchPatientData();
+		fetchAppointments();
+		fetchClinicalNotes();
+		fetchPrescriptions();
+		fetchInvoices();
 	}, []);
-
-	// const {
-	// 	data: patients,
-	// 	isLoading: patientsLoading,
-	// 	error: patientsError,
-	// } = useApiData<Patient>("Patients");
-
-	// const {
-	// 	data: prescriptions,
-	// 	isLoading: prescriptionsLoading,
-	// 	error: prescriptionsError,
-	// } = useApiData<Prescription>("Prescriptions");
-
-	// const {
-	// 	data: appointments,
-	// 	isLoading: appointmentsLoading,
-	// 	error: appointmentsError,
-	// } = useApiData<Appointment>("Appointments");
-
-	// const {
-	// 	data: invoices,
-	// 	isLoading: invoicesLoading,
-	// 	error: invoicesError,
-	// } = useApiData<Invoice>("Invoices");
 
 	if (isLoading) {
 		return (
@@ -194,7 +177,7 @@ const PatientPage = ({ params }: PatientPageProps) => {
 
 	return (
 		<Layout>
-			<div className="min-h-screen p-6">
+			<div className="min-h-screen bg-gray-50 p-6">
 				{/* Header */}
 				<div className="max-w-7xl mx-auto">
 					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
@@ -286,7 +269,15 @@ const PatientPage = ({ params }: PatientPageProps) => {
 
 						{/* Prescriptions Tab */}
 						{activeTab === "prescriptions" && (
-							<PrescriptionsOverview prescriptions={prescriptions ? (Array.isArray(prescriptions) ? prescriptions : [prescriptions]) : []} />
+							<PrescriptionsOverview
+								prescriptions={
+									prescriptions
+										? Array.isArray(prescriptions)
+											? prescriptions
+											: [prescriptions]
+										: []
+								}
+							/>
 						)}
 
 						{activeTab === "invoices" && invoices && (

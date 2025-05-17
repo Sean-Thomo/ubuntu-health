@@ -14,20 +14,8 @@ import {
 import Link from "next/link";
 import Layout from "@/app/components/Layout";
 import ClientDate from "@/app/components/ClientDate";
-
-interface Invoice {
-	id: string;
-	invoiceNumber: string;
-	patientName: string;
-	date: string;
-	dueDate: string;
-	amount: number;
-	status: "draft" | "sent" | "paid" | "overdue";
-	services: {
-		name: string;
-		cost: number;
-	}[];
-}
+import useApiData from "@/hooks/useApiData";
+import { Invoice } from "@/types";
 
 const InvoicePage = () => {
 	const [filter, setFilter] = useState<
@@ -35,58 +23,22 @@ const InvoicePage = () => {
 	>("all");
 	const [searchQuery, setSearchQuery] = useState("");
 
-	// Mock data - replace with API calls
-	const invoices: Invoice[] = [
-		{
-			id: "INV-001",
-			invoiceNumber: "INV-2023-001",
-			patientName: "Zethu Johnson",
-			date: "2023-10-15",
-			dueDate: "2023-11-15",
-			amount: 1550,
-			status: "paid",
-			services: [
-				{ name: "Annual Checkup", cost: 1200 },
-				{ name: "Blood Test", cost: 350 },
-			],
-		},
-		{
-			id: "INV-002",
-			invoiceNumber: "INV-2023-002",
-			patientName: "Lerato Mbeki",
-			date: "2023-10-16",
-			dueDate: "2023-11-16",
-			amount: 750,
-			status: "sent",
-			services: [{ name: "Dental Procedure", cost: 750 }],
-		},
-		{
-			id: "INV-003",
-			invoiceNumber: "INV-2023-003",
-			patientName: "Thando Williams",
-			date: "2023-10-17",
-			dueDate: "2023-11-17",
-			amount: 350,
-			status: "overdue",
-			services: [{ name: "Lab Tests", cost: 350 }],
-		},
-		{
-			id: "INV-004",
-			invoiceNumber: "INV-2023-004",
-			patientName: "Nomsa Khumalo",
-			date: "2023-10-18",
-			dueDate: "2023-11-18",
-			amount: 1800,
-			status: "draft",
-			services: [{ name: "Vaccination", cost: 1800 }],
-		},
-	];
+	const {
+		data: invoices,
+		isLoading: isLoading,
+		error: isError,
+	} = useApiData<Invoice>("Invoices");
+
+	const term = searchQuery.trim().toLowerCase();
 
 	const filteredInvoices = invoices.filter((invoice) => {
 		const matchesFilter = filter === "all" || invoice.status === filter;
+
 		const matchesSearch =
-			invoice.patientName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			invoice.invoiceNumber.toLowerCase().includes(searchQuery.toLowerCase());
+			term === "" ||
+			invoice.id.toString().includes(term) ||
+			invoice.patientId.toString().includes(term);
+
 		return matchesFilter && matchesSearch;
 	});
 
@@ -120,7 +72,7 @@ const InvoicePage = () => {
 
 	return (
 		<Layout>
-			<div className="min-h-scree   p-6">
+			<div className="min-h-screen p-6">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
 					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
@@ -176,7 +128,7 @@ const InvoicePage = () => {
 										R
 										{invoices
 											.filter((i) => i.status !== "paid")
-											.reduce((sum, i) => sum + i.amount, 0)
+											.reduce((sum, i) => sum + i.totalAmount, 0)
 											.toLocaleString()}
 									</p>
 								</div>
@@ -186,10 +138,10 @@ const InvoicePage = () => {
 							</div>
 						</div>
 
-						<div className="  border   rounded-lg p-4">
+						<div className="border rounded-lg p-4">
 							<div className="flex justify-between items-center">
 								<div>
-									<p className="text-sm  ">Overdue</p>
+									<p className="text-sm">Overdue</p>
 									<p className="text-2xl font-semibold text-red-400">
 										{invoices.filter((i) => i.status === "overdue").length}
 									</p>
@@ -200,15 +152,15 @@ const InvoicePage = () => {
 							</div>
 						</div>
 
-						<div className="  border   rounded-lg p-4">
+						<div className="border rounded-lg p-4">
 							<div className="flex justify-between items-center">
 								<div>
-									<p className="text-sm  ">Paid</p>
+									<p className="text-sm">Paid</p>
 									<p className="text-2xl font-semibold text-green-400">
 										R
 										{invoices
 											.filter((i) => i.status === "paid")
-											.reduce((sum, i) => sum + i.amount, 0)
+											.reduce((sum, i) => sum + i.totalAmount, 0)
 											.toLocaleString()}
 									</p>
 								</div>
@@ -224,9 +176,7 @@ const InvoicePage = () => {
 						<button
 							onClick={() => setFilter("all")}
 							className={`px-4 py-2 rounded-md text-sm font-medium border ${
-								filter === "all"
-									? "  border-cyan-500/50  "
-									: "    hover:bg-cyan-900/20"
+								filter === "all" ? "border-cyan-500/50" : "hover:bg-cyan-900/20"
 							}`}
 						>
 							All Invoices
@@ -235,7 +185,7 @@ const InvoicePage = () => {
 							onClick={() => setFilter("draft")}
 							className={`px-4 py-2 rounded-md text-sm font-medium border ${
 								filter === "draft"
-									? "  border-gray-500/50  "
+									? "  border-gray-500/50"
 									: "    hover:bg-cyan-900/20"
 							}`}
 						>
@@ -274,17 +224,16 @@ const InvoicePage = () => {
 					</div>
 
 					{/* Invoices Table */}
-					<div className="  border   rounded-lg overflow-hidden shadow-lg  ">
+					<div className="border rounded-lg overflow-hidden shadow-lg">
 						<div className="overflow-x-auto">
-							<table className="w-full text-sm  ">
-								<thead className=" /70  ">
+							<table className="w-full text-sm">
+								<thead>
 									<tr>
 										<th className="px-6 py-4 text-left">Invoice #</th>
-										<th className="px-6 py-4 text-left">Patient</th>
-										<th className="px-6 py-4 text-left">Date</th>
-										<th className="px-6 py-4 text-left">Due Date</th>
+										<th className="px-6 py-4 text-left">Patient ID</th>
 										<th className="px-6 py-4 text-left">Amount</th>
 										<th className="px-6 py-4 text-left">Status</th>
+										<th className="px-6 py-4 text-left">Due Date</th>
 										<th className="px-6 py-4 text-left">Actions</th>
 									</tr>
 								</thead>
@@ -292,20 +241,16 @@ const InvoicePage = () => {
 									{filteredInvoices.map((invoice) => (
 										<tr
 											key={invoice.id}
-											className="hover: /80 transition-colors"
+											className="hover:bg-gray-50 transition-colors"
 										>
-											<td className="px-6 py-4 font-mono  /80">
-												{invoice.invoiceNumber}
-											</td>
-											<td className="px-6 py-4">{invoice.patientName}</td>
+											<td className="px-6 py-4 font-mono">{invoice.id}</td>
+											<td className="px-6 py-4">{invoice.patientId}</td>
+											<td className="px-6 py-4">{invoice.appointmentId}</td>
 											<td className="px-6 py-4">
-												<ClientDate dateString={invoice.date} />
-											</td>
-											<td className="px-6 py-4">
-												<ClientDate dateString={invoice.dueDate} />
+												<ClientDate dateString={invoice.createdAt} />
 											</td>
 											<td className="px-6 py-4 font-medium">
-												R{invoice.amount.toLocaleString()}
+												R{invoice.totalAmount.toLocaleString()}
 											</td>
 											<td className="px-6 py-4">
 												<div className="flex items-center gap-2">
@@ -319,22 +264,23 @@ const InvoicePage = () => {
 													<span className="capitalize">{invoice.status}</span>
 												</div>
 											</td>
+											<td className="px-6 py-4">{invoice.updatedAt}</td>
 											<td className="px-6 py-4">
 												<div className="flex gap-4">
 													<button
-														className="  hover:text-cyan-300 transition-colors"
+														className="hover:text-cyan-300 transition-colors"
 														title="View"
 													>
 														<FileText size={18} />
 													</button>
 													<button
-														className="  hover:text-cyan-300 transition-colors"
+														className="hover:text-cyan-300 transition-colors"
 														title="Print"
 													>
 														<Printer size={18} />
 													</button>
 													<button
-														className="  hover:text-cyan-300 transition-colors"
+														className="hover:text-cyan-300 transition-colors"
 														title="Download"
 													>
 														<Download size={18} />
@@ -350,11 +296,9 @@ const InvoicePage = () => {
 						{/* Empty State */}
 						{filteredInvoices.length === 0 && (
 							<div className="p-8 text-center">
-								<FileText className="mx-auto  " size={48} />
-								<h3 className="mt-4 text-lg font-medium  ">
-									No invoices found
-								</h3>
-								<p className="mt-2  ">
+								<FileText className="mx-auto" size={48} />
+								<h3 className="mt-4 text-lg font-medium">No invoices found</h3>
+								<p className="mt-2">
 									{searchQuery
 										? "Try a different search term"
 										: "Create a new invoice to get started"}
