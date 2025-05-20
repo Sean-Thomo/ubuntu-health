@@ -1,19 +1,21 @@
 import { useMemo } from "react";
-import { Invoice } from "@/types";
+import { Appointment } from "@/types";
 import useApiData from "./useApiData";
 
 export default function useInvoiceData(patientId: number) {
 	const {
-		data: invoices,
-		isLoading: invoicesLoading,
-		error: invoicesError,
-	} = useApiData<Invoice>("Invoices");
+		data: appointments,
+		isLoading: appointmentsLoading,
+		error: appointmentsError,
+	} = useApiData<Appointment>("Appointments");
 
 	// filter by patientId
-	const filteredInvoices = useMemo(() => {
-		if (!invoices) return [];
-		return invoices.filter((inv) => inv.patientId === patientId);
-	}, [invoices, patientId]);
+	const filteredappointments = useMemo(() => {
+		if (!appointments) return [];
+		return appointments.filter(
+			(appointment) => appointment.patientId === patientId
+		);
+	}, [appointments, patientId]);
 
-	return { filteredInvoices, invoicesLoading, invoicesError };
+	return { filteredappointments, appointmentsLoading, appointmentsError };
 }

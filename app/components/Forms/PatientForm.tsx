@@ -59,6 +59,9 @@ export default function PatientForm({ onClose }: PatientFormProps) {
 			try {
 				const token = localStorage.getItem("token");
 
+				console.log("======= VALUES =======");
+				console.log(JSON.stringify(values, null, 2));
+
 				const response = await fetch("http://localhost:5290/api/Patients", {
 					method: "POST",
 					headers: {

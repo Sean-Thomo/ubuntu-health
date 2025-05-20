@@ -7,11 +7,11 @@ export interface Patient {
 	email: string;
 	phone: string;
 	street: string;
-	streetTwo: string | null;
+	streetTwo: string;
 	city: string;
 	province: string;
 	postalCode: string;
-	allergies: string | null;
+	allergies: string;
 	currentMedication: string | null;
 	medicalAidName: string | null;
 	membershipNumber: string | null;
@@ -26,6 +26,7 @@ export interface Patient {
 export interface Appointment {
 	id: number;
 	tenantId: string;
+	patientId: number;
 	patientFirstName: string;
 	patientLastName: string;
 	appointmentDate: string;

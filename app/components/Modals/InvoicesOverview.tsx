@@ -1,8 +1,8 @@
 import React from "react";
 import { Invoice } from "@/types";
-import InvoiceData from "@/hooks/useAppointmentData";
+// import InvoiceData from "@/hooks/useInvoiceData";
 import { useParams } from "next/navigation";
-import useInvoiceData from "@/hooks/useAppointmentData";
+import useInvoiceData from "@/hooks/useInvoiceData";
 import {
 	AlertCircle,
 	Check,

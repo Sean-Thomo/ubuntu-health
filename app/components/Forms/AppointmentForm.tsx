@@ -43,6 +43,9 @@ const AppointmentForm = ({ onClose }: AppointmentFormProps) => {
 			try {
 				const token = localStorage.getItem("token");
 
+				console.log("======= APPOINTMENT =======");
+				console.log(JSON.stringify(values, null, 2));
+
 				const response = await fetch("http://localhost:5290/api/Appointments", {
 					method: "POST",
 					headers: {
